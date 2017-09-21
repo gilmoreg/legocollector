@@ -1,21 +1,24 @@
-from flask import Flask, jsonify, request
-from flask.ext.pymongo import PyMongo
+'''
+    Python/Flask REST API for Legocollector
+'''
+from flask import Flask #, jsonify, request
+from flask_pymongo import PyMongo
 
 APP = Flask(__name__)
-
-APP.config['MONGO_DBNAME'] = 'legotools'
-APP.config['MONGO_URI'] = 'mongodb://<dbuser>:<dbpassword>@ds141514.mlab.com:41514/legotools'
-
+APP.config.from_envvar('SETTINGS')
 MONGO = PyMongo(APP)
 
-@APP.route('/')
+
+@APP.route('/', methods=['GET'])
 def get_all_watches():
+    ''' Return all watched sets '''
     watches = MONGO.db.watches
     output = []
+
     for q in watches.find():
         output.append({'name': q['name']})
 
     return jsonify({'result': output})
 
 if __name__ == '__main__':
-    APP.run(debug=True)
+    APP.run(debug=APP.config['DEBUG'])
