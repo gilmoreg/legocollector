@@ -23,7 +23,7 @@ def get_all_watches():
     output = []
 
     for q in watches.find():
-        output.append({'set_id': q['set_id']})
+        output.append({'set_id': q['set_id'], 'added': q['added']})
 
     return jsonify({'result': output})
 
