@@ -15,7 +15,7 @@ def connect_db():
         g.mongo = MONGO
     return g.mongo.db
 
-@APP.route('/', methods=['GET'])
+@APP.route('/watches', methods=['GET'])
 def get_all_watches():
     ''' Return all watched sets '''
     connect_db()

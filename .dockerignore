@@ -1,3 +1,5 @@
 notes
 .vscode
 client/node_modules
+__pycache__
+*.pyc

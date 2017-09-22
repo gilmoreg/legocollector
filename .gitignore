@@ -1,5 +1,6 @@
 notes
 server/settings.py
 .vscode
-
+__pycache__
+*.pyc
 client/node_modules
