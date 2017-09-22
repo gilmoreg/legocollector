@@ -1,3 +1,5 @@
 notes
-settings.py
+server/settings.py
 .vscode
+
+client/node_modules

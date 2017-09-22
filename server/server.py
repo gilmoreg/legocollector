@@ -30,12 +30,13 @@ def get_all_watches():
 @APP.route('/add', methods=['POST'])
 def add_watch():
     ''' Add a watched set to the database, return mongo ID '''
+    connect_db()
     watches = g.mongo.db.watches
     set_id = request.json['set_id']
     added = dt.utcnow()
 
     new_id = watches.insert({'set_id': set_id, 'added': added})
-    new_watch = watches.find_one({'_id': str(new_id)})
+    new_watch = watches.find_one({'_id': new_id})
     return jsonify({'result': new_watch})
 
 if __name__ == '__main__':
