@@ -39,4 +39,4 @@ def add_watch():
     return jsonify({'result': new_watch})
 
 if __name__ == '__main__':
-    APP.run(debug=APP.config['DEBUG'])
+    APP.run('0.0.0.0', debug=APP.config['DEBUG'])
