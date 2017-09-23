@@ -1,0 +1,26 @@
+version: '3'
+
+services:
+  api:
+    build: ./server
+    volumes:
+      - $PWD/server:/src
+    ports:
+      - 5000:5000
+
+  # ngnix server to serve static files
+  website:
+    image: nginx:mainline-alpine
+    volumes:
+      # Map build output of webpack container to nginx root
+      - $PWD/client/dist:/usr/share/nginx/html
+    ports:
+      - 80:80
+    depends_on:
+      - api
+  
+  # Node environment for building React
+  webpack:
+    build: ./client
+    volumes:
+      - $PWD/client:/src

@@ -5,8 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "pretty": "prettier --single-quote --write \"src/**/*.js\"",
-    "build": "webpack"
+    "build": "webpack --watch --watch-poll --hot"
   },
   "author": "Grayson Gilmore (gilmoreg@live.com)",
   "license": "ISC",
@@ -20,6 +19,7 @@
   "devDependencies": {
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.2",
+    "babel-preset-env": "^1.6.0",
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-react": "^6.24.1",
     "css-loader": "^0.28.7",
@@ -28,11 +28,9 @@
     "eslint-config-prettier": "^2.5.0",
     "eslint-plugin-import": "^2.7.0",
     "eslint-plugin-jsx-a11y": "^6.0.2",
-    "eslint-plugin-prettier": "^2.3.1",
     "eslint-plugin-react": "^7.3.0",
     "extract-text-webpack-plugin": "^3.0.0",
     "html-webpack-plugin": "^2.30.1",
-    "prettier": "^1.7.0",
     "style-loader": "^0.18.2",
     "webpack": "^3.6.0"
   }

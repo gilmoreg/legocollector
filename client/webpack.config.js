@@ -8,7 +8,7 @@ const STAGE = process.env.NODE_ENV || 'DEVELOPMENT';
 module.exports = {
   entry: './src/index.js',
   output: {
-    path: path.resolve('../server/static'),
+    path: path.resolve('./dist'),
     filename: 'bundle.js'
   },
   module: {
@@ -31,7 +31,7 @@ module.exports = {
         use: {
           loader: 'babel-loader',
           options: {
-            presets: ['es2015', 'react']
+            presets: ['env', 'react']
           }
         }
       }
@@ -44,4 +44,7 @@ module.exports = {
     }),
     new ExtractTextPlugin({filename:'bundle.css'}),
   ],
+  watchOptions: {
+    poll: true
+  }
 }
