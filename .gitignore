@@ -1,6 +1,12 @@
+# Root
 notes
-server/settings.py
 .vscode
-__pycache__
+
+# Server
+server/settings.py
+server/__pycache__
 *.pyc
+
+# Client
 client/node_modules
+client/dist

@@ -60,7 +60,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "dc145d408b42b6eeb7ff"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "6e89410dc31e60adb431"; // eslint-disable-line no-unused-vars
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
@@ -11910,11 +11910,11 @@ var _store = __webpack_require__(225);
 
 var _store2 = _interopRequireDefault(_store);
 
-var _Main = __webpack_require__(228);
+var _Main = __webpack_require__(229);
 
 var _Main2 = _interopRequireDefault(_Main);
 
-__webpack_require__(229);
+__webpack_require__(230);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -25477,8 +25477,53 @@ exports['default'] = thunk;
 "use strict";
 
 
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = reducer;
+
+var _actions = __webpack_require__(228);
+
+var actions = _interopRequireWildcard(_actions);
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
+
+var initialState = {};
+
+function reducer() {
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : initialState;
+  var action = arguments[1];
+
+  console.log(action);
+  switch (action.type) {
+    case actions.RESET:
+      {
+        return initialState;
+      }
+    default:
+      return state;
+  }
+}
+
 /***/ }),
 /* 228 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+var RESET = exports.RESET = 'RESET';
+var reset = exports.reset = function reset() {
+  return {
+    type: RESET
+  };
+};
+
+/***/ }),
+/* 229 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -25508,7 +25553,7 @@ var Main = function Main() {
 exports.default = Main;
 
 /***/ }),
-/* 229 */
+/* 230 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin

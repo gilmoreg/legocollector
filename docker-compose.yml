@@ -1,12 +1,27 @@
 version: '3'
 
 services:
+  db:
+    image: postgres:9.6.5-alpine
+    ports:
+      - 5432:5432
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
   api:
     build: ./server
     volumes:
       - $PWD/server:/src
     ports:
       - 5000:5000
+    depends_on:
+      - db
+
+  # Node environment for building React
+  webpack:
+    build: ./client
+    volumes:
+      - $PWD/client:/src
 
   # ngnix server to serve static files
   website:
@@ -18,9 +33,6 @@ services:
       - 80:80
     depends_on:
       - api
-  
-  # Node environment for building React
-  webpack:
-    build: ./client
-    volumes:
-      - $PWD/client:/src
+
+volumes:
+  pgdata:
