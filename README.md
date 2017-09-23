@@ -14,8 +14,7 @@ DEBUG = True
 MONGO_URI = 'mongodb://<user>:<pass>@<host>:<port>/legotools'
 ```
 
-Build and run Docker container
+Build and run Docker containers
 ```
-docker build -t gilmoreg/legocollector .
-docker run -it -p 5000:5000 -v <absolute path>/legocollector:/src gilmoreg/legocollector
+docker-compose up
 ```
