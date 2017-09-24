@@ -35,7 +35,7 @@ Create database migrations
 # documenting my fix steps here for historical/future troubleshooting purposes
 docker-compose exec db sh
 / # su postgres
-/ $ pqsl
+/ $ psql
 # For some reason SQLAlchemy/Alembic only wants to use the root role instead of the user I provided; this was my hack workaround (have have been due to above problem)
 postgres=# CREATE ROLE root;
 postgres=# ALTER ROLE root WITH LOGIN;
