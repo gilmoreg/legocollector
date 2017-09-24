@@ -4,7 +4,7 @@
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime as dt
 from flask_migrate import Migrate
-from server import app
+from api import app
 
 # Initialize database connection
 db = SQLAlchemy(app)
@@ -49,7 +49,7 @@ class LegoSet(BaseModel):
     title = db.Column(db.String(255))
     image = db.Column(db.String(255))
     url = db.Column(db.String(255))
-    added = db.Column(db.Datetime)
+    added = db.Column(db.DateTime)
     stock_levels = db.relationship('StockLevel', backref='legoset',
                                    lazy='dynamic')
     watches = db.relationship('Watch', backref='legoset',
@@ -71,7 +71,7 @@ class Watch(BaseModel):
     id = db.Column(db.Integer, primary_key=True)
     user = db.Column(db.Integer, db.ForeignKey('user.id'))
     lego_set = db.Column(db.Integer, db.ForeignKey('legoset.id'))
-    added = db.Column(db.Datetime)
+    added = db.Column(db.DateTime)
 
     def __init__(self, user, lego_set):
         self.user = user
@@ -85,7 +85,7 @@ class User(BaseModel):
     '''
     id = db.Column(db.Integer, primary_key=True)
     email = db.Column(db.String, unique=True)
-    added = db.Column(db.Datetime)
+    added = db.Column(db.DateTime)
     watches = db.relationship('Watch', backref='user', lazy='dynamic')
 
     def __init__(self, email):
@@ -99,7 +99,7 @@ class StockLevel(BaseModel):
     '''
     id = db.Column(db.Integer, primary_key=True)
     lego_set = db.Column(db.Integer, db.ForeignKey('legoset.id'))
-    datetime = db.Column(db.Datetime)
+    datetime = db.Column(db.DateTime)
     stock_level = db.Column(db.Integer)
 
     def __init__(self, lego_set, stock_level):

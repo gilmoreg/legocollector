@@ -9,8 +9,8 @@ COPY ./requirements.txt src/
 RUN pip install -r /src/requirements.txt
 
 # Set env vars for development
-ENV FLASK_APP /src/server.py
-ENV FLASK_DEBUG 1
+ENV FLASK_APP /src/api/__init__.py
+ENV FLASK_DEBUG true
 ENV SETTINGS config.py
 ENV DATABASE_URL postgresql://db/legocollector
 
@@ -18,5 +18,7 @@ EXPOSE 5000
 
 # Copy source
 COPY . /src
+
+WORKDIR /src
 
 CMD ["flask", "run", "--host=0.0.0.0"]
