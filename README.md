@@ -30,13 +30,15 @@ docker-compose up
 
 Create database migrations
 ```
-# These steps may be unnecessary; they may have been originally necessary since the first time I created the container it did not have a proper config, which would not be true on a new machine
+# These steps may be unnecessary; they may have been originally necessary since the first time I created 
+# the container it did not have a proper config, which would not be true on a new machine
 # The official postgres Docker image bakes a config into the container the first time it is created
 # documenting my fix steps here for historical/future troubleshooting purposes
 docker-compose exec db sh
 / # su postgres
 / $ psql
-# For some reason SQLAlchemy/Alembic only wants to use the root role instead of the user I provided; this was my hack workaround (have have been due to above problem)
+# For some reason SQLAlchemy/Alembic only wants to use the root role instead of the user I provided
+# this was my hack workaround (have have been due to above problem)
 postgres=# CREATE ROLE root;
 postgres=# ALTER ROLE root WITH LOGIN;
 postgres=# ALTER ROLE root WITH Superuser;
@@ -46,7 +48,8 @@ postgres=# \q
 / $ exit
 / # exit
 
-# Only the upgrade step (not db init or db migrate) will be necessary here if migrations were checked out from Git
+# Only the upgrade step (not db init or db migrate) will be necessary here if migrations were checked 
+# out from Git
 docker-compose exec api sh
 / # cd src
 /src # flask db init
