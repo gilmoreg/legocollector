@@ -1,11 +1,12 @@
 # Root
 notes
 .vscode
+*.env
 
 # Server
-server/settings.py
+server/config.py
 server/__pycache__
-*.pyc
+**/*.pyc
 
 # Client
 client/node_modules

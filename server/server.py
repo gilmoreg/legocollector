@@ -3,41 +3,79 @@
 '''
 from datetime import datetime as dt
 from flask import Flask, jsonify, request, g
-from flask_pymongo import PyMongo
+from flask_sqlalchemy import SQLAlchemy
+from flask_migrate import Migrate
+# from models import Watch, User, StockLevel
 
-APP = Flask(__name__)
-APP.config.from_envvar('SETTINGS')
-MONGO = PyMongo(APP)
+app = Flask(__name__)
+app.config.from_envvar('SETTINGS')
+db = SQLAlchemy(app)
+migrate = Migrate(app, db)
 
 def connect_db():
-    ''' Connect to MongoDB '''
-    if not hasattr(g, 'mongo'):
-        g.mongo = MONGO
-    return g.mongo.db
+    ''' Connect to Postgres database '''
+    if not hasattr(g, 'db'):
+        g.db = db
+    return g.db
 
-@APP.route('/watches', methods=['GET'])
+@app.route('/watches', methods=['GET'])
 def get_all_watches():
     ''' Return all watched sets '''
-    connect_db()
-    watches = g.mongo.db.watches
-    output = []
+    return jsonify({'result': 'all watches'})
 
-    for q in watches.find():
-        output.append({'set_id': q['set_id'], 'added': q['added']})
-
-    return jsonify({'result': output})
-
-@APP.route('/add', methods=['POST'])
+@app.route('/add', methods=['POST'])
 def add_watch():
     ''' Add a watched set to the database, return mongo ID '''
-    connect_db()
-    watches = g.mongo.db.watches
-    set_id = request.json['set_id']
-    added = dt.utcnow()
+    return jsonify({'result': 'new_watch'})
 
-    new_id = watches.insert({'set_id': set_id, 'added': added})
-    new_watch = watches.find_one({'_id': new_id})
-    return jsonify({'result': new_watch})
+
+class Watch(db.Model):
+  '''
+  Model for Watch
+  '''
+  __tablename__ = 'watches'
+  set_id = db.Column(db.Integer, primary_key=True)
+  user = db.Column(db.Integer)
+  added = db.Column(db.Date)
+
+  def __init__(self, set_id, user):
+    self.set_id = set_id
+    self.user = user
+    self.added = dt.utcnow()
+
+  def __repr__(self):
+    return jsonify({'set_id': self.set_id, 'user': self.user, 'added': self.added})
+
+class User(db.Model):
+  '''
+  Model for User
+  '''
+  __tablename__ = 'users'
+  user_id = db.Column(db.Integer, primary_key=True)
+  email = db.Column(db.String)
+
+  def __init__(self, email):
+    self.email = email
+  
+  def __repr__(self):
+    return jsonify({'id': self.user_id, 'email': self.email})
+
+class StockLevel(db.Model):
+  '''
+  Model storing a stock level datapoint
+  '''
+  __tablename__ = 'stocklevels'
+  stocklevel_id = db.Column(db.Integer, primary_key=True)
+  set_id = db.Column(db.Integer)
+  time = db.Column(db.Date)
+  stock_level = db.Column(db.Integer)
+
+  def __init__(self, set_id):
+    self.set_id = set_id
+    self.time = dt.utcnow()
+  
+  def __repr__(self):
+    return jsonify({'id': self.stocklevel_id, 'set_id': self.set_id, 'stock_level': self.stock_level})
 
 if __name__ == '__main__':
-    APP.run(host='0.0.0.0')
+    app.run(host='0.0.0.0')
