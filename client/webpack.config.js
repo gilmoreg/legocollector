@@ -40,7 +40,8 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       title: "Lego Collector's Tools",
-      showErrors: STAGE === 'DEVELOPMENT'
+      showErrors: STAGE === 'DEVELOPMENT',
+      template: 'src/index.html'
     }),
     new ExtractTextPlugin({filename:'bundle.css'}),
   ],

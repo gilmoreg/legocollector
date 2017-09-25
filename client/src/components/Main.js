@@ -1,9 +1,13 @@
-import React, { Component } from 'react';
+import React from 'react';
+import Login from './Login/Login';
 
 /* class Main extends Component {
 
 }; */
-const Main = () =>
-  <p>Testing!</p>;
+const Main = () => (
+  <div className="main">
+    <Login />
+  </div>
+);
 
 export default Main;
