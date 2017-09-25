@@ -20,10 +20,11 @@ def get_all_watches():
     return jsonify({'result': watches})
 
 
-def add_legoset(id):
+def add_legoset(set_id):
     ''' Fetch data about a legoset from Amazon and add to the database '''
-    response = amazon.ItemSearch(Keywords="Lego {}".format(str(id)),
-                                 Title=str(id),
+    id = str(set_id)
+    response = amazon.ItemSearch(Keywords="Lego {}".format(id),
+                                 Title=id,
                                  SearchIndex="Toys",
                                  # MerchantId="Amazon",
                                  ResponseGroup="Images,OfferSummary,Small")
@@ -36,10 +37,16 @@ def add_legoset(id):
           'image': item.find('mediumimage').find('url').get_text()
         }
         new_legoset = LegoSet(new_legoset_options)
-        new_legoset.save()
-        return new_legoset
+        try:
+            new_legoset.save()
+            return jsonify({'result': new_legoset})
+        except:
+            return jsonify({'error': 'Unable to save new set to database'})
 
-    return None
+    return jsonify({'error': 'Could not find set {} on Amazon'.format(id)})
+
+
+# def remove_legoset(id)
 
 
 def add_watch(user, set_id):
@@ -53,3 +60,6 @@ def add_watch(user, set_id):
         new_lego_set = add_legoset(id)
 
     return 'new_watch'
+
+
+# def remove_watch(user, id)
