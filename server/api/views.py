@@ -10,6 +10,7 @@ def get_all_watches():
     ''' Return all watched sets '''
     return controller.get_all_watches()
 
+
 @app.route('/add', methods=['POST'])
 def add_watch():
     ''' Add a watched set to the database, return mongo ID '''

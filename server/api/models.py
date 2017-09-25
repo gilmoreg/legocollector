@@ -51,9 +51,10 @@ class LegoSet(BaseModel):
     image = db.Column(db.String(255))
     url = db.Column(db.String(255))
     added = db.Column(db.DateTime)
-    stock_levels = db.relationship('StockLevel', backref='legoset',
+    stock_levels = db.relationship('StockLevel',
+                                   backref='stock_levels_legoset',
                                    lazy='dynamic')
-    watches = db.relationship('Watch', backref='legoset',
+    watches = db.relationship('Watch', backref='watches_legoset',
                               lazy='dynamic')
 
     def __init__(self, lego_set):
@@ -89,7 +90,7 @@ class User(BaseModel):
     id = db.Column(db.Integer, primary_key=True)
     email = db.Column(db.String, unique=True)
     added = db.Column(db.DateTime)
-    watches = db.relationship('Watch', backref='user', lazy='dynamic')
+    watches = db.relationship('Watch', backref='watches_user', lazy='dynamic')
 
     def __init__(self, email):
         self.email = email
