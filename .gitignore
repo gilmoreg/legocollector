@@ -8,6 +8,7 @@ server/config.py
 server/__pycache__
 **/*.pyc
 server/__pycache__/server.cpython-36.pyc
+server/server.env
 
 # Client
 client/node_modules

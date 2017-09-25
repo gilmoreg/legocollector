@@ -12,6 +12,8 @@ services:
 
   api:
     build: ./server
+    env_file:
+      - ./server/server.env
     volumes:
       - $PWD/server:/src
     ports:
