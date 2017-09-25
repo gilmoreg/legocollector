@@ -44,6 +44,7 @@ class LegoSet(BaseModel):
     '''
     Model for watched Lego set
     '''
+    __tablename__ = 'legoset'
     # Equal to the official lego Set Number
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(255))
@@ -68,6 +69,7 @@ class Watch(BaseModel):
     Stores mapping from User to LegoSet
     Indicating this user watches this set
     '''
+    __tablename__ = 'watch'
     id = db.Column(db.Integer, primary_key=True)
     user = db.Column(db.Integer, db.ForeignKey('user.id'))
     lego_set = db.Column(db.Integer, db.ForeignKey('legoset.id'))
@@ -83,6 +85,7 @@ class User(BaseModel):
     '''
     Model for User
     '''
+    __tablename__ = 'user'
     id = db.Column(db.Integer, primary_key=True)
     email = db.Column(db.String, unique=True)
     added = db.Column(db.DateTime)
@@ -97,6 +100,7 @@ class StockLevel(BaseModel):
     '''
     Model storing a stock level datapoint
     '''
+    __tablename__ = 'stocklevel'
     id = db.Column(db.Integer, primary_key=True)
     lego_set = db.Column(db.Integer, db.ForeignKey('legoset.id'))
     datetime = db.Column(db.DateTime)
