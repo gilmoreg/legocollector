@@ -12,4 +12,4 @@ server/server.env
 
 # Client
 client/node_modules
-client/dist
+client/public

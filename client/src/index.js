@@ -2,15 +2,16 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import store from './state/store';
-import Main from './components/Main';
-
 import './index.css';
+import App from './App';
+import registerServiceWorker from './registerServiceWorker';
 
 document.addEventListener('DOMContentLoaded', () => {
   ReactDOM.render(
     <Provider store={store}>
-      <Main />
+      <App />
     </Provider>,
     document.getElementById('root'),
   );
 });
+registerServiceWorker();
