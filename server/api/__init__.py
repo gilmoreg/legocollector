@@ -6,7 +6,7 @@ from flask_cors import CORS
 
 app = Flask(__name__)
 app.config.from_envvar('SETTINGS')
-CORS(app)
+CORS(app, support_credentials=True)
 
 # Views must be imported *after* creating Flask object
 # (even though this violates pep8 rules)

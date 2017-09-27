@@ -95,7 +95,7 @@ def login(amazon_token):
     if 'email' in profile:
         user = User.query.filter_by(email=profile['email']).first()
         if user is not None:
-            token = create_jwt(new_user.id)
+            token = create_jwt(user.id)
             return jsonify({'token': token})
         else:
             new_user = User(profile['email']).save()
