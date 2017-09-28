@@ -7,10 +7,10 @@ import './Login.css';
 // TODO move to config/env
 const API_URL = 'http://localhost:5000';
 
-const storeProfile = ({ accessToken, email }) => {
+const storeProfile = ({ token, email }) => {
   window.localStorage.setItem(
     'legocollectorProfile',
-    JSON.stringify({ accessToken, email }),
+    JSON.stringify({ token, email }),
   );
 };
 
@@ -31,10 +31,11 @@ export class Login extends Component {
     window.amazon.Login.authorize({ scope: 'profile' },
       response =>
         fetchProfile(response.access_token)
-        .then((profile) => {
-          storeProfile(profile);
-          this.props.dispatch(login(profile));
-        }));
+          .then((profile) => {
+            console.log(profile);
+            storeProfile(profile);
+            this.props.dispatch(login(profile));
+          }));
   }
 
   render() {
