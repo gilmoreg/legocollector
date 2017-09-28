@@ -24,7 +24,7 @@ class App extends Component {
     return (
       <div className="App">
         { this.props.loggedIn ?
-          <span>Logged in</span>
+          <span>Logged in as {this.props.email} </span>
           : <Login /> }
       </div>
     );
@@ -34,14 +34,17 @@ class App extends Component {
 App.propTypes = {
   dispatch: PropTypes.func.isRequired,
   loggedIn: PropTypes.bool,
+  email: PropTypes.string,
 };
 
 App.defaultProps = {
   loggedIn: false,
+  email: '',
 };
 
 const mapStateToProps = state => ({
   loggedIn: state.loggedIn,
+  email: state.email,
 });
 
 export default connect(mapStateToProps)(App);
