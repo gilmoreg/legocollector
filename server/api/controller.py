@@ -26,6 +26,15 @@ def create_jwt(user_id):
     return token.decode('utf-8')
 
 
+def authenticate(token):
+    ''' Decode JWT and extract user id '''
+    decoded = jwt.decode(token, environ['JWT_SECRET'], algorithms=['HS256'])
+    if 'user' in decoded:
+        return decoded['user']
+    ''' If token is invalid return None '''
+    return None
+
+
 def get_all_watches():
     ''' Return all Watches '''
     watches = Watch.query.all()
@@ -61,18 +70,20 @@ def add_legoset(set_id):
 # def remove_legoset(id)
 
 
-def add_watch(user, set_id):
+def add_watch(token, set_id):
     '''
     Add a new watch to the database
     If the set doesn't exist yet, add it first
     '''
-    lego_set = LegoSet.query.filter_by(id=set_id).first()
-    if lego_set is None:
-        ''' create new lego set '''
-        new_lego_set = add_legoset(id)
-
-    return 'new_watch'
-
+    user = authenticate(token)
+    if user is not None:
+        lego_set = LegoSet.query.filter_by(id=set_id).first()
+        if lego_set is None:
+            ''' create new lego set '''
+            lego_set = add_legoset(set_id)
+        new_watch = Watch(user, lego_set)
+        return jsonify({'result': new_watch})
+    return jsonify({'error': 'Could not authenticate user'})
 
 # def remove_watch(user, id)
 
@@ -94,11 +105,12 @@ def login(amazon_token):
         .format(amazon_token)).json()
     if 'email' in profile:
         user = User.query.filter_by(email=profile['email']).first()
+        print(user.id, user.email)
         if user is not None:
             token = create_jwt(user.id)
-            return jsonify({'token': token})
+            return jsonify({'token': token, 'email': profile['email']})
         else:
             new_user = User(profile['email']).save()
             token = create_jwt(new_user.id)
-            return jsonify({'token': token})
+            return jsonify({'token': token, 'email': profile['email']})
     return jsonify({'error': 'Could not authenticate user'})

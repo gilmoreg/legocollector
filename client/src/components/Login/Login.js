@@ -4,13 +4,20 @@ import './Login.css';
 // TODO move to config/env
 const API_URL = 'http://localhost:5000';
 
+const storeProfile = (accessToken, email) => {
+  window.localStorage.setItem(
+    'legocollectorProfile',
+    JSON.stringify({ accessToken, email }),
+  );
+};
+
 const fetchProfile = accessToken =>
   fetch(`${API_URL}/login`,
     { method: 'POST',
       body: JSON.stringify({ access_token: accessToken }),
     })
     .then(res => res.json())
-    .then(res => console.log(res));
+    .then(res => storeProfile(res.token, res.email));
 
 const amazonLogin = () =>
   window.amazon.Login.authorize({ scope: 'profile' },
