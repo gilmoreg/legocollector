@@ -21,7 +21,7 @@ const fetchProfile = accessToken =>
     })
     .then(res => res.json());
 
-class Login extends Component {
+export class Login extends Component {
   constructor(props) {
     super(props);
     this.amazonLogin = this.amazonLogin.bind(this);
