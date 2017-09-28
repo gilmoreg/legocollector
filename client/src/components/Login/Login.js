@@ -1,10 +1,13 @@
-import React from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import { login } from '../../state/actions'
 import './Login.css';
 
 // TODO move to config/env
 const API_URL = 'http://localhost:5000';
 
-const storeProfile = (accessToken, email) => {
+const storeProfile = ({ accessToken, email }) => {
   window.localStorage.setItem(
     'legocollectorProfile',
     JSON.stringify({ accessToken, email }),
@@ -16,20 +19,40 @@ const fetchProfile = accessToken =>
     { method: 'POST',
       body: JSON.stringify({ access_token: accessToken }),
     })
-    .then(res => res.json())
-    .then(res => storeProfile(res.token, res.email));
+    .then(res => res.json());
 
-const amazonLogin = () =>
-  window.amazon.Login.authorize({ scope: 'profile' },
-    response => fetchProfile(response.access_token));
+class Login extends Component {
+  constructor(props) {
+    super(props);
+    this.amazonLogin = this.amazonLogin.bind(this);
+  }
 
-export default () => (
-  <button id="LoginWithAmazon" onClick={amazonLogin}>
-    <img
-      alt="Login with Amazon"
-      src="https://images-na.ssl-images-amazon.com/images/G/01/lwa/btnLWA_gold_156x32.png"
-      width="156"
-      height="32"
-    />
-  </button>
-);
+  amazonLogin() {
+    window.amazon.Login.authorize({ scope: 'profile' },
+      response =>
+        fetchProfile(response.access_token)
+        .then((profile) => {
+          storeProfile(profile);
+          this.props.dispatch(login(profile));
+        }));
+  }
+
+  render() {
+    return (
+      <button id="LoginWithAmazon" onClick={this.amazonLogin}>
+        <img
+          alt="Login with Amazon"
+          src="https://images-na.ssl-images-amazon.com/images/G/01/lwa/btnLWA_gold_156x32.png"
+          width="156"
+          height="32"
+        />
+      </button>
+    );
+  }
+}
+
+Login.propTypes = {
+  dispatch: PropTypes.func.isRequired,
+}
+
+export default connect()(Login);
