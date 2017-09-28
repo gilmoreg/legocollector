@@ -25,8 +25,8 @@ class App extends Component {
     return (
       <div className="App">
         { this.props.loggedIn ?
-          <span>Logged in as {this.props.email} </span>
-          : <Login /> }
+          <span>Logged in as {this.props.email}</span> :
+          <Login /> }
       </div>
     );
   }
