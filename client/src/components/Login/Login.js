@@ -53,6 +53,6 @@ export class Login extends Component {
 
 Login.propTypes = {
   dispatch: PropTypes.func.isRequired,
-}
+};
 
 export default connect()(Login);
