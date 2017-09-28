@@ -8,7 +8,6 @@ import './App.css';
 const checkProfile = () => {
   const profile = JSON.parse(
     window.localStorage.getItem('legocollectorProfile'));
-  console.log(profile);
   if (profile && profile.email && profile.token) return profile;
   return null;
 };

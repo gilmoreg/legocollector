@@ -32,7 +32,6 @@ export class Login extends Component {
       response =>
         fetchProfile(response.access_token)
           .then((profile) => {
-            console.log(profile);
             storeProfile(profile);
             this.props.dispatch(login(profile));
           }));
