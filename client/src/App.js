@@ -12,7 +12,7 @@ const checkProfile = () => {
   return null;
 };
 
-class App extends Component {
+export class App extends Component {
   componentWillMount() {
     // Check for stored profile and set login state accordingly
     const profile = checkProfile();
