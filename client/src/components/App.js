@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import Login from './components/Login/Login';
-import { login, logout } from './state/actions';
+import Login from './Login/Login';
+import { login, logout } from '../state/actions';
 import './App.css';
 
 const checkProfile = () => {
