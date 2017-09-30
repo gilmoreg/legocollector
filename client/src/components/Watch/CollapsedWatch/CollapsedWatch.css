@@ -1,0 +1,28 @@
+.CollapsedWatch {
+    max-width: 760px;
+    border: 1px solid black;
+    border-radius: 5px;
+
+    display: flex;
+    justify-content: space-around;
+}
+
+.CollapsedWatch .thumbnail {
+    flex-basis: 10%;
+    border: 1px solid red;
+}
+
+.CollapsedWatch .title {
+    flex-basis: 70%;
+    align-self: center;
+}
+
+.CollapsedWatch .stock {
+    flex-basis: 10%;
+    border: 1px solid red;
+}
+
+.CollapsedWatch img {
+    width: 100%;
+    height: 100%;
+}
