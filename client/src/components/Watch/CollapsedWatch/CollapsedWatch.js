@@ -16,7 +16,7 @@ const CollapsedWatch = props => (
       </a>
     </div>
     <div className="stock">
-      Sets: {props.watch.currentStock}
+      {props.watch.currentStock}
     </div>
   </div>
 );
