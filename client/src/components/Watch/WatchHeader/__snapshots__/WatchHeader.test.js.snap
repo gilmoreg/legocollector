@@ -5,7 +5,6 @@ ShallowWrapper {
   "length": 1,
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <WatchHeader
-    click={[Function]}
     watch={
       Object {
         "currentStock": 0,
@@ -62,7 +61,6 @@ ShallowWrapper {
         </div>,
       ],
       "className": "WatchHeader",
-      "onClick": [Function],
     },
     "ref": null,
     "rendered": Array [
@@ -162,7 +160,7 @@ ShallowWrapper {
         "type": "div",
       },
     ],
-    "type": "button",
+    "type": "div",
   },
   Symbol(enzyme.__nodes__): Array [
     Object {
@@ -205,7 +203,6 @@ ShallowWrapper {
           </div>,
         ],
         "className": "WatchHeader",
-        "onClick": [Function],
       },
       "ref": null,
       "rendered": Array [
@@ -305,7 +302,7 @@ ShallowWrapper {
           "type": "div",
         },
       ],
-      "type": "button",
+      "type": "div",
     },
   ],
   Symbol(enzyme.__options__): Object {

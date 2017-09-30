@@ -19,11 +19,53 @@ ShallowWrapper {
     "key": null,
     "nodeType": "host",
     "props": Object {
-      "children": "Hi I'm a watched set",
+      "children": Array [
+        <WatchHeader
+          watch={undefined}
+        />,
+        <div />,
+        <WatchFooter
+          click={[Function]}
+          collapsed={true}
+        />,
+      ],
       "className": "Watch",
     },
     "ref": null,
-    "rendered": "Hi I'm a watched set",
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": null,
+        "nodeType": "function",
+        "props": Object {
+          "watch": undefined,
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": null,
+        "nodeType": "host",
+        "props": Object {},
+        "ref": null,
+        "rendered": null,
+        "type": "div",
+      },
+      Object {
+        "instance": null,
+        "key": null,
+        "nodeType": "function",
+        "props": Object {
+          "click": [Function],
+          "collapsed": true,
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+    ],
     "type": "div",
   },
   Symbol(enzyme.__nodes__): Array [
@@ -32,11 +74,53 @@ ShallowWrapper {
       "key": null,
       "nodeType": "host",
       "props": Object {
-        "children": "Hi I'm a watched set",
+        "children": Array [
+          <WatchHeader
+            watch={undefined}
+          />,
+          <div />,
+          <WatchFooter
+            click={[Function]}
+            collapsed={true}
+          />,
+        ],
         "className": "Watch",
       },
       "ref": null,
-      "rendered": "Hi I'm a watched set",
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": null,
+          "nodeType": "function",
+          "props": Object {
+            "watch": undefined,
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": null,
+          "nodeType": "host",
+          "props": Object {},
+          "ref": null,
+          "rendered": null,
+          "type": "div",
+        },
+        Object {
+          "instance": null,
+          "key": null,
+          "nodeType": "function",
+          "props": Object {
+            "click": [Function],
+            "collapsed": true,
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+      ],
       "type": "div",
     },
   ],

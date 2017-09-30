@@ -19,11 +19,43 @@ ShallowWrapper {
     "key": null,
     "nodeType": "host",
     "props": Object {
-      "children": "Hi",
-      "className": "OpenWatch",
+      "children": <button
+        onClick={[Function]}
+      >
+        <i
+          aria-hidden="true"
+          class="fa fa-angle-double-up"
+        />
+      </button>,
+      "className": "WatchFooter",
     },
     "ref": null,
-    "rendered": "Hi",
+    "rendered": Object {
+      "instance": null,
+      "key": null,
+      "nodeType": "host",
+      "props": Object {
+        "children": <i
+          aria-hidden="true"
+          class="fa fa-angle-double-up"
+        />,
+        "onClick": [Function],
+      },
+      "ref": null,
+      "rendered": Object {
+        "instance": null,
+        "key": null,
+        "nodeType": "host",
+        "props": Object {
+          "aria-hidden": "true",
+          "class": "fa fa-angle-double-up",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": "i",
+      },
+      "type": "button",
+    },
     "type": "div",
   },
   Symbol(enzyme.__nodes__): Array [
@@ -32,11 +64,43 @@ ShallowWrapper {
       "key": null,
       "nodeType": "host",
       "props": Object {
-        "children": "Hi",
-        "className": "OpenWatch",
+        "children": <button
+          onClick={[Function]}
+        >
+          <i
+            aria-hidden="true"
+            class="fa fa-angle-double-up"
+          />
+        </button>,
+        "className": "WatchFooter",
       },
       "ref": null,
-      "rendered": "Hi",
+      "rendered": Object {
+        "instance": null,
+        "key": null,
+        "nodeType": "host",
+        "props": Object {
+          "children": <i
+            aria-hidden="true"
+            class="fa fa-angle-double-up"
+          />,
+          "onClick": [Function],
+        },
+        "ref": null,
+        "rendered": Object {
+          "instance": null,
+          "key": null,
+          "nodeType": "host",
+          "props": Object {
+            "aria-hidden": "true",
+            "class": "fa fa-angle-double-up",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": "i",
+        },
+        "type": "button",
+      },
       "type": "div",
     },
   ],
