@@ -1,23 +1,25 @@
-.CollapsedWatch {
+.WatchHeader {
     max-width: 760px;
     border: 1px solid black;
-    border-radius: 5px;
+    border-bottom: none;
+    border-radius: 5px 5px 0px 0px;
 
     display: flex;
     justify-content: space-around;
 }
 
-.CollapsedWatch .thumbnail {
+.WatchHeader .thumbnail {
     flex-basis: 10%;
     align-self: center;
+    flex-shrink: 0;
 }
 
-.CollapsedWatch .title {
+.WatchHeader .title {
     flex-basis: 70%;
     align-self: center;
 }
 
-.CollapsedWatch .stock {
+.WatchHeader .stock {
     flex-basis: 10%;
     color: green;
     align-self: center;
@@ -25,6 +27,6 @@
     padding: 5px;
 }
 
-.CollapsedWatch img {
+.WatchHeader img {
     width: 100%;
 }

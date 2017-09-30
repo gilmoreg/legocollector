@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import CollapsedWatch from './CollapsedWatch/CollapsedWatch';
+import WatchHeader from './WatchHeader/WatchHeader';
+import WatchBody from './WatchBody/WatchBody';
+import WatchFooter from './WatchFooter/WatchFooter';
 
 import './Watch.css';
 
@@ -16,7 +18,20 @@ export class Watch extends Component {
   render() {
     return (
       <div className="Watch">
-        <CollapsedWatch watch={this.props.watch} />
+        <WatchHeader watch={this.props.watch} />
+        { this.state.collapsed ?
+          <div />
+          :
+          <WatchBody
+            watch={this.props.watch}
+          />
+        }
+        <WatchFooter
+          click={() =>
+            this.setState({ collapsed: !this.state.collapsed })
+          }
+          collapsed={this.state.collapsed}
+        />
       </div>
     );
   }

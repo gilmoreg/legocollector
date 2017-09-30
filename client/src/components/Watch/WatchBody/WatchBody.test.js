@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import CollapsedWatch from './CollapsedWatch';
+import WatchBody from './WatchBody';
 
 it('renders without crashing', () => {
   const watch = {
@@ -10,7 +10,7 @@ it('renders without crashing', () => {
     currentStock: 0,
   }
   const wrapper = shallow(
-    <CollapsedWatch watch={watch} />
+    <WatchBody watch={watch} click={()=>{}}/>
   );
   expect(wrapper).toMatchSnapshot();
 });

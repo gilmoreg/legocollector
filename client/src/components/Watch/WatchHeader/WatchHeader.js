@@ -1,10 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import './CollapsedWatch.css';
+import './WatchHeader.css';
 
-const CollapsedWatch = props => (
-  <div className="CollapsedWatch">
+const WatchHeader = props => (
+  <div className="WatchHeader">
     <div className="thumbnail">
       <a href={props.watch.url} target='_blank' rel='noopener noreferrer' title={props.watch.title}>
         <img src={props.watch.image} alt={props.watch.title} />
@@ -21,7 +21,7 @@ const CollapsedWatch = props => (
   </div>
 );
 
-CollapsedWatch.propTypes = {
+WatchHeader.propTypes = {
   watch: PropTypes.shape({
     title: PropTypes.string.isRequired,
     image: PropTypes.string.isRequired,
@@ -30,4 +30,4 @@ CollapsedWatch.propTypes = {
   }).isRequired,
 };
 
-export default CollapsedWatch;
+export default WatchHeader;

@@ -1,0 +1,9 @@
+.WatchFooter button {
+    display: block;
+    border: 1px solid black;
+    border-top: none;
+    border-radius: 0px 0px 5px 5px;
+    width: 100%;
+    /* Close broken border */
+    margin-top: -1px;
+}
