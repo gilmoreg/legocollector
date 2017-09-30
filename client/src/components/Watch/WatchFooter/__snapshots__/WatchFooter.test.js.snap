@@ -6,6 +6,7 @@ ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <WatchFooter
     click={[Function]}
+    collapsed={true}
   />,
   Symbol(enzyme.__renderer__): Object {
     "batchedUpdates": [Function],
@@ -24,7 +25,7 @@ ShallowWrapper {
       >
         <i
           aria-hidden="true"
-          class="fa fa-angle-double-up"
+          class="fa fa-angle-double-down"
         />
       </button>,
       "className": "WatchFooter",
@@ -37,7 +38,7 @@ ShallowWrapper {
       "props": Object {
         "children": <i
           aria-hidden="true"
-          class="fa fa-angle-double-up"
+          class="fa fa-angle-double-down"
         />,
         "onClick": [Function],
       },
@@ -48,7 +49,7 @@ ShallowWrapper {
         "nodeType": "host",
         "props": Object {
           "aria-hidden": "true",
-          "class": "fa fa-angle-double-up",
+          "class": "fa fa-angle-double-down",
         },
         "ref": null,
         "rendered": null,
@@ -69,7 +70,7 @@ ShallowWrapper {
         >
           <i
             aria-hidden="true"
-            class="fa fa-angle-double-up"
+            class="fa fa-angle-double-down"
           />
         </button>,
         "className": "WatchFooter",
@@ -82,7 +83,7 @@ ShallowWrapper {
         "props": Object {
           "children": <i
             aria-hidden="true"
-            class="fa fa-angle-double-up"
+            class="fa fa-angle-double-down"
           />,
           "onClick": [Function],
         },
@@ -93,7 +94,7 @@ ShallowWrapper {
           "nodeType": "host",
           "props": Object {
             "aria-hidden": "true",
-            "class": "fa fa-angle-double-up",
+            "class": "fa fa-angle-double-down",
           },
           "ref": null,
           "rendered": null,

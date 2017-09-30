@@ -27,9 +27,9 @@ export class Watch extends Component {
           />
         }
         <WatchFooter
-          click={() =>
-            this.setState({ collapsed: !this.state.collapsed })
-          }
+          click={() => this.setState({
+            collapsed: !this.state.collapsed 
+          })}
           collapsed={this.state.collapsed}
         />
       </div>

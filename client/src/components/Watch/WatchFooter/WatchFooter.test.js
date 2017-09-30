@@ -4,7 +4,7 @@ import WatchFooter from './WatchFooter';
 
 it('renders without crashing', () => {
   const wrapper = shallow(
-    <WatchFooter click={()=>{}}/>
+    <WatchFooter click={()=>{}} collapsed={true} />
   );
   expect(wrapper).toMatchSnapshot();
 });
