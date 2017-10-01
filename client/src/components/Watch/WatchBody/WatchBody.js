@@ -14,7 +14,7 @@ export class WatchBody extends Component {
     };
     this.updateSlider = this.updateSlider.bind(this);
     this.updateNotify = this.updateNotify.bind(this);
-    this.updateNotify = debounce(this.updateNotify, 1000);
+    this.updateNotify = debounce(this.updateNotify, 500);
   }
 
   updateNotify() {

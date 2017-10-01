@@ -18,5 +18,7 @@ export const reset = () => ({
 
 // ASYNC ACTIONS
 export const SET_THRESHOLD = 'SET_THRESHOLD';
-export const setThreshold = ({ watch, level }) => dispatch =>
-  null; // TODO update threshold via API
+export const setThreshold = ({ watch, level }) => (dispatch) => {
+  // TODO update threshold via API
+  console.log('setThreshold', watch, level);
+};
