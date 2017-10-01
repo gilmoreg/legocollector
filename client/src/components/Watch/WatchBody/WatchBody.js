@@ -5,7 +5,19 @@ import './WatchBody.css';
 
 const WatchBody = props => (
   <div className="WatchBody">
-    Hi
+    <div className="graph">
+      Fake graph
+    </div>
+    <div className="notifications">
+      <input
+        type="range"
+        min="1"
+        max="100"
+        value="50"
+        class="slider"
+        id="notification-threshold"
+      />
+    </div>
   </div>
 );
 
