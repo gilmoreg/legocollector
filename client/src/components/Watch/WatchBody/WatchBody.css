@@ -60,7 +60,6 @@
 }
 
 .WatchBody .value {
-    flex: 0 0 5%;
+    flex: 0 0 10%;
     align-self: center;
-    padding: 0 25px 0 25px;
 }
