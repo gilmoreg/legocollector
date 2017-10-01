@@ -6,12 +6,12 @@ import './WatchHeader.css';
 const WatchHeader = props => (
   <div className="WatchHeader">
     <div className="thumbnail">
-      <a href={props.watch.url} target='_blank' rel='noopener noreferrer' title={props.watch.title}>
+      <a href={props.watch.url} target="_blank" rel="noopener noreferrer" title={props.watch.title}>
         <img src={props.watch.image} alt={props.watch.title} />
       </a>
     </div>
     <div className="title">
-      <a href={props.watch.url} target='_blank' rel='noopener noreferrer' title={props.watch.title}>
+      <a href={props.watch.url} target="_blank" rel="noopener noreferrer" title={props.watch.title}>
         {props.watch.title}
       </a>
     </div>
