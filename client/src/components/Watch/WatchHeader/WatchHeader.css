@@ -9,22 +9,25 @@
 }
 
 .WatchHeader .thumbnail {
-    flex-basis: 10%;
+    flex: 0 0 20%;
     align-self: center;
-    flex-shrink: 0;
+    border: 1px solid red;
+    padding: 5px;
 }
 
 .WatchHeader .title {
-    flex-basis: 70%;
+    flex: 0 0 50%;
     align-self: center;
+    text-align: left;
+    border: 1px solid red;
 }
 
 .WatchHeader .stock {
-    flex-basis: 10%;
+    flex: 0 0 20%;
     color: green;
     align-self: center;
-    font-size: 40px;
-    padding: 5px;
+    font-size: 36px;
+    border: 1px solid red;
 }
 
 .WatchHeader img {

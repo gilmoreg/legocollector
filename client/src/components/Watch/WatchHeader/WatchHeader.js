@@ -16,7 +16,11 @@ const WatchHeader = props => (
       </a>
     </div>
     <div className="stock">
-      {props.watch.currentStock}
+      { props.watch.currentStock > 999 ?
+        '999+'
+        :
+        props.watch.currentStock
+      }
     </div>
   </div>
 );
