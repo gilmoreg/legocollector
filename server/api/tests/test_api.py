@@ -2,8 +2,7 @@
 from flask import Flask
 from flask_testing import TestCase
 import unittest
-import sys
-from api.models import db
+from api import db
 
 class ApiTestCase(TestCase):
     # Test case class for API

@@ -9,6 +9,7 @@ COPY ./requirements.txt src/
 RUN pip install -r /src/requirements.txt
 
 # Set env vars for development
+ENV PYTHONPATH /src/
 ENV FLASK_APP /src/api
 ENV SETTINGS /src/api/config.py
 
