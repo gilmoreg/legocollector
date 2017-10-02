@@ -9,8 +9,8 @@ COPY ./requirements.txt src/
 RUN pip install -r /src/requirements.txt
 
 # Set env vars for development
-ENV FLASK_APP /src/api/__init__.py
-ENV SETTINGS config.py
+ENV FLASK_APP /src/api
+ENV SETTINGS /src/api/config.py
 
 EXPOSE 5000
 
@@ -19,4 +19,4 @@ COPY . /src
 
 WORKDIR /src
 
-CMD ["flask", "run", "--host=0.0.0.0"]
+CMD ["python", "run.py"]
