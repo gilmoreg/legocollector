@@ -1,14 +1,8 @@
 '''
   Model definitions
 '''
-from flask_sqlalchemy import SQLAlchemy
+from api.database import db
 from datetime import datetime as dt
-from flask_migrate import Migrate
-from api import app
-
-# Initialize database connection
-db = SQLAlchemy(app)
-migrate = Migrate(app, db)
 
 
 class BaseModel(db.Model):

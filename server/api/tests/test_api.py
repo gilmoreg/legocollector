@@ -2,7 +2,7 @@
 from flask import Flask
 from flask_testing import TestCase
 import unittest
-from api import db, views
+from api import db
 
 class ApiTestCase(TestCase):
     # Test case class for API
