@@ -11,6 +11,7 @@ def create_app():
     app = Flask(__name__)
     app.config.from_envvar('SETTINGS')
     CORS(app, support_credentials=True)
+    db.init_app(app)
     register_blueprints(app)
     return app
 
