@@ -7,9 +7,9 @@ from api.database import db
 import api.views as views
 
 
-def create_app():
+def create_app(config_object):
     app = Flask(__name__)
-    app.config.from_envvar('SETTINGS')
+    app.config.from_object(config_object)
     CORS(app, support_credentials=True)
     db.init_app(app)
     register_blueprints(app)

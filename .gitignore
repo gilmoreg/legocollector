@@ -9,7 +9,11 @@ server/__pycache__
 **/*.pyc
 server/__pycache__/server.cpython-36.pyc
 server/server.env
+server/.cache
+server/.vscode
+server/notes
 
 # Client
 client/node_modules
 client/public
+client/notes

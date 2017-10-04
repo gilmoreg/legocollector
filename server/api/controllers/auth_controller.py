@@ -3,6 +3,7 @@
     Controller for authentication
 '''
 import jwt
+from os import environ
 from api.models import User
 
 

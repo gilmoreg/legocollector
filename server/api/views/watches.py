@@ -19,5 +19,11 @@ def get_all_watches():
 def add_watch():
     ''' Add a watched set to the database, return mongo ID '''
     data = request.get_json(force=True)
-    return watch_controller.add_watch(data)
+    try:
+        return watch_controller.add_watch(data['token'], data['id'])
+    except KeyError as e:
+        # TODO proper restful error response
+        return jsonify(
+            {'error': 'Must supply an access_token and a set ID'}
+        )
 
