@@ -3,6 +3,7 @@
     Controller for authentication
 '''
 import jwt
+import requests
 from os import environ
 from api.models import User
 from api.errors import FlaskError
