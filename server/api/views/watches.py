@@ -7,7 +7,6 @@ from api.controllers.watch_controller import WatchController
 from api.errors import FlaskError
 
 blueprint = Blueprint('watches', __name__)
-watch_controller = WatchController()
 
 @blueprint.route('/watches', methods=['GET'])
 def get_all_watches():
