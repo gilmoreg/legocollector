@@ -19,15 +19,6 @@ class BaseModel(db.Model):
             for column, value in self._to_dict().items()
         })
 
-    def json(self):
-        """
-        Define a base way to jsonify models, dealing with datetime objects
-        """
-        return {
-            column: value if not isinstance(value, dt.date)
-            else value.strftime('%Y-%m-%d')
-            for column, value in self._to_dict().items()
-        }
 
     def save(self):
         db.session.add(self)
@@ -59,6 +50,15 @@ class LegoSet(BaseModel):
         self.url = lego_set['url']
         self.added = dt.utcnow()
 
+    def to_dict(self):
+        return {
+            'id': self.id,
+            'title': self.title,
+            'image': self.image,
+            'url': self.url,
+            'added': self.added
+        }
+
 
 class Watch(BaseModel):
     '''
@@ -76,6 +76,14 @@ class Watch(BaseModel):
         self.lego_set = lego_set
         self.added = dt.utcnow()
 
+    
+    def to_dict(self):
+        return {
+            'user': self.user,
+            'lego_set': self.lego_set,
+            'added': self.added
+        }
+
 
 class User(BaseModel):
     '''
@@ -90,6 +98,13 @@ class User(BaseModel):
     def __init__(self, email):
         self.email = email
         self.added = dt.utcnow()
+
+    
+    def to_dict(self):
+        return {
+            'email': self.email,
+            'added': self.added
+        }
 
 
 class StockLevel(BaseModel):
@@ -106,3 +121,11 @@ class StockLevel(BaseModel):
         self.lego_set = lego_set
         self.stock_level = stock_level
         self.datetime = dt.utcnow()
+
+
+    def to_dict(self):
+        return {
+            'lego_set': self.lego_set,
+            'stock_level': self.stock_level,
+            'datetime': self.datetime
+        }
