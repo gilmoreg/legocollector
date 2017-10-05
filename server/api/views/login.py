@@ -3,7 +3,7 @@
     Views for authentication
 '''
 from flask import Blueprint, request, jsonify
-from api.controllers import auth_controller
+from api.controllers.auth_controller import AuthController
 
 
 blueprint = Blueprint('auth', __name__)
@@ -18,7 +18,7 @@ def login():
     '''
     data = request.get_json(force=True)
     try:
-        profile = auth_controller.login(data['access_token'])
+        profile = AuthController.login(data['access_token'])
         return jsonify({'result': profile})
     except Exception as e:
         return e
