@@ -6,12 +6,12 @@ from flask import Blueprint, jsonify
 from api.controllers.legoset_controller import LegoSetController
 
 blueprint = Blueprint('legoset', __name__)
-
+legoset_controller = LegoSetController()
 
 @blueprint.route('/legoset/add/<id>', methods=['POST'])
 def add_legoset(id):
     try:
-        legoset = LegoSetController.add_legoset(id)
+        legoset = legoset_controller.add_legoset(id)
         return jsonify({'result': legoset})
     except Exception as e:
         return e
