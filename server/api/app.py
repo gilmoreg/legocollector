@@ -3,12 +3,13 @@
 '''
 from flask import Flask, jsonify
 from flask_cors import CORS
+from api.config import ProdConfig
 from api.database import db
 import api.views as views
 from api.errors import FlaskError
 
 
-def create_app(config_object):
+def create_app(config_object=ProdConfig):
     app = Flask(__name__)
     app.config.from_object(config_object)
     CORS(app, support_credentials=True)
