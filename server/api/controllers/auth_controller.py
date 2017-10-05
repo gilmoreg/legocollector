@@ -5,6 +5,7 @@
 import jwt
 from os import environ
 from api.models import User
+from api.errors import FlaskError
 
 
 def create_jwt(user_id):
@@ -45,9 +46,9 @@ def login(amazon_token):
         print(user.id, user.email)
         if user is not None:
             token = create_jwt(user.id)
-            return jsonify({'token': token, 'email': profile['email']})
+            return {'token': token, 'email': profile['email']}
         else:
             new_user = User(profile['email']).save()
             token = create_jwt(new_user.id)
-            return jsonify({'token': token, 'email': profile['email']})
-    return jsonify({'error': 'Could not authenticate user'})
+            return {'token': token, 'email': profile['email']}
+    raise FlaskError('Could not authenticate user', status_code=401)

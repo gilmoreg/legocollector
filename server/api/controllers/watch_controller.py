@@ -2,17 +2,17 @@
     /api/controllers/watch_controller.py
     Controller for /watches routes
 '''
-from flask import jsonify
 import json
 from api.models import LegoSet, Watch
 from api.controllers.auth_controller import authenticate
 from api.controllers.legoset_controller import add_legoset
+from api.errors import FlaskError
 
 
 def get_all_watches():
     ''' Return all Watches '''
     watches = Watch.query.all()
-    return jsonify({'result': watches})
+    return watches
 
 
 def add_watch(token, set_id):
@@ -40,8 +40,8 @@ def add_watch(token, set_id):
             lego_set = json.loads(new_lego_set.data.decode('utf8'))
         new_watch = Watch(user, lego_set.id)
         new_watch.save()
-        return jsonify({'result': new_watch})
-    return jsonify({'error': 'Could not authenticate user'})
+        return new_watch
+    raise FlaskError('Could not authenticate user', status_code=401)
 
 
 # def remove_watch(user, id)

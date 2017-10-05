@@ -18,9 +18,7 @@ def login():
     '''
     data = request.get_json(force=True)
     try:
-        return auth_controller.login(data['access_token'])
-    except KeyError as e:
-        # TODO proper restful error response
-        return jsonify(
-            {'error': 'Must supply an access_token and a content-type'}
-        )
+        profile = auth_controller.login(data['access_token'])
+        return jsonify({'result': profile})
+    except Exception as e:
+        return e

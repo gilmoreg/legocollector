@@ -3,10 +3,20 @@
     Controller for legosets
 '''
 from api.models import LegoSet
-from flask import jsonify
+from api.errors import FlaskError
 from os import environ
 import bottlenose
 from bs4 import BeautifulSoup
+
+'''
+From a testing standpoint:
+amazon has to come from somewhere else
+this controller needs to be a class which
+has amazon injected rather than imported
+Have to also think about whether to
+duplicate that pattern across controllers
+even where its not all that necessary
+'''
 
 
 amazon = bottlenose.Amazon(
@@ -35,11 +45,10 @@ def add_legoset(set_id):
         new_legoset = LegoSet(new_legoset_options)
         try:
             new_legoset.save()
-            return jsonify({'result': new_legoset})
+            return new_legoset
         except:
-            return jsonify({'error': 'Unable to save new set to database'})
-
-    return jsonify({'error': 'Could not find set {} on Amazon'.format(id)})
+            raise FlaskError('Unable to save new set to database', status_code=500)
+    raise FlaskError('Could not find set {} on Amazon'.format(id), status_code=400)
 
 
 # def remove_legoset(id)
