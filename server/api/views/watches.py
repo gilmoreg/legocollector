@@ -13,7 +13,8 @@ watch_controller = WatchController()
 def get_all_watches():
     ''' Return all watched sets '''
     try:
-        return WatchController.get_all_watches()
+        watches = WatchController.get_all_watches()
+        return jsonify({'result': watches})
     except Exception as e:
         return e
 
