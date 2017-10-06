@@ -1,5 +1,8 @@
 ''' Custom error handler '''
+from flask import jsonify, current_app
+
 class FlaskError(Exception):
+    ''' Generic Exception for returning error information '''
     status_code = 400
 
     def __init__(self, message, status_code=None, payload=None):
@@ -16,3 +19,15 @@ class FlaskError(Exception):
         rv['message'] = self.message
         rv['status_code'] = self.status_code
         return rv
+
+
+    def json_response(self):
+        return jsonify({'error': self.message}), self.status_code
+
+
+def exception_json_response(exception):
+    ''' Static helper method to return JSON response with error message '''
+    print(exception) # TODO log properly
+    if current_app.config['ENV'] == 'prod':         
+        return jsonify({'error': 'Something went wrong'}), 500
+    return jsonify({'error': str(exception)}), 500
