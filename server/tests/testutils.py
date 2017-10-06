@@ -1,5 +1,19 @@
-''' Utilities for testing '''
+''' 
+    Utilities for testing
+    Some adapted from https://serge-m.github.io/testing-json-responses-in-Flask-REST-apps-with-pytest.html
+'''
 import json
+import jwt
+from bs4 import BeautifulSoup
+
+
+def create_jwt(user_id):
+        ''' Create JSON Web Token and decode to string '''
+        token = jwt.encode(
+            {'user': user_id},
+            'TEST_SECRET',
+            algorithm='HS256')
+        return token.decode('utf-8')
 
 
 def decode_json(response):
@@ -11,3 +25,55 @@ def post_json(client, url, json_dict):
     response = client.post(url, data=json.dumps(json_dict), content_type='application/json')
     print(response)
     return response
+
+class bottlenose_mock_success():
+    ''' mocking Bottlenose success response '''
+    def ItemSearch():
+        ''' Return successful response with one item '''
+        text = '''
+            <?xml version="1.0" ?>
+            <html>
+                <body>
+                    <itemsearchresponse xmlns="http://webservices.amazon.com/AWSECommerceService/2013-08-01">
+                        <item>
+                            <detailpageurl>https://amazon.com/test_setname/dp/TESTASIN00</detailpageurl>
+                            <itemattributes>
+                                <title>Test Set Title</title>
+                            </itemattributes>
+                            <mediumimage>
+                                <url>https://images-na.ssl-images-amazon.com/images/I/Test._SL160_.jpg</url>
+                            </mediumimage>
+                        </item>
+                    </itemsearchresponse>
+                </body>
+            </html>
+        '''
+        return BeautifulSoup(text, 'lxml')
+
+
+class bottlenose_mock_empty():
+    ''' mocking Bottlenose empty response '''
+    def ItemSearch():
+        ''' Return empty response '''
+        text = '''
+            <?xml version="1.0" ?>
+            <html>
+                <body>
+                    <itemsearchresponse xmlns="http://webservices.amazon.com/AWSECommerceService/2013-08-01">
+                        <items>
+                            <request>
+                                <errors>
+                                    <error>
+                                        <code>AWS.ECommerceService.NoExactMatches</code>
+                                        <message>We did not find any matches for your request.</message>
+                                    </error>
+                                </errors>
+                            </request>
+                            <totalresults>0</totalresults>
+				            <totalpages>0</totalpages>
+                        </items>
+                    </itemsearchresponse>
+                </body>
+            </html>
+        '''
+        return BeautifulSoup(text, 'lxml')

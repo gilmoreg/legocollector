@@ -1,7 +1,6 @@
 ''' Tests for views '''
 import pytest
-from .testutils import decode_json, post_json
-from api.controllers.auth_controller import create_jwt
+from .testutils import decode_json, post_json, create_jwt
 
 class TestWatchViews:
     ''' Tests for /watch views '''
@@ -18,5 +17,6 @@ class TestWatchViews:
         ''' Verify existence of test watch after adding '''
         token = create_jwt('12345')
         response = post_json(client, '/watches/add', {'token': token, 'id': '54321'})
-        # json = decode_json(response)
+        json = decode_json(response)
+        print(json)
         assert 0
