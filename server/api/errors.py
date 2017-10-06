@@ -14,4 +14,5 @@ class FlaskError(Exception):
         ''' Repr as dict '''
         rv = dict(self.payload or ())
         rv['message'] = self.message
+        rv['status_code'] = self.status_code
         return rv

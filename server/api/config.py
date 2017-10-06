@@ -22,11 +22,13 @@ class ProdConfig(Config):
 
 class DevConfig(Config):
   ''' Development config '''
+  ENV = 'dev'
   DEBUG = True
   TESTING = False
 
 
 class TestConfig(Config):
+  ENV = 'dev'
   DEBUG = True
   TESTING = True
   SQLALCHEMY_DATABASE_URI = 'sqlite://'

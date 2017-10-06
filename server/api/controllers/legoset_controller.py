@@ -30,6 +30,11 @@ class LegoSetController(object):
     def add_legoset(self, set_id):
         ''' Fetch data about a legoset from Amazon and add to the database '''
         id = str(set_id)
+        # Check if set exists already; if so raise an error but also 200 OK response
+        set_exists = LegoSet.query.filter_by(id=id).first()
+        if set_exists:
+            raise FlaskError('Set {} already exists in the database'.format(id), status_code=200)
+        # Query Amazon API for info about the set
         response = self.amazon.ItemSearch(Keywords="Lego {}".format(id),
                                     Title=id,
                                     SearchIndex="Toys",
@@ -43,9 +48,6 @@ class LegoSetController(object):
                 'title': item.find('itemattributes').find('title').get_text(),
                 'image': item.find('mediumimage').find('url').get_text()
             }
-            set_exists = LegoSet.query.filter_by(id=id).first()
-            if set_exists:
-                return set_exists
             new_legoset = LegoSet(new_legoset_options)
             try:
                 new_legoset.save()
