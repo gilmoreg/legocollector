@@ -6,10 +6,9 @@ from .testutils import decode_json, post_json, create_jwt, bottlenose_mock_succe
 from api.amazon import Amazon
 
 
+@pytest.mark.usefixtures('db')
 class TestWatchViews:
     ''' Tests for /watch views '''
-
-    @pytest.mark.usefixtures('db')
     def test_get_watches(self, client):
         ''' Verify 200 status and empty response with no watches in db '''
         response = client.get('/watches')
@@ -18,7 +17,6 @@ class TestWatchViews:
         assert json == {'result': []}
 
 
-    @pytest.mark.usefixtures('db')
     def test_add_watch(self, client):
         ''' Verify existence of test watch after adding '''
         token = create_jwt('12345')
@@ -33,8 +31,7 @@ class TestWatchViews:
             assert json['lego_set'] == 54321
             assert json['user'] == 12345
 
-    
-    @pytest.mark.usefixtures('db')
+     
     def test_watch_empty_search(self, client):
         ''' Verify behavior when Amazon search returns empty '''
         token = create_jwt('12345')
