@@ -29,7 +29,6 @@ class TestWatchViews:
         with patch.object(Amazon, 'search', mock_bottlenose):
             response = post_json(client, '/watches/add', {'token': token, 'id': '54321'})
             json = decode_json(response)['result']
-            print(json)
             assert json['id'] == 1
             assert json['lego_set'] == 54321
             assert json['user'] == 12345
