@@ -8,6 +8,7 @@ from os import environ
 from api.models import User
 from api.errors import FlaskError
 
+
 class AuthController(object):
     ''' Controller for authentication '''
     def create_jwt(user_id):

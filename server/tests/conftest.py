@@ -3,7 +3,6 @@ Configure test suite
 
 Test run command:
 py.test --cov-report term-missing --cov=api tests/
-
 '''
 import pytest
 from api.app import create_app
@@ -20,6 +19,7 @@ def app():
     # Code after yield executes on teardown
     ctx.pop()
 
+
 @pytest.fixture(scope='function')
 def db(app):
     _db.app = app
@@ -28,5 +28,3 @@ def db(app):
     # Code after yield executes on teardown
     _db.session.close()
     _db.drop_all()
-
-
