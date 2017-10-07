@@ -12,6 +12,7 @@ server/server.env
 server/.cache
 server/.vscode
 server/notes
+server/.coverage
 
 # Client
 client/node_modules
