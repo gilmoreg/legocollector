@@ -10,12 +10,21 @@ from bs4 import BeautifulSoup
 
 
 def create_jwt(user_id):
-        ''' Create JSON Web Token and decode to string '''
-        token = jwt.encode(
-            {'user': user_id},
-            environ['JWT_SECRET'],
-            algorithm='HS256')
-        return token.decode('utf-8')
+    ''' Create JSON Web Token and decode to string '''
+    token = jwt.encode(
+        {'user': user_id},
+        environ['JWT_SECRET'],
+        algorithm='HS256')
+    return token.decode('utf-8')
+
+
+def create_bad_jwt():
+    ''' Create invalid JWT for testing '''
+    token = jwt.encode(
+        {'user': 'garbage'},
+        'wrong secret',
+        algorithm='HS256')
+    return token.decode('utf-8')
 
 
 def decode_json(response):

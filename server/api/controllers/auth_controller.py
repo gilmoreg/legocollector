@@ -21,11 +21,12 @@ class AuthController(object):
 
     def authenticate(token):
         ''' Decode JWT and extract user id '''
-        decoded = jwt.decode(token, environ['JWT_SECRET'], algorithms=['HS256'])
-        if 'user' in decoded:
+        try:
+            decoded = jwt.decode(token, environ['JWT_SECRET'], algorithms=['HS256'])
             return decoded['user']
-        ''' If token is invalid return None '''
-        return None
+        except:
+            ''' If token is invalid raise an error '''
+            raise FlaskError('Could not authenticate user', status_code=401)
 
 
     def login(amazon_token):
@@ -45,7 +46,6 @@ class AuthController(object):
             .format(amazon_token)).json()
         if 'email' in profile:
             user = User.query.filter_by(email=profile['email']).first()
-            print(user.id, user.email)
             if user is not None:
                 token = create_jwt(user.id)
                 return {'token': token, 'email': profile['email']}
