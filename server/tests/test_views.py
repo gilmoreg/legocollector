@@ -45,6 +45,19 @@ class TestWatchViews:
             assert json == {'error': 'Could not find set 54321 on Amazon'}
 
 
+    def test_watch_no_token(self, client):
+        response = post_json(client, '/watches/add', {'id': '54321'})
+        json = decode_json(response)
+        assert json == {'error': 'Must supply an access_token and a set ID'}
+
+
+    def test_watch_bad_token(self, client):
+        token = create_bad_jwt()
+        response = post_json(client, '/watches/add', {'token': token, 'id': '54321'})
+        json = decode_json(response)
+        assert json == {'error': 'Could not authenticate user'}
+
+
 @pytest.mark.usefixtures('db')
 class TestLegosetViews:
     ''' Tests for /legoset '''
