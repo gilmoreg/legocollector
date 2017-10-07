@@ -2,31 +2,16 @@
     /api/controllers/legoset_controller.py
     Controller for legosets
 '''
+from flask import g, current_app
+from api.amazon import Amazon
 from api.models import LegoSet
 from api.errors import FlaskError
-from os import environ
-import bottlenose
-from bs4 import BeautifulSoup
 
 
 class LegoSetController(object):
     '''
         Controller for legosets
     '''
-    amazon = None
-
-    def __init__(self, amazon=None):
-        ''' Create bottlenose instance if not injected for testing '''
-        if amazon is not None:
-            self.amazon = amazon
-        else:
-            self.amazon = bottlenose.Amazon(
-                environ['AWS_ACCESS_KEY_ID'],
-                environ['AWS_SECRET_ACCESS_KEY'],
-                environ['AWS_ASSOCIATE_TAG'],
-                Parser=lambda text: BeautifulSoup(text, 'lxml'))
-
-
     def add_legoset(self, set_id):
         ''' Fetch data about a legoset from Amazon and add to the database '''
         id = str(set_id)
@@ -35,12 +20,11 @@ class LegoSetController(object):
         if set_exists:
             raise FlaskError('Set {} already exists in the database'.format(id), status_code=200)
         # Query Amazon API for info about the set
-        response = self.amazon.ItemSearch(Keywords="Lego {}".format(id),
-                                    Title=id,
-                                    SearchIndex="Toys",
-                                    # MerchantId="Amazon",
-                                    ResponseGroup="Images,OfferSummary,Small")
+        amazon = Amazon()
+        response = amazon.search(set_id)
+        print(response)
         item = response.find('item')
+        print(item)
         if item is not None:
             new_legoset_options = {
                 'id': id,

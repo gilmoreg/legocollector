@@ -22,3 +22,5 @@ def db(app):
     # Code after yield executes on teardown
     _db.session.close()
     _db.drop_all()
+
+

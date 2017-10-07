@@ -15,7 +15,7 @@ class WatchController(object):
         ''' Return all Watches '''
         watches = Watch.query.all()
         return watches
-
+        
 
     def add_watch(self, token, set_id):
         '''
@@ -30,11 +30,11 @@ class WatchController(object):
             if lego_set is None:
                 ''' create new lego set '''
                 legoset_controller = LegoSetController()
-                new_lego_set = legoset_controller.add_legoset(set_id=set_id)
-            new_watch = Watch(user, new_lego_set.id)
+                lego_set = legoset_controller.add_legoset(set_id=set_id)
+            new_watch = Watch(user, lego_set.id)
             new_watch.save()
             return new_watch
         raise FlaskError('Could not authenticate user', status_code=401)
-
+        
 
 # def remove_watch(user, id)

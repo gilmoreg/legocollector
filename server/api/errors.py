@@ -22,6 +22,7 @@ class FlaskError(Exception):
 
 
     def json_response(self):
+        print(self) # TODO log properly
         return jsonify({'error': self.message}), self.status_code
 
 
