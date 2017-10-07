@@ -55,6 +55,8 @@ class TestLegosetViews:
         token = create_jwt('54321')
         with patch.object(Amazon, 'search', mock_bottlenose):
             response = post_json(client, '/legoset/add/12345', {'token': token})
-            json = decode_json(response)
-            print(json)
-            assert 0
+            json = decode_json(response)['result']
+            assert json['id'] == 12345
+            assert json['image'] == 'https://images-na.ssl-images-amazon.com/images/I/Test._SL160_.jpg'
+            assert json['title'] == 'Test Set Title'
+            assert json['url'] == 'https://amazon.com/test_setname/dp/TESTASIN00'

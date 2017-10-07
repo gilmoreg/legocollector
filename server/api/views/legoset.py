@@ -15,7 +15,7 @@ def add_legoset_view(id):
         set_id = id or request.args.get('id')
         data = request.get_json(force=True)
         legoset = legoset_controller.add_legoset(set_id, data['token'])
-        return jsonify({'result': legoset.to_dict()})
+        return jsonify({'result': legoset})
     except KeyError:
         error = FlaskError('Must supply a set_id and a valid token', status_code=400)
         return error.json_response()
