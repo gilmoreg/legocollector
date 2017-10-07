@@ -32,15 +32,15 @@ class AuthController(object):
 
     def login(amazon_token):
         '''
-            Performs the following:
-            1. Asks Amazon about this access token
-            2. Gets an email address
-            3. Sees if that email exists in the db
-            If not, creates that user
-            4. Signs the user id into a JWT
-            5. Returns token and the email (for display purposes) to the user
-            for future requests
-            The client side can then stash the JWT in localStorage
+        Performs the following:
+        1. Asks Amazon about this access token
+        2. Gets an email address
+        3. Sees if that email exists in the db
+        If not, creates that user
+        4. Signs the user id into a JWT
+        5. Returns token and the email (for display purposes) to the user
+        for future requests
+        The client side can then stash the JWT in localStorage
         '''
         profile = requests.get(
             'https://api.amazon.com/user/profile?access_token={}'
