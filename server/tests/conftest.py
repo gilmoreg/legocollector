@@ -1,4 +1,10 @@
-''' Configure test suite '''
+''' 
+Configure test suite 
+
+Test run command:
+py.test --cov-report term-missing --cov=api tests/
+
+'''
 import pytest
 from api.app import create_app
 from api.database import db as _db
