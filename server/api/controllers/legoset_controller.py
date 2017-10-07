@@ -6,6 +6,7 @@ from flask import g, current_app
 from api.amazon import Amazon
 from api.models import LegoSet
 from api.errors import FlaskError
+from api.controllers.auth_controller import AuthController
 
 
 class LegoSetController(object):
@@ -22,13 +23,12 @@ class LegoSetController(object):
         response = amazon.search(set_id)
         item = response.find('item')
         if item is not None:
-            new_legoset_options = {
+            new_legoset = LegoSet({
                 'id': set_id,
                 'url': item.find('detailpageurl').get_text(),
                 'title': item.find('itemattributes').find('title').get_text(),
                 'image': item.find('mediumimage').find('url').get_text()
-            }
-            new_legoset = LegoSet(new_legoset_options)
+            })
             try:
                 new_legoset.save()
                 return new_legoset.to_dict()
@@ -37,11 +37,14 @@ class LegoSetController(object):
         raise FlaskError('Could not find set {} on Amazon'.format(set_id), status_code=400)
     
 
-    def add_legoset(self, set_id):
+    def add_legoset(self, set_id, token):
         '''
             POST /legoset/add/<id>
             Fetch data about a legoset from Amazon and add to the database 
         '''
+        user = AuthController.authenticate(token)
+        if user is None:
+            raise FlaskError('Could not authenticate user', status_code=401)
         id = str(set_id)
         # Check if set exists already; if so raise an error but also 200 OK response
         set_exists = LegoSet.query.filter_by(id=id).first()

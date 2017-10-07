@@ -43,3 +43,18 @@ class TestWatchViews:
             response = post_json(client, '/watches/add', {'token': token, 'id': '54321'})
             json = decode_json(response)
             assert json == {'error': 'Could not find set 54321 on Amazon'}
+
+
+@pytest.mark.usefixtures('db')
+class TestLegosetViews:
+    ''' Tests for /legoset '''
+    def test_add_legoset(self, client):
+        ''' Test /legoset/add/<id> '''
+        mock_bottlenose = Mock(name='search')
+        mock_bottlenose.return_value = bottlenose_mock_success
+        token = create_jwt('54321')
+        with patch.object(Amazon, 'search', mock_bottlenose):
+            response = post_json(client, '/legoset/add/12345', {'token': token})
+            json = decode_json(response)
+            print(json)
+            assert 0
