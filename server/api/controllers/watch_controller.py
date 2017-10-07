@@ -30,7 +30,7 @@ class WatchController(object):
             if lego_set is None:
                 ''' create new lego set '''
                 legoset_controller = LegoSetController()
-                lego_set = legoset_controller.add_legoset(set_id=set_id)
+                lego_set = legoset_controller.create_legoset_record(set_id=set_id)
             new_watch = Watch(user, lego_set['id'])
             new_watch.save()
             return new_watch.to_dict()

@@ -2,7 +2,7 @@
 import pytest
 from unittest.mock import Mock, patch
 from flask import g
-from .testutils import decode_json, post_json, create_jwt, bottlenose_mock_success
+from .testutils import decode_json, post_json, create_jwt, bottlenose_mock_success, bottlenose_mock_empty
 from api.amazon import Amazon
 
 
@@ -32,3 +32,17 @@ class TestWatchViews:
             assert json['id'] == 1
             assert json['lego_set'] == 54321
             assert json['user'] == 12345
+
+    
+    @pytest.mark.usefixtures('db')
+    def test_watch_empty_search(self, client):
+        ''' Verify behavior when Amazon search returns empty '''
+        token = create_jwt('12345')
+        
+        mock_bottlenose = Mock(name='search')
+        mock_bottlenose.return_value = bottlenose_mock_empty
+
+        with patch.object(Amazon, 'search', mock_bottlenose):
+            response = post_json(client, '/watches/add', {'token': token, 'id': '54321'})
+            json = decode_json(response)
+            assert json == {'error': 'Could not find set 54321 on Amazon'}
