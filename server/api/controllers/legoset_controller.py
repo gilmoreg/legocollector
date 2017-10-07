@@ -22,9 +22,7 @@ class LegoSetController(object):
         # Query Amazon API for info about the set
         amazon = Amazon()
         response = amazon.search(set_id)
-        print(response)
         item = response.find('item')
-        print(item)
         if item is not None:
             new_legoset_options = {
                 'id': id,
@@ -35,7 +33,7 @@ class LegoSetController(object):
             new_legoset = LegoSet(new_legoset_options)
             try:
                 new_legoset.save()
-                return new_legoset
+                return new_legoset.to_dict()
             except:
                 raise FlaskError('Unable to save new set to database', status_code=500)
         raise FlaskError('Could not find set {} on Amazon'.format(id), status_code=400)

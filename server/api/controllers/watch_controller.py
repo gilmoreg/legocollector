@@ -31,9 +31,9 @@ class WatchController(object):
                 ''' create new lego set '''
                 legoset_controller = LegoSetController()
                 lego_set = legoset_controller.add_legoset(set_id=set_id)
-            new_watch = Watch(user, lego_set.id)
+            new_watch = Watch(user, lego_set['id'])
             new_watch.save()
-            return new_watch
+            return new_watch.to_dict()
         raise FlaskError('Could not authenticate user', status_code=401)
         
 

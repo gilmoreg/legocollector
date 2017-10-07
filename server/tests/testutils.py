@@ -4,6 +4,7 @@
 '''
 import json
 import jwt
+import traceback
 from os import environ
 from bs4 import BeautifulSoup
 
@@ -27,54 +28,43 @@ def post_json(client, url, json_dict):
     print(response)
     return response
 
-class bottlenose_mock_success():
-    ''' mocking Bottlenose success response '''
-    def ItemSearch():
-        ''' Return successful response with one item '''
-        text = '''
-            <?xml version="1.0" ?>
-            <html>
-                <body>
-                    <itemsearchresponse xmlns="http://webservices.amazon.com/AWSECommerceService/2013-08-01">
-                        <item>
-                            <detailpageurl>https://amazon.com/test_setname/dp/TESTASIN00</detailpageurl>
-                            <itemattributes>
-                                <title>Test Set Title</title>
-                            </itemattributes>
-                            <mediumimage>
-                                <url>https://images-na.ssl-images-amazon.com/images/I/Test._SL160_.jpg</url>
-                            </mediumimage>
-                        </item>
-                    </itemsearchresponse>
-                </body>
-            </html>
-        '''
-        return BeautifulSoup(text, 'lxml')
+bottlenose_mock_success = BeautifulSoup('''
+    <?xml version="1.0" ?>
+    <html>
+        <body>
+            <itemsearchresponse xmlns="http://webservices.amazon.com/AWSECommerceService/2013-08-01">
+                <item>
+                    <detailpageurl>https://amazon.com/test_setname/dp/TESTASIN00</detailpageurl>
+                    <itemattributes>
+                        <title>Test Set Title</title>
+                    </itemattributes>
+                    <mediumimage>
+                        <url>https://images-na.ssl-images-amazon.com/images/I/Test._SL160_.jpg</url>
+                    </mediumimage>
+                </item>
+            </itemsearchresponse>
+        </body>
+    </html>
+''', 'lxml')
 
-
-class bottlenose_mock_empty():
-    ''' mocking Bottlenose empty response '''
-    def ItemSearch():
-        ''' Return empty response '''
-        text = '''
-            <?xml version="1.0" ?>
-            <html>
-                <body>
-                    <itemsearchresponse xmlns="http://webservices.amazon.com/AWSECommerceService/2013-08-01">
-                        <items>
-                            <request>
-                                <errors>
-                                    <error>
-                                        <code>AWS.ECommerceService.NoExactMatches</code>
-                                        <message>We did not find any matches for your request.</message>
-                                    </error>
-                                </errors>
-                            </request>
-                            <totalresults>0</totalresults>
-				            <totalpages>0</totalpages>
-                        </items>
-                    </itemsearchresponse>
-                </body>
-            </html>
-        '''
-        return BeautifulSoup(text, 'lxml')
+bottlenose_mock_empty = BeautifulSoup('''
+    <?xml version="1.0" ?>
+    <html>
+        <body>
+            <itemsearchresponse xmlns="http://webservices.amazon.com/AWSECommerceService/2013-08-01">
+                <items>
+                    <request>
+                        <errors>
+                            <error>
+                                <code>AWS.ECommerceService.NoExactMatches</code>
+                                <message>We did not find any matches for your request.</message>
+                            </error>
+                        </errors>
+                    </request>
+                    <totalresults>0</totalresults>
+                    <totalpages>0</totalpages>
+                </items>
+            </itemsearchresponse>
+        </body>
+    </html>
+''', 'lxml')

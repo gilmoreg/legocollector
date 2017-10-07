@@ -79,6 +79,7 @@ class Watch(BaseModel):
     
     def to_dict(self):
         return {
+            'id': self.id,
             'user': self.user,
             'lego_set': self.lego_set,
             'added': self.added
@@ -102,6 +103,7 @@ class User(BaseModel):
     
     def to_dict(self):
         return {
+            'id': self.id,
             'email': self.email,
             'added': self.added
         }
@@ -125,6 +127,7 @@ class StockLevel(BaseModel):
 
     def to_dict(self):
         return {
+            'id': self.id,
             'lego_set': self.lego_set,
             'stock_level': self.stock_level,
             'datetime': self.datetime
