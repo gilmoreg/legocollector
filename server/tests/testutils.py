@@ -77,3 +77,29 @@ bottlenose_mock_empty = BeautifulSoup('''
         </body>
     </html>
 ''', 'lxml')
+
+
+class amazon_success:
+    def __init__(self, *args, **kwargs):
+        pass
+
+    @staticmethod
+    def json():
+        return {
+            "user_id": "amznl.account.TEST",
+            "email":"test@test.com",
+            "name" :"Test Test",
+            "postal_code": "00000"
+        }
+
+class amazon_fail:
+    def __init__(self, *args, **kwargs):
+        pass
+
+    @staticmethod
+    def json():
+        return {
+            "error": "400",
+            "error_description": "The request is missing a required parameter or otherwise malformed.",
+            "request_id": "bef0c2f8-e292-4l96-8c95-8833fbd559df"
+        }

@@ -1,12 +1,10 @@
-''' Tests for controllers '''
+''' Tests for legoset controller '''
 import pytest
 from unittest.mock import Mock, patch
 from api.amazon import Amazon
-from api.controllers.auth_controller import AuthController
 from api.controllers.legoset_controller import LegoSetController
-from api.controllers.watch_controller import WatchController
 from api.errors import FlaskError
-from .testutils import bottlenose_mock_empty, bottlenose_mock_success
+from ..testutils import bottlenose_mock_empty, bottlenose_mock_success
 
 
 class TestLegoSetController:

@@ -11,6 +11,7 @@ from api.errors import FlaskError
 
 class AuthController(object):
     ''' Controller for authentication '''
+    @staticmethod
     def create_jwt(user_id):
         ''' Create JSON Web Token and decode to string '''
         token = jwt.encode(
@@ -20,6 +21,7 @@ class AuthController(object):
         return token.decode('utf-8')
 
 
+    @staticmethod
     def authenticate(token):
         ''' Decode JWT and extract user id '''
         try:
@@ -30,6 +32,7 @@ class AuthController(object):
             raise FlaskError('Could not authenticate user', status_code=401)
 
 
+    @staticmethod
     def login(amazon_token):
         '''
         Performs the following:
@@ -48,10 +51,10 @@ class AuthController(object):
         if 'email' in profile:
             user = User.query.filter_by(email=profile['email']).first()
             if user is not None:
-                token = create_jwt(user.id)
+                token = AuthController.create_jwt(user.id)
                 return {'token': token, 'email': profile['email']}
             else:
                 new_user = User(profile['email']).save()
-                token = create_jwt(new_user.id)
+                token = AuthController.create_jwt(new_user.id)
                 return {'token': token, 'email': profile['email']}
         raise FlaskError('Could not authenticate user', status_code=401)
