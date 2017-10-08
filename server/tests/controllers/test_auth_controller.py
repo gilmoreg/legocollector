@@ -50,8 +50,7 @@ class TestAuthController:
         with patch.object(requests, 'get', mock_amazon):
             try:
                 response = auth_controller.login('test_token')
-            except Exception as e:
-                assert isinstance(e, FlaskError)
+            except FlaskError as e:
                 assert e.to_dict() == {
                     'message': 'Could not authenticate user',
                     'status_code': 401

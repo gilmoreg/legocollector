@@ -31,8 +31,7 @@ class TestLegoSetController:
         with patch.object(Amazon, 'search', mock_bottlenose):
             try:
                 legoset = legoset_controller.create_legoset_record(12345)
-            except Exception as e:
-                assert isinstance(e, FlaskError)
+            except FlaskError as e:
                 assert e.to_dict() == {
                     'message': 'Unable to save new set to database',
                     'status_code': 500
@@ -49,8 +48,7 @@ class TestLegoSetController:
             try:
                 legoset1 = legoset_controller.create_legoset_record(12345)
                 legoset2 = legoset_controller.create_legoset_record(12345)
-            except Exception as e:
-                assert isinstance(e, FlaskError)
+            except FlaskError as e:
                 assert e.to_dict() == {
                     'message': 'Unable to save new set to database',
                     'status_code': 500
