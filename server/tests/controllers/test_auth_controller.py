@@ -48,6 +48,11 @@ class TestAuthController:
         mock_amazon.return_value = amazon_fail
 
         with patch.object(requests, 'get', mock_amazon):
-            response = auth_controller.login('test_token')
-            print(response)
-            assert 0#response['email'] == 'test@test.com'
+            try:
+                response = auth_controller.login('test_token')
+            except Exception as e:
+                assert isinstance(e, FlaskError)
+                assert e.to_dict() == {
+                    'message': 'Could not authenticate user',
+                    'status_code': 401
+                }
