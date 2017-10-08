@@ -46,3 +46,16 @@ class TestLegosetViews:
         response = post_json(client, '/legoset/add/12345', {'token': token})
         json = decode_json(response)
         assert json == {'error': 'Could not authenticate user'}
+
+
+    def test_duplicate_add(self, client):
+        ''' Test adding existing set '''
+        mock_bottlenose = Mock(name='search')
+        mock_bottlenose.return_value = bottlenose_mock_success
+        token = create_jwt('54321')
+        with patch.object(Amazon, 'search', mock_bottlenose):
+            post_json(client, '/legoset/add/12345', {'token': token})
+            response = post_json(client, '/legoset/add/12345', {'token': token})
+            json = decode_json(response)
+            assert json == {'error': 'Set 12345 already exists in the database'}
+
