@@ -2,7 +2,6 @@
     /api/controllers/legoset_controller.py
     Controller for legosets
 '''
-from flask import g, current_app
 from api.amazon import Amazon
 from api.models import LegoSet
 from api.errors import FlaskError
