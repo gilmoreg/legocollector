@@ -17,6 +17,7 @@ requests==2.18.4
 # Testing
 pytest-flask==0.10.0
 pytest-cov==2.5.1
+pytest-watch==4.1.0
 
 # Deployment
 gunicorn==19.7
