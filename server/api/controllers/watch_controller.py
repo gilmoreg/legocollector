@@ -24,10 +24,8 @@ class WatchController(object):
         Add a new watch to the database
         If the set doesn't exist yet, add it first
         '''
-        # Verify valid user
+        # Verify valid user (will raise an exception if it fails)
         user = AuthController.authenticate(token)
-        if user is None:
-            raise FlaskError('Could not authenticate user', status_code=401)
         # Check if set exists; if not, create it
         lego_set = LegoSet.query.filter_by(id=set_id).first()
         if lego_set is None:

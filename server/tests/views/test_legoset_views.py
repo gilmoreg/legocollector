@@ -1,4 +1,4 @@
-''' Tests for views '''
+''' Tests for legoset views '''
 import pytest
 from unittest.mock import Mock, patch
 from ..testutils import decode_json, post_json, create_jwt, create_bad_jwt, bottlenose_mock_success, bottlenose_mock_empty

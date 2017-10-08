@@ -11,6 +11,8 @@ class TestUser:
         user.save()
         retrieved = User.query.filter_by(email='test@test.com').first()
         assert retrieved == user
+        json = retrieved.to_dict()
+        assert json['email'] == 'test@test.com'
 
 
 @pytest.mark.usefixtures('db')
@@ -62,3 +64,5 @@ class TestStockLevel:
         stock_level.save()
         retrieved = StockLevel.query.filter_by(id=stock_level.id).first()
         assert retrieved == stock_level
+        json = retrieved.to_dict()
+        assert json['lego_set'] == 12345
