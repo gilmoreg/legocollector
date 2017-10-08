@@ -16,7 +16,7 @@ class BaseModel(db.Model):
         """Define a base way to print models"""
         return '%s(%s)' % (self.__class__.__name__, {
             column: value
-            for column, value in self._to_dict().items()
+            for column, value in self.to_dict().items()
         })
 
 
