@@ -58,3 +58,13 @@ class AuthController(object):
                 token = AuthController.create_jwt(new_user.id)
                 return {'token': token, 'email': profile['email']}
         raise FlaskError('Could not authenticate user', status_code=401)
+
+    
+    @staticmethod
+    def get_user(token):
+        ''' Get a User object from a token '''
+        user_id = AuthController.authenticate(token)
+        user = User.query.filter_by(id=user_id).first()
+        if user is not None:
+            return user.to_dict()
+        raise FlaskError('User not found', status_code=401)

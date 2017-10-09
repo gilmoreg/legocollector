@@ -2,16 +2,21 @@
 import pytest
 from unittest.mock import Mock, patch
 from ..testutils import decode_json, post_json, create_jwt, create_bad_jwt, bottlenose_mock_success, bottlenose_mock_empty
+from api.models import User
 from api.amazon import Amazon
 
 
 @pytest.mark.usefixtures('db')
 class TestWatchViews:
     ''' Tests for /watch views '''
-    def test_get_watches(self, client):
+    def test_get_users_watches(self, client):
         ''' Verify 200 status and empty response with no watches in db '''
-        response = client.get('/watches')
+        token = create_jwt('test@test.com')
+        user = User('test@test.com')
+        user.save()
+        response = client.get('/watches?token=' + token)
         json = decode_json(response)
+        print(json)
         assert response.status_code == 200
         assert json == {'result': []}
 
@@ -47,7 +52,7 @@ class TestWatchViews:
     def test_watch_no_token(self, client):
         response = post_json(client, '/watches/add', {'id': '54321'})
         json = decode_json(response)
-        assert json == {'error': 'Must supply an access_token and a set ID'}
+        assert json == {'error': 'Must supply a token and a set ID'}
 
 
     def test_watch_bad_token(self, client):

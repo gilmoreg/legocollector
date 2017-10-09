@@ -12,11 +12,15 @@ watch_controller = WatchController()
 
 
 @blueprint.route('/watches', methods=['GET'])
-def get_all_watches():
-    ''' Return all watched sets '''
+def get_users_watches():
+    ''' Return all watched sets for a user '''
     try:
-        watches = watch_controller.get_all_watches()
+        token = request.args.get('token')
+        watches = watch_controller.get_users_watches(token)
         return jsonify({'result': watches})
+    except KeyError:
+        error = FlaskError('Must supply a token', status_code=400)
+        return error.json_response()
     except Exception as e:
         return exception_json_response(e)
 
@@ -30,7 +34,7 @@ def get_watch(id):
         watch = watch_controller.get_watch(watch_id, token)
         return jsonify({'result': watch})
     except KeyError:
-        error = FlaskError('Must supply an access_token and a watch ID', status_code=400)
+        error = FlaskError('Must supply a token and a watch ID', status_code=400)
         return error.json_response()
     except Exception as e:
         return exception_json_response(e)
@@ -44,7 +48,7 @@ def add_watch():
         watch = watch_controller.add_watch(data['token'], data['id'])
         return jsonify({'result': watch})
     except KeyError:
-        error = FlaskError('Must supply an access_token and a set ID', status_code=400)
+        error = FlaskError('Must supply a token and a set ID', status_code=400)
         return error.json_response()
     except Exception as e:
         return exception_json_response(e)

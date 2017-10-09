@@ -11,17 +11,18 @@ from api.errors import FlaskError
 
 class WatchController(object):
     ''' Controller for watches '''
-    def get_all_watches(self):
-        ''' Return all Watches '''
-        watches = Watch.query.all()
-        return watches
+    def get_users_watches(self, token):
+        ''' Return all of a user's Watches '''
+        # Verify valid user (will raise an exception if it fails)
+        user_id = AuthController.authenticate(token)
+        watches = Watch.query.filter_by(user=user_id)
+        return list(map(lambda w: w.to_dict(), watches))
 
 
     def get_watch(self, watch_id, token):
         ''' Get specificed watch '''
         # Verify valid user (will raise an exception if it fails)
-        email = AuthController.authenticate(token)
-        user_id = User.query.filter_by(email=email).first().id
+        user_id = AuthController.authenticate(token)
         # Query db for watch
         watch = Watch.query.filter_by(id=watch_id, user=user_id).first()
         if watch is not None:
