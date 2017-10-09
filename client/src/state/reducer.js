@@ -1,6 +1,6 @@
 import * as actions from './actions';
 
-const initialState = {
+export const initialState = {
   loggedIn: false,
   email: '',
   token: '',
