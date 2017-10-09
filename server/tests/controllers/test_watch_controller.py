@@ -9,6 +9,7 @@ from api.errors import FlaskError
 from ..testutils import bottlenose_mock_empty, bottlenose_mock_success
 from ..factories import create_user, create_legoset, create_watch
 
+
 class TestWatchController:
     ''' Tests for WatchController '''
     watch_controller = WatchController()
