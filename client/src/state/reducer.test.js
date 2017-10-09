@@ -1,18 +1,22 @@
-import reducer from './reducer';
+import reducer, { initialState } from './reducer';
 import * as actions from './actions';
-
-const initialState = {
-  loggedIn: false,
-  email: '',
-  token: '',
-};
+import { fakeWatch } from '../../utils/fakes';
 
 describe('Reducer', () => {
+  it('should fill watches on FILL_WATCHES', () => {
+    const finalState = Object.assign({}, initialState, {
+      watches: [fakeWatch, fakeWatch],
+    });
+    expect(
+      reducer(initialState, { type: actions.FILL_WATCHES, watches: [fakeWatch, fakeWatch] }),
+    ).toEqual(finalState);
+  });
+
   it('should save an email and token on LOGIN', () => {
     const finalState = Object.assign({}, initialState,
       { loggedIn: true, email: 'test@test.com', token: '123' });
     expect(
-      reducer(initialState, { type: actions.LOGIN, email: 'test@test.com', token: '123' })
+      reducer(initialState, { type: actions.LOGIN, email: 'test@test.com', token: '123' }),
     ).toEqual(finalState);
   });
 
@@ -21,7 +25,7 @@ describe('Reducer', () => {
       { loggedIn: false, email: '', token: '' });
     const newState = reducer(initialState, actions.login({ email: 'test@test.com', token: '123' }));
     expect(
-      reducer(newState, { type: actions.LOGOUT })
+      reducer(newState, { type: actions.LOGOUT }),
     ).toEqual(finalState);
   });
 
@@ -29,7 +33,7 @@ describe('Reducer', () => {
     // Change state with fake action to test reset
     const newState = reducer(initialState, actions.login({ email: 'test@test.com', token: '123' }));
     expect(
-      reducer(newState, { type: actions.RESET })
+      reducer(newState, { type: actions.RESET }),
     ).toEqual(initialState);
   });
 });
