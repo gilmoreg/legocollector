@@ -5,7 +5,8 @@ import requests
 from api.controllers.auth_controller import AuthController
 from api.models import User
 from api.errors import FlaskError
-from ..testutils import amazon_success, amazon_fail
+from ..testutils import amazon_success, amazon_fail, create_bad_jwt
+from ..factories import create_user
 
 
 @pytest.mark.usefixtures('db')
@@ -55,3 +56,18 @@ class TestAuthController:
                     'message': 'Could not authenticate user',
                     'status_code': 401
                 }
+    
+    def test_get_user(self):
+        user = create_user('test@test.com')
+        auth_controller = AuthController()
+        retrieved = auth_controller.get_user(user['token'])
+        assert retrieved['id'] == user['id']
+        assert retrieved['email'] == user['email']
+
+    def test_get_user_notfound(self):
+        auth_controller = AuthController()
+        try:
+            token = AuthController.create_jwt('test@test.com')
+            retrieved = auth_controller.get_user(token)
+        except FlaskError as e:
+            assert e.to_dict() == {'message': 'User not found', 'status_code': 401}
