@@ -60,4 +60,6 @@ describe('Async actions', () => {
         done();
       });
   });
+
+  /* TODO ERROR TEST for FETCH_WATCHES */
 });
