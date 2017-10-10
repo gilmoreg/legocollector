@@ -1,6 +1,7 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import ReactModal from 'react-modal';
 import { connect } from 'react-redux';
 import './AddWatchModal.css';
 
@@ -19,21 +20,35 @@ export class AddWatchModal extends Component {
 
   render() {
     return (
-      <div className="AddWatchModal" onClick={this.props.closeModal}>
+      <ReactModal
+        isOpen={this.props.open}
+        contentLabel="Add New Watch"
+        /* overlayClassName="ReactModal__Overlay" */
+        className="AddWatchModal"
+        shouldCloseOnOverlayClick
+        onRequestClose={this.props.close}
+        role="dialog"
+        parentSelector={() => document.querySelector('#root')}
+      >
         <form onSubmit={this.submitForm}>
-          <input onChange={val => this.setState({ setID: val })} />
+          Lego ID: <input onChange={val => this.setState({ setID: val })} />
         </form>
-      </div>
+      </ReactModal>
     );
   }
 }
 
 AddWatchModal.defaultProps = {
+  parent: <div />,
+  open: false,
+  close: () => {},
   dispatch: () => {},
 };
 
 AddWatchModal.propTypes = {
-  closeModal: PropTypes.func.isRequired,
+  parent: PropTypes.func,
+  open: PropTypes.bool,
+  close: PropTypes.func,
   dispatch: PropTypes.func,
 };
 

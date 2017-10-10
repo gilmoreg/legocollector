@@ -49,7 +49,10 @@ export class App extends Component {
           openModal={() => this.setState({ newWatchModalOpen: !this.state.newWatchModalOpen })}
         />
         { this.state.newWatchModalOpen ?
-          <AddWatchModal closeModal={() => this.setState({ newWatchModalOpen: false })} /> : ''
+          <AddWatchModal
+            open={this.state.newWatchModalOpen}
+            close={() => this.setState({ newWatchModalOpen: false })}
+          /> : ''
         }
       </div>
     );

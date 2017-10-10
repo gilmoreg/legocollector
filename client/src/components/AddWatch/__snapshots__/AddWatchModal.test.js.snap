@@ -20,13 +20,18 @@ ShallowWrapper {
     "key": null,
     "nodeType": "host",
     "props": Object {
-      "children": <form
-        onSubmit={[Function]}
+      "children": <div
+        className="body"
       >
-        <input
-          onChange={[Function]}
-        />
-      </form>,
+        <form
+          onSubmit={[Function]}
+        >
+          Lego ID: 
+          <input
+            onChange={[Function]}
+          />
+        </form>
+      </div>,
       "className": "AddWatchModal",
       "onClick": [Function],
     },
@@ -36,10 +41,15 @@ ShallowWrapper {
       "key": null,
       "nodeType": "host",
       "props": Object {
-        "children": <input
-          onChange={[Function]}
-        />,
-        "onSubmit": [Function],
+        "children": <form
+          onSubmit={[Function]}
+        >
+          Lego ID: 
+          <input
+            onChange={[Function]}
+          />
+        </form>,
+        "className": "body",
       },
       "ref": null,
       "rendered": Object {
@@ -47,13 +57,32 @@ ShallowWrapper {
         "key": null,
         "nodeType": "host",
         "props": Object {
-          "onChange": [Function],
+          "children": Array [
+            "Lego ID: ",
+            <input
+              onChange={[Function]}
+            />,
+          ],
+          "onSubmit": [Function],
         },
         "ref": null,
-        "rendered": null,
-        "type": "input",
+        "rendered": Array [
+          "Lego ID: ",
+          Object {
+            "instance": null,
+            "key": null,
+            "nodeType": "host",
+            "props": Object {
+              "onChange": [Function],
+            },
+            "ref": null,
+            "rendered": null,
+            "type": "input",
+          },
+        ],
+        "type": "form",
       },
-      "type": "form",
+      "type": "div",
     },
     "type": "div",
   },
@@ -63,13 +92,18 @@ ShallowWrapper {
       "key": null,
       "nodeType": "host",
       "props": Object {
-        "children": <form
-          onSubmit={[Function]}
+        "children": <div
+          className="body"
         >
-          <input
-            onChange={[Function]}
-          />
-        </form>,
+          <form
+            onSubmit={[Function]}
+          >
+            Lego ID: 
+            <input
+              onChange={[Function]}
+            />
+          </form>
+        </div>,
         "className": "AddWatchModal",
         "onClick": [Function],
       },
@@ -79,10 +113,15 @@ ShallowWrapper {
         "key": null,
         "nodeType": "host",
         "props": Object {
-          "children": <input
-            onChange={[Function]}
-          />,
-          "onSubmit": [Function],
+          "children": <form
+            onSubmit={[Function]}
+          >
+            Lego ID: 
+            <input
+              onChange={[Function]}
+            />
+          </form>,
+          "className": "body",
         },
         "ref": null,
         "rendered": Object {
@@ -90,13 +129,32 @@ ShallowWrapper {
           "key": null,
           "nodeType": "host",
           "props": Object {
-            "onChange": [Function],
+            "children": Array [
+              "Lego ID: ",
+              <input
+                onChange={[Function]}
+              />,
+            ],
+            "onSubmit": [Function],
           },
           "ref": null,
-          "rendered": null,
-          "type": "input",
+          "rendered": Array [
+            "Lego ID: ",
+            Object {
+              "instance": null,
+              "key": null,
+              "nodeType": "host",
+              "props": Object {
+                "onChange": [Function],
+              },
+              "ref": null,
+              "rendered": null,
+              "type": "input",
+            },
+          ],
+          "type": "form",
         },
-        "type": "form",
+        "type": "div",
       },
       "type": "div",
     },
