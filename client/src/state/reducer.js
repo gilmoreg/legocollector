@@ -10,6 +10,9 @@ export const initialState = {
 export default function reducer(state = initialState, action) {
   console.log(action);
   switch (action.type) {
+    case actions.ADD_WATCH: {
+      return Object.assign({}, state, { watches: [...state.watches, action.watch] });
+    }
     case actions.FILL_WATCHES: {
       return Object.assign({}, state, { watches: action.watches });
     }

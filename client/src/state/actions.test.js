@@ -2,6 +2,7 @@ import fetchMock from 'fetch-mock';
 import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import * as actions from './actions';
+import * as fakes from '../../utils/fakes';
 import { initialState } from './reducer';
 
 const mockStore = configureMockStore([thunk]);
@@ -31,6 +32,14 @@ describe('Action Creators', () => {
     expect(actions.reset()).toEqual(expectedAction);
   });
 
+  it('should create an action to add a watch', () => {
+    const expectedAction = {
+      type: actions.ADD_WATCH,
+      watch: fakes.fakeWatch,
+    };
+    expect(actions.addWatch(fakes.fakeWatch)).toEqual(expectedAction);
+  });
+
   it('should create an action to fill watches', () => {
     const expectedAction = {
       type: actions.FILL_WATCHES,
@@ -54,6 +63,22 @@ describe('Async actions', () => {
     ];
     const store = mockStore(initialState);
     store.dispatch(actions.fetchWatches('fakeToken'))
+      .then(() => {
+        const actualActions = store.getActions();
+        expect(actualActions).toEqual(expectedActions);
+        done();
+      });
+  });
+
+  it('SUBMIT_NEW_WATCH should dispatch ADD_WATCH if successful', (done) => {
+    fetchMock.mock(/.+\/watches.+/g,
+      { result: fakes.fakeWatch },
+    );
+    const expectedActions = [
+      { type: actions.ADD_WATCH, watch: fakes.fakeWatch },
+    ];
+    const store = mockStore(initialState);
+    store.dispatch(actions.submitNewWatch(0))
       .then(() => {
         const actualActions = store.getActions();
         expect(actualActions).toEqual(expectedActions);

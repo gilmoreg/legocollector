@@ -18,6 +18,12 @@ export const reset = () => ({
   type: RESET,
 });
 
+export const ADD_WATCH = 'ADD_WATCH';
+export const addWatch = watch => ({
+  type: ADD_WATCH,
+  watch,
+});
+
 export const FILL_WATCHES = 'FILL_WATCHES';
 export const fillWatches = watches => ({
   type: FILL_WATCHES,
@@ -25,6 +31,20 @@ export const fillWatches = watches => ({
 });
 
 // ASYNC ACTIONS
+export const SUBMIT_NEW_WATCH = 'SUBMIT_NEW_WATCH';
+export const submitNewWatch = ({ setID, accessToken }) => dispatch =>
+  fetch(`${API_URL}/api/watches/add`, {
+    method: 'POST',
+    body: JSON.stringify({
+      token: accessToken,
+      id: setID,
+    }),
+  })
+    .then(res => res.json())
+    .then(res => res.result)
+    .then(watch => dispatch(addWatch(watch)))
+    .catch(err => console.error(err)); // TODO proper error handler
+
 export const SET_THRESHOLD = 'SET_THRESHOLD';
 export const setThreshold = ({ watch, level }) => (dispatch) => {
   // TODO update threshold via API
