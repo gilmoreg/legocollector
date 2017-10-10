@@ -36,6 +36,7 @@ ShallowWrapper {
         <AddWatchButton
           openModal={[Function]}
         />,
+        "",
       ],
       "className": "App",
     },
@@ -77,6 +78,7 @@ ShallowWrapper {
         "rendered": null,
         "type": [Function],
       },
+      "",
     ],
     "type": "div",
   },
@@ -101,6 +103,7 @@ ShallowWrapper {
           <AddWatchButton
             openModal={[Function]}
           />,
+          "",
         ],
         "className": "App",
       },
@@ -142,6 +145,7 @@ ShallowWrapper {
           "rendered": null,
           "type": [Function],
         },
+        "",
       ],
       "type": "div",
     },

@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/no-static-element-interactions */
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
@@ -7,8 +8,8 @@ export class AddWatchModal extends Component {
   constructor(props) {
     super(props);
     this.state = {
-
-    }
+      setID: '',
+    };
     this.submitForm = this.submitForm.bind(this);
   }
 
@@ -18,17 +19,22 @@ export class AddWatchModal extends Component {
 
   render() {
     return (
-      <div className="AddWatchModal">
+      <div className="AddWatchModal" onClick={this.props.closeModal}>
         <form onSubmit={this.submitForm}>
-          <input />
+          <input onChange={val => this.setState({ setID: val })} />
         </form>
       </div>
     );
   }
 }
 
+AddWatchModal.defaultProps = {
+  dispatch: () => {},
+};
+
 AddWatchModal.propTypes = {
-  dispatch: PropTypes.func.isRequired,
+  closeModal: PropTypes.func.isRequired,
+  dispatch: PropTypes.func,
 };
 
 export default connect()(AddWatchModal);

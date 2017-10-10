@@ -5,6 +5,7 @@ import { login, logout } from '../state/actions';
 import Login from './Login/Login';
 import Watch from './Watch/Watch';
 import AddWatchButton from './AddWatch/AddWatchButton';
+import AddWatchModal from './AddWatch/AddWatchModal';
 import './App.css';
 
 const checkProfile = () => {
@@ -22,6 +23,14 @@ const fakeWatch = {
 };
 
 export class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      newWatchModalOpen: false,
+    };
+  }
+
+
   componentWillMount() {
     // Check for stored profile and set login state accordingly
     const profile = checkProfile();
@@ -36,7 +45,12 @@ export class App extends Component {
           <span>Logged in as {this.props.email}</span> :
           <Login /> }
         <Watch watch={fakeWatch} />
-        <AddWatchButton openModal={() => {}} />
+        <AddWatchButton
+          openModal={() => this.setState({ newWatchModalOpen: !this.state.newWatchModalOpen })}
+        />
+        { this.state.newWatchModalOpen ?
+          <AddWatchModal closeModal={() => this.setState({ newWatchModalOpen: false })} /> : ''
+        }
       </div>
     );
   }
