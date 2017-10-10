@@ -23,7 +23,7 @@ export class AddWatchModal extends Component {
       <ReactModal
         isOpen={this.props.open}
         contentLabel="Add New Watch"
-        /* overlayClassName="ReactModal__Overlay" */
+        overlayClassName="Overlay"
         className="AddWatchModal"
         shouldCloseOnOverlayClick
         onRequestClose={this.props.close}
