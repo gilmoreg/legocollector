@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { login, logout } from '../state/actions';
 import Login from './Login/Login';
 import Watch from './Watch/Watch';
+import AddWatchButton from './AddWatch/AddWatchButton';
 import './App.css';
 
 const checkProfile = () => {
@@ -18,7 +19,7 @@ const fakeWatch = {
   image: 'https://images-na.ssl-images-amazon.com/images/I/413yqVUgjcL._SL160_.jpg',
   url: 'https://www.amazon.com/LEGO-Ideas-Apollo-Saturn-Building/dp/B01MUANC80?psc=1&SubscriptionId=AKIAJ57KMBTCZPRJ5I5Q&tag=gilmoreg-20&linkCode=xm2&camp=2025&creative=165953&creativeASIN=B01MUANC80',
   currentStock: 1000,
-}
+};
 
 export class App extends Component {
   componentWillMount() {
@@ -35,6 +36,7 @@ export class App extends Component {
           <span>Logged in as {this.props.email}</span> :
           <Login /> }
         <Watch watch={fakeWatch} />
+        <AddWatchButton openModal={() => {}} />
       </div>
     );
   }

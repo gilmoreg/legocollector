@@ -1,0 +1,16 @@
+.AddWatchButton {
+  border: 10px solid red;
+  border-radius: 50%;
+  background-color: red;
+  width: 50px;
+  height: 50px;
+}
+
+.AddWatchButton span {
+  color: white;
+  font-size: 40px;
+  position: relative;
+  /* TODO center more programmatically */
+  top: -12px;
+  left: -3px;
+}
