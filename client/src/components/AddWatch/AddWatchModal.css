@@ -11,6 +11,14 @@
   top: 100px;
   left: 100px;
   right: 100px;
-  bottom: 100px;
+  height: 100px;
   background-color: white;
+  font-size: 40px;
+  text-align: center;
+  border: 1px solid black;
+  border-radius: 10px;
+  /* TODO: center programmatically
+    Display: flex on parent didn't work
+  */
+  padding-top: 22px; 
 }

@@ -31,7 +31,11 @@ export class AddWatchModal extends Component {
         parentSelector={() => document.querySelector('#root')}
       >
         <form onSubmit={this.submitForm}>
-          Lego ID: <input onChange={val => this.setState({ setID: val })} />
+          Lego ID:
+          <input
+            type="text"
+            onChange={val => this.setState({ setID: val })}
+          />
         </form>
       </ReactModal>
     );
