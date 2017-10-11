@@ -3,16 +3,27 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import ReactModal from 'react-modal';
 import { connect } from 'react-redux';
+import { throttle } from 'lodash.throttle';
+import { API_URL } from '../../config';
 import './AddWatchModal.css';
 
 export class AddWatchModal extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      setID: '',
-    };
     this.submitForm = this.submitForm.bind(this);
+    this.state = {
+      searchResult: {},
+    };
+    this.search = throttle((event) => {
+      fetch(`${API_URL}/legoset/search/${event.target.value}?token=${this.props.token}`)
+        .then(res => res.json())
+        .then((res) => {
+          if (res && res.result) this.setState({ searchResult: res.result });
+        })
+        .catch(err => console.error(err)); // TODO proper error message
+    }, 250);
   }
+
 
   submitForm(event) {
     console.log(event, this.state);
@@ -34,7 +45,7 @@ export class AddWatchModal extends Component {
           Lego ID:
           <input
             type="text"
-            onChange={val => this.setState({ setID: val })}
+            onChange={this.search}
           />
         </form>
       </ReactModal>
@@ -43,17 +54,21 @@ export class AddWatchModal extends Component {
 }
 
 AddWatchModal.defaultProps = {
-  parent: <div />,
+  token: '',
   open: false,
   close: () => {},
   dispatch: () => {},
 };
 
 AddWatchModal.propTypes = {
-  parent: PropTypes.func,
+  token: PropTypes.string,
   open: PropTypes.bool,
   close: PropTypes.func,
   dispatch: PropTypes.func,
 };
 
-export default connect()(AddWatchModal);
+const mapStateToProps = props => ({
+  token: props.token,
+});
+
+export default connect(mapStateToProps)(AddWatchModal);
