@@ -53,3 +53,4 @@ class TestLegoSetController:
                     'message': 'Unable to save new set to database',
                     'status_code': 500
                 }
+ 

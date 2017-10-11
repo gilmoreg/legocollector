@@ -59,3 +59,36 @@ class TestLegosetViews:
             json = decode_json(response)
             assert json == {'error': 'Set 12345 already exists in the database'}
 
+
+    def test_search(self, client):
+        ''' Test searching for a set with success '''
+        mock_bottlenose = Mock(name='search')
+        mock_bottlenose.return_value = bottlenose_mock_success
+        token = create_jwt('54321')
+        with patch.object(Amazon, 'search', mock_bottlenose):
+            response = client.get('/legoset/search/12345?token=' + token)
+            json = decode_json(response)['result']
+            assert json['id'] == 12345
+    
+    def test_search_preexisting(self, client):
+        ''' Test search already stored set '''
+        mock_bottlenose = Mock(name='search')
+        mock_bottlenose.return_value = bottlenose_mock_success
+        token = create_jwt('54321')
+        with patch.object(Amazon, 'search', mock_bottlenose):
+            post_json(client, '/legoset/add/12345', {'token': token})
+            response = client.get('/legoset/search/12345?token=' + token)
+            json = decode_json(response)['result']
+            assert json['id'] == 12345
+    
+    
+    def test_search_empty(self, client):
+        ''' Test search with no amazon results '''
+        mock_bottlenose = Mock(name='search')
+        mock_bottlenose.return_value = bottlenose_mock_empty
+        token = create_jwt('54321')
+        with patch.object(Amazon, 'search', mock_bottlenose):
+            post_json(client, '/legoset/add/12345', {'token': token})
+            response = client.get('/legoset/search/12345?token=' + token)
+            json = decode_json(response)
+            assert json == {'error': 'Could not find set 12345 on Amazon'}

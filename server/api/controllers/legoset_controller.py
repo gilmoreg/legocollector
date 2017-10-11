@@ -52,5 +52,30 @@ class LegoSetController(object):
         new_legoset = self.create_legoset_record(set_id)
         return new_legoset
 
-
+    
+    def search(self, set_id, token):
+        '''
+            GET /legoset/search/<id>
+            Queries Amazon for info about this legoset and returns it
+        '''
+        user = AuthController.authenticate(token)
+        # First check in our database
+        set_exists = LegoSet.query.filter_by(id=set_id).first()
+        if set_exists:
+            return set_exists.to_dict()
+        # If not found, check amazon
+        amazon = Amazon()
+        response = amazon.search(set_id)
+        item = response.find('item')
+        if item is not None:
+            return {
+                'id': int(set_id),
+                'url': item.find('detailpageurl').get_text(),
+                'title': item.find('itemattributes').find('title').get_text(),
+                'image': item.find('mediumimage').find('url').get_text()
+            }
+        # If it could not be found, raise an error but also 200 status indicating no fault
+        raise FlaskError('Could not find set {} on Amazon'.format(set_id), status_code=200)
+    
+    
     #  def remove_legoset(self, id)
