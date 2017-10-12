@@ -9,7 +9,7 @@ ShallowWrapper {
     closeModal={[Function]}
     dispatch={[Function]}
     open={false}
-    parent={<div />}
+    token=""
   />,
   Symbol(enzyme.__renderer__): Object {
     "batchedUpdates": [Function],

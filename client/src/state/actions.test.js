@@ -12,9 +12,9 @@ describe('Action Creators', () => {
     const expectedAction = {
       type: actions.LOGIN,
       email: 'test@test.com',
-      accessToken: '123',
+      token: '123',
     };
-    expect(actions.login({ email: 'test@test.com', accessToken: '123'}))
+    expect(actions.login({ email: 'test@test.com', token: '123' }))
       .toEqual(expectedAction);
   });
 

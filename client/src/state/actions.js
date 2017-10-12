@@ -2,10 +2,10 @@ import { API_URL } from '../config';
 
 // SYNC ACTIONS
 export const LOGIN = 'LOGIN';
-export const login = ({ email, accessToken }) => ({
+export const login = ({ email, token }) => ({
   type: LOGIN,
   email,
-  accessToken,
+  token,
 });
 
 export const LOGOUT = 'LOGOUT';

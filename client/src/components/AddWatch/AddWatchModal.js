@@ -15,10 +15,16 @@ export class AddWatchModal extends Component {
       searchResult: {},
     };
     this.search = throttle((event) => {
+      console.log(event.target.value);
       fetch(`${API_URL}/legoset/search/${event.target.value}?token=${this.props.token}`)
+        .then((res) => {
+          console.log('res', res);
+          return res;
+        })
         .then(res => res.json())
         .then((res) => {
           if (res && res.result) this.setState({ searchResult: res.result });
+          console.log(res.result);
         })
         .catch(err => console.error(err)); // TODO proper error message
     }, 250);
