@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import ReactModal from 'react-modal';
 import { connect } from 'react-redux';
-import { throttle } from 'lodash.throttle';
+import throttle from 'lodash.throttle';
 import { API_URL } from '../../config';
 import './AddWatchModal.css';
 
