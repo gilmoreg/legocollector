@@ -12,27 +12,36 @@ export class AddWatchModal extends Component {
     super(props);
     this.submitForm = this.submitForm.bind(this);
     this.state = {
+      searchTerm: '',
       searchResult: {},
     };
-    this.search = throttle((event) => {
-      console.log(event.target.value);
-      fetch(`${API_URL}/legoset/search/${event.target.value}?token=${this.props.token}`)
-        .then((res) => {
-          console.log('res', res);
-          return res;
-        })
-        .then(res => res.json())
-        .then((res) => {
-          if (res && res.result) this.setState({ searchResult: res.result });
-          console.log(res.result);
-        })
-        .catch(err => console.error(err)); // TODO proper error message
-    }, 250);
+    this.search = throttle(query => this.queryAPI(query), 250);
+    this.onInputChange = this.onInputChange.bind(this);
+    this.queryAPI = this.queryAPI.bind(this);
   }
 
+  onInputChange(event) {
+    event.persist();
+    if (event.target && event.target.value) {
+      const query = event.target.value.trim();
+      this.setState({ searchTerm: query });
+      this.search(query);
+    }
+  }
+
+  queryAPI(query) {
+    fetch(`${API_URL}/legoset/search/${query}?token=${this.props.token}`)
+      .then(res => res.json())
+      .then((res) => {
+        if (res && res.result) this.setState({ searchResult: res.result });
+        console.log(res.result);
+      })
+      .catch(err => console.error(err)); // TODO proper error message
+  }
 
   submitForm(event) {
-    console.log(event, this.state);
+    event.preventDefault();
+    this.search();
   }
 
   render() {
@@ -51,7 +60,7 @@ export class AddWatchModal extends Component {
           Lego ID:
           <input
             type="text"
-            onChange={this.search}
+            onChange={this.onInputChange}
           />
         </form>
       </ReactModal>
@@ -70,7 +79,7 @@ AddWatchModal.propTypes = {
   token: PropTypes.string,
   open: PropTypes.bool,
   close: PropTypes.func,
-  dispatch: PropTypes.func,
+  // dispatch: PropTypes.func,
 };
 
 const mapStateToProps = props => ({
