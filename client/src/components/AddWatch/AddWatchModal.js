@@ -6,6 +6,7 @@ import { connect } from 'react-redux';
 import debounce from 'lodash.debounce';
 import { API_URL } from '../../config';
 import SearchResult from './SearchResult';
+import { addWatch } from '../../state/actions';
 import './AddWatchModal.css';
 
 export class AddWatchModal extends Component {
@@ -47,15 +48,22 @@ export class AddWatchModal extends Component {
 
   addWatch() {
     if (this.state.searchResult.id) {
-      fetch(`${API_URL}/legoset/add/${this.state.searchTerm}`,
-        { method: 'POST',
-          body: JSON.stringify({ token: this.props.token }),
-        })
+      fetch(`${API_URL}/watches/add`, {
+        method: 'POST',
+        body: JSON.stringify({
+          id: this.state.searchResult.id,
+          token: this.props.token,
+        }),
+      })
         .then(res => res.json())
-        .then((res) => {
-          if (res && res.result) this.props.close();
+        .then(res => res.result)
+        .then((watch) => {
+          if (watch.id) {
+            this.props.dispatch(addWatch(watch));
+            this.props.close();
+          }
         })
-        .catch(err => console.error(err)); // TODO proper error message
+        .catch(err => console.error(err)); // TODO proper error handler
     }
   }
 
@@ -100,7 +108,7 @@ AddWatchModal.propTypes = {
   token: PropTypes.string,
   open: PropTypes.bool,
   close: PropTypes.func,
-  // dispatch: PropTypes.func,
+  dispatch: PropTypes.func,
 };
 
 const mapStateToProps = props => ({

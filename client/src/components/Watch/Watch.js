@@ -12,7 +12,7 @@ export class Watch extends Component {
     super(props);
     this.state = {
       collapsed: true,
-    }
+    };
   }
 
   render() {
@@ -28,7 +28,7 @@ export class Watch extends Component {
         }
         <WatchFooter
           click={() => this.setState({
-            collapsed: !this.state.collapsed 
+            collapsed: !this.state.collapsed,
           })}
           collapsed={this.state.collapsed}
         />
@@ -45,6 +45,6 @@ Watch.propTypes = {
     url: PropTypes.string.isRequired,
     currentStock: PropTypes.number.isRequired,
   }).isRequired,
-}
+};
 
 export default connect()(Watch);

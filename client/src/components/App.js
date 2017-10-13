@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { login, logout } from '../state/actions';
+import { login, logout, fetchWatches } from '../state/actions';
 import Login from './Login/Login';
 import Watch from './Watch/Watch';
 import AddWatchButton from './AddWatch/AddWatchButton';
@@ -34,8 +34,10 @@ export class App extends Component {
   componentWillMount() {
     // Check for stored profile and set login state accordingly
     const profile = checkProfile();
-    if (profile) this.props.dispatch(login(profile));
-    else this.props.dispatch(logout);
+    if (profile) {
+      this.props.dispatch(login(profile));
+      this.props.dispatch(fetchWatches(profile.token));
+    } else this.props.dispatch(logout);
   }
 
   render() {

@@ -44,6 +44,7 @@ def get_watch(id):
 def add_watch():
     ''' Add a watched set to the database, return mongo ID '''
     data = request.get_json(force=True)
+    print(data)
     try:
         watch = watch_controller.add_watch(data['token'], data['id'])
         return jsonify({'result': watch})

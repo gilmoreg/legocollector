@@ -17,6 +17,7 @@ def login():
         database and authentication operations
     '''
     data = request.get_json(force=True)
+    print('login', data)
     try:
         profile = auth_controller.login(data['access_token'])
         return jsonify({'result': profile})

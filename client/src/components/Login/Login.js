@@ -8,6 +8,7 @@ import './Login.css';
 const API_URL = 'http://localhost:5000';
 
 const storeProfile = ({ token, email }) => {
+  console.log('storeProfile', token, email);
   window.localStorage.setItem(
     'legocollectorProfile',
     JSON.stringify({ token, email }),
@@ -19,7 +20,8 @@ const fetchProfile = accessToken =>
     { method: 'POST',
       body: JSON.stringify({ access_token: accessToken }),
     })
-    .then(res => res.json());
+    .then(res => res.json())
+    .then(res => res.result);
 
 export class Login extends Component {
   constructor(props) {

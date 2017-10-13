@@ -31,20 +31,6 @@ export const fillWatches = watches => ({
 });
 
 // ASYNC ACTIONS
-export const SUBMIT_NEW_WATCH = 'SUBMIT_NEW_WATCH';
-export const submitNewWatch = ({ setID, accessToken }) => dispatch =>
-  fetch(`${API_URL}/api/watches/add`, {
-    method: 'POST',
-    body: JSON.stringify({
-      token: accessToken,
-      id: setID,
-    }),
-  })
-    .then(res => res.json())
-    .then(res => res.result)
-    .then(watch => dispatch(addWatch(watch)))
-    .catch(err => console.error(err)); // TODO proper error handler
-
 export const SET_THRESHOLD = 'SET_THRESHOLD';
 export const setThreshold = ({ watch, level }) => (dispatch) => {
   // TODO update threshold via API
@@ -52,8 +38,8 @@ export const setThreshold = ({ watch, level }) => (dispatch) => {
 };
 
 export const FETCH_WATCHES = 'FETCH_WATCHES';
-export const fetchWatches = ({ accessToken }) => dispatch =>
-  fetch(`${API_URL}/api/watches?token=${accessToken}`)
+export const fetchWatches = token => dispatch =>
+  fetch(`${API_URL}/watches?token=${token}`)
     .then(res => res.json())
     .then(res => res.result)
     .then(watches => dispatch(fillWatches(watches)))

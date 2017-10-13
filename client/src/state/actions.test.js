@@ -70,21 +70,5 @@ describe('Async actions', () => {
       });
   });
 
-  it('SUBMIT_NEW_WATCH should dispatch ADD_WATCH if successful', (done) => {
-    fetchMock.mock(/.+\/watches.+/g,
-      { result: fakes.fakeWatch },
-    );
-    const expectedActions = [
-      { type: actions.ADD_WATCH, watch: fakes.fakeWatch },
-    ];
-    const store = mockStore(initialState);
-    store.dispatch(actions.submitNewWatch(0))
-      .then(() => {
-        const actualActions = store.getActions();
-        expect(actualActions).toEqual(expectedActions);
-        done();
-      });
-  });
-
   /* TODO ERROR TEST for FETCH_WATCHES */
 });
