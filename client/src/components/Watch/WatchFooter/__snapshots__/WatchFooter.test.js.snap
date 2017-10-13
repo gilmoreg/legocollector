@@ -23,10 +23,7 @@ ShallowWrapper {
       "children": <button
         onClick={[Function]}
       >
-        <i
-          aria-hidden="true"
-          class="fa fa-angle-double-down"
-        />
+        <DownArrow />
       </button>,
       "className": "WatchFooter",
     },
@@ -36,24 +33,18 @@ ShallowWrapper {
       "key": null,
       "nodeType": "host",
       "props": Object {
-        "children": <i
-          aria-hidden="true"
-          class="fa fa-angle-double-down"
-        />,
+        "children": <DownArrow />,
         "onClick": [Function],
       },
       "ref": null,
       "rendered": Object {
         "instance": null,
         "key": null,
-        "nodeType": "host",
-        "props": Object {
-          "aria-hidden": "true",
-          "class": "fa fa-angle-double-down",
-        },
+        "nodeType": "function",
+        "props": Object {},
         "ref": null,
         "rendered": null,
-        "type": "i",
+        "type": [Function],
       },
       "type": "button",
     },
@@ -68,10 +59,7 @@ ShallowWrapper {
         "children": <button
           onClick={[Function]}
         >
-          <i
-            aria-hidden="true"
-            class="fa fa-angle-double-down"
-          />
+          <DownArrow />
         </button>,
         "className": "WatchFooter",
       },
@@ -81,24 +69,18 @@ ShallowWrapper {
         "key": null,
         "nodeType": "host",
         "props": Object {
-          "children": <i
-            aria-hidden="true"
-            class="fa fa-angle-double-down"
-          />,
+          "children": <DownArrow />,
           "onClick": [Function],
         },
         "ref": null,
         "rendered": Object {
           "instance": null,
           "key": null,
-          "nodeType": "host",
-          "props": Object {
-            "aria-hidden": "true",
-            "class": "fa fa-angle-double-down",
-          },
+          "nodeType": "function",
+          "props": Object {},
           "ref": null,
           "rendered": null,
-          "type": "i",
+          "type": [Function],
         },
         "type": "button",
       },

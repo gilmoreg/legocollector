@@ -3,8 +3,9 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import ReactModal from 'react-modal';
 import { connect } from 'react-redux';
-import throttle from 'lodash.throttle';
+import debounce from 'lodash.debounce';
 import { API_URL } from '../../config';
+import SearchResult from './SearchResult';
 import './AddWatchModal.css';
 
 export class AddWatchModal extends Component {
@@ -15,9 +16,10 @@ export class AddWatchModal extends Component {
       searchTerm: '',
       searchResult: {},
     };
-    this.search = throttle(query => this.queryAPI(query), 250);
+    this.search = debounce(query => this.queryAPI(query), 500);
     this.onInputChange = this.onInputChange.bind(this);
     this.queryAPI = this.queryAPI.bind(this);
+    this.addWatch = this.addWatch.bind(this);
   }
 
   onInputChange(event) {
@@ -34,7 +36,6 @@ export class AddWatchModal extends Component {
       .then(res => res.json())
       .then((res) => {
         if (res && res.result) this.setState({ searchResult: res.result });
-        console.log(res.result);
       })
       .catch(err => console.error(err)); // TODO proper error message
   }
@@ -42,6 +43,20 @@ export class AddWatchModal extends Component {
   submitForm(event) {
     event.preventDefault();
     this.search();
+  }
+
+  addWatch() {
+    if (this.state.searchResult.id) {
+      fetch(`${API_URL}/legoset/add/${this.state.searchTerm}`,
+        { method: 'POST',
+          body: JSON.stringify({ token: this.props.token }),
+        })
+        .then(res => res.json())
+        .then((res) => {
+          if (res && res.result) this.props.close();
+        })
+        .catch(err => console.error(err)); // TODO proper error message
+    }
   }
 
   render() {
@@ -63,6 +78,12 @@ export class AddWatchModal extends Component {
             onChange={this.onInputChange}
           />
         </form>
+        {this.state.searchResult.id ?
+          <SearchResult
+            legoset={this.state.searchResult}
+            onClick={this.addWatch}
+          />
+          : ''}
       </ReactModal>
     );
   }
