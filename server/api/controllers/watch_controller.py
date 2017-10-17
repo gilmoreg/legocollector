@@ -13,6 +13,21 @@ class WatchController(object):
     ''' Controller for watches '''
     def get_users_watches(self, token):
         ''' Return all of a user's Watches '''
+        '''
+            For this and next function, what we actually need is:
+            watches: [
+                watch: {
+                    legoset: {
+                        image, url, title
+                    },
+                    stockLevels: [
+                        { date, level }
+                    ]
+                }
+            ]
+
+            Can skip id, user
+        '''
         # Verify valid user (will raise an exception if it fails)
         user_id = AuthController.authenticate(token)
         watches = Watch.query.filter_by(user=user_id)

@@ -37,17 +37,24 @@ class LegoSet(BaseModel):
     image = db.Column(db.String(255))
     url = db.Column(db.String(255))
     added = db.Column(db.DateTime)
-    stock_levels = db.relationship('StockLevel',
-                                   backref='stock_levels_legoset',
-                                   lazy='dynamic')
-    watches = db.relationship('Watch', backref='watches_legoset',
-                              lazy='dynamic')
+    '''
+    Establishes a collection of StockLevel objects on LegoSet
+    called LegoSet.stock_levels
+    Also establishes a .legoset attribute on StockLevel
+    which refers to the parent LegoSet
 
-    def __init__(self, lego_set):
-        self.id = lego_set['id']
-        self.title = lego_set['title']
-        self.image = lego_set['image']
-        self.url = lego_set['url']
+    When creating a StockLevel object, call
+    legoset.stock_levels.append(stock_level)
+    '''
+    stock_levels = db.relationship('StockLevel',
+                                   back_populates='legoset',
+                                   lazy='dynamic')
+
+    def __init__(self, legoset):
+        self.id = legoset['id']
+        self.title = legoset['title']
+        self.image = legoset['image']
+        self.url = legoset['url']
         self.added = dt.utcnow()
 
     def to_dict(self):
@@ -67,13 +74,17 @@ class Watch(BaseModel):
     '''
     __tablename__ = 'watch'
     id = db.Column(db.Integer, primary_key=True)
-    user = db.Column(db.Integer, db.ForeignKey('user.id'))
-    lego_set = db.Column(db.Integer, db.ForeignKey('legoset.id'))
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
     added = db.Column(db.DateTime)
 
-    def __init__(self, user, lego_set):
-        self.user = user
-        self.lego_set = lego_set
+    '''
+    Establishes a collection of Legoset objects on Watch
+    '''
+    legoset = db.relationship('Legoset')
+
+    def __init__(self, user_id, legoset):
+        self.user_id = user_id
+        self.legoset.append(legoset)
         self.added = dt.utcnow()
 
     
@@ -81,7 +92,7 @@ class Watch(BaseModel):
         return {
             'id': self.id,
             'user': self.user,
-            'lego_set': self.lego_set,
+            'lego_set': self.legoset,
             'added': self.added
         }
 
@@ -94,7 +105,11 @@ class User(BaseModel):
     id = db.Column(db.Integer, primary_key=True)
     email = db.Column(db.String, unique=True)
     added = db.Column(db.DateTime)
-    watches = db.relationship('Watch', backref='watches_user', lazy='dynamic')
+    '''
+    Establishes a collection of Watch objects on User
+    and a .watches_user attribute on Watch
+    '''
+    watches = db.relationship('Watch', back_populates='user', lazy='dynamic')
 
     def __init__(self, email):
         self.email = email
@@ -115,7 +130,7 @@ class StockLevel(BaseModel):
     '''
     __tablename__ = 'stocklevel'
     id = db.Column(db.Integer, primary_key=True)
-    lego_set = db.Column(db.Integer, db.ForeignKey('legoset.id'))
+    legoset_id = db.Column(db.Integer, db.ForeignKey('legoset.id'))
     datetime = db.Column(db.DateTime)
     stock_level = db.Column(db.Integer)
 
