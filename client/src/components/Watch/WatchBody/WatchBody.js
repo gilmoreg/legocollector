@@ -62,7 +62,7 @@ WatchBody.propTypes = {
     title: PropTypes.string.isRequired,
     image: PropTypes.string.isRequired,
     url: PropTypes.string.isRequired,
-    currentStock: PropTypes.number.isRequired,
+    stock_levels: PropTypes.array.isRequired,
   }).isRequired,
   dispatch: PropTypes.func.isRequired,
 };

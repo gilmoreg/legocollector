@@ -14,6 +14,9 @@ beautifulsoup4==4.4.0
 lxml==4.0.0
 requests==2.18.4
 
+# Scheduling
+schedule==0.4.3
+
 # Testing
 pytest-flask==0.10.0
 pytest-cov==2.5.1

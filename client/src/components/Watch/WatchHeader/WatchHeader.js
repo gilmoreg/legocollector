@@ -1,7 +1,17 @@
+/* eslint-disable camelcase */
 import React from 'react';
 import PropTypes from 'prop-types';
 
 import './WatchHeader.css';
+
+const getCurrentStock = (stock_levels) => {
+  const currentLevel = stock_levels[stock_levels.length - 1];
+  if (currentLevel) {
+    if (currentLevel > 999) return '999+';
+    return currentLevel;
+  }
+  return '-';
+};
 
 const WatchHeader = props => (
   <div className="WatchHeader">
@@ -16,11 +26,7 @@ const WatchHeader = props => (
       </a>
     </div>
     <div className="stock">
-      { props.watch.currentStock > 999 ?
-        '999+'
-        :
-        props.watch.currentStock
-      }
+      {getCurrentStock(props.watch.stock_levels)}
     </div>
   </div>
 );
@@ -30,7 +36,7 @@ WatchHeader.propTypes = {
     title: PropTypes.string.isRequired,
     image: PropTypes.string.isRequired,
     url: PropTypes.string.isRequired,
-    currentStock: PropTypes.number.isRequired,
+    stock_levels: PropTypes.array.isRequired,
   }).isRequired,
 };
 

@@ -38,12 +38,12 @@ export class Watch extends Component {
 }
 
 Watch.propTypes = {
-  dispatch: PropTypes.func.isRequired,
+  // dispatch: PropTypes.func.isRequired,
   watch: PropTypes.shape({
     title: PropTypes.string.isRequired,
     image: PropTypes.string.isRequired,
     url: PropTypes.string.isRequired,
-    currentStock: PropTypes.number.isRequired,
+    stock_levels: PropTypes.array.isRequired,
   }).isRequired,
 };
 
