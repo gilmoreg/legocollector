@@ -68,7 +68,7 @@ class LegoSet(BaseModel):
     url = db.Column(db.String(255))
     added = db.Column(db.DateTime, default=dt.utcnow)
 
-    stock_levels = db.relationship(StockLevel)
+    stock_levels = db.relationship(StockLevel, uselist=True, order_by="StockLevel.datetime")
 
 
     def __init__(self, legoset):

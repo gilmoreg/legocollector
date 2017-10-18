@@ -3,24 +3,24 @@
 Adapted from https://github.com/mrhwick/schedule/blob/master/schedule/__init__.py
 '''
 import datetime
-import time
 import threading
 from api.controllers.legoset_controller import LegoSetController
 
-next_call = time.time()
-
-
 def update_stock_levels(app):
-    ''' Task to update stock levels '''
-    global next_call
-    print('updating stock levels', datetime.datetime.now())
-    with app.app_context():
-        try:
-            legoset_controller = LegoSetController()
-            legoset_controller.update_stock_levels()
-            print('stock levels updated', datetime.datetime.now())
-        except:
-            pass # TODO error message
-        # TODO wont next_call eventually exceed int bounds?
-        next_call = next_call+3600 # seconds in an hour
-        threading.Timer(next_call - time.time(), update_stock_levels).start()
+    ''' Schedule update stock levels '''
+    def job():
+        ''' Task to run '''
+        print('updating stock levels', datetime.datetime.now())
+        with app.app_context():
+            try:
+                legoset_controller = LegoSetController()
+                legoset_controller.update_stock_levels()
+                print('stock levels updated', datetime.datetime.now())
+            except Exception as e:
+                print(e)
+            # 3600 seconds in an hour
+            threading.Timer(36000.0, job).start()
+
+    # Start execution
+    print('starting execution')
+    job()

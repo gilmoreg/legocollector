@@ -56,6 +56,8 @@ class LegoSetController(object):
         if set_exists:
             raise FlaskError('Set {} already exists in the database'.format(id), status_code=200)
         new_legoset = self.create_legoset_record(set_id)
+        # Update stock level so we have some inital data to display
+        self.update_stock(new_legoset)
         return new_legoset.to_dict()
 
     
@@ -87,12 +89,22 @@ class LegoSetController(object):
     #  def remove_legoset(self, id)
 
 
+    def cull_stock(self, legoset):
+        ''' Keep only the most recent stock levels '''
+        if len(legoset.stock_levels) > 30:
+            # Stock levels already sorted by date
+            # Keep only the most recent 29
+            legoset.stock_levels[:] = legoset.stock_levels[-30:]
+            legoset.save()
+
+
     def update_stock(self, legoset, amazon):
         ''' 
         Add stock level datapoint for specificed set 
         @param legoset - LegoSet instance
         @param amazon - Amazon instance
         '''
+        self.cull_stock(legoset)
         response = amazon.search(legoset.id)
         item = response.find('item')
         if item is not None:
@@ -121,4 +133,7 @@ class LegoSetController(object):
         legosets = self.get_legosets()
         amazon = Amazon()
         for legoset in legosets:
-            self.update_stock(legoset, amazon)
+            try:
+                self.update_stock(legoset, amazon)
+            except:
+                pass

@@ -18,7 +18,7 @@ def create_app(config_object=ProdConfig):
     db.init_app(app)
     register_blueprints(app)
     register_errorhandlers(app)
-    update_stock_levels(app)
+    # update_stock_levels(app)
     return app
 
 

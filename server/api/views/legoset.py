@@ -38,3 +38,17 @@ def find_legoset_view(id):
         return e.json_response()
     except Exception as e:
         return exception_json_response(e)
+
+@blueprint.route('/legoset/update', methods=['GET'])
+def update():
+    '''
+    Development method for manually updating stock levels
+    TODO remove before deployment
+    '''
+    try:
+        legoset_controller.update_stock_levels()
+        return jsonify({'result':'success'})
+    except FlaskError as e:
+        return e.json_response()
+    except Exception as e:
+        return exception_json_response(e)

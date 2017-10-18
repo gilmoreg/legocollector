@@ -12,6 +12,7 @@ RUN pip install -r /src/requirements.txt
 ENV PYTHONPATH /src/
 ENV FLASK_APP /src/api
 ENV SETTINGS /src/api/config.py
+ENV PYTHONUNBUFFERED 0
 
 EXPOSE 5000
 

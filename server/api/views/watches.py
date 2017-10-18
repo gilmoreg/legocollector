@@ -51,7 +51,4 @@ def add_watch():
         error = FlaskError('Must supply a token and a set ID', status_code=400)
         return error.json_response()
     except Exception as e:
-        return exception_json_response(e)
-        
-        
-        
+        return exception_json_response(e)  
