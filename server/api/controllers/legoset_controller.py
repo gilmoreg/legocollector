@@ -87,13 +87,14 @@ class LegoSetController(object):
     #  def remove_legoset(self, id)
 
 
-    def update_stock(self, set, amazon):
+    def update_stock(self, legoset, amazon):
         ''' 
         Add stock level datapoint for specificed set 
-        @param set - LegoSet instance
+        @param legoset - LegoSet instance
         @param amazon - Amazon instance
         '''
         response = amazon.search(legoset.id)
+        item = response.find('item')
         if item is not None:
                 level = item.find('totalnew').get_text()
                 if level is not None:
