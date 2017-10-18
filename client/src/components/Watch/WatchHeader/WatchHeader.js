@@ -7,8 +7,9 @@ import './WatchHeader.css';
 const getCurrentStock = (stock_levels) => {
   const currentLevel = stock_levels[stock_levels.length - 1];
   if (currentLevel) {
-    if (currentLevel > 999) return '999+';
-    return currentLevel;
+    const amount = currentLevel.stock_level;
+    if (amount > 999) return '999+';
+    return `${amount}`;
   }
   return '-';
 };

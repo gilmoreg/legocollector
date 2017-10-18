@@ -7,6 +7,7 @@ from api.config import ProdConfig
 from api.database import db
 import api.views as views
 from api.errors import FlaskError
+from api.schedule import update_stock_levels
 
 
 def create_app(config_object=ProdConfig):
@@ -17,6 +18,7 @@ def create_app(config_object=ProdConfig):
     db.init_app(app)
     register_blueprints(app)
     register_errorhandlers(app)
+    update_stock_levels(app)
     return app
 
 
