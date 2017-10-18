@@ -1,6 +1,7 @@
 ''' Tests for models '''
 import pytest
-from api.models import User, LegoSet, Watch, StockLevel
+from api.models import User, LegoSet, StockLevel
+from .factories import create_user, create_legoset
 
 
 @pytest.mark.usefixtures('db')
@@ -28,25 +29,21 @@ class TestLegoSet:
         legoset.save()
         retrieved = LegoSet.query.filter_by(id=12345).first()
         assert retrieved == legoset
+    
 
-
-@pytest.mark.usefixtures('db')
-class TestWatch:
-    ''' Tests for Watch model '''
-    def test_creation(self):
-        user = User('test@test.com')
-        user.save()
+    def test_create_with_user(self):
+        ''' Attach a set to a user '''
         legoset = LegoSet({
             'id': 12345,
             'title': 'test',
             'image': 'test',
             'url': 'test',
-        })
-        legoset.save()
-        watch = Watch(user.id, legoset.id)
-        watch.save()
-        retrieved = Watch.query.filter_by(id=watch.id).first()
-        assert retrieved == watch
+        }).save()
+        user = User('test@test.com')
+        user.watches.append(legoset)
+        user.save()
+        retrieved = User.query.first()
+        assert retrieved.watches[0] == legoset
 
 
 @pytest.mark.usefixtures('db')
@@ -58,11 +55,11 @@ class TestStockLevel:
             'title': 'test',
             'image': 'test',
             'url': 'test',
-        })
+        }).save()
+        stock_level = StockLevel(999).save()
+        legoset.stock_levels.append(stock_level)
         legoset.save()
-        stock_level = StockLevel(legoset.id, 0)
-        stock_level.save()
-        retrieved = StockLevel.query.filter_by(id=stock_level.id).first()
-        assert retrieved == stock_level
-        json = retrieved.to_dict()
-        assert json['lego_set'] == 12345
+        retrieved_stock_level = legoset.stock_levels[0]
+        assert retrieved_stock_level == stock_level
+        
+        

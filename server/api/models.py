@@ -2,7 +2,15 @@
   Model definitions
 '''
 from api.database import db
+from sqlalchemy.ext.declarative import declarative_base
 from datetime import datetime as dt
+
+'''
+Establish many-to-many relationship between Users and Legosets called 'watches'
+'''
+watch_table = db.Table('user_legoset_association', db.metadata,
+                    db.Column('user_id', db.Integer, db.ForeignKey('user.id')),
+                    db.Column('legoset_id', db.Integer, db.ForeignKey('legoset.id')))
 
 
 class BaseModel(db.Model):
@@ -26,6 +34,28 @@ class BaseModel(db.Model):
         return self
 
 
+class StockLevel(BaseModel):
+    '''
+    Model storing a stock level datapoint
+    '''
+    __tablename__ = 'stocklevel'
+    id = db.Column(db.Integer, primary_key=True)
+    legoset_id = db.Column(db.Integer, db.ForeignKey('legoset.id'))
+    datetime = db.Column(db.DateTime, default=dt.utcnow)
+    stock_level = db.Column(db.Integer)
+
+    def __init__(self, stock_level):
+        self.stock_level = stock_level
+
+
+    def to_dict(self):
+        return {
+            'id': self.id,
+            'stock_level': self.stock_level,
+            'datetime': self.datetime
+        }
+
+
 class LegoSet(BaseModel):
     '''
     Model for watched Lego set
@@ -36,26 +66,17 @@ class LegoSet(BaseModel):
     title = db.Column(db.String(255))
     image = db.Column(db.String(255))
     url = db.Column(db.String(255))
-    added = db.Column(db.DateTime)
-    '''
-    Establishes a collection of StockLevel objects on LegoSet
-    called LegoSet.stock_levels
-    Also establishes a .legoset attribute on StockLevel
-    which refers to the parent LegoSet
+    added = db.Column(db.DateTime, default=dt.utcnow)
 
-    When creating a StockLevel object, call
-    legoset.stock_levels.append(stock_level)
-    '''
-    stock_levels = db.relationship('StockLevel',
-                                   back_populates='legoset',
-                                   lazy='dynamic')
+    stock_levels = db.relationship(StockLevel)
+
 
     def __init__(self, legoset):
         self.id = legoset['id']
         self.title = legoset['title']
         self.image = legoset['image']
         self.url = legoset['url']
-        self.added = dt.utcnow()
+
 
     def to_dict(self):
         return {
@@ -63,37 +84,8 @@ class LegoSet(BaseModel):
             'title': self.title,
             'image': self.image,
             'url': self.url,
-            'added': self.added
-        }
-
-
-class Watch(BaseModel):
-    '''
-    Stores mapping from User to LegoSet
-    Indicating this user watches this set
-    '''
-    __tablename__ = 'watch'
-    id = db.Column(db.Integer, primary_key=True)
-    user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
-    added = db.Column(db.DateTime)
-
-    '''
-    Establishes a collection of Legoset objects on Watch
-    '''
-    legoset = db.relationship('Legoset')
-
-    def __init__(self, user_id, legoset):
-        self.user_id = user_id
-        self.legoset.append(legoset)
-        self.added = dt.utcnow()
-
-    
-    def to_dict(self):
-        return {
-            'id': self.id,
-            'user': self.user,
-            'lego_set': self.legoset,
-            'added': self.added
+            'added': self.added,
+            'stock_levels': list(map(lambda s: s.to_dict(), self.stock_levels))
         }
 
 
@@ -104,46 +96,19 @@ class User(BaseModel):
     __tablename__ = 'user'
     id = db.Column(db.Integer, primary_key=True)
     email = db.Column(db.String, unique=True)
-    added = db.Column(db.DateTime)
-    '''
-    Establishes a collection of Watch objects on User
-    and a .watches_user attribute on Watch
-    '''
-    watches = db.relationship('Watch', back_populates='user', lazy='dynamic')
+    added = db.Column(db.DateTime, default=dt.utcnow)
 
+    watches = db.relationship(LegoSet, secondary=watch_table)
+
+    
     def __init__(self, email):
         self.email = email
-        self.added = dt.utcnow()
 
     
     def to_dict(self):
         return {
             'id': self.id,
             'email': self.email,
-            'added': self.added
-        }
-
-
-class StockLevel(BaseModel):
-    '''
-    Model storing a stock level datapoint
-    '''
-    __tablename__ = 'stocklevel'
-    id = db.Column(db.Integer, primary_key=True)
-    legoset_id = db.Column(db.Integer, db.ForeignKey('legoset.id'))
-    datetime = db.Column(db.DateTime)
-    stock_level = db.Column(db.Integer)
-
-    def __init__(self, lego_set, stock_level):
-        self.lego_set = lego_set
-        self.stock_level = stock_level
-        self.datetime = dt.utcnow()
-
-
-    def to_dict(self):
-        return {
-            'id': self.id,
-            'lego_set': self.lego_set,
-            'stock_level': self.stock_level,
-            'datetime': self.datetime
+            'added': self.added,
+            'watches': list(map(lambda w: w.to_dict(), self.watches))
         }

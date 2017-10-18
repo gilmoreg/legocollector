@@ -66,5 +66,5 @@ class AuthController(object):
         user_id = AuthController.authenticate(token)
         user = User.query.filter_by(id=user_id).first()
         if user is not None:
-            return user.to_dict()
+            return user
         raise FlaskError('User not found', status_code=401)

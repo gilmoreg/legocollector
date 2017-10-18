@@ -60,14 +60,14 @@ class TestAuthController:
     def test_get_user(self):
         user = create_user('test@test.com')
         auth_controller = AuthController()
-        retrieved = auth_controller.get_user(user['token'])
-        assert retrieved['id'] == user['id']
+        retrieved = auth_controller.get_user(user['token']).to_dict()
+        assert retrieved['id'] == user['user'].id
         assert retrieved['email'] == user['email']
 
     def test_get_user_notfound(self):
         auth_controller = AuthController()
         try:
             token = AuthController.create_jwt('test@test.com')
-            retrieved = auth_controller.get_user(token)
+            retrieved = auth_controller.get_user(token).to_dict()
         except FlaskError as e:
             assert e.to_dict() == {'message': 'User not found', 'status_code': 401}

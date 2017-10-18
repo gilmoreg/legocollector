@@ -17,7 +17,7 @@ class TestLegoSetController:
         mock_bottlenose.return_value = bottlenose_mock_success
 
         with patch.object(Amazon, 'search', mock_bottlenose):
-            legoset = legoset_controller.create_legoset_record(12345)
+            legoset = legoset_controller.create_legoset_record(12345).to_dict()
             assert legoset['id'] == 12345
             assert legoset['title'] == 'Test Set Title'
 

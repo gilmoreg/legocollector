@@ -30,7 +30,7 @@ class LegoSetController(object):
             })
             try:
                 new_legoset.save()
-                return new_legoset.to_dict()
+                return new_legoset
             except:
                 raise FlaskError('Unable to save new set to database', status_code=500)
         raise FlaskError('Could not find set {} on Amazon'.format(set_id), status_code=400)
@@ -50,7 +50,7 @@ class LegoSetController(object):
         if set_exists:
             raise FlaskError('Set {} already exists in the database'.format(id), status_code=200)
         new_legoset = self.create_legoset_record(set_id)
-        return new_legoset
+        return new_legoset.to_dict()
 
     
     def search(self, set_id, token):
