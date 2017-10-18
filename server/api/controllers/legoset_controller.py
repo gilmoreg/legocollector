@@ -3,7 +3,7 @@
     Controller for legosets
 '''
 from api.amazon import Amazon
-from api.models import LegoSet
+from api.models import LegoSet, StockLevel
 from api.errors import FlaskError
 from api.controllers.auth_controller import AuthController
 
@@ -12,6 +12,12 @@ class LegoSetController(object):
     '''
         Controller for legosets
     '''
+    @staticmethod
+    def get_legosets():
+        ''' Get all legoset records '''
+        return LegoSet.query.all()
+
+
     def create_legoset_record(self, set_id):
         ''' 
             Add a legoset to the database
@@ -79,3 +85,21 @@ class LegoSetController(object):
     
     
     #  def remove_legoset(self, id)
+
+    def update_stock_levels(self):
+        ''' 
+        Query Amazon for each Legoset in database,
+        add a StockLevel datapoint for each one
+        This function runs on a schedule set up in app.py
+        '''
+        legosets = self.get_legosets()
+        for legoset in legosets:
+            amazon = Amazon()
+            response = amazon.search(legoset.id)
+            item = response.find('item')
+            if item is not None:
+                level = item.find('totalnew').get_text()
+                if level is not None:
+                    stock_level = StockLevel(level)
+                    legoset.stock_levels.append(stock_level)
+                    legoset.save()

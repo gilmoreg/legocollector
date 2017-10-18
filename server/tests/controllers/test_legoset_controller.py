@@ -53,4 +53,18 @@ class TestLegoSetController:
                     'message': 'Unable to save new set to database',
                     'status_code': 500
                 }
- 
+
+
+    @pytest.mark.usefixtures('db')
+    def test_udpate_stock_levels(self, client):
+        ''' Test updating stock levels '''
+        legoset_controller = LegoSetController()
+        mock_bottlenose = Mock(name='search')
+        mock_bottlenose.return_value = bottlenose_mock_success
+        with patch.object(Amazon, 'search', mock_bottlenose):
+            legoset_controller.create_legoset_record(12345)
+            legoset_controller.create_legoset_record(54321)
+            legoset_controller.update_stock_levels()
+            legosets = legoset_controller.get_legosets()
+            assert len(legosets[0].stock_levels) == 1
+            assert len(legosets[1].stock_levels) == 1

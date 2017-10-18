@@ -3,6 +3,7 @@ from os import environ
 import bottlenose
 from bs4 import BeautifulSoup
 
+
 class Amazon:
     ''' Class for wrapping Bottlenose, the Amazon API library '''
     def __init__(self, *args, **kwargs):

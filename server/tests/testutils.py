@@ -46,6 +46,7 @@ bottlenose_mock_success = BeautifulSoup('''
                     <detailpageurl>https://amazon.com/test_setname/dp/TESTASIN00</detailpageurl>
                     <itemattributes>
                         <title>Test Set Title</title>
+                        <totalnew>998</totalnew>
                     </itemattributes>
                     <mediumimage>
                         <url>https://images-na.ssl-images-amazon.com/images/I/Test._SL160_.jpg</url>
