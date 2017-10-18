@@ -86,20 +86,38 @@ class LegoSetController(object):
     
     #  def remove_legoset(self, id)
 
-    def update_stock_levels(self):
+
+    def update_stock(self, set, amazon):
         ''' 
-        Query Amazon for each Legoset in database,
-        add a StockLevel datapoint for each one
-        This function runs on a schedule set up in app.py
+        Add stock level datapoint for specificed set 
+        @param set - LegoSet instance
+        @param amazon - Amazon instance
         '''
-        legosets = self.get_legosets()
-        for legoset in legosets:
-            amazon = Amazon()
-            response = amazon.search(legoset.id)
-            item = response.find('item')
-            if item is not None:
+        response = amazon.search(legoset.id)
+        if item is not None:
                 level = item.find('totalnew').get_text()
                 if level is not None:
                     stock_level = StockLevel(level)
                     legoset.stock_levels.append(stock_level)
                     legoset.save()
+
+
+    def update_stock_by_id(self, set_id):
+        '''
+        Given just a set_id, add stock level datapoint
+        @param set_id - int representing set id
+        '''
+        legoset = LegoSet.query.filter_by(id=set_id).first()
+        self.update_stock(legoset, Amazon())
+
+
+    def update_stock_levels(self):
+        ''' 
+        Query Amazon for each Legoset in database,
+        add a StockLevel datapoint for each one
+        This function runs on a schedule set up in api/schedule.py
+        '''
+        legosets = self.get_legosets()
+        amazon = Amazon()
+        for legoset in legosets:
+            self.update_stock(legoset, amazon)

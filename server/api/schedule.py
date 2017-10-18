@@ -20,6 +20,7 @@ def update_stock_levels(app):
             legoset_controller.update_stock_levels()
             print('stock levels updated', datetime.datetime.now())
         except:
-            pass
-        next_call = next_call+30 # seconds in an hour
+            pass # TODO error message
+        # TODO wont next_call eventually exceed int bounds?
+        next_call = next_call+3600 # seconds in an hour
         threading.Timer(next_call - time.time(), update_stock_levels).start()
