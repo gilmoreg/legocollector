@@ -15,13 +15,6 @@ const checkProfile = () => {
   return null;
 };
 
-const fakeWatch = {
-  title: 'LEGO Ideas NASA Apollo Saturn V 21309 Building Kit',
-  image: 'https://images-na.ssl-images-amazon.com/images/I/413yqVUgjcL._SL160_.jpg',
-  url: 'https://www.amazon.com/LEGO-Ideas-Apollo-Saturn-Building/dp/B01MUANC80?psc=1&SubscriptionId=AKIAJ57KMBTCZPRJ5I5Q&tag=gilmoreg-20&linkCode=xm2&camp=2025&creative=165953&creativeASIN=B01MUANC80',
-  currentStock: 1000,
-};
-
 export class App extends Component {
   constructor(props) {
     super(props);
@@ -41,12 +34,15 @@ export class App extends Component {
   }
 
   render() {
+    const watches = this.props.watches.map(watch =>
+      <Watch watch={watch} key={watch.id} />);
+
     return (
       <div className="App">
         { this.props.loggedIn ?
           <span>Logged in as {this.props.email}</span> :
           <Login /> }
-        <Watch watch={fakeWatch} />
+        {watches}
         <AddWatchButton
           openModal={() => this.setState({ newWatchModalOpen: !this.state.newWatchModalOpen })}
         />
@@ -65,16 +61,19 @@ App.propTypes = {
   dispatch: PropTypes.func.isRequired,
   loggedIn: PropTypes.bool,
   email: PropTypes.string,
+  watches: PropTypes.array,
 };
 
 App.defaultProps = {
   loggedIn: false,
   email: '',
+  watches: [],
 };
 
 const mapStateToProps = state => ({
   loggedIn: state.loggedIn,
   email: state.email,
+  watches: state.watches,
 });
 
 export default connect(mapStateToProps)(App);
