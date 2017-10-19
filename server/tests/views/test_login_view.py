@@ -1,17 +1,18 @@
-''' Tests for login views '''
+""" Tests for login views """
 import pytest
+# noinspection PyCompatibility
 from unittest.mock import Mock, patch
 import requests
-from ..testutils import post_json, decode_json, amazon_fail, amazon_success
+from ..testutils import post_json, decode_json, AmazonFail, AmazonSuccess
 
 
 @pytest.mark.usefixtures('db')
-class TestLoginView():
-    ''' Tests for /login '''
+class TestLoginView:
+    """ Tests for /login """
     def test_login(self, client):
-        ''' Test /login success '''
+        """ Test /login success """
         mock_amazon = Mock(name='get')
-        mock_amazon.return_value = amazon_success
+        mock_amazon.return_value = AmazonSuccess
 
         with patch.object(requests, 'get', mock_amazon):
             response = post_json(client, '/login', {
@@ -21,9 +22,9 @@ class TestLoginView():
             assert json['email'] == 'test@test.com'
 
     def test_login_fail(self, client):
-        ''' Test with amazon fail response'''
+        """ Test with amazon fail response"""
         mock_amazon = Mock(name='get')
-        mock_amazon.return_value = amazon_fail
+        mock_amazon.return_value = AmazonFail
 
         with patch.object(requests, 'get', mock_amazon):
             response = post_json(client, '/login', {

@@ -1,4 +1,4 @@
-''' Tests for models '''
+""" Tests for models """
 import pytest
 from api.models import User, LegoSet, StockLevel
 from .factories import create_user, create_legoset
@@ -6,7 +6,8 @@ from .factories import create_user, create_legoset
 
 @pytest.mark.usefixtures('db')
 class TestUser:
-    ''' Tests for User model '''
+    """ Tests for User model """
+
     def test_creation(self):
         user = User('test@test.com')
         user.save()
@@ -18,7 +19,8 @@ class TestUser:
 
 @pytest.mark.usefixtures('db')
 class TestLegoSet:
-    ''' Tests for LegoSet model '''
+    """ Tests for LegoSet model """
+
     def test_creation(self):
         legoset = LegoSet({
             'id': 12345,
@@ -29,10 +31,9 @@ class TestLegoSet:
         legoset.save()
         retrieved = LegoSet.query.filter_by(id=12345).first()
         assert retrieved == legoset
-    
 
     def test_create_with_user(self):
-        ''' Attach a set to a user '''
+        """ Attach a set to a user """
         legoset = LegoSet({
             'id': 12345,
             'title': 'test',
@@ -48,7 +49,8 @@ class TestLegoSet:
 
 @pytest.mark.usefixtures('db')
 class TestStockLevel:
-    ''' Tests for StockLevel model '''
+    """ Tests for StockLevel model """
+
     def test_creation(self):
         legoset = LegoSet({
             'id': 12345,
@@ -61,5 +63,3 @@ class TestStockLevel:
         legoset.save()
         retrieved_stock_level = legoset.stock_levels[0]
         assert retrieved_stock_level == stock_level
-        
-        

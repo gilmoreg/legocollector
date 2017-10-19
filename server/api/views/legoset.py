@@ -1,13 +1,14 @@
-'''
+"""
     /api/views/legoset.py
     Views for /legoset
-'''
+"""
 from flask import Blueprint, jsonify, request, current_app
 from api.controllers.legoset_controller import LegoSetController
 from api.errors import FlaskError, exception_json_response
 
 blueprint = Blueprint('legoset', __name__)
 legoset_controller = LegoSetController()
+
 
 @blueprint.route('/legoset/add/<id>', methods=['POST'])
 def add_legoset_view(id):
@@ -24,6 +25,7 @@ def add_legoset_view(id):
     except Exception as e:
         return exception_json_response(e)
 
+
 @blueprint.route('/legoset/search/<id>', methods=['GET'])
 def find_legoset_view(id):
     try:
@@ -39,15 +41,16 @@ def find_legoset_view(id):
     except Exception as e:
         return exception_json_response(e)
 
+
 @blueprint.route('/legoset/update', methods=['GET'])
 def update():
-    '''
+    """
     Development method for manually updating stock levels
     TODO remove before deployment
-    '''
+    """
     try:
         legoset_controller.update_stock_levels()
-        return jsonify({'result':'success'})
+        return jsonify({'result': 'success'})
     except FlaskError as e:
         return e.json_response()
     except Exception as e:

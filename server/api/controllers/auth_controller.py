@@ -1,7 +1,7 @@
-'''
+"""
     /api/controllers/auth_controller.py
     Controller for authentication
-'''
+"""
 import jwt
 import requests
 from os import environ
@@ -10,20 +10,20 @@ from api.errors import FlaskError
 
 
 class AuthController(object):
-    ''' Controller for authentication '''
+    """ Controller for authentication """
+
     @staticmethod
     def create_jwt(user_id):
-        ''' Create JSON Web Token and decode to string '''
+        """ Create JSON Web Token and decode to string """
         token = jwt.encode(
             {'user': user_id},
             environ['JWT_SECRET'],
             algorithm='HS256')
         return token.decode('utf-8')
 
-
     @staticmethod
     def authenticate(token):
-        ''' Decode JWT and extract user id '''
+        """ Decode JWT and extract user id """
         try:
             decoded = jwt.decode(token, environ['JWT_SECRET'], algorithms=['HS256'])
             return decoded['user']
@@ -31,10 +31,9 @@ class AuthController(object):
             ''' If token is invalid raise an error '''
             raise FlaskError('Could not authenticate user', status_code=401)
 
-
     @staticmethod
     def login(amazon_token):
-        '''
+        """
         Performs the following:
         1. Asks Amazon about this access token
         2. Gets an email address
@@ -44,10 +43,10 @@ class AuthController(object):
         5. Returns token and the email (for display purposes) to the user
         for future requests
         The client side can then stash the JWT in localStorage
-        '''
+        """
         profile = requests.get(
             'https://api.amazon.com/user/profile?access_token={}'
-            .format(amazon_token)).json()
+                .format(amazon_token)).json()
         if 'email' in profile:
             user = User.query.filter_by(email=profile['email']).first()
             if user is not None:
@@ -59,10 +58,9 @@ class AuthController(object):
                 return {'token': token, 'email': profile['email']}
         raise FlaskError('Could not authenticate user', status_code=401)
 
-    
     @staticmethod
     def get_user(token):
-        ''' Get a User object from a token '''
+        """ Get a User object from a token """
         user_id = AuthController.authenticate(token)
         user = User.query.filter_by(id=user_id).first()
         if user is not None:

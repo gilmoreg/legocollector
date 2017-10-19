@@ -1,15 +1,17 @@
-''' 
-/api/schedule.py 
+"""
+/api/schedule.py
 Adapted from https://github.com/mrhwick/schedule/blob/master/schedule/__init__.py
-'''
+"""
 import datetime
 import threading
 from api.controllers.legoset_controller import LegoSetController
 
+
 def update_stock_levels(app):
-    ''' Schedule update stock levels '''
+    """ Schedule update stock levels """
+
     def job():
-        ''' Task to run '''
+        """ Task to run """
         print('updating stock levels', datetime.datetime.now())
         with app.app_context():
             try:

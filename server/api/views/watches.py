@@ -1,7 +1,7 @@
-'''
+"""
     /api/views/watches.py
     Views for /watches
-'''
+"""
 from flask import Blueprint, request, jsonify, current_app
 from api.controllers.watch_controller import WatchController
 from api.errors import FlaskError, exception_json_response
@@ -13,7 +13,7 @@ watch_controller = WatchController()
 
 @blueprint.route('/watches', methods=['GET'])
 def get_users_watches():
-    ''' Return all watched sets for a user '''
+    """ Return all watched sets for a user """
     try:
         token = request.args.get('token')
         watches = watch_controller.get_users_watches(token)
@@ -27,7 +27,7 @@ def get_users_watches():
 
 @blueprint.route('/watches/<id>', methods=['GET'])
 def get_watch(id):
-    ''' Return specific watch '''
+    """ Return specific watch """
     try:
         watch_id = id or request.args.get('id')
         token = request.args.get('token')
@@ -42,7 +42,7 @@ def get_watch(id):
 
 @blueprint.route('/watches/add', methods=['POST'])
 def add_watch():
-    ''' Add a watched set to the database, return mongo ID '''
+    """ Add a watched set to the database, return mongo ID """
     data = request.get_json(force=True)
     try:
         watch = watch_controller.add_watch(data['token'], data['id'])

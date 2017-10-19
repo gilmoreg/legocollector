@@ -1,7 +1,7 @@
-''' 
+"""
     Utilities for testing
     Some adapted from https://serge-m.github.io/testing-json-responses-in-Flask-REST-apps-with-pytest.html
-'''
+"""
 import json
 import jwt
 import traceback
@@ -10,7 +10,7 @@ from bs4 import BeautifulSoup
 
 
 def create_jwt(user_id):
-    ''' Create JSON Web Token and decode to string '''
+    """ Create JSON Web Token and decode to string """
     token = jwt.encode(
         {'user': user_id},
         environ['JWT_SECRET'],
@@ -19,7 +19,7 @@ def create_jwt(user_id):
 
 
 def create_bad_jwt():
-    ''' Create invalid JWT for testing '''
+    """ Create invalid JWT for testing """
     token = jwt.encode(
         {'user': 'garbage'},
         'wrong secret',
@@ -28,14 +28,16 @@ def create_bad_jwt():
 
 
 def decode_json(response):
-    ''' Decode JSON from Flask response '''
+    """ Decode JSON from Flask response """
     return json.loads(response.data.decode('utf8'))
 
+
 def post_json(client, url, json_dict):
-    '''Send dictionary json_dict as a json to the specified url '''
+    """Send dictionary json_dict as a json to the specified url """
     response = client.post(url, data=json.dumps(json_dict), content_type='application/json')
     print(response)
     return response
+
 
 bottlenose_mock_success = BeautifulSoup('''
     <?xml version="1.0" ?>
@@ -80,7 +82,7 @@ bottlenose_mock_empty = BeautifulSoup('''
 ''', 'lxml')
 
 
-class amazon_success:
+class AmazonSuccess:
     def __init__(self, *args, **kwargs):
         pass
 
@@ -88,12 +90,13 @@ class amazon_success:
     def json():
         return {
             "user_id": "amznl.account.TEST",
-            "email":"test@test.com",
-            "name" :"Test Test",
+            "email": "test@test.com",
+            "name": "Test Test",
             "postal_code": "00000"
         }
 
-class amazon_fail:
+
+class AmazonFail:
     def __init__(self, *args, **kwargs):
         pass
 

@@ -1,1 +1,1 @@
-''' Tests for views '''
+""" Tests for views """

@@ -1,6 +1,6 @@
-'''
+"""
   Model definitions
-'''
+"""
 from api.database import db
 from sqlalchemy.ext.declarative import declarative_base
 from datetime import datetime as dt
@@ -9,10 +9,11 @@ from datetime import datetime as dt
 Establish many-to-many relationship between Users and Legosets called 'watches'
 '''
 watch_table = db.Table('user_legoset_association', db.metadata,
-                    db.Column('user_id', db.Integer, db.ForeignKey('user.id')),
-                    db.Column('legoset_id', db.Integer, db.ForeignKey('legoset.id')))
+                       db.Column('user_id', db.Integer, db.ForeignKey('user.id')),
+                       db.Column('legoset_id', db.Integer, db.ForeignKey('legoset.id')))
 
 
+# noinspection PyCompatibility
 class BaseModel(db.Model):
     """Base data model for all objects"""
     __abstract__ = True
@@ -27,7 +28,6 @@ class BaseModel(db.Model):
             for column, value in self.to_dict().items()
         })
 
-
     def save(self):
         db.session.add(self)
         db.session.commit()
@@ -35,9 +35,9 @@ class BaseModel(db.Model):
 
 
 class StockLevel(BaseModel):
-    '''
+    """
     Model storing a stock level datapoint
-    '''
+    """
     __tablename__ = 'stocklevel'
     id = db.Column(db.Integer, primary_key=True)
     legoset_id = db.Column(db.Integer, db.ForeignKey('legoset.id'))
@@ -46,7 +46,6 @@ class StockLevel(BaseModel):
 
     def __init__(self, stock_level):
         self.stock_level = stock_level
-
 
     def to_dict(self):
         return {
@@ -57,9 +56,9 @@ class StockLevel(BaseModel):
 
 
 class LegoSet(BaseModel):
-    '''
+    """
     Model for watched Lego set
-    '''
+    """
     __tablename__ = 'legoset'
     # Equal to the official lego Set Number
     id = db.Column(db.Integer, primary_key=True)
@@ -70,13 +69,11 @@ class LegoSet(BaseModel):
 
     stock_levels = db.relationship(StockLevel, uselist=True, order_by="StockLevel.datetime")
 
-
     def __init__(self, legoset):
         self.id = legoset['id']
         self.title = legoset['title']
         self.image = legoset['image']
         self.url = legoset['url']
-
 
     def to_dict(self):
         return {
@@ -90,9 +87,9 @@ class LegoSet(BaseModel):
 
 
 class User(BaseModel):
-    '''
+    """
     Model for User
-    '''
+    """
     __tablename__ = 'user'
     id = db.Column(db.Integer, primary_key=True)
     email = db.Column(db.String, unique=True)
@@ -100,11 +97,9 @@ class User(BaseModel):
 
     watches = db.relationship(LegoSet, secondary=watch_table)
 
-    
     def __init__(self, email):
         self.email = email
 
-    
     def to_dict(self):
         return {
             'id': self.id,
