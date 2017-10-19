@@ -1,9 +1,11 @@
 """ Tests for Amazon """
-import pytest
 # noinspection PyCompatibility
 from unittest.mock import Mock, patch
-from .testutils import bottlenose_mock_success, bottlenose_mock_empty
+
+import pytest
+
 from api.amazon import Amazon
+from .testutils import bottlenose_mock_success
 
 
 @pytest.mark.usefixtures('db')

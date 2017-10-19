@@ -2,7 +2,8 @@
     /api/views/legoset.py
     Views for /legoset
 """
-from flask import Blueprint, jsonify, request, current_app
+from flask import Blueprint, jsonify, request
+
 from api.controllers.legoset_controller import LegoSetController
 from api.errors import FlaskError, exception_json_response
 

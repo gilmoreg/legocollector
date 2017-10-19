@@ -3,9 +3,9 @@
     Some adapted from https://serge-m.github.io/testing-json-responses-in-Flask-REST-apps-with-pytest.html
 """
 import json
-import jwt
-import traceback
 from os import environ
+
+import jwt
 from bs4 import BeautifulSoup
 
 

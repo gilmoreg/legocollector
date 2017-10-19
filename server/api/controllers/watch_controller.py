@@ -2,11 +2,9 @@
     /api/controllers/watch_controller.py
     Controller for /watches routes
 """
-import json
-from api.models import LegoSet, User
 from api.controllers.auth_controller import AuthController
 from api.controllers.legoset_controller import LegoSetController
-from api.errors import FlaskError
+from api.models import LegoSet
 
 
 class WatchController(object):

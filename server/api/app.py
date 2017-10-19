@@ -1,13 +1,13 @@
 """
     Factory functions for setup
 """
-from flask import Flask, jsonify, g
+from flask import Flask, jsonify
 from flask_cors import CORS
+
+import api.views as views
 from api.config import ProdConfig
 from api.database import db
-import api.views as views
 from api.errors import FlaskError
-from api.schedule import update_stock_levels
 
 
 def create_app(config_object=ProdConfig):

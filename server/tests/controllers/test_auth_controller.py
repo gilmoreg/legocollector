@@ -1,13 +1,15 @@
 """ Tests for legoset controller """
-import pytest
 # noinspection PyCompatibility
 from unittest.mock import Mock, patch
+
+import pytest
 import requests
+
 from api.controllers.auth_controller import AuthController
-from api.models import User
 from api.errors import FlaskError
-from ..testutils import AmazonSuccess, AmazonFail, create_bad_jwt
+from api.models import User
 from ..factories import create_user
+from ..testutils import AmazonSuccess, AmazonFail
 
 
 @pytest.mark.usefixtures('db')

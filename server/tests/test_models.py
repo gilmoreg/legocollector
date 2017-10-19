@@ -1,7 +1,7 @@
 """ Tests for models """
 import pytest
+
 from api.models import User, LegoSet, StockLevel
-from .factories import create_user, create_legoset
 
 
 @pytest.mark.usefixtures('db')

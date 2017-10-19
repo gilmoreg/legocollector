@@ -1,6 +1,6 @@
 """ Factories for tests """
-from api.models import User, LegoSet, StockLevel
 from api.controllers.auth_controller import AuthController
+from api.models import User, LegoSet
 
 
 def create_user(email):

@@ -1,9 +1,9 @@
 """
   Model definitions
 """
-from api.database import db
-from sqlalchemy.ext.declarative import declarative_base
 from datetime import datetime as dt
+
+from api.database import db
 
 '''
 Establish many-to-many relationship between Users and Legosets called 'watches'
@@ -44,7 +44,8 @@ class StockLevel(BaseModel):
     datetime = db.Column(db.DateTime, default=dt.utcnow)
     stock_level = db.Column(db.Integer)
 
-    def __init__(self, stock_level):
+    def __init__(self, stock_level, *args):
+        super().__init__(*args)
         self.stock_level = stock_level
 
     def to_dict(self):
@@ -69,7 +70,8 @@ class LegoSet(BaseModel):
 
     stock_levels = db.relationship(StockLevel, uselist=True, order_by="StockLevel.datetime")
 
-    def __init__(self, legoset):
+    def __init__(self, legoset, *args):
+        super().__init__(*args)
         self.id = legoset['id']
         self.title = legoset['title']
         self.image = legoset['image']
@@ -97,7 +99,8 @@ class User(BaseModel):
 
     watches = db.relationship(LegoSet, secondary=watch_table)
 
-    def __init__(self, email):
+    def __init__(self, email, *args):
+        super().__init__(*args)
         self.email = email
 
     def to_dict(self):

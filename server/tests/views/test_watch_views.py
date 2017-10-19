@@ -1,12 +1,12 @@
 """ Tests for /watch views """
-import pytest
 # noinspection PyCompatibility
 from unittest.mock import Mock, patch
-from ..testutils import decode_json, post_json, create_jwt, \
-    create_bad_jwt, bottlenose_mock_success, bottlenose_mock_empty
-from ..factories import create_user
-from api.models import User
+
+import pytest
+
 from api.amazon import Amazon
+from ..factories import create_user
+from ..testutils import decode_json, post_json, create_bad_jwt, bottlenose_mock_success, bottlenose_mock_empty
 
 
 @pytest.mark.usefixtures('db')
