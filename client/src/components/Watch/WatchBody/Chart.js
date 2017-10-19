@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import LineChart from 'react-linechart';
+import { LineChart } from 'react-chartjs-2';
 
 const Chart = (props) => {
   const createPoints = data =>
