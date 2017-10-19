@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import debounce from 'lodash.debounce';
 import { setThreshold } from '../../../state/actions';
+import Chart from './Chart';
 
 import './WatchBody.css';
 
@@ -32,9 +33,7 @@ export class WatchBody extends Component {
   render() {
     return (
       <div className="WatchBody">
-        <div className="graph">
-          Fake graph {this.props.watch.title}
-        </div>
+        <Chart stock_levels={this.props.watch.stock_levels} />
         <div className="notifications">
           <div className="label">
             Notify me at
