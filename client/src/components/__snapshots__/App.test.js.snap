@@ -8,6 +8,7 @@ ShallowWrapper {
     dispatch={[Function]}
     email=""
     loggedIn={false}
+    watches={Array []}
   />,
   Symbol(enzyme.__renderer__): Object {
     "batchedUpdates": [Function],
@@ -23,16 +24,7 @@ ShallowWrapper {
     "props": Object {
       "children": Array [
         <Connect(Login) />,
-        <Connect(Watch)
-          watch={
-            Object {
-              "currentStock": 1000,
-              "image": "https://images-na.ssl-images-amazon.com/images/I/413yqVUgjcL._SL160_.jpg",
-              "title": "LEGO Ideas NASA Apollo Saturn V 21309 Building Kit",
-              "url": "https://www.amazon.com/LEGO-Ideas-Apollo-Saturn-Building/dp/B01MUANC80?psc=1&SubscriptionId=AKIAJ57KMBTCZPRJ5I5Q&tag=gilmoreg-20&linkCode=xm2&camp=2025&creative=165953&creativeASIN=B01MUANC80",
-            }
-          }
-        />,
+        Array [],
         <AddWatchButton
           openModal={[Function]}
         />,
@@ -47,22 +39,6 @@ ShallowWrapper {
         "key": null,
         "nodeType": "class",
         "props": Object {},
-        "ref": null,
-        "rendered": null,
-        "type": [Function],
-      },
-      Object {
-        "instance": null,
-        "key": null,
-        "nodeType": "class",
-        "props": Object {
-          "watch": Object {
-            "currentStock": 1000,
-            "image": "https://images-na.ssl-images-amazon.com/images/I/413yqVUgjcL._SL160_.jpg",
-            "title": "LEGO Ideas NASA Apollo Saturn V 21309 Building Kit",
-            "url": "https://www.amazon.com/LEGO-Ideas-Apollo-Saturn-Building/dp/B01MUANC80?psc=1&SubscriptionId=AKIAJ57KMBTCZPRJ5I5Q&tag=gilmoreg-20&linkCode=xm2&camp=2025&creative=165953&creativeASIN=B01MUANC80",
-          },
-        },
         "ref": null,
         "rendered": null,
         "type": [Function],
@@ -90,16 +66,7 @@ ShallowWrapper {
       "props": Object {
         "children": Array [
           <Connect(Login) />,
-          <Connect(Watch)
-            watch={
-              Object {
-                "currentStock": 1000,
-                "image": "https://images-na.ssl-images-amazon.com/images/I/413yqVUgjcL._SL160_.jpg",
-                "title": "LEGO Ideas NASA Apollo Saturn V 21309 Building Kit",
-                "url": "https://www.amazon.com/LEGO-Ideas-Apollo-Saturn-Building/dp/B01MUANC80?psc=1&SubscriptionId=AKIAJ57KMBTCZPRJ5I5Q&tag=gilmoreg-20&linkCode=xm2&camp=2025&creative=165953&creativeASIN=B01MUANC80",
-              }
-            }
-          />,
+          Array [],
           <AddWatchButton
             openModal={[Function]}
           />,
@@ -114,22 +81,6 @@ ShallowWrapper {
           "key": null,
           "nodeType": "class",
           "props": Object {},
-          "ref": null,
-          "rendered": null,
-          "type": [Function],
-        },
-        Object {
-          "instance": null,
-          "key": null,
-          "nodeType": "class",
-          "props": Object {
-            "watch": Object {
-              "currentStock": 1000,
-              "image": "https://images-na.ssl-images-amazon.com/images/I/413yqVUgjcL._SL160_.jpg",
-              "title": "LEGO Ideas NASA Apollo Saturn V 21309 Building Kit",
-              "url": "https://www.amazon.com/LEGO-Ideas-Apollo-Saturn-Building/dp/B01MUANC80?psc=1&SubscriptionId=AKIAJ57KMBTCZPRJ5I5Q&tag=gilmoreg-20&linkCode=xm2&camp=2025&creative=165953&creativeASIN=B01MUANC80",
-            },
-          },
           "ref": null,
           "rendered": null,
           "type": [Function],

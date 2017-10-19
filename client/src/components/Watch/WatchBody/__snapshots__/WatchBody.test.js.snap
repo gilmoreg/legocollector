@@ -9,8 +9,17 @@ ShallowWrapper {
     dispatch={[Function]}
     watch={
       Object {
-        "currentStock": 0,
         "image": "test",
+        "stock_levels": Array [
+          Object {
+            "datetime": "test",
+            "stock_level": 1,
+          },
+          Object {
+            "datetime": "test",
+            "stock_level": 1,
+          },
+        ],
         "title": "test",
         "url": "test",
       }
@@ -29,12 +38,20 @@ ShallowWrapper {
     "nodeType": "host",
     "props": Object {
       "children": Array [
-        <div
-          className="graph"
-        >
-          Fake graph 
-          test
-        </div>,
+        <Chart
+          stock_levels={
+            Array [
+              Object {
+                "datetime": "test",
+                "stock_level": 1,
+              },
+              Object {
+                "datetime": "test",
+                "stock_level": 1,
+              },
+            ]
+          }
+        />,
         <div
           className="notifications"
         >
@@ -67,20 +84,22 @@ ShallowWrapper {
       Object {
         "instance": null,
         "key": null,
-        "nodeType": "host",
+        "nodeType": "function",
         "props": Object {
-          "children": Array [
-            "Fake graph ",
-            "test",
+          "stock_levels": Array [
+            Object {
+              "datetime": "test",
+              "stock_level": 1,
+            },
+            Object {
+              "datetime": "test",
+              "stock_level": 1,
+            },
           ],
-          "className": "graph",
         },
         "ref": null,
-        "rendered": Array [
-          "Fake graph ",
-          "test",
-        ],
-        "type": "div",
+        "rendered": null,
+        "type": [Function],
       },
       Object {
         "instance": null,
@@ -173,12 +192,20 @@ ShallowWrapper {
       "nodeType": "host",
       "props": Object {
         "children": Array [
-          <div
-            className="graph"
-          >
-            Fake graph 
-            test
-          </div>,
+          <Chart
+            stock_levels={
+              Array [
+                Object {
+                  "datetime": "test",
+                  "stock_level": 1,
+                },
+                Object {
+                  "datetime": "test",
+                  "stock_level": 1,
+                },
+              ]
+            }
+          />,
           <div
             className="notifications"
           >
@@ -211,20 +238,22 @@ ShallowWrapper {
         Object {
           "instance": null,
           "key": null,
-          "nodeType": "host",
+          "nodeType": "function",
           "props": Object {
-            "children": Array [
-              "Fake graph ",
-              "test",
+            "stock_levels": Array [
+              Object {
+                "datetime": "test",
+                "stock_level": 1,
+              },
+              Object {
+                "datetime": "test",
+                "stock_level": 1,
+              },
             ],
-            "className": "graph",
           },
           "ref": null,
-          "rendered": Array [
-            "Fake graph ",
-            "test",
-          ],
-          "type": "div",
+          "rendered": null,
+          "type": [Function],
         },
         Object {
           "instance": null,

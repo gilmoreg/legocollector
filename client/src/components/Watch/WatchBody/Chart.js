@@ -1,14 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import LineChart from 'react-linechart';
-// import moment from 'moment';
 
 const Chart = (props) => {
-  // const formatDate = date => moment(date).format('YYYY-MM-DD');
-
   const createPoints = data =>
     data.map((point, index) => ({
-      x: index, // formatDate(point.datetime),
+      x: index,
       y: point.stock_level,
     }));
 
@@ -16,7 +13,6 @@ const Chart = (props) => {
     {
       color: 'steelblue',
       points: createPoints(props.stock_levels),
-      // isDate: true,
     },
   ];
 

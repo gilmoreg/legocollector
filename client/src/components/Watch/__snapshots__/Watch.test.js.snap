@@ -8,8 +8,17 @@ ShallowWrapper {
     dispatch={[Function]}
     watch={
       Object {
-        "currentStock": 1000,
         "image": "https://images-na.ssl-images-amazon.com/images/I/413yqVUgjcL._SL160_.jpg",
+        "stock_levels": Array [
+          Object {
+            "datetime": "test",
+            "stock_level": 1,
+          },
+          Object {
+            "datetime": "test",
+            "stock_level": 1,
+          },
+        ],
         "title": "LEGO Ideas NASA Apollo Saturn V 21309 Building Kit",
         "url": "https://www.amazon.com/LEGO-Ideas-Apollo-Saturn-Building/dp/B01MUANC80?psc=1&SubscriptionId=AKIAJ57KMBTCZPRJ5I5Q&tag=gilmoreg-20&linkCode=xm2&camp=2025&creative=165953&creativeASIN=B01MUANC80",
       }
@@ -31,8 +40,17 @@ ShallowWrapper {
         <WatchHeader
           watch={
             Object {
-              "currentStock": 1000,
               "image": "https://images-na.ssl-images-amazon.com/images/I/413yqVUgjcL._SL160_.jpg",
+              "stock_levels": Array [
+                Object {
+                  "datetime": "test",
+                  "stock_level": 1,
+                },
+                Object {
+                  "datetime": "test",
+                  "stock_level": 1,
+                },
+              ],
               "title": "LEGO Ideas NASA Apollo Saturn V 21309 Building Kit",
               "url": "https://www.amazon.com/LEGO-Ideas-Apollo-Saturn-Building/dp/B01MUANC80?psc=1&SubscriptionId=AKIAJ57KMBTCZPRJ5I5Q&tag=gilmoreg-20&linkCode=xm2&camp=2025&creative=165953&creativeASIN=B01MUANC80",
             }
@@ -54,8 +72,17 @@ ShallowWrapper {
         "nodeType": "function",
         "props": Object {
           "watch": Object {
-            "currentStock": 1000,
             "image": "https://images-na.ssl-images-amazon.com/images/I/413yqVUgjcL._SL160_.jpg",
+            "stock_levels": Array [
+              Object {
+                "datetime": "test",
+                "stock_level": 1,
+              },
+              Object {
+                "datetime": "test",
+                "stock_level": 1,
+              },
+            ],
             "title": "LEGO Ideas NASA Apollo Saturn V 21309 Building Kit",
             "url": "https://www.amazon.com/LEGO-Ideas-Apollo-Saturn-Building/dp/B01MUANC80?psc=1&SubscriptionId=AKIAJ57KMBTCZPRJ5I5Q&tag=gilmoreg-20&linkCode=xm2&camp=2025&creative=165953&creativeASIN=B01MUANC80",
           },
@@ -98,8 +125,17 @@ ShallowWrapper {
           <WatchHeader
             watch={
               Object {
-                "currentStock": 1000,
                 "image": "https://images-na.ssl-images-amazon.com/images/I/413yqVUgjcL._SL160_.jpg",
+                "stock_levels": Array [
+                  Object {
+                    "datetime": "test",
+                    "stock_level": 1,
+                  },
+                  Object {
+                    "datetime": "test",
+                    "stock_level": 1,
+                  },
+                ],
                 "title": "LEGO Ideas NASA Apollo Saturn V 21309 Building Kit",
                 "url": "https://www.amazon.com/LEGO-Ideas-Apollo-Saturn-Building/dp/B01MUANC80?psc=1&SubscriptionId=AKIAJ57KMBTCZPRJ5I5Q&tag=gilmoreg-20&linkCode=xm2&camp=2025&creative=165953&creativeASIN=B01MUANC80",
               }
@@ -121,8 +157,17 @@ ShallowWrapper {
           "nodeType": "function",
           "props": Object {
             "watch": Object {
-              "currentStock": 1000,
               "image": "https://images-na.ssl-images-amazon.com/images/I/413yqVUgjcL._SL160_.jpg",
+              "stock_levels": Array [
+                Object {
+                  "datetime": "test",
+                  "stock_level": 1,
+                },
+                Object {
+                  "datetime": "test",
+                  "stock_level": 1,
+                },
+              ],
               "title": "LEGO Ideas NASA Apollo Saturn V 21309 Building Kit",
               "url": "https://www.amazon.com/LEGO-Ideas-Apollo-Saturn-Building/dp/B01MUANC80?psc=1&SubscriptionId=AKIAJ57KMBTCZPRJ5I5Q&tag=gilmoreg-20&linkCode=xm2&camp=2025&creative=165953&creativeASIN=B01MUANC80",
             },

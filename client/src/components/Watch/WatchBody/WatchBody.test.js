@@ -7,7 +7,10 @@ it('renders without crashing', () => {
     title: 'test',
     image: 'test',
     url: 'test',
-    currentStock: 0,
+    stock_levels: [
+      { datetime: 'test', stock_level: 1 },
+      { datetime: 'test', stock_level: 1 },
+    ],
   };
   const wrapper = shallow(
     <WatchBody watch={watch} dispatch={() => {}} click={() => {}} />,
