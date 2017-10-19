@@ -10,7 +10,7 @@ from urllib.error import HTTPError
 class Amazon(object):
     """ Class for wrapping Bottlenose, the Amazon API library """
 
-    def __init__(self, *args, **kwargs):
+    def __init__(self):
         self.amazon = bottlenose.Amazon(
             environ['AWS_ACCESS_KEY_ID'],
             environ['AWS_SECRET_ACCESS_KEY'],

@@ -48,8 +48,8 @@ class LegoSetController(object):
             Fetch data about a legoset from Amazon and add to the database
         """
         user = AuthController.authenticate(token)
-        # if user is None:
-        #    raise FlaskError('Could not authenticate user', status_code=401)
+        if user is None:
+            raise FlaskError('Could not authenticate user', status_code=401)
         id = str(set_id)
         # Check if set exists already; if so raise an error but also 200 OK response
         set_exists = LegoSet.query.filter_by(id=id).first()
@@ -66,7 +66,7 @@ class LegoSetController(object):
             GET /legoset/search/<id>
             Queries Amazon for info about this legoset and returns it
         """
-        user = AuthController.authenticate(token)
+        AuthController.authenticate(token)
         # First check in our database
         set_exists = LegoSet.query.filter_by(id=set_id).first()
         if set_exists:
