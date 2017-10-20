@@ -3,6 +3,7 @@
   max-width: 760px;
   margin: 0 auto;
   position: relative;
+  padding-top: 1rem;
 }
 
 .WatchBody .delete {
