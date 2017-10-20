@@ -4,11 +4,8 @@ exports[`renders without crashing 1`] = `
 ShallowWrapper {
   "length": 1,
   Symbol(enzyme.__root__): [Circular],
-  Symbol(enzyme.__unrendered__): <App
-    dispatch={[Function]}
-    email=""
+  Symbol(enzyme.__unrendered__): <Header
     loggedIn={false}
-    watches={Array []}
   />,
   Symbol(enzyme.__renderer__): Object {
     "batchedUpdates": [Function],
@@ -23,46 +20,37 @@ ShallowWrapper {
     "nodeType": "host",
     "props": Object {
       "children": Array [
-        <Header
-          email=""
-          loggedIn={false}
-        />,
-        Array [],
-        <AddWatchButton
-          openModal={[Function]}
-        />,
-        "",
+        <h1>
+          Lego Collector Tools
+        </h1>,
+        <Connect(Login) />,
       ],
-      "className": "App",
+      "className": "Header",
     },
     "ref": null,
     "rendered": Array [
       Object {
         "instance": null,
         "key": null,
-        "nodeType": "function",
+        "nodeType": "host",
         "props": Object {
-          "email": "",
-          "loggedIn": false,
+          "children": "Lego Collector Tools",
         },
         "ref": null,
-        "rendered": null,
-        "type": [Function],
+        "rendered": "Lego Collector Tools",
+        "type": "h1",
       },
       Object {
         "instance": null,
         "key": null,
-        "nodeType": "function",
-        "props": Object {
-          "openModal": [Function],
-        },
+        "nodeType": "class",
+        "props": Object {},
         "ref": null,
         "rendered": null,
         "type": [Function],
       },
-      "",
     ],
-    "type": "div",
+    "type": "header",
   },
   Symbol(enzyme.__nodes__): Array [
     Object {
@@ -71,46 +59,37 @@ ShallowWrapper {
       "nodeType": "host",
       "props": Object {
         "children": Array [
-          <Header
-            email=""
-            loggedIn={false}
-          />,
-          Array [],
-          <AddWatchButton
-            openModal={[Function]}
-          />,
-          "",
+          <h1>
+            Lego Collector Tools
+          </h1>,
+          <Connect(Login) />,
         ],
-        "className": "App",
+        "className": "Header",
       },
       "ref": null,
       "rendered": Array [
         Object {
           "instance": null,
           "key": null,
-          "nodeType": "function",
+          "nodeType": "host",
           "props": Object {
-            "email": "",
-            "loggedIn": false,
+            "children": "Lego Collector Tools",
           },
           "ref": null,
-          "rendered": null,
-          "type": [Function],
+          "rendered": "Lego Collector Tools",
+          "type": "h1",
         },
         Object {
           "instance": null,
           "key": null,
-          "nodeType": "function",
-          "props": Object {
-            "openModal": [Function],
-          },
+          "nodeType": "class",
+          "props": Object {},
           "ref": null,
           "rendered": null,
           "type": [Function],
         },
-        "",
       ],
-      "type": "div",
+      "type": "header",
     },
   ],
   Symbol(enzyme.__options__): Object {

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { login } from '../../../state/actions';
+import { login, fetchWatches } from '../../../state/actions';
 import './Login.css';
 
 // TODO move to config/env
@@ -36,6 +36,7 @@ export class Login extends Component {
           .then((profile) => {
             storeProfile(profile);
             this.props.dispatch(login(profile));
+            this.props.dispatch(fetchWatches(profile.token));
           }));
   }
 

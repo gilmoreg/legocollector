@@ -26,9 +26,7 @@ export default function reducer(state = initialState, action) {
       );
     }
     case actions.LOGOUT: {
-      return Object.assign({}, state,
-        { loggedIn: false, email: '', token: '' },
-      );
+      return initialState;
     }
     case actions.RESET: {
       return initialState;

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import { logout } from '../../../state/actions';
 import './Logout.css';
 
 export class Logout extends Component {
@@ -10,7 +11,8 @@ export class Logout extends Component {
   }
 
   logout() {
-    this.props.dispatch('LOGOUT');
+    window.localStorage.removeItem('legocollectorProfile');
+    this.props.dispatch(logout());
   }
 
   render() {

@@ -4,11 +4,9 @@ exports[`renders without crashing 1`] = `
 ShallowWrapper {
   "length": 1,
   Symbol(enzyme.__root__): [Circular],
-  Symbol(enzyme.__unrendered__): <App
+  Symbol(enzyme.__unrendered__): <Logout
     dispatch={[Function]}
     email=""
-    loggedIn={false}
-    watches={Array []}
   />,
   Symbol(enzyme.__renderer__): Object {
     "batchedUpdates": [Function],
@@ -23,44 +21,49 @@ ShallowWrapper {
     "nodeType": "host",
     "props": Object {
       "children": Array [
-        <Header
-          email=""
-          loggedIn={false}
-        />,
-        Array [],
-        <AddWatchButton
-          openModal={[Function]}
-        />,
-        "",
+        <span>
+          Logged in as 
+          
+        </span>,
+        <button
+          onClick={[Function]}
+        >
+          Logout
+        </button>,
       ],
-      "className": "App",
+      "className": "Logout",
     },
     "ref": null,
     "rendered": Array [
       Object {
         "instance": null,
         "key": null,
-        "nodeType": "function",
+        "nodeType": "host",
         "props": Object {
-          "email": "",
-          "loggedIn": false,
+          "children": Array [
+            "Logged in as ",
+            "",
+          ],
         },
         "ref": null,
-        "rendered": null,
-        "type": [Function],
+        "rendered": Array [
+          "Logged in as ",
+          "",
+        ],
+        "type": "span",
       },
       Object {
         "instance": null,
         "key": null,
-        "nodeType": "function",
+        "nodeType": "host",
         "props": Object {
-          "openModal": [Function],
+          "children": "Logout",
+          "onClick": [Function],
         },
         "ref": null,
-        "rendered": null,
-        "type": [Function],
+        "rendered": "Logout",
+        "type": "button",
       },
-      "",
     ],
     "type": "div",
   },
@@ -71,44 +74,49 @@ ShallowWrapper {
       "nodeType": "host",
       "props": Object {
         "children": Array [
-          <Header
-            email=""
-            loggedIn={false}
-          />,
-          Array [],
-          <AddWatchButton
-            openModal={[Function]}
-          />,
-          "",
+          <span>
+            Logged in as 
+            
+          </span>,
+          <button
+            onClick={[Function]}
+          >
+            Logout
+          </button>,
         ],
-        "className": "App",
+        "className": "Logout",
       },
       "ref": null,
       "rendered": Array [
         Object {
           "instance": null,
           "key": null,
-          "nodeType": "function",
+          "nodeType": "host",
           "props": Object {
-            "email": "",
-            "loggedIn": false,
+            "children": Array [
+              "Logged in as ",
+              "",
+            ],
           },
           "ref": null,
-          "rendered": null,
-          "type": [Function],
+          "rendered": Array [
+            "Logged in as ",
+            "",
+          ],
+          "type": "span",
         },
         Object {
           "instance": null,
           "key": null,
-          "nodeType": "function",
+          "nodeType": "host",
           "props": Object {
-            "openModal": [Function],
+            "children": "Logout",
+            "onClick": [Function],
           },
           "ref": null,
-          "rendered": null,
-          "type": [Function],
+          "rendered": "Logout",
+          "type": "button",
         },
-        "",
       ],
       "type": "div",
     },
