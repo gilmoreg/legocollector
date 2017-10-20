@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { login, logout, fetchWatches } from '../state/actions';
 import Header from './Header/Header';
+import Welcome from './Welcome/Welcome';
 import Watch from './Watch/Watch';
 import AddWatchButton from './AddWatch/AddWatchButton';
 import AddWatchModal from './AddWatch/AddWatchModal';
@@ -40,10 +41,16 @@ export class App extends Component {
     return (
       <div className="App">
         <Header loggedIn={this.props.loggedIn} email={this.props.email} />
-        {watches}
-        <AddWatchButton
-          openModal={() => this.setState({ newWatchModalOpen: !this.state.newWatchModalOpen })}
-        />
+        { this.props.loggedIn ?
+          watches :
+          <Welcome />
+        }
+        { this.props.loggedIn ?
+          <AddWatchButton
+            openModal={() => this.setState({ newWatchModalOpen: !this.state.newWatchModalOpen })}
+          /> :
+          ''
+        }
         { this.state.newWatchModalOpen ?
           <AddWatchModal
             open={this.state.newWatchModalOpen}

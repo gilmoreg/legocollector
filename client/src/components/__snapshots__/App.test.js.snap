@@ -27,10 +27,8 @@ ShallowWrapper {
           email=""
           loggedIn={false}
         />,
-        Array [],
-        <AddWatchButton
-          openModal={[Function]}
-        />,
+        <Welcome />,
+        "",
         "",
       ],
       "className": "App",
@@ -53,13 +51,12 @@ ShallowWrapper {
         "instance": null,
         "key": null,
         "nodeType": "function",
-        "props": Object {
-          "openModal": [Function],
-        },
+        "props": Object {},
         "ref": null,
         "rendered": null,
         "type": [Function],
       },
+      "",
       "",
     ],
     "type": "div",
@@ -75,10 +72,8 @@ ShallowWrapper {
             email=""
             loggedIn={false}
           />,
-          Array [],
-          <AddWatchButton
-            openModal={[Function]}
-          />,
+          <Welcome />,
+          "",
           "",
         ],
         "className": "App",
@@ -101,13 +96,12 @@ ShallowWrapper {
           "instance": null,
           "key": null,
           "nodeType": "function",
-          "props": Object {
-            "openModal": [Function],
-          },
+          "props": Object {},
           "ref": null,
           "rendered": null,
           "type": [Function],
         },
+        "",
         "",
       ],
       "type": "div",
