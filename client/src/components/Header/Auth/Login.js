@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { login } from '../../state/actions';
+import { login } from '../../../state/actions';
 import './Login.css';
 
 // TODO move to config/env
