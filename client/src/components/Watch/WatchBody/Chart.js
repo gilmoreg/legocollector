@@ -7,7 +7,8 @@ import './Chart.css';
 
 const Chart = (props) => {
   const data = {
-    labels: props.stock_levels.map(level => moment(level.datetime).format('MM-DD')),
+    labels: props.stock_levels.map(level =>
+      moment(new Date(level.datetime)).format('MM-DD')),
     datasets: [
       {
         label: false,

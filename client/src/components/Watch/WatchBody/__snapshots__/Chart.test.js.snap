@@ -28,103 +28,203 @@ ShallowWrapper {
   Symbol(enzyme.__node__): Object {
     "instance": null,
     "key": null,
-    "nodeType": "class",
+    "nodeType": "host",
     "props": Object {
-      "data": Array [
-        Object {
-          "color": "steelblue",
-          "points": Array [
-            Object {
-              "x": 0,
-              "y": 1,
+      "children": <Line
+        data={
+          Object {
+            "datasets": Array [
+              Object {
+                "backgroundColor": "rgba(75,192,192,0.4)",
+                "borderCapStyle": "butt",
+                "borderColor": "rgba(75,192,192,1)",
+                "borderDash": Array [],
+                "borderDashOffset": 0,
+                "borderJoinStyle": "miter",
+                "data": Array [
+                  1,
+                  1,
+                ],
+                "fill": false,
+                "label": false,
+                "lineTension": 0.1,
+                "pointBackgroundColor": "#fff",
+                "pointBorderColor": "rgba(75,192,192,1)",
+                "pointBorderWidth": 1,
+                "pointHitRadius": 10,
+                "pointHoverBackgroundColor": "rgba(75,192,192,1)",
+                "pointHoverBorderColor": "rgba(220,220,220,1)",
+                "pointHoverBorderWidth": 2,
+                "pointHoverRadius": 5,
+                "pointRadius": 1,
+              },
+            ],
+            "labels": Array [
+              "Invalid date",
+              "Invalid date",
+            ],
+          }
+        }
+        options={
+          Object {
+            "legend": Object {
+              "display": false,
             },
-            Object {
-              "x": 1,
-              "y": 1,
-            },
-          ],
-        },
-      ],
-      "height": 200,
-      "hideXAxis": true,
-      "hideXLabel": true,
-      "hideYAxis": true,
-      "hideYLabel": true,
-      "id": "react-linechart-1508378273555",
-      "interpolate": "cardinal",
-      "labelClass": "svg-line-chart-label",
-      "legendPosition": "top-left",
-      "margins": Object {
-        "bottom": 50,
-        "left": 55,
-        "right": 20,
-        "top": 50,
-      },
-      "onPointClick": [Function],
-      "onTextClick": [Function],
-      "pointClass": "svg-line-chart-point",
-      "pointRadius": 5,
-      "strokeWidth": 2,
-      "ticks": 10,
-      "tooltipClass": "svg-line-chart-tooltip",
-      "width": 600,
-      "xLabel": "X",
-      "yLabel": "Y",
+          }
+        }
+      />,
+      "className": "Chart",
     },
     "ref": null,
-    "rendered": null,
-    "type": [Function],
+    "rendered": Object {
+      "instance": null,
+      "key": null,
+      "nodeType": "class",
+      "props": Object {
+        "data": Object {
+          "datasets": Array [
+            Object {
+              "backgroundColor": "rgba(75,192,192,0.4)",
+              "borderCapStyle": "butt",
+              "borderColor": "rgba(75,192,192,1)",
+              "borderDash": Array [],
+              "borderDashOffset": 0,
+              "borderJoinStyle": "miter",
+              "data": Array [
+                1,
+                1,
+              ],
+              "fill": false,
+              "label": false,
+              "lineTension": 0.1,
+              "pointBackgroundColor": "#fff",
+              "pointBorderColor": "rgba(75,192,192,1)",
+              "pointBorderWidth": 1,
+              "pointHitRadius": 10,
+              "pointHoverBackgroundColor": "rgba(75,192,192,1)",
+              "pointHoverBorderColor": "rgba(220,220,220,1)",
+              "pointHoverBorderWidth": 2,
+              "pointHoverRadius": 5,
+              "pointRadius": 1,
+            },
+          ],
+          "labels": Array [
+            "Invalid date",
+            "Invalid date",
+          ],
+        },
+        "options": Object {
+          "legend": Object {
+            "display": false,
+          },
+        },
+      },
+      "ref": null,
+      "rendered": null,
+      "type": [Function],
+    },
+    "type": "div",
   },
   Symbol(enzyme.__nodes__): Array [
     Object {
       "instance": null,
       "key": null,
-      "nodeType": "class",
+      "nodeType": "host",
       "props": Object {
-        "data": Array [
-          Object {
-            "color": "steelblue",
-            "points": Array [
-              Object {
-                "x": 0,
-                "y": 1,
+        "children": <Line
+          data={
+            Object {
+              "datasets": Array [
+                Object {
+                  "backgroundColor": "rgba(75,192,192,0.4)",
+                  "borderCapStyle": "butt",
+                  "borderColor": "rgba(75,192,192,1)",
+                  "borderDash": Array [],
+                  "borderDashOffset": 0,
+                  "borderJoinStyle": "miter",
+                  "data": Array [
+                    1,
+                    1,
+                  ],
+                  "fill": false,
+                  "label": false,
+                  "lineTension": 0.1,
+                  "pointBackgroundColor": "#fff",
+                  "pointBorderColor": "rgba(75,192,192,1)",
+                  "pointBorderWidth": 1,
+                  "pointHitRadius": 10,
+                  "pointHoverBackgroundColor": "rgba(75,192,192,1)",
+                  "pointHoverBorderColor": "rgba(220,220,220,1)",
+                  "pointHoverBorderWidth": 2,
+                  "pointHoverRadius": 5,
+                  "pointRadius": 1,
+                },
+              ],
+              "labels": Array [
+                "Invalid date",
+                "Invalid date",
+              ],
+            }
+          }
+          options={
+            Object {
+              "legend": Object {
+                "display": false,
               },
-              Object {
-                "x": 1,
-                "y": 1,
-              },
-            ],
-          },
-        ],
-        "height": 200,
-        "hideXAxis": true,
-        "hideXLabel": true,
-        "hideYAxis": true,
-        "hideYLabel": true,
-        "id": "react-linechart-1508378273555",
-        "interpolate": "cardinal",
-        "labelClass": "svg-line-chart-label",
-        "legendPosition": "top-left",
-        "margins": Object {
-          "bottom": 50,
-          "left": 55,
-          "right": 20,
-          "top": 50,
-        },
-        "onPointClick": [Function],
-        "onTextClick": [Function],
-        "pointClass": "svg-line-chart-point",
-        "pointRadius": 5,
-        "strokeWidth": 2,
-        "ticks": 10,
-        "tooltipClass": "svg-line-chart-tooltip",
-        "width": 600,
-        "xLabel": "X",
-        "yLabel": "Y",
+            }
+          }
+        />,
+        "className": "Chart",
       },
       "ref": null,
-      "rendered": null,
-      "type": [Function],
+      "rendered": Object {
+        "instance": null,
+        "key": null,
+        "nodeType": "class",
+        "props": Object {
+          "data": Object {
+            "datasets": Array [
+              Object {
+                "backgroundColor": "rgba(75,192,192,0.4)",
+                "borderCapStyle": "butt",
+                "borderColor": "rgba(75,192,192,1)",
+                "borderDash": Array [],
+                "borderDashOffset": 0,
+                "borderJoinStyle": "miter",
+                "data": Array [
+                  1,
+                  1,
+                ],
+                "fill": false,
+                "label": false,
+                "lineTension": 0.1,
+                "pointBackgroundColor": "#fff",
+                "pointBorderColor": "rgba(75,192,192,1)",
+                "pointBorderWidth": 1,
+                "pointHitRadius": 10,
+                "pointHoverBackgroundColor": "rgba(75,192,192,1)",
+                "pointHoverBorderColor": "rgba(220,220,220,1)",
+                "pointHoverBorderWidth": 2,
+                "pointHoverRadius": 5,
+                "pointRadius": 1,
+              },
+            ],
+            "labels": Array [
+              "Invalid date",
+              "Invalid date",
+            ],
+          },
+          "options": Object {
+            "legend": Object {
+              "display": false,
+            },
+          },
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      "type": "div",
     },
   ],
   Symbol(enzyme.__options__): Object {
