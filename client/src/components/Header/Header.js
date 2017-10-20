@@ -6,7 +6,7 @@ import './Header.css';
 
 const Header = props => (
   <header className="Header">
-    <h1>Lego Collector Tools</h1>
+    <h1>Lego Collector</h1>
     { props.loggedIn ?
       <Logout /> :
       <Login />

@@ -21,7 +21,7 @@ ShallowWrapper {
     "props": Object {
       "children": Array [
         <h1>
-          Lego Collector Tools
+          Lego Collector
         </h1>,
         <Connect(Login) />,
       ],
@@ -34,10 +34,10 @@ ShallowWrapper {
         "key": null,
         "nodeType": "host",
         "props": Object {
-          "children": "Lego Collector Tools",
+          "children": "Lego Collector",
         },
         "ref": null,
-        "rendered": "Lego Collector Tools",
+        "rendered": "Lego Collector",
         "type": "h1",
       },
       Object {
@@ -60,7 +60,7 @@ ShallowWrapper {
       "props": Object {
         "children": Array [
           <h1>
-            Lego Collector Tools
+            Lego Collector
           </h1>,
           <Connect(Login) />,
         ],
@@ -73,10 +73,10 @@ ShallowWrapper {
           "key": null,
           "nodeType": "host",
           "props": Object {
-            "children": "Lego Collector Tools",
+            "children": "Lego Collector",
           },
           "ref": null,
-          "rendered": "Lego Collector Tools",
+          "rendered": "Lego Collector",
           "type": "h1",
         },
         Object {
