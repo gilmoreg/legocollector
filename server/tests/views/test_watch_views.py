@@ -68,7 +68,6 @@ class TestWatchViews:
         """ Verify behavior when Amazon search returns empty """
         mock_bottlenose = Mock(name='search')
         mock_bottlenose.return_value = bottlenose_mock_empty
-
         with patch.object(Amazon, 'search', mock_bottlenose):
             user = create_user('test@test.com')
             response = post_json(client, '/watches/add', {'token': user['token'], 'id': '54321'})
@@ -85,3 +84,23 @@ class TestWatchViews:
         response = post_json(client, '/watches/add', {'token': token, 'id': '54321'})
         json = decode_json(response)
         assert json == {'error': 'Could not authenticate user'}
+
+    def test_delete_watch(self, client):
+        mock_bottlenose = Mock(name='search')
+        mock_bottlenose.return_value = bottlenose_mock_empty
+        with patch.object(Amazon, 'search', mock_bottlenose):
+            user = create_user('test@test.com')
+            legoset = create_legoset(12345)
+            watch = create_watch(user['user'], legoset)
+            response = post_json(client, '/watches/delete/12345', {'token': user['token']})
+            json = decode_json(response)
+            assert json == {'result': 'Watch 12345 deleted'}
+
+    def test_delete_watch_empty(self, client):
+        mock_bottlenose = Mock(name='search')
+        mock_bottlenose.return_value = bottlenose_mock_empty
+        with patch.object(Amazon, 'search', mock_bottlenose):
+            user = create_user('test@test.com')
+            response = post_json(client, '/watches/delete/12345', {'token': user['token']})
+            json = decode_json(response)
+            assert json == {'error': 'Watch not found'}

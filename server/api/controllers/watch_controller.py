@@ -5,6 +5,7 @@
 from api.controllers.auth_controller import AuthController
 from api.controllers.legoset_controller import LegoSetController
 from api.models import LegoSet
+from api.errors import FlaskError
 
 
 class WatchController(object):
@@ -44,4 +45,13 @@ class WatchController(object):
         # Return the newly created set
         return lego_set.to_dict()
 
-# def remove_watch(user, id)
+    @staticmethod
+    def delete_watch(token, set_id):
+        """ Cease watching LegoSet set_id for user """
+        user = AuthController.get_user(token)
+        for watch in user.watches:
+            if watch.id == int(set_id):
+                user.watches.remove(watch)
+                user.save()
+                return set_id
+        raise FlaskError('Watch not found', status_code=400)

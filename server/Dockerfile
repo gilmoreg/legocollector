@@ -21,4 +21,4 @@ COPY . /src
 
 WORKDIR /src
 
-CMD ["python", "run.py"]
+CMD python run.py && tail -F /var/log/python.log
