@@ -47,6 +47,7 @@ def add_watch():
     except Exception as e:
         return exception_json_response(e)  
 
+
 @blueprint.route('/watches/delete/<id>', methods=['POST'])
 def delete_watch(id):
     """ Delete specified watch """
