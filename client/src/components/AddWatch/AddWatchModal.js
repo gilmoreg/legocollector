@@ -28,7 +28,7 @@ export class AddWatchModal extends Component {
     if (event.target && event.target.value) {
       const query = event.target.value.trim();
       this.setState({ searchTerm: query });
-      this.search(query);
+      if (query) this.search(query);
     }
   }
 
