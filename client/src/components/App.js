@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { login, logout, fetchWatches } from '../state/actions';
-import Login from './Login/Login';
+import Header from './Header/Header';
 import Watch from './Watch/Watch';
 import AddWatchButton from './AddWatch/AddWatchButton';
 import AddWatchModal from './AddWatch/AddWatchModal';
@@ -39,9 +39,7 @@ export class App extends Component {
 
     return (
       <div className="App">
-        { this.props.loggedIn ?
-          <span>Logged in as {this.props.email}</span> :
-          <Login /> }
+        <Header loggedIn={this.props.loggedIn} email={this.props.email} />
         {watches}
         <AddWatchButton
           openModal={() => this.setState({ newWatchModalOpen: !this.state.newWatchModalOpen })}
