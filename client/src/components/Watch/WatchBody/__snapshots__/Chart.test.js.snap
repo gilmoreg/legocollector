@@ -37,7 +37,6 @@ ShallowWrapper {
               Object {
                 "backgroundColor": "rgba(75,192,192,0.4)",
                 "borderCapStyle": "butt",
-                "borderColor": "rgba(75,192,192,1)",
                 "borderDash": Array [],
                 "borderDashOffset": 0,
                 "borderJoinStyle": "miter",
@@ -48,6 +47,7 @@ ShallowWrapper {
                 "fill": false,
                 "label": false,
                 "lineTension": 0.1,
+                "maintainAspectRatio": false,
                 "pointBackgroundColor": "#fff",
                 "pointBorderColor": "rgba(75,192,192,1)",
                 "pointBorderWidth": 1,
@@ -57,6 +57,7 @@ ShallowWrapper {
                 "pointHoverBorderWidth": 2,
                 "pointHoverRadius": 5,
                 "pointRadius": 1,
+                "responsive": true,
               },
             ],
             "labels": Array [
@@ -65,13 +66,25 @@ ShallowWrapper {
             ],
           }
         }
+        height={200}
         options={
           Object {
             "legend": Object {
               "display": false,
             },
+            "scales": Object {
+              "yAxes": Array [
+                Object {
+                  "display": false,
+                  "gridLines": Object {
+                    "drawBorder": false,
+                  },
+                },
+              ],
+            },
           }
         }
+        width={300}
       />,
       "className": "Chart",
     },
@@ -86,7 +99,6 @@ ShallowWrapper {
             Object {
               "backgroundColor": "rgba(75,192,192,0.4)",
               "borderCapStyle": "butt",
-              "borderColor": "rgba(75,192,192,1)",
               "borderDash": Array [],
               "borderDashOffset": 0,
               "borderJoinStyle": "miter",
@@ -97,6 +109,7 @@ ShallowWrapper {
               "fill": false,
               "label": false,
               "lineTension": 0.1,
+              "maintainAspectRatio": false,
               "pointBackgroundColor": "#fff",
               "pointBorderColor": "rgba(75,192,192,1)",
               "pointBorderWidth": 1,
@@ -106,6 +119,7 @@ ShallowWrapper {
               "pointHoverBorderWidth": 2,
               "pointHoverRadius": 5,
               "pointRadius": 1,
+              "responsive": true,
             },
           ],
           "labels": Array [
@@ -113,11 +127,23 @@ ShallowWrapper {
             "Invalid date",
           ],
         },
+        "height": 200,
         "options": Object {
           "legend": Object {
             "display": false,
           },
+          "scales": Object {
+            "yAxes": Array [
+              Object {
+                "display": false,
+                "gridLines": Object {
+                  "drawBorder": false,
+                },
+              },
+            ],
+          },
         },
+        "width": 300,
       },
       "ref": null,
       "rendered": null,
@@ -138,7 +164,6 @@ ShallowWrapper {
                 Object {
                   "backgroundColor": "rgba(75,192,192,0.4)",
                   "borderCapStyle": "butt",
-                  "borderColor": "rgba(75,192,192,1)",
                   "borderDash": Array [],
                   "borderDashOffset": 0,
                   "borderJoinStyle": "miter",
@@ -149,6 +174,7 @@ ShallowWrapper {
                   "fill": false,
                   "label": false,
                   "lineTension": 0.1,
+                  "maintainAspectRatio": false,
                   "pointBackgroundColor": "#fff",
                   "pointBorderColor": "rgba(75,192,192,1)",
                   "pointBorderWidth": 1,
@@ -158,6 +184,7 @@ ShallowWrapper {
                   "pointHoverBorderWidth": 2,
                   "pointHoverRadius": 5,
                   "pointRadius": 1,
+                  "responsive": true,
                 },
               ],
               "labels": Array [
@@ -166,13 +193,25 @@ ShallowWrapper {
               ],
             }
           }
+          height={200}
           options={
             Object {
               "legend": Object {
                 "display": false,
               },
+              "scales": Object {
+                "yAxes": Array [
+                  Object {
+                    "display": false,
+                    "gridLines": Object {
+                      "drawBorder": false,
+                    },
+                  },
+                ],
+              },
             }
           }
+          width={300}
         />,
         "className": "Chart",
       },
@@ -187,7 +226,6 @@ ShallowWrapper {
               Object {
                 "backgroundColor": "rgba(75,192,192,0.4)",
                 "borderCapStyle": "butt",
-                "borderColor": "rgba(75,192,192,1)",
                 "borderDash": Array [],
                 "borderDashOffset": 0,
                 "borderJoinStyle": "miter",
@@ -198,6 +236,7 @@ ShallowWrapper {
                 "fill": false,
                 "label": false,
                 "lineTension": 0.1,
+                "maintainAspectRatio": false,
                 "pointBackgroundColor": "#fff",
                 "pointBorderColor": "rgba(75,192,192,1)",
                 "pointBorderWidth": 1,
@@ -207,6 +246,7 @@ ShallowWrapper {
                 "pointHoverBorderWidth": 2,
                 "pointHoverRadius": 5,
                 "pointRadius": 1,
+                "responsive": true,
               },
             ],
             "labels": Array [
@@ -214,11 +254,23 @@ ShallowWrapper {
               "Invalid date",
             ],
           },
+          "height": 200,
           "options": Object {
             "legend": Object {
               "display": false,
             },
+            "scales": Object {
+              "yAxes": Array [
+                Object {
+                  "display": false,
+                  "gridLines": Object {
+                    "drawBorder": false,
+                  },
+                },
+              ],
+            },
           },
+          "width": 300,
         },
         "ref": null,
         "rendered": null,

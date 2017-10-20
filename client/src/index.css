@@ -10,3 +10,7 @@ body {
   background-attachment: fixed;
   color: #3E454C;
 }
+
+body a, body a:visited {
+  color: #3E454C;
+}

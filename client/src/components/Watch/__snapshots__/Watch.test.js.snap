@@ -39,7 +39,6 @@ ShallowWrapper {
     "props": Object {
       "children": Array [
         <WatchHeader
-          deleteClick={[Function]}
           watch={
             Object {
               "image": "https://images-na.ssl-images-amazon.com/images/I/413yqVUgjcL._SL160_.jpg",
@@ -58,7 +57,7 @@ ShallowWrapper {
             }
           }
         />,
-        <div />,
+        "",
         <WatchFooter
           click={[Function]}
           collapsed={true}
@@ -73,7 +72,6 @@ ShallowWrapper {
         "key": null,
         "nodeType": "function",
         "props": Object {
-          "deleteClick": [Function],
           "watch": Object {
             "image": "https://images-na.ssl-images-amazon.com/images/I/413yqVUgjcL._SL160_.jpg",
             "stock_levels": Array [
@@ -94,15 +92,7 @@ ShallowWrapper {
         "rendered": null,
         "type": [Function],
       },
-      Object {
-        "instance": null,
-        "key": null,
-        "nodeType": "host",
-        "props": Object {},
-        "ref": null,
-        "rendered": null,
-        "type": "div",
-      },
+      "",
       Object {
         "instance": null,
         "key": null,
@@ -126,7 +116,6 @@ ShallowWrapper {
       "props": Object {
         "children": Array [
           <WatchHeader
-            deleteClick={[Function]}
             watch={
               Object {
                 "image": "https://images-na.ssl-images-amazon.com/images/I/413yqVUgjcL._SL160_.jpg",
@@ -145,7 +134,7 @@ ShallowWrapper {
               }
             }
           />,
-          <div />,
+          "",
           <WatchFooter
             click={[Function]}
             collapsed={true}
@@ -160,7 +149,6 @@ ShallowWrapper {
           "key": null,
           "nodeType": "function",
           "props": Object {
-            "deleteClick": [Function],
             "watch": Object {
               "image": "https://images-na.ssl-images-amazon.com/images/I/413yqVUgjcL._SL160_.jpg",
               "stock_levels": Array [
@@ -181,15 +169,7 @@ ShallowWrapper {
           "rendered": null,
           "type": [Function],
         },
-        Object {
-          "instance": null,
-          "key": null,
-          "nodeType": "host",
-          "props": Object {},
-          "ref": null,
-          "rendered": null,
-          "type": "div",
-        },
+        "",
         Object {
           "instance": null,
           "key": null,

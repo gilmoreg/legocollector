@@ -68,16 +68,10 @@ ShallowWrapper {
           className="stock"
         >
           1
+          <p>
+            in stock
+          </p>
         </div>,
-        <button
-          className="delete"
-          onClick={[Function]}
-        >
-          <i
-            aria-hidden="true"
-            className="fa fa-times"
-          />
-        </button>,
       ],
       "className": "WatchHeader",
     },
@@ -171,39 +165,30 @@ ShallowWrapper {
         "key": null,
         "nodeType": "host",
         "props": Object {
-          "children": "1",
+          "children": Array [
+            "1",
+            <p>
+              in stock
+            </p>,
+          ],
           "className": "stock",
         },
         "ref": null,
-        "rendered": "1",
-        "type": "div",
-      },
-      Object {
-        "instance": null,
-        "key": null,
-        "nodeType": "host",
-        "props": Object {
-          "children": <i
-            aria-hidden="true"
-            className="fa fa-times"
-          />,
-          "className": "delete",
-          "onClick": [Function],
-        },
-        "ref": null,
-        "rendered": Object {
-          "instance": null,
-          "key": null,
-          "nodeType": "host",
-          "props": Object {
-            "aria-hidden": "true",
-            "className": "fa fa-times",
+        "rendered": Array [
+          "1",
+          Object {
+            "instance": null,
+            "key": null,
+            "nodeType": "host",
+            "props": Object {
+              "children": "in stock",
+            },
+            "ref": null,
+            "rendered": "in stock",
+            "type": "p",
           },
-          "ref": null,
-          "rendered": null,
-          "type": "i",
-        },
-        "type": "button",
+        ],
+        "type": "div",
       },
     ],
     "type": "div",
@@ -246,16 +231,10 @@ ShallowWrapper {
             className="stock"
           >
             1
+            <p>
+              in stock
+            </p>
           </div>,
-          <button
-            className="delete"
-            onClick={[Function]}
-          >
-            <i
-              aria-hidden="true"
-              className="fa fa-times"
-            />
-          </button>,
         ],
         "className": "WatchHeader",
       },
@@ -349,39 +328,30 @@ ShallowWrapper {
           "key": null,
           "nodeType": "host",
           "props": Object {
-            "children": "1",
+            "children": Array [
+              "1",
+              <p>
+                in stock
+              </p>,
+            ],
             "className": "stock",
           },
           "ref": null,
-          "rendered": "1",
-          "type": "div",
-        },
-        Object {
-          "instance": null,
-          "key": null,
-          "nodeType": "host",
-          "props": Object {
-            "children": <i
-              aria-hidden="true"
-              className="fa fa-times"
-            />,
-            "className": "delete",
-            "onClick": [Function],
-          },
-          "ref": null,
-          "rendered": Object {
-            "instance": null,
-            "key": null,
-            "nodeType": "host",
-            "props": Object {
-              "aria-hidden": "true",
-              "className": "fa fa-times",
+          "rendered": Array [
+            "1",
+            Object {
+              "instance": null,
+              "key": null,
+              "nodeType": "host",
+              "props": Object {
+                "children": "in stock",
+              },
+              "ref": null,
+              "rendered": "in stock",
+              "type": "p",
             },
-            "ref": null,
-            "rendered": null,
-            "type": "i",
-          },
-          "type": "button",
+          ],
+          "type": "div",
         },
       ],
       "type": "div",
