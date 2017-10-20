@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import WatchHeader from './WatchHeader/WatchHeader';
-import WatchBody from './WatchBody/WatchBody';
+import Chart from './Chart/Chart';
 import WatchFooter from './WatchFooter/WatchFooter';
 import { deleteWatch } from '../../state/actions';
 
@@ -28,13 +28,13 @@ export class Watch extends Component {
           watch={this.props.watch}
           deleteClick={this.deleteWatchClick}
         />
-        { this.state.collapsed ?
-          <div />
-          :
-          <WatchBody
-            watch={this.props.watch}
-          />
-        }
+        <div className="WatchBody">
+          { this.state.collapsed ?
+            ''
+            :
+            <Chart stock_levels={this.props.watch.stock_levels} />
+          }
+        </div>
         <WatchFooter
           click={() => this.setState({
             collapsed: !this.state.collapsed,

@@ -1,3 +1,10 @@
 .Watch {
   margin: 1rem;
 }
+
+.Watch .WatchBody {
+  border-left: 1px solid black;
+  border-right: 1px solid black;
+  max-width: 760px;
+  margin: 0 auto;
+}
