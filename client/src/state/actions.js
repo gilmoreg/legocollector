@@ -53,7 +53,10 @@ export const fetchWatches = token => dispatch =>
 
 export const DELETE_WATCH = 'DELETE_WATCH';
 export const deleteWatch = (token, id) => dispatch =>
-  fetch(`${API_URL}/watches/delete/${id}?token=${token}`)
+  fetch(`${API_URL}/watches/delete/${id}`, {
+    method: 'POST',
+    body: JSON.stringify({ token }),
+  })
     .then(res => res.json())
     .then(res => res.result)
     .then(() => dispatch(removeWatch(id)))

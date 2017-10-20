@@ -12,6 +12,15 @@ describe('Reducer', () => {
     ).toEqual(finalState);
   });
 
+  it('should remove a watch on REMOVE_WATCH', () => {
+    const startState = Object.assign({}, initialState, {
+      watches: [fakeWatch],
+    });
+    expect(
+      reducer(startState, { type: actions.REMOVE_WATCH, id: fakeWatch.id }),
+    ).toEqual(initialState);
+  });
+
   it('should save an email and token on LOGIN', () => {
     const finalState = Object.assign({}, initialState,
       { loggedIn: true, email: 'test@test.com', token: '123' });

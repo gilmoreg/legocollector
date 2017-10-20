@@ -6,6 +6,7 @@ ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <Watch
     dispatch={[Function]}
+    token=""
     watch={
       Object {
         "image": "https://images-na.ssl-images-amazon.com/images/I/413yqVUgjcL._SL160_.jpg",

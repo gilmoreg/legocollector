@@ -16,6 +16,10 @@ export default function reducer(state = initialState, action) {
     case actions.FILL_WATCHES: {
       return Object.assign({}, state, { watches: action.watches });
     }
+    case actions.REMOVE_WATCH: {
+      const watches = state.watches.filter(watch => (watch.id !== action.id));
+      return Object.assign({}, state, { watches });
+    }
     case actions.LOGIN: {
       return Object.assign({}, state,
         { loggedIn: true, email: action.email, token: action.token },

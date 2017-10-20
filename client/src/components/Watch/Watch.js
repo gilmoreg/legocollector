@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import WatchHeader from './WatchHeader/WatchHeader';
 import WatchBody from './WatchBody/WatchBody';
 import WatchFooter from './WatchFooter/WatchFooter';
+import { deleteWatch } from '../../state/actions';
 
 import './Watch.css';
 
@@ -13,6 +14,11 @@ export class Watch extends Component {
     this.state = {
       collapsed: true,
     };
+    this.deleteWatchClick = this.deleteWatchClick.bind(this);
+  }
+
+  deleteWatchClick() {
+    this.props.dispatch(deleteWatch(this.props.token, this.props.watch.id));
   }
 
   render() {
@@ -20,7 +26,7 @@ export class Watch extends Component {
       <div className="Watch">
         <WatchHeader
           watch={this.props.watch}
-          deleteClick={() => console.log('delete', this.props.watch)}
+          deleteClick={this.deleteWatchClick}
         />
         { this.state.collapsed ?
           <div />
@@ -40,14 +46,24 @@ export class Watch extends Component {
   }
 }
 
-Watch.propTypes = {
-  // dispatch: PropTypes.func.isRequired,
-  watch: PropTypes.shape({
-    title: PropTypes.string.isRequired,
-    image: PropTypes.string.isRequired,
-    url: PropTypes.string.isRequired,
-    stock_levels: PropTypes.array.isRequired,
-  }).isRequired,
+Watch.defaultProps = {
+  token: '',
 };
 
-export default connect()(Watch);
+Watch.propTypes = {
+  dispatch: PropTypes.func.isRequired,
+  watch: PropTypes.shape({
+    id: PropTypes.number,
+    title: PropTypes.string,
+    image: PropTypes.string,
+    url: PropTypes.string,
+    stock_levels: PropTypes.array,
+  }).isRequired,
+  token: PropTypes.string,
+};
+
+const mapStateToProps = state => ({
+  token: state.token,
+});
+
+export default connect(mapStateToProps)(Watch);
