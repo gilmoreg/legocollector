@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Login from '../Login/Login';
+import Login from '../Auth/Login';
 import './Header.css';
 
 const Header = props => (
