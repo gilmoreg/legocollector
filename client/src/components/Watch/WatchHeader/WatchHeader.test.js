@@ -13,7 +13,7 @@ it('renders without crashing', () => {
     ],
   };
   const wrapper = shallow(
-    <WatchHeader watch={fakeWatch} />,
+    <WatchHeader watch={fakeWatch} deleteClick={() => {}} />,
   );
   expect(wrapper).toMatchSnapshot();
 });

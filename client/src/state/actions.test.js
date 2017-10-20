@@ -47,6 +47,14 @@ describe('Action Creators', () => {
     };
     expect(actions.fillWatches([])).toEqual(expectedAction);
   });
+
+  it('should create an action to remove a deleted watch', () => {
+    const expectedAction = {
+      type: actions.REMOVE_WATCH,
+      id: 0,
+    };
+    expect(actions.removeWatch(0)).toEqual(expectedAction);
+  });
 });
 
 describe('Async actions', () => {
@@ -61,6 +69,7 @@ describe('Async actions', () => {
     const expectedActions = [
       { type: actions.FILL_WATCHES, watches: [] },
     ];
+    
     const store = mockStore(initialState);
     store.dispatch(actions.fetchWatches('fakeToken'))
       .then(() => {
@@ -70,5 +79,21 @@ describe('Async actions', () => {
       });
   });
 
-  /* TODO ERROR TEST for FETCH_WATCHES */
+  it('DELETE_WATCH should dispatch REMOVE_WATCH if successful', (done) => {
+    fetchMock.mock(/.+\/watches.+/g,
+      { result: 'Watch 12345 deleted' },
+    );
+    const expectedActions = [
+      { type: actions.REMOVE_WATCH, id: 0 },
+    ];
+    const store = mockStore(initialState);
+    store.dispatch(actions.deleteWatch('fakeToken', 0))
+      .then(() => {
+        const actualActions = store.getActions();
+        expect(actualActions).toEqual(expectedActions);
+        done();
+      });
+  });
+
+  /* TODO ERROR TEST for FETCH_WATCHES and DELETE_WATCH */
 });

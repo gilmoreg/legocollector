@@ -18,7 +18,10 @@ export class Watch extends Component {
   render() {
     return (
       <div className="Watch">
-        <WatchHeader watch={this.props.watch} />
+        <WatchHeader
+          watch={this.props.watch}
+          deleteClick={() => console.log('delete', this.props.watch)}
+        />
         { this.state.collapsed ?
           <div />
           :

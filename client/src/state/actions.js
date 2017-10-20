@@ -30,6 +30,12 @@ export const fillWatches = watches => ({
   watches,
 });
 
+export const REMOVE_WATCH = 'REMOVE_WATCH';
+export const removeWatch = id => ({
+  type: REMOVE_WATCH,
+  id,
+});
+
 // ASYNC ACTIONS
 export const SET_THRESHOLD = 'SET_THRESHOLD';
 export const setThreshold = ({ watch, level }) => (dispatch) => {
@@ -43,4 +49,12 @@ export const fetchWatches = token => dispatch =>
     .then(res => res.json())
     .then(res => res.result)
     .then(watches => dispatch(fillWatches(watches)))
+    .catch(err => console.error(err)); // TODO proper error handler
+
+export const DELETE_WATCH = 'DELETE_WATCH';
+export const deleteWatch = (token, id) => dispatch =>
+  fetch(`${API_URL}/watches/delete/${id}?token=${token}`)
+    .then(res => res.json())
+    .then(res => res.result)
+    .then(() => dispatch(removeWatch(id)))
     .catch(err => console.error(err)); // TODO proper error handler

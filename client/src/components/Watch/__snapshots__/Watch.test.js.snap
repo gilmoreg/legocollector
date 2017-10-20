@@ -38,6 +38,7 @@ ShallowWrapper {
     "props": Object {
       "children": Array [
         <WatchHeader
+          deleteClick={[Function]}
           watch={
             Object {
               "image": "https://images-na.ssl-images-amazon.com/images/I/413yqVUgjcL._SL160_.jpg",
@@ -71,6 +72,7 @@ ShallowWrapper {
         "key": null,
         "nodeType": "function",
         "props": Object {
+          "deleteClick": [Function],
           "watch": Object {
             "image": "https://images-na.ssl-images-amazon.com/images/I/413yqVUgjcL._SL160_.jpg",
             "stock_levels": Array [
@@ -123,6 +125,7 @@ ShallowWrapper {
       "props": Object {
         "children": Array [
           <WatchHeader
+            deleteClick={[Function]}
             watch={
               Object {
                 "image": "https://images-na.ssl-images-amazon.com/images/I/413yqVUgjcL._SL160_.jpg",
@@ -156,6 +159,7 @@ ShallowWrapper {
           "key": null,
           "nodeType": "function",
           "props": Object {
+            "deleteClick": [Function],
             "watch": Object {
               "image": "https://images-na.ssl-images-amazon.com/images/I/413yqVUgjcL._SL160_.jpg",
               "stock_levels": Array [

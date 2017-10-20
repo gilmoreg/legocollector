@@ -29,6 +29,9 @@ const WatchHeader = props => (
     <div className="stock">
       {getCurrentStock(props.watch.stock_levels)}
     </div>
+    <button className="delete" onClick={props.deleteClick}>
+      <i className="fa fa-times" aria-hidden="true" />
+    </button>
   </div>
 );
 
@@ -39,6 +42,7 @@ WatchHeader.propTypes = {
     url: PropTypes.string.isRequired,
     stock_levels: PropTypes.array.isRequired,
   }).isRequired,
+  deleteClick: PropTypes.func.isRequired,
 };
 
 export default WatchHeader;

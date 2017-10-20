@@ -5,6 +5,7 @@ ShallowWrapper {
   "length": 1,
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <WatchHeader
+    deleteClick={[Function]}
     watch={
       Object {
         "image": "https://images-na.ssl-images-amazon.com/images/I/413yqVUgjcL._SL160_.jpg",
@@ -68,6 +69,15 @@ ShallowWrapper {
         >
           1
         </div>,
+        <button
+          className="delete"
+          onClick={[Function]}
+        >
+          <i
+            aria-hidden="true"
+            className="fa fa-times"
+          />
+        </button>,
       ],
       "className": "WatchHeader",
     },
@@ -168,6 +178,33 @@ ShallowWrapper {
         "rendered": "1",
         "type": "div",
       },
+      Object {
+        "instance": null,
+        "key": null,
+        "nodeType": "host",
+        "props": Object {
+          "children": <i
+            aria-hidden="true"
+            className="fa fa-times"
+          />,
+          "className": "delete",
+          "onClick": [Function],
+        },
+        "ref": null,
+        "rendered": Object {
+          "instance": null,
+          "key": null,
+          "nodeType": "host",
+          "props": Object {
+            "aria-hidden": "true",
+            "className": "fa fa-times",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": "i",
+        },
+        "type": "button",
+      },
     ],
     "type": "div",
   },
@@ -210,6 +247,15 @@ ShallowWrapper {
           >
             1
           </div>,
+          <button
+            className="delete"
+            onClick={[Function]}
+          >
+            <i
+              aria-hidden="true"
+              className="fa fa-times"
+            />
+          </button>,
         ],
         "className": "WatchHeader",
       },
@@ -309,6 +355,33 @@ ShallowWrapper {
           "ref": null,
           "rendered": "1",
           "type": "div",
+        },
+        Object {
+          "instance": null,
+          "key": null,
+          "nodeType": "host",
+          "props": Object {
+            "children": <i
+              aria-hidden="true"
+              className="fa fa-times"
+            />,
+            "className": "delete",
+            "onClick": [Function],
+          },
+          "ref": null,
+          "rendered": Object {
+            "instance": null,
+            "key": null,
+            "nodeType": "host",
+            "props": Object {
+              "aria-hidden": "true",
+              "className": "fa fa-times",
+            },
+            "ref": null,
+            "rendered": null,
+            "type": "i",
+          },
+          "type": "button",
         },
       ],
       "type": "div",
