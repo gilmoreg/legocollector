@@ -12,6 +12,7 @@ from .testutils import bottlenose_mock_success
 @pytest.mark.usefixtures('db')
 class TestAmazon:
     """ Tests for the Amazon Module """
+
     def test_search(self):
         mock_bottlenose = Mock(name='search')
         mock_bottlenose.return_value = bottlenose_mock_success

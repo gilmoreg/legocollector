@@ -47,9 +47,7 @@ class LegoSetController(object):
             POST /legoset/add/<id>
             Fetch data about a legoset from Amazon and add to the database
         """
-        user = AuthController.authenticate(token)
-        if user is None:
-            raise FlaskError('Could not authenticate user', status_code=401)
+        AuthController.authenticate(token)
         id = str(set_id)
         # Check if set exists already; if so raise an error but also 200 OK response
         set_exists = LegoSet.query.filter_by(id=id).first()
