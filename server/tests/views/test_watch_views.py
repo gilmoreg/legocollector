@@ -104,3 +104,12 @@ class TestWatchViews:
             response = post_json(client, '/watches/delete/12345', {'token': user['token']})
             json = decode_json(response)
             assert json == {'error': 'Watch not found'}
+
+    def test_delete_watch_no_token(self, client):
+        mock_bottlenose = Mock(name='search')
+        mock_bottlenose.return_value = bottlenose_mock_empty
+        with patch.object(Amazon, 'search', mock_bottlenose):
+            response = post_json(client, '/watches/delete/12345', {})
+            json = decode_json(response)
+            assert json == {'error': 'Must supply a token and a set ID'}
+
