@@ -9,13 +9,23 @@ from api.models import LegoSet
 
 class WatchController(object):
     """ Controller for watches """
-
-    def get_users_watches(self, token):
+    @staticmethod
+    def get_users_watches(token):
         """ Return all of a user's Watches """
         user = AuthController.get_user(token)
         return list(map(lambda w: w.to_dict(), user.watches))
 
-    def add_watch(self, token, set_id):
+    @staticmethod
+    def get_watch(set_id, token):
+        """ Return a specific watch """
+        user = AuthController.get_user(token)
+        for watch in user.watches:
+            if watch.id == int(set_id):
+                return watch.to_dict()
+
+
+    @staticmethod
+    def add_watch(token, set_id):
         """
         POST /watch/add
 

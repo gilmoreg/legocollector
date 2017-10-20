@@ -18,9 +18,6 @@ def get_users_watches():
         token = request.args.get('token')
         watches = watch_controller.get_users_watches(token)
         return jsonify({'result': watches})
-    except KeyError:
-        error = FlaskError('Must supply a token', status_code=400)
-        return error.json_response()
     except Exception as e:
         return exception_json_response(e)
 
@@ -31,7 +28,7 @@ def get_watch(id):
     try:
         watch_id = id or request.args.get('id')
         token = request.args.get('token')
-        watch = watch_controller.get_watch(watch_id, token)
+        watch = watch_controller.get_watch(id, token)
         return jsonify({'result': watch})
     except KeyError:
         error = FlaskError('Must supply a token and a watch ID', status_code=400)
@@ -42,7 +39,7 @@ def get_watch(id):
 
 @blueprint.route('/watches/add', methods=['POST'])
 def add_watch():
-    """ Add a watched set to the database, return mongo ID """
+    """ Add a watched set to the database, return JSON """
     data = request.get_json(force=True)
     try:
         watch = watch_controller.add_watch(data['token'], data['id'])

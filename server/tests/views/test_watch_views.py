@@ -5,7 +5,7 @@ from unittest.mock import Mock, patch
 import pytest
 
 from api.amazon import Amazon
-from ..factories import create_user
+from ..factories import create_user, create_legoset, create_watch
 from ..testutils import decode_json, post_json, create_bad_jwt, bottlenose_mock_success, bottlenose_mock_empty
 
 
@@ -20,6 +20,37 @@ class TestWatchViews:
         json = decode_json(response)
         assert response.status_code == 200
         assert json == {'result': []}
+
+    def test_get_watches_no_token(self, client):
+        response = client.get('/watches')
+        json = decode_json(response)
+        assert json == {'error': 'Could not authenticate user'}
+
+    def test_get_watches_bad_token(self, client):
+        token = create_bad_jwt()
+        response = client.get('/watches?token=' + token)
+        json = decode_json(response)
+        assert json == {'error': 'Could not authenticate user'}
+
+    def test_get_watch(self, client):
+        """ get_watch() """
+        user = create_user('test@test.com')
+        legoset = create_legoset(12345)
+        create_watch(user['user'], legoset)
+        response = client.get('/watches/12345?token=' + user['token'])
+        json = decode_json(response)['result']
+        assert json['id'] == 12345
+
+    def test_get_watch_no_token(self, client):
+        response = client.get('/watches/12345')
+        json = decode_json(response)
+        assert json == {'error': 'Could not authenticate user'}
+
+    def test_get_watch_bad_token(self, client):
+        token = create_bad_jwt()
+        response = client.get('/watches/12345?token=' + token)
+        json = decode_json(response)
+        assert json == {'error': 'Could not authenticate user'}
 
     def test_add_watch(self, client):
         """ Verify existence of test watch after adding """
@@ -44,12 +75,12 @@ class TestWatchViews:
             json = decode_json(response)
             assert json == {'error': 'Could not find set 54321 on Amazon'}
 
-    def test_watch_no_token(self, client):
+    def test_add_watch_no_token(self, client):
         response = post_json(client, '/watches/add', {'id': '54321'})
         json = decode_json(response)
         assert json == {'error': 'Must supply a token and a set ID'}
 
-    def test_watch_bad_token(self, client):
+    def test_add_watch_bad_token(self, client):
         token = create_bad_jwt()
         response = post_json(client, '/watches/add', {'token': token, 'id': '54321'})
         json = decode_json(response)
