@@ -13,7 +13,7 @@ from ..testutils import bottlenose_mock_success, create_bad_jwt
 class TestLegoSetController:
     """ Tests for LegoSetController """
     @pytest.mark.usefixtures('db')
-    def test_create_record(self, client):
+    def test_create_record(self):
         """ create_legoset_record() """
         legoset_controller = LegoSetController()
         mock_bottlenose = Mock(name='search')
@@ -35,14 +35,14 @@ class TestLegoSetController:
             assert e.to_dict() == {'message': 'Could not authenticate user', 'status_code': 401}
 
     # Fixture omitted to make db fail
-    def test_db_fail(self, client):
+    def test_db_fail(self):
         legoset_controller = LegoSetController()
         mock_bottlenose = Mock(name='search')
         mock_bottlenose.return_value = bottlenose_mock_success
 
         with patch.object(Amazon, 'search', mock_bottlenose):
             try:
-                legoset = legoset_controller.create_legoset_record(12345)
+                legoset_controller.create_legoset_record(12345)
             except FlaskError as e:
                 assert e.to_dict() == {
                     'message': 'Unable to save new set to database',
@@ -50,15 +50,15 @@ class TestLegoSetController:
                 }
 
     @pytest.mark.usefixtures('db')
-    def test_duplicate_record(self, client):
+    def test_duplicate_record(self):
         legoset_controller = LegoSetController()
         mock_bottlenose = Mock(name='search')
         mock_bottlenose.return_value = bottlenose_mock_success
 
         with patch.object(Amazon, 'search', mock_bottlenose):
             try:
-                legoset1 = legoset_controller.create_legoset_record(12345)
-                legoset2 = legoset_controller.create_legoset_record(12345)
+                legoset_controller.create_legoset_record(12345)
+                legoset_controller.create_legoset_record(12345)
             except FlaskError as e:
                 assert e.to_dict() == {
                     'message': 'Unable to save new set to database',
@@ -66,7 +66,7 @@ class TestLegoSetController:
                 }
 
     @pytest.mark.usefixtures('db')
-    def test_udpate_stock_levels(self, client):
+    def test_udpate_stock_levels(self):
         """ Test updating stock levels """
         legoset_controller = LegoSetController()
         mock_bottlenose = Mock(name='search')
@@ -90,7 +90,6 @@ class TestLegoSetController:
             legoset_controller.update_stock_by_id(12345)
             assert len(legoset.stock_levels) == 1
 
-
     @pytest.mark.usefixtures('db')
     def test_cull_stock(self):
         """ cull_stock() """
@@ -99,8 +98,8 @@ class TestLegoSetController:
         mock_bottlenose.return_value = bottlenose_mock_success
         with patch.object(Amazon, 'search', mock_bottlenose):
             legoset = legoset_controller.create_legoset_record(12345)
-            # Add 31 stock levels
-            for i in range(0,35):
+            # Add over 30 stock levels
+            for i in range(0, 35):
                 legoset_controller.update_stock_levels()
             legoset_controller.cull_stock(legoset)
             # Ensure only 30 remain

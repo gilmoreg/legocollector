@@ -89,3 +89,9 @@ class TestLegosetViews:
             response = client.get('/legoset/search/12345?token=' + token)
             json = decode_json(response)
             assert json == {'error': 'Could not find set 12345 on Amazon'}
+
+    def test_search_missing_token(self, client):
+        """ Test search with missing token """
+        response = client.get('/legoset/search/12345')
+        json = decode_json(response)
+        assert json == {'error': 'Could not authenticate user'}
