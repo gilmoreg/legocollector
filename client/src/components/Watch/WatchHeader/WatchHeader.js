@@ -28,6 +28,7 @@ const WatchHeader = props => (
     </div>
     <div className="stock">
       {getCurrentStock(props.watch.stock_levels)}
+      <p>in stock</p>
     </div>
     <button className="delete" onClick={props.deleteClick}>
       <i className="fa fa-times" aria-hidden="true" />

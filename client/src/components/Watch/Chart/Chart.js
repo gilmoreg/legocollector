@@ -15,7 +15,9 @@ const Chart = (props) => {
         fill: false,
         lineTension: 0.1,
         backgroundColor: 'rgba(75,192,192,0.4)',
-        borderColor: 'rgba(75,192,192,1)',
+        // borderColor: 'rgba(75,192,192,1)',
+        responsive: true,
+        maintainAspectRatio: false,
         borderCapStyle: 'butt',
         borderDash: [],
         borderDashOffset: 0.0,
@@ -37,11 +39,24 @@ const Chart = (props) => {
     legend: {
       display: false,
     },
+    scales: {
+      yAxes: [{
+        gridLines: {
+          drawBorder: false,
+        },
+        display: false,
+      }],
+    },
   };
 
   return (
     <div className="Chart">
-      <Line data={data} options={options} />
+      <Line
+        data={data}
+        options={options}
+        width={300}
+        height={200}
+      />
     </div>
   );
 };

@@ -5,5 +5,8 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
+  font-family: 'Open Sans', sans-serif;
+  background: radial-gradient(ellipse at center, rgba(219,240,252,1) 0%,rgba(33,133,197,1) 100%);
+  background-attachment: fixed;
+  color: #3E454C;
 }

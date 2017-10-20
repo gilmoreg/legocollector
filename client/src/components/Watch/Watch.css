@@ -3,8 +3,7 @@
 }
 
 .Watch .WatchBody {
-  border-left: 1px solid black;
-  border-right: 1px solid black;
+  background-color: rgba(255,246,229,0.7);
   max-width: 760px;
   margin: 0 auto;
 }

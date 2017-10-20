@@ -1,7 +1,7 @@
 .AddWatchButton {
-  border: 10px solid red;
+  border: 10px solid #FF7F66;
   border-radius: 50%;
-  background-color: red;
+  background-color: #FF7F66;
   width: 50px;
   height: 50px;
   position: fixed;
