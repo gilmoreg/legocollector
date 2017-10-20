@@ -42,7 +42,10 @@ export class App extends Component {
       <div className="App">
         <Header loggedIn={this.props.loggedIn} email={this.props.email} />
         { this.props.loggedIn ?
-          watches :
+          <div className="WatchView">
+            {watches}
+          </div>
+          :
           <Welcome />
         }
         { this.props.loggedIn ?
