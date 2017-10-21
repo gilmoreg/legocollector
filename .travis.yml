@@ -2,6 +2,8 @@ matrix:
   include:
     - language: python
       python: 3.6
+      install:
+        - pip install -r server/requirements.txt
       before_script:
         cd server/
       script:
