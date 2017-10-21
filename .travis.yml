@@ -18,6 +18,8 @@ matrix:
         cd client/
       script:
         npm test
+      after_success:
+        npm run deploy
   
   branches:
     only:
