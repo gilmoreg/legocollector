@@ -19,4 +19,4 @@ COPY . /src
 
 WORKDIR /src
 
-CMD celery -A celery_worker:celery worker --loglevel=INFO
+CMD /bin/sh celery.sh
