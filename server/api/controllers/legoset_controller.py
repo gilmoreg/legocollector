@@ -124,6 +124,7 @@ class LegoSetController(object):
         add a StockLevel datapoint for each one
         This function runs on a schedule set up in api/schedule.py
         """
+        print('Updating stock levels')
         legosets = self.get_legosets()
         amazon = Amazon()
         for legoset in legosets:

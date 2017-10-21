@@ -24,7 +24,6 @@ class WatchController(object):
             if watch.id == int(set_id):
                 return watch.to_dict()
 
-
     @staticmethod
     def add_watch(token, set_id):
         """

@@ -14,11 +14,9 @@ ENV FLASK_APP /src/api
 ENV SETTINGS /src/api/config.py
 ENV PYTHONUNBUFFERED 0
 
-EXPOSE 5000
-
 # Copy source
 COPY . /src
 
 WORKDIR /src
 
-CMD python run.py
+CMD celery -A celery_worker:celery beat --loglevel=INFO
