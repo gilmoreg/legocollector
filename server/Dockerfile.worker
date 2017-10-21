@@ -19,4 +19,5 @@ COPY . /src
 
 WORKDIR /src
 
-CMD ./celery.sh
+CMD celery -A celery_worker:celery beat --loglevel=INFO --detach && \
+    celery -A celery_worker:celery worker --loglevel=INFO
