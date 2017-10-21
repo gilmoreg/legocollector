@@ -17,11 +17,69 @@ ShallowWrapper {
     "key": null,
     "nodeType": "host",
     "props": Object {
-      "children": "Hi",
+      "children": Array [
+        <h2>
+          Welcome to Lego Collector!
+        </h2>,
+        <p>
+          If you collect Lego sets for profit, you always want to know when a set is about to run out of stock. Lego Collector keeps you up to date by tracking Amazon's stock levels for Lego sets you specify.
+        </p>,
+        <p>
+          Check the stock levels of all the sets you have your eye on in one convenient place!
+        </p>,
+        <p>
+          Soon it will be able to notify you via email when a certain stock falls below a threshold you define so you can snap up one of the last sets before it's too late!
+        </p>,
+      ],
       "className": "Welcome",
     },
     "ref": null,
-    "rendered": "Hi",
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": null,
+        "nodeType": "host",
+        "props": Object {
+          "children": "Welcome to Lego Collector!",
+        },
+        "ref": null,
+        "rendered": "Welcome to Lego Collector!",
+        "type": "h2",
+      },
+      Object {
+        "instance": null,
+        "key": null,
+        "nodeType": "host",
+        "props": Object {
+          "children": "If you collect Lego sets for profit, you always want to know when a set is about to run out of stock. Lego Collector keeps you up to date by tracking Amazon's stock levels for Lego sets you specify.",
+        },
+        "ref": null,
+        "rendered": "If you collect Lego sets for profit, you always want to know when a set is about to run out of stock. Lego Collector keeps you up to date by tracking Amazon's stock levels for Lego sets you specify.",
+        "type": "p",
+      },
+      Object {
+        "instance": null,
+        "key": null,
+        "nodeType": "host",
+        "props": Object {
+          "children": "Check the stock levels of all the sets you have your eye on in one convenient place!",
+        },
+        "ref": null,
+        "rendered": "Check the stock levels of all the sets you have your eye on in one convenient place!",
+        "type": "p",
+      },
+      Object {
+        "instance": null,
+        "key": null,
+        "nodeType": "host",
+        "props": Object {
+          "children": "Soon it will be able to notify you via email when a certain stock falls below a threshold you define so you can snap up one of the last sets before it's too late!",
+        },
+        "ref": null,
+        "rendered": "Soon it will be able to notify you via email when a certain stock falls below a threshold you define so you can snap up one of the last sets before it's too late!",
+        "type": "p",
+      },
+    ],
     "type": "div",
   },
   Symbol(enzyme.__nodes__): Array [
@@ -30,11 +88,69 @@ ShallowWrapper {
       "key": null,
       "nodeType": "host",
       "props": Object {
-        "children": "Hi",
+        "children": Array [
+          <h2>
+            Welcome to Lego Collector!
+          </h2>,
+          <p>
+            If you collect Lego sets for profit, you always want to know when a set is about to run out of stock. Lego Collector keeps you up to date by tracking Amazon's stock levels for Lego sets you specify.
+          </p>,
+          <p>
+            Check the stock levels of all the sets you have your eye on in one convenient place!
+          </p>,
+          <p>
+            Soon it will be able to notify you via email when a certain stock falls below a threshold you define so you can snap up one of the last sets before it's too late!
+          </p>,
+        ],
         "className": "Welcome",
       },
       "ref": null,
-      "rendered": "Hi",
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": null,
+          "nodeType": "host",
+          "props": Object {
+            "children": "Welcome to Lego Collector!",
+          },
+          "ref": null,
+          "rendered": "Welcome to Lego Collector!",
+          "type": "h2",
+        },
+        Object {
+          "instance": null,
+          "key": null,
+          "nodeType": "host",
+          "props": Object {
+            "children": "If you collect Lego sets for profit, you always want to know when a set is about to run out of stock. Lego Collector keeps you up to date by tracking Amazon's stock levels for Lego sets you specify.",
+          },
+          "ref": null,
+          "rendered": "If you collect Lego sets for profit, you always want to know when a set is about to run out of stock. Lego Collector keeps you up to date by tracking Amazon's stock levels for Lego sets you specify.",
+          "type": "p",
+        },
+        Object {
+          "instance": null,
+          "key": null,
+          "nodeType": "host",
+          "props": Object {
+            "children": "Check the stock levels of all the sets you have your eye on in one convenient place!",
+          },
+          "ref": null,
+          "rendered": "Check the stock levels of all the sets you have your eye on in one convenient place!",
+          "type": "p",
+        },
+        Object {
+          "instance": null,
+          "key": null,
+          "nodeType": "host",
+          "props": Object {
+            "children": "Soon it will be able to notify you via email when a certain stock falls below a threshold you define so you can snap up one of the last sets before it's too late!",
+          },
+          "ref": null,
+          "rendered": "Soon it will be able to notify you via email when a certain stock falls below a threshold you define so you can snap up one of the last sets before it's too late!",
+          "type": "p",
+        },
+      ],
       "type": "div",
     },
   ],
