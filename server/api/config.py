@@ -12,6 +12,7 @@ class Config(object):
     CELERY_BROKER_URL = os.environ['RABBITMQ_URL']
     CSRF_ENABLED = True
     APP_DIR = os.path.abspath(os.path.dirname(__file__))  # This directory
+    DEBUG = False
 
 
 class ProdConfig(Config):
