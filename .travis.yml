@@ -10,7 +10,7 @@ matrix:
         cd server/
       script:
         python3 -m pytest
-      after_success: bash server/deploy.sh
+      after_success: bash ./deploy.sh
     
     - language: node_js
       node_js: node
