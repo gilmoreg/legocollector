@@ -2,10 +2,8 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { login, fetchWatches } from '../../../state/actions';
+import { API_URL } from '../../../config';
 import './Login.css';
-
-// TODO move to config/env
-const API_URL = 'http://localhost:5000';
 
 const storeProfile = ({ token, email }) => {
   console.log('storeProfile', token, email);
