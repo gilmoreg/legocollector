@@ -25,7 +25,7 @@ services:
   api:
     build:
       context: ./server
-      dockerfile: $PWD/server/Dockerfile.web
+      dockerfile: $PWD/server/Dockerfile.dev
     env_file:
       - ./server/server.env
     volumes:

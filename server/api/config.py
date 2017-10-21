@@ -20,12 +20,6 @@ class ProdConfig(Config):
     ENV = 'prod'
     DEBUG = False
     TESTING = False
-    CELERYBEAT_SCHEDULE = {
-        'update': {
-            'task': 'update_stock_levels',
-            'schedule': crontab(hour=0, minute=0)
-        }
-    }
 
 
 class DevConfig(Config):
@@ -33,12 +27,6 @@ class DevConfig(Config):
     ENV = 'dev'
     DEBUG = True
     TESTING = False
-    CELERYBEAT_SCHEDULE = {
-        'update': {
-            'task': 'update_stock_levels',
-            'schedule': crontab(minute='*')
-        }
-    }
 
 
 class TestConfig(Config):

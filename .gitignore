@@ -7,12 +7,13 @@ notes
 server/config.py
 server/__pycache__
 **/*.pyc
-server/__pycache__/server.cpython-36.pyc
 server/server.env
 server/.cache
 server/.vscode
 server/notes
 server/.coverage
+server/celerybeat*
+server/*.pid
 
 # Client
 client/node_modules

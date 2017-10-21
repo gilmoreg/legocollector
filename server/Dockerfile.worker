@@ -19,4 +19,4 @@ COPY . /src
 
 WORKDIR /src
 
-CMD /bin/sh celery.sh
+CMD ./celery.sh
