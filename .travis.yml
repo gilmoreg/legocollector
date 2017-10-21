@@ -1,0 +1,19 @@
+matrix:
+  include:
+    - language: python
+      python: 3.6
+      before_script:
+        cd server/
+      script:
+        python -m py.test
+    
+    - language: node_js
+      node_js: node
+      before_script:
+        cd client/
+      script:
+        npm test
+  
+  branches:
+    only:
+      - master
