@@ -2,7 +2,6 @@
   Configuration
 """
 import os
-from celery.schedules import crontab
 
 
 class Config(object):
