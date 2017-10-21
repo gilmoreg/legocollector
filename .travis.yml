@@ -11,9 +11,7 @@ matrix:
     
     - language: node_js
       node_js: node
-      install:
-        - npm install
-      before_script:
+      before_install:
         cd client/
       script:
         npm test
