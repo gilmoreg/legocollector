@@ -1,2 +1,3 @@
 web: gunicorn api.app:create_app\(\) -b 0.0.0.0:$PORT -w 3
 worker: celery -A celery_worker:celery beat --loglevel=INFO
+worker: celery -A celery_worker:celery worker --loglevel=INFO
