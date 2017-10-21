@@ -1,6 +1,7 @@
 # Root
 notes
 .vscode
+.idea
 *.env
 
 # Server
@@ -14,6 +15,7 @@ server/notes
 server/.coverage
 server/celerybeat*
 server/*.pid
+server/*.coverage*
 
 # Client
 client/node_modules

@@ -1,4 +1,0 @@
-.coverage*
-.idea
-__pycache__
-celerybeat*
