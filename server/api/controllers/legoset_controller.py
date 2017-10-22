@@ -130,5 +130,5 @@ class LegoSetController(object):
         for legoset in legosets:
             try:
                 self.update_stock(legoset)
-            except:
-                pass
+            except Exception as e:
+                print('error updating', legoset, e)
