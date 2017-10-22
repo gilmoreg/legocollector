@@ -9,7 +9,7 @@
 
 .AddWatchModal {
   position: absolute;
-  top: 100px;
+  top: 50px;
   left: 50px;
   right: 50px;
   background-color: white;
@@ -35,4 +35,5 @@
   font-size: 11px;
   color: #FF7F66;
   display: block;
+  margin-bottom: 0.5rem;
 }
