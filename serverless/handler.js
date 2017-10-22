@@ -6,7 +6,7 @@ module.exports.update = (event, context, callback) => {
   nodeFetch(`${process.env.API_URL}/legoset/update`, {
     method: 'POST',
     body: JSON.stringify({
-      token: jwt.sign(process.env.ADMIN, process.env.SECRET)
+      token: jwt.sign({ user: process.env.ADMIN }, process.env.SECRET)
     }),
   })
   .then(res => res.json())

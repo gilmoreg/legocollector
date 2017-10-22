@@ -71,10 +71,8 @@ class AuthController(object):
     def verify_admin(token):
         """ Verify this token carries administrator privileges """
         try:
-            print(token)
-            decoded = jwt.decode(token, environ['JWT_SECRET'], algorithms=['HS256'])
-            print('verify_admin', decoded)
-            if decoded['admin'] == environ['ADMIN']:
+            user = AuthController.authenticate(token)
+            if user == environ['ADMIN']:
                 return True
             return False
         except Exception as e:
