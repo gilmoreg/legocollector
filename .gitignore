@@ -13,13 +13,10 @@ server/.cache
 server/.vscode
 server/notes
 server/.coverage
-server/celerybeat*
-server/celerybeat-schedule
 server/*.pid
 server/*.coverage*
 
 # Client
 client/node_modules
-client/public
 client/notes
 

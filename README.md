@@ -5,16 +5,19 @@
 git clone https://github.com/gilmoreg/legocollector.git
 cd legocollector
 ```
-Create a 'config.py' file in server/ with the following content:
+Create a 'server.env' file in server/ with the following content:
 ```
 '''
+  /server/server.env
   Settings for development
 '''
-DEBUG = True
-TESTING = False
-CSRF_ENABLED = True
-SECRET_KEY = '<secret>'
-SQLALCHEMY_DATABASE_URI = os.environ['DATABASE_URL']
+FLASK_DEBUG=true
+DATABASE_URL=postgresql://db/legocollector
+AWS_ACCESS_KEY_ID=<access key id>
+AWS_SECRET_ACCESS_KEY=<secret access key>
+AWS_ASSOCIATE_TAG=<associate tag>
+JWT_SECRET=<JWT signing secret>
+ADMIN=<username for administrator>
 ```
 Create a 'postgres.env' file in project root with the following content:
 ```
@@ -54,5 +57,9 @@ docker-compose exec api sh
 / # cd src
 /src # flask db init
 /src # flask db migrate
-/src # flask db upgrade 
+/src # flask db upgrade
+
+# In production on Heroku, the migrations will already be in the container
+# So this is all you need to do:
+heroku run FLASK_APP=/src/migrate.py flask db upgrade
 ```
