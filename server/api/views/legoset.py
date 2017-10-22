@@ -3,7 +3,7 @@
     Views for /legoset
 """
 from flask import Blueprint, jsonify, request
-
+import re
 from api.controllers.legoset_controller import LegoSetController
 from api.errors import FlaskError, exception_json_response
 
@@ -30,12 +30,15 @@ def add_legoset_view(id):
 @blueprint.route('/legoset/search/<id>', methods=['GET'])
 def find_legoset_view(id):
     try:
-        set_id = int(id)
+        # ID must be an integer between 5 and 7 digits
+        test = re.match(r'^\d{5,7}$', id)
+        if not test:
+            raise ValueError
         token = request.args.get('token')
-        legoset = legoset_controller.search(set_id, token)
+        legoset = legoset_controller.search(int(id), token)
         return jsonify({'result': legoset})
     except ValueError:
-        error = FlaskError('Please supply a valid query (a 3 to 7 digit integer)', status_code=400)
+        error = FlaskError('Please supply a valid query (a 5 to 7 digit integer)', status_code=400)
         return error.json_response()
     except KeyError:
         error = FlaskError('Must supply a set_id and a valid token', status_code=400)

@@ -70,7 +70,12 @@ export class AddWatchModal extends Component {
     }
   }
 
-  displayError(error) {
+  displayError(err) {
+    let error;
+    if (typeof err === 'object') {
+      if (!err) error = 'Error communicating with the server. Please try again later.';
+      else error = JSON.stringify(err);
+    } else error = err;
     this.setState({ error });
     setTimeout(() => {
       this.setState({ error: '' });
