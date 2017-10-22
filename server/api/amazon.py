@@ -16,8 +16,8 @@ class Amazon(object):
             environ['AWS_SECRET_ACCESS_KEY'],
             environ['AWS_ASSOCIATE_TAG'],
             Parser=lambda text: BeautifulSoup(text, 'lxml'),
-            MaxQPS=0.5)
-        # ErrorHandler=self.error_handler)
+            MaxQPS=0.5,
+            ErrorHandler=self.error_handler)
 
     def search(self, set_id):
         """ Wrapper for bottlenose ItemSearch method """
