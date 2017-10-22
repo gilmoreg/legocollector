@@ -4,20 +4,29 @@
   left: 0;
   right: 0;
   bottom: 0;
+  background-color: rgba(0, 0, 0, 0.75);
 }
 
 .AddWatchModal {
   position: absolute;
   top: 100px;
-  left: 100px;
-  right: 100px;
+  left: 50px;
+  right: 50px;
   background-color: white;
   font-size: 40px;
   text-align: center;
-  border: 1px solid black;
   border-radius: 10px;
-  /* TODO: center programmatically
-    Display: flex on parent didn't work
-  */
-  padding-top: 22px; 
+}
+
+.AddWatchModal h3 {
+  margin: 0;
+  padding-bottom: 1rem;
+}
+
+.AddWatchModal input {
+  width: 80%;
+  margin-bottom: 1rem;
+  text-align: center;
+  border-radius: 5px;
+  background-color: #CCCCCC;
 }

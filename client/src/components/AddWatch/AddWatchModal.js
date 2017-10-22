@@ -37,8 +37,11 @@ export class AddWatchModal extends Component {
       .then(res => res.json())
       .then((res) => {
         if (res && res.result) this.setState({ searchResult: res.result });
+        if (res && res.error) console.log(res.error);
       })
-      .catch(err => console.error(err)); // TODO proper error message
+      .catch((err) => {
+        console.error(err);
+      }); // TODO proper error message
   }
 
   submitForm(event) {
@@ -80,7 +83,7 @@ export class AddWatchModal extends Component {
         parentSelector={() => document.querySelector('#root')}
       >
         <form onSubmit={this.submitForm}>
-          Lego ID:
+          <h3>Lego ID:</h3>
           <input
             type="text"
             onChange={this.onInputChange}
@@ -91,7 +94,7 @@ export class AddWatchModal extends Component {
             legoset={this.state.searchResult}
             onClick={this.addWatch}
           />
-          : ''}
+          : <span>No results</span>}
       </ReactModal>
     );
   }

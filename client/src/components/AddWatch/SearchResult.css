@@ -1,0 +1,18 @@
+.SearchResult img {
+  height: 150px;
+}
+
+.SearchResult .link {
+  font-size: 24px;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.SearchResult button {
+  background-color: #2185C5;
+  border-radius: 5px;
+  color: white;
+  margin: 1rem;
+  font-size: 24px;
+  padding: 0.5rem;
+}

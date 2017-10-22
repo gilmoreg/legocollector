@@ -1,16 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import './SearchResult.css';
 
 const SearchResult = ({ legoset, onClick }) => (
   <div className="SearchResult">
     <a href={legoset.url} rel="noopener noreferrer" target="_blank">
       <img src={legoset.image} alt={legoset.title} />
     </a>
-    <h3>
+    <p className="link">
       <a href={legoset.url} rel="noopener noreferrer" target="_blank">
         {legoset.title}
       </a>
-    </h3>
+    </p>
     <button onClick={onClick}>Add</button>
   </div>
 );

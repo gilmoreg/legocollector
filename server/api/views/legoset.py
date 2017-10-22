@@ -30,10 +30,13 @@ def add_legoset_view(id):
 @blueprint.route('/legoset/search/<id>', methods=['GET'])
 def find_legoset_view(id):
     try:
-        set_id = id or request.args.get('id')
+        set_id = int(id)
         token = request.args.get('token')
         legoset = legoset_controller.search(set_id, token)
         return jsonify({'result': legoset})
+    except ValueError:
+        error = FlaskError('Please supply a valid query (a 3 to 7 digit integer)', status_code=400)
+        return error.json_response()
     except KeyError:
         error = FlaskError('Must supply a set_id and a valid token', status_code=400)
         return error.json_response()
