@@ -20,7 +20,6 @@ def login():
     data = request.get_json(force=True)
     try:
         profile = auth_controller.login(data['access_token'])
-        print('login', profile)
         return jsonify({'result': profile})
     except Exception as e:
         return exception_json_response(e)
