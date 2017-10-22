@@ -16,11 +16,13 @@ export class AddWatchModal extends Component {
     this.state = {
       searchTerm: '',
       searchResult: {},
+      error: '',
     };
     this.search = debounce(query => this.queryAPI(query), 500);
     this.onInputChange = this.onInputChange.bind(this);
     this.queryAPI = this.queryAPI.bind(this);
     this.addWatch = this.addWatch.bind(this);
+    this.displayError = this.displayError.bind(this);
   }
 
   onInputChange(event) {
@@ -37,11 +39,9 @@ export class AddWatchModal extends Component {
       .then(res => res.json())
       .then((res) => {
         if (res && res.result) this.setState({ searchResult: res.result });
-        if (res && res.error) console.log(res.error);
+        if (res && res.error) this.displayError(res.error);
       })
-      .catch((err) => {
-        console.error(err);
-      }); // TODO proper error message
+      .catch(err => this.displayError(err));
   }
 
   submitForm(event) {
@@ -66,8 +66,15 @@ export class AddWatchModal extends Component {
             this.props.close();
           }
         })
-        .catch(err => console.error(err)); // TODO proper error handler
+        .catch(err => this.displayError(err));
     }
+  }
+
+  displayError(error) {
+    this.setState({ error });
+    setTimeout(() => {
+      this.setState({ error: '' });
+    }, 5000);
   }
 
   render() {
@@ -88,6 +95,7 @@ export class AddWatchModal extends Component {
             type="text"
             onChange={this.onInputChange}
           />
+          { this.state.error ? <small>{this.state.error}</small> : ''}
         </form>
         {this.state.searchResult.id ?
           <SearchResult
