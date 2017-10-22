@@ -10,18 +10,6 @@ services:
     volumes:
       - pgdata:/var/lib/postgresql/data
 
-  rabbit:
-    image: rabbitmq:3.6.12-alpine
-    environment:
-      RABBITMQ_DEFAULT_USER: rabbitmq
-      RABBITMQ_DEFAULT_PASS: rabbitmq
-      RABBITMQ_DEFAULT_VHOST: /
-    ports:
-      - 15672:15672
-      - 5672:5672
-    labels:
-      NAME: rabbit
-
   api:
     build:
       context: ./server
@@ -34,19 +22,6 @@ services:
       - 5000:5000
     depends_on:
       - db
-      - rabbit
-
-  celery_worker:
-    build:
-      context: ./server
-      dockerfile: $PWD/server/Dockerfile.worker
-    env_file:
-      - ./server/server.env
-    volumes:
-      - $PWD/server:/src
-    depends_on:
-      - db
-      - rabbit
 
 volumes:
   pgdata:
