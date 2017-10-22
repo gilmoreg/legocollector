@@ -66,3 +66,14 @@ class AuthController(object):
         if user is not None:
             return user
         raise FlaskError('User not found', status_code=401)
+
+    @staticmethod
+    def verify_admin(token):
+        """ Verify this token carries administrator privileges """
+        try:
+            decoded = jwt.decode(token, environ['JWT_SECRET'], algorithms=['HS256'])
+            if decoded['admin'] == environ['ADMIN']:
+                return True
+            return False
+        except Exception:
+            return False

@@ -1,5 +1,4 @@
 'use strict';
-const fetch = require('node-fetch');
 const jwt = require('jsonwebtoken');
 
 module.exports.update = (event, context, callback) => {
@@ -11,7 +10,7 @@ module.exports.update = (event, context, callback) => {
   })
   .then(res => res.json())
   .then((message) => {
-    console.log(res);
+    console.log(message);
     const response = {
       statusCode: 200,
       body: JSON.stringify({ message }),
@@ -19,7 +18,7 @@ module.exports.update = (event, context, callback) => {
     return callback(null, response);
   })
   .catch((message) => {
-    console.error(res);
+    console.error(message);
     return callback(message, null);
   });
 };

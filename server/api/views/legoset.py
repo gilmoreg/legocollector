@@ -5,6 +5,7 @@
 from flask import Blueprint, jsonify, request
 import re
 from api.controllers.legoset_controller import LegoSetController
+from api.controllers.auth_controller import AuthController
 from api.errors import FlaskError, exception_json_response
 
 blueprint = Blueprint('legoset', __name__)
@@ -49,15 +50,19 @@ def find_legoset_view(id):
         return exception_json_response(e)
 
 
-@blueprint.route('/legoset/update', methods=['GET'])
+@blueprint.route('/legoset/update', methods=['POST'])
 def update():
     """
-    Development method for manually updating stock levels
-    TODO remove before deployment
+    This endpoint is called by an AWS Lambda running every 6 hours
+    With 30 datapoints this ensures about a week's worth of stock data
     """
     try:
-        legoset_controller.update_stock_levels()
-        return jsonify({'result': 'success'})
+        data = request.get_json(force=True)
+        authorized = AuthController.verify_admin(data['token'])
+        if authorized:
+            legoset_controller.update_stock_levels()
+            return jsonify({'result': 'success'})
+        return jsonify({'result':'unauthorized'})
     except FlaskError as e:
         return e.json_response()
     except Exception as e:
