@@ -18,7 +18,7 @@ export class AddWatchModal extends Component {
       searchResult: {},
       error: '',
     };
-    this.search = debounce(query => this.queryAPI(query), 500);
+    this.search = debounce(query => this.queryAPI(query), 250);
     this.onInputChange = this.onInputChange.bind(this);
     this.queryAPI = this.queryAPI.bind(this);
     this.addWatch = this.addWatch.bind(this);
@@ -102,7 +102,7 @@ export class AddWatchModal extends Component {
             legoset={this.state.searchResult}
             onClick={this.addWatch}
           />
-          : <span>No results</span>}
+          : ''}
       </ReactModal>
     );
   }
