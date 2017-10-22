@@ -26,11 +26,6 @@ POSTGRES_PASSWORD=<password>
 POSTGRES_DB=legocollector
 ```
 
-Build and run Docker containers
-```
-docker-compose up
-```
-
 Create database migrations
 ```
 # These steps may be unnecessary; they may have been originally necessary since the first time I created 
@@ -62,4 +57,31 @@ docker-compose exec api sh
 # In production on Heroku, the migrations will already be in the container
 # So this is all you need to do:
 heroku run FLASK_APP=/src/migrate.py flask db upgrade
+```
+
+Build and run Docker containers
+```
+docker-compose up
+```
+
+Build and start client:
+```
+cd client
+npm install
+npm start
+```
+
+### Serverless
+Ensure Serverless Framework is installed (https://serverless.com/framework/docs/getting-started/)
+Create a env.yml file in /serverless with the following content:
+```
+ADMIN: <admin username>
+SECRET: <JWT signing secret>
+API_URL: <API url>
+```
+Deploy:
+```
+cd serverless
+npm install
+serverless deploy -v
 ```
