@@ -1,8 +1,9 @@
 'use strict';
 const jwt = require('jsonwebtoken');
+const nodeFetch = require('node-fetch');
 
 module.exports.update = (event, context, callback) => {
-  fetch(`${process.env.API_URL}/legoset/update`, {
+  nodeFetch(`${process.env.API_URL}/legoset/update`, {
     method: 'POST',
     body: JSON.stringify({
       token: jwt.sign(process.env.ADMIN, process.env.SECRET)
