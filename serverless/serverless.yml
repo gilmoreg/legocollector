@@ -8,7 +8,7 @@ provider:
     SECRET: ${file(env.yml):SECRET}
     API_URL: ${file(env.yml):API_URL}
 
-region: us-west-1
+region: us-east-1
 
 functions:
   update:
