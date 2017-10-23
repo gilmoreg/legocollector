@@ -30,16 +30,16 @@ def authenticate(token):
 
 def login(amazon_token):
     """
-            Performs the following:
-            1. Asks Amazon about this access token
-            2. Gets an email address
-            3. Sees if that email exists in the db
-            If not, creates that user
-            4. Signs the user id into a JWT
-            5. Returns token and the email (for display purposes) to the user
-            for future requests
-            The client side can then stash the JWT in localStorage
-            """
+    Performs the following:
+    1. Asks Amazon about this access token
+    2. Gets an email address
+    3. Sees if that email exists in the db
+    If not, creates that user
+    4. Signs the user id into a JWT
+    5. Returns token and the email (for display purposes) to the user
+    for future requests
+    The client side can then stash the JWT in localStorage
+    """
     profile = requests.get(
         'https://api.amazon.com/user/profile?access_token={}'
             .format(amazon_token)).json()
@@ -52,7 +52,7 @@ def login(amazon_token):
             new_user = User(profile['email']).save()
             token = create_jwt(new_user.id)
             return {'token': token, 'email': profile['email'], 'new': True}
-    return FlaskError('Could not authenticate user', status_code=401).json_response()
+    raise FlaskError('Could not authenticate user', status_code=401)
 
 
 def get_user(token):

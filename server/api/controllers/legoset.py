@@ -101,15 +101,15 @@ def update_stock_by_id(set_id):
     update_stock(legoset)
 
 
-def update_stock_levels(self):
+def update_stock_levels():
     """
     Query Amazon for each Legoset in database,
     add a StockLevel datapoint for each one
     """
     print('Updating stock levels')
-    legosets = self.get_legosets()
+    legosets = get_legosets()
     for legoset in legosets:
         try:
-            self.update_stock(legoset)
+            update_stock(legoset)
         except Exception as e:
             print('error updating', legoset, e)

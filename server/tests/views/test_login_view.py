@@ -30,5 +30,6 @@ class TestLoginView:
             response = post_json(client, '/login', {
                 'access_token': 'test_token'
             })
+            print('response', response)
             json = decode_json(response)
             assert json == {'error': 'Could not authenticate user'}

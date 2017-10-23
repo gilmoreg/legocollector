@@ -62,7 +62,7 @@ class TestWatchViews:
             response = post_json(client, '/watches/add', {'token': user['token'], 'id': '54321'})
             json = decode_json(response)['result']
             assert json['id'] == 54321
-            assert len(json['stock_levels']) == 0
+            assert len(json['stock_levels']) == 1
 
     def test_watch_empty_search(self, client):
         """ Verify behavior when Amazon search returns empty """
