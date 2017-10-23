@@ -9,6 +9,8 @@ import SearchResult from './SearchResult';
 import { addWatch } from '../../state/actions';
 import './AddWatchModal.css';
 
+const digitTest = RegExp(/^\d{5,7}$/);
+
 export class AddWatchModal extends Component {
   constructor(props) {
     super(props);
@@ -29,6 +31,8 @@ export class AddWatchModal extends Component {
     event.persist();
     if (event.target && event.target.value) {
       const query = event.target.value.trim();
+      // Only save to state (and query API) if input is 5 to 7 digits
+      if (!query.match(digitTest)) return;
       this.setState({ searchTerm: query });
       if (query) this.search(query);
     }
