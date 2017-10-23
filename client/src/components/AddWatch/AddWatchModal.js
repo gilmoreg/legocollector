@@ -74,11 +74,13 @@ export class AddWatchModal extends Component {
         }),
       })
         .then(res => res.json())
-        .then(res => res.result)
-        .then((watch) => {
-          if (watch && watch.id) {
-            this.props.dispatch(addWatch(watch));
+        .then((res) => {
+          if (res.result && res.result.watch) {
+            this.props.dispatch(addWatch(res.result.watch));
             this.props.close();
+          }
+          if (res.error) {
+            this.displayError(res.error);
           }
         })
         .catch(err => this.displayError(err));
