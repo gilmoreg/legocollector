@@ -91,7 +91,7 @@ class TestWatchViews:
         with patch.object(Amazon, 'search', mock_bottlenose):
             user = create_user('test@test.com')
             legoset = create_legoset(12345)
-            watch = create_watch(user['user'], legoset)
+            create_watch(user['user'], legoset)
             response = post_json(client, '/watches/delete/12345', {'token': user['token']})
             json = decode_json(response)
             assert json == {'result': 'Watch 12345 deleted'}

@@ -2,30 +2,14 @@
     /api/views/legoset.py
     Views for /legoset
 """
-from flask import Blueprint, jsonify, request
 import re
-from api.controllers.legoset_controller import LegoSetController
-from api.controllers.auth_controller import AuthController
+
+from flask import Blueprint, jsonify, request
+from api.controllers.auth import verify_admin
+from api.controllers.legoset import search, update_stock_levels
 from api.errors import FlaskError, exception_json_response
 
 blueprint = Blueprint('legoset', __name__)
-legoset_controller = LegoSetController()
-
-
-@blueprint.route('/legoset/add/<id>', methods=['POST'])
-def add_legoset_view(id):
-    try:
-        set_id = id or request.args.get('id')
-        data = request.get_json(force=True)
-        legoset = legoset_controller.add_legoset(set_id, data['token'])
-        return jsonify({'result': legoset})
-    except KeyError:
-        error = FlaskError('Must supply a set_id and a valid token', status_code=400)
-        return error.json_response()
-    except FlaskError as e:
-        return e.json_response()
-    except Exception as e:
-        return exception_json_response(e)
 
 
 @blueprint.route('/legoset/search/<id>', methods=['GET'])
@@ -36,7 +20,7 @@ def find_legoset_view(id):
         if not test:
             raise ValueError
         token = request.args.get('token')
-        legoset = legoset_controller.search(int(id), token)
+        legoset = search(int(id), token)
         return jsonify({'result': legoset})
     except ValueError:
         error = FlaskError('Please supply a valid query (a 5 to 7 digit integer)', status_code=400)
@@ -58,9 +42,8 @@ def update():
     """
     try:
         data = request.get_json(force=True)
-        authorized = AuthController.verify_admin(data['token'])
-        if authorized:
-            legoset_controller.update_stock_levels()
+        if verify_admin(data['token']):
+            update_stock_levels()
             return jsonify({'result': 'success'})
         return jsonify({'result':'unauthorized'})
     except FlaskError as e:
