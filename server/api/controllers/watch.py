@@ -24,6 +24,8 @@ def add_watch(legoset, user):
     Add a new watch to the database
     If the set doesn't exist yet, add it first
     """
+    if legoset in user.watches:
+        raise FlaskError('Watch already exists for user', status_code=400)
     user.watches.append(legoset)
     user.save()
     return legoset.to_dict()

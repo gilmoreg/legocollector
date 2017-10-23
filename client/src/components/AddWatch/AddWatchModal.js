@@ -9,19 +9,20 @@ import SearchResult from './SearchResult';
 import { addWatch } from '../../state/actions';
 import './AddWatchModal.css';
 
+// Only digits, and between 5 and 7 of them
 const digitTest = RegExp(/^\d{5,7}$/);
 
 export class AddWatchModal extends Component {
   constructor(props) {
     super(props);
-    this.submitForm = this.submitForm.bind(this);
     this.state = {
       searchTerm: '',
       searchResult: {},
       error: '',
     };
-    this.search = debounce(query => this.queryAPI(query), 250);
+    this.search = debounce(() => this.queryAPI(), 250);
     this.onInputChange = this.onInputChange.bind(this);
+    this.submitForm = this.submitForm.bind(this);
     this.queryAPI = this.queryAPI.bind(this);
     this.addWatch = this.addWatch.bind(this);
     this.displayError = this.displayError.bind(this);
@@ -31,14 +32,29 @@ export class AddWatchModal extends Component {
     event.persist();
     if (event.target && event.target.value) {
       const query = event.target.value.trim();
-      // Only save to state (and query API) if input is 5 to 7 digits
-      if (!query.match(digitTest)) return;
       this.setState({ searchTerm: query });
-      if (query) this.search(query);
+      if (query) this.search();
     }
   }
 
-  queryAPI(query) {
+  submitForm(event) {
+    event.preventDefault();
+    try {
+      const query = event.target.querySelector('input').value;
+      this.setState({ searchTerm: query });
+      this.search();
+    } catch (e) {
+      // This is likely to be a ValueError if the querySelector fails
+      console.error('submitForm', e);
+    }
+  }
+
+  queryAPI() {
+    const query = this.state.searchTerm;
+    if (!query || !query.match(digitTest)) {
+      this.displayError('Set ID must be a 5 to 7 digit number!');
+      return;
+    }
     fetch(`${API_URL}/legoset/search/${query}?token=${this.props.token}`)
       .then(res => res.json())
       .then((res) => {
@@ -46,11 +62,6 @@ export class AddWatchModal extends Component {
         if (res && res.error) this.displayError(res.error);
       })
       .catch(err => this.displayError(err));
-  }
-
-  submitForm(event) {
-    event.preventDefault();
-    this.search();
   }
 
   addWatch() {
@@ -104,6 +115,7 @@ export class AddWatchModal extends Component {
           <input
             type="text"
             onChange={this.onInputChange}
+            placeholder={75105}
           />
           { this.state.error ? <small>{this.state.error}</small> : ''}
         </form>
