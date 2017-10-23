@@ -6,6 +6,7 @@ import jwt
 import requests
 from os import environ
 from api.models import User
+from api.controllers.watch_controller import WatchController
 from api.errors import FlaskError
 
 
@@ -55,6 +56,8 @@ class AuthController(object):
             else:
                 new_user = User(profile['email']).save()
                 token = AuthController.create_jwt(new_user.id)
+                # Ensure new users have at least one watch
+                WatchController.add_watch(token, 75105)
                 return {'token': token, 'email': profile['email']}
         raise FlaskError('Could not authenticate user', status_code=401)
 
