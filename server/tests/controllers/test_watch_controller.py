@@ -13,8 +13,8 @@ class TestWatchController:
         """ Test get_all_watches """
         user = create_user('test@test.com')
         legoset = create_legoset(12345)
-        create_watch(user['user'], legoset)
-        watches = watch_controller.get_users_watches(user['token'])
+        create_watch(legoset, user['user'])
+        watches = watch_controller.get_users_watches(user['user'])
         assert len(watches) == 1
         watch_1 = watches[0]
         assert watch_1['id'] == 12345
@@ -25,7 +25,7 @@ class TestWatchController:
         """ Confirm removal of watch """
         user = create_user('test@test.com')
         legoset = create_legoset(12345)
-        create_watch(user['user'], legoset)
+        create_watch(legoset, user['user'])
         assert len(user['user'].watches) == 1
-        watch_controller.delete_watch(user['token'], 12345)
+        watch_controller.delete_watch(12345, user['user'])
         assert len(user['user'].watches) == 0

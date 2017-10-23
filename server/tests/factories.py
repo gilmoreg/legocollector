@@ -19,7 +19,7 @@ def create_legoset(id):
     return legoset
 
 
-def create_watch(user, legoset):
+def create_watch(legoset, user):
     user.watches.append(legoset)
     user.save()
     return user

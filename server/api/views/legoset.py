@@ -5,7 +5,7 @@
 import re
 
 from flask import Blueprint, jsonify, request
-from api.controllers.auth import verify_admin
+from api.controllers.auth import authenticate, verify_admin
 from api.controllers.legoset import search, update_stock_levels
 from api.errors import FlaskError, exception_json_response
 
@@ -20,7 +20,8 @@ def find_legoset_view(id):
         if not test:
             raise ValueError
         token = request.args.get('token')
-        legoset = search(int(id), token)
+        authenticate(token)
+        legoset = search(int(id))
         return jsonify({'result': legoset})
     except ValueError:
         error = FlaskError('Please supply a valid query (a 5 to 7 digit integer)', status_code=400)

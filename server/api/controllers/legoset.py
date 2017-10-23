@@ -3,7 +3,6 @@
     Controller for legosets
 """
 from api.amazon import Amazon
-from api.controllers.auth import authenticate
 from api.errors import FlaskError
 from api.models import LegoSet, StockLevel
 
@@ -50,12 +49,11 @@ def create_legoset_record(set_id):
     raise FlaskError('Could not find set {} on Amazon'.format(set_id), status_code=400)
 
 
-def search(set_id, token):
+def search(set_id):
     """
     GET /legoset/search/<id>
     Queries Amazon for info about this legoset and returns it
     """
-    authenticate(token)
     # First check in our database
     set_exists = LegoSet.query.filter_by(id=set_id).first()
     if set_exists:
