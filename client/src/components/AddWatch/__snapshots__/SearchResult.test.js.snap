@@ -38,7 +38,9 @@ ShallowWrapper {
             src="test"
           />
         </a>,
-        <h3>
+        <p
+          className="link"
+        >
           <a
             href="test"
             rel="noopener noreferrer"
@@ -46,7 +48,7 @@ ShallowWrapper {
           >
             Test
           </a>
-        </h3>,
+        </p>,
         <button
           onClick={[Function]}
         >
@@ -97,6 +99,7 @@ ShallowWrapper {
           >
             Test
           </a>,
+          "className": "link",
         },
         "ref": null,
         "rendered": Object {
@@ -113,7 +116,7 @@ ShallowWrapper {
           "rendered": "Test",
           "type": "a",
         },
-        "type": "h3",
+        "type": "p",
       },
       Object {
         "instance": null,
@@ -147,7 +150,9 @@ ShallowWrapper {
               src="test"
             />
           </a>,
-          <h3>
+          <p
+            className="link"
+          >
             <a
               href="test"
               rel="noopener noreferrer"
@@ -155,7 +160,7 @@ ShallowWrapper {
             >
               Test
             </a>
-          </h3>,
+          </p>,
           <button
             onClick={[Function]}
           >
@@ -206,6 +211,7 @@ ShallowWrapper {
             >
               Test
             </a>,
+            "className": "link",
           },
           "ref": null,
           "rendered": Object {
@@ -222,7 +228,7 @@ ShallowWrapper {
             "rendered": "Test",
             "type": "a",
           },
-          "type": "h3",
+          "type": "p",
         },
         Object {
           "instance": null,

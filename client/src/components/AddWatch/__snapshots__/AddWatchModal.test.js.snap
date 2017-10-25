@@ -29,11 +29,15 @@ ShallowWrapper {
         <form
           onSubmit={[Function]}
         >
-          Lego ID:
+          <h3>
+            Lego ID:
+          </h3>
           <input
             onChange={[Function]}
+            placeholder={75105}
             type="text"
           />
+          
         </form>,
         "",
       ],
@@ -57,29 +61,45 @@ ShallowWrapper {
         "nodeType": "host",
         "props": Object {
           "children": Array [
-            "Lego ID:",
+            <h3>
+              Lego ID:
+            </h3>,
             <input
               onChange={[Function]}
+              placeholder={75105}
               type="text"
             />,
+            "",
           ],
           "onSubmit": [Function],
         },
         "ref": null,
         "rendered": Array [
-          "Lego ID:",
+          Object {
+            "instance": null,
+            "key": null,
+            "nodeType": "host",
+            "props": Object {
+              "children": "Lego ID:",
+            },
+            "ref": null,
+            "rendered": "Lego ID:",
+            "type": "h3",
+          },
           Object {
             "instance": null,
             "key": null,
             "nodeType": "host",
             "props": Object {
               "onChange": [Function],
+              "placeholder": 75105,
               "type": "text",
             },
             "ref": null,
             "rendered": null,
             "type": "input",
           },
+          "",
         ],
         "type": "form",
       },
@@ -99,11 +119,15 @@ ShallowWrapper {
           <form
             onSubmit={[Function]}
           >
-            Lego ID:
+            <h3>
+              Lego ID:
+            </h3>
             <input
               onChange={[Function]}
+              placeholder={75105}
               type="text"
             />
+            
           </form>,
           "",
         ],
@@ -127,29 +151,45 @@ ShallowWrapper {
           "nodeType": "host",
           "props": Object {
             "children": Array [
-              "Lego ID:",
+              <h3>
+                Lego ID:
+              </h3>,
               <input
                 onChange={[Function]}
+                placeholder={75105}
                 type="text"
               />,
+              "",
             ],
             "onSubmit": [Function],
           },
           "ref": null,
           "rendered": Array [
-            "Lego ID:",
+            Object {
+              "instance": null,
+              "key": null,
+              "nodeType": "host",
+              "props": Object {
+                "children": "Lego ID:",
+              },
+              "ref": null,
+              "rendered": "Lego ID:",
+              "type": "h3",
+            },
             Object {
               "instance": null,
               "key": null,
               "nodeType": "host",
               "props": Object {
                 "onChange": [Function],
+                "placeholder": 75105,
                 "type": "text",
               },
               "ref": null,
               "rendered": null,
               "type": "input",
             },
+            "",
           ],
           "type": "form",
         },
