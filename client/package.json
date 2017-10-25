@@ -57,7 +57,6 @@
     "enzyme-adapter-react-16": "^1.0.0",
     "eslint-plugin-jest": "^21.2.0",
     "fetch-mock": "^5.13.0",
-    "gh-pages-travis": "^1.0.4",
     "jest-cli": "^21.2.1",
     "react-test-renderer": "^16.0.0",
     "redux-devtools-extension": "^2.13.2",

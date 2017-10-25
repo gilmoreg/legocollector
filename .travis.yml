@@ -11,21 +11,15 @@ matrix:
     after_success: bash ./deploy.sh
   - language: node_js
     node_js: node
-    before_install:
-      - cd client && openssl aes-256-cbc -K $encrypted_b496c556179a_key -iv $encrypted_b496c556179a_iv -in id_rsa.enc -out id_rsa -d
     script: npm test
     after_success:
-      - npm run build && npm run gh-pages-travis
-env:
-  global:
-    - DEPLOY_BRANCH="master"
-    - SOURCE_DIR="build"
-    - TARGET_BRANCH="gh-pages"
-    - SSH_KEY="id_rsa"
-    - GIT_NAME="gilmoreg"
-    - GIT_EMAIL="gilmoreg@live.com"
+      - npm run build
+      - test $TRAVIS_PULL_REQUEST == "false" && test $TRAVIS_BRANCH == "master" && bash deploy.sh
 branches:
   only:
-    - master
+  - master
   except:
-    - gh-pages
+  - gh-pages
+env:
+  global:
+    secure: rwfqNI4a7EYH4AQsfhUQMW+HxWFXykETeC8/Qhx++8nT62G+NCLGBWMLYWABYtyd9IKA4/x8AIOYmBz718ttJNCo3c/r2HZ/q7KBL/+Ai88KKbrrG/QZwAiBaVP9KgDz4680t3cg4sOsTXqRmiTCTSFvo7EUa+Lk2J5OxlsF1ygjLumVifndK1zQ5vmUFGffB6JPVgUUk+g/wlXXDcF3um61eRpR06GzS5TvxbBwatG19ki5wvr41mNZ0E6X1eehy1DS83glcgf60To9zY5IAt3fUuPdyXJOJYiP+JErye5o0de8rEzltFaoO1Q/+n2RxP0Jme9Pm1DVEtK8jvb9gqhmkQE4U7cxDELr1+Y7Q6MKb6/IYYXvVEOWfo12E8SeGmBjuwp6GTEoLUz6rTkae8kHywGD43g53abns2OZ299pPK4iHFaJ0oqBwXRlerAz2cM3DQWlh6qWlnLsbZbWxKHIljQdQ3AY7lPYWHVsU/EqFxUWUlikOYKmufwojlQvyYqfA/d/D6Icf68jVaN5zi5NOgjdAzyZZASUkyr6s1EnJ77RR8Tl3TwaZHRCkZruLw+DEMZSIE6P1J+yhCW2CPlifDe8iIn4r+V+527VP9w8IDIJfb9pEn3L6IK0wDZnuO6dK09EbZnSPCBvJguv5j24mReIBsQB8I5EYTFpO+M=
