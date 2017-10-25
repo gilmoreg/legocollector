@@ -36,7 +36,7 @@ class TestWatchViews:
         """ get_watch() """
         user = create_user('test@test.com')
         legoset = create_legoset(12345)
-        create_watch(user['user'], legoset)
+        create_watch(legoset, user['user'])
         response = client.get('/watches/12345?token=' + user['token'])
         json = decode_json(response)['result']
         assert json['id'] == 12345
@@ -62,7 +62,7 @@ class TestWatchViews:
             response = post_json(client, '/watches/add', {'token': user['token'], 'id': '54321'})
             json = decode_json(response)['result']
             assert json['id'] == 54321
-            assert len(json['stock_levels']) == 0
+            assert len(json['stock_levels']) == 1
 
     def test_watch_empty_search(self, client):
         """ Verify behavior when Amazon search returns empty """
@@ -91,7 +91,7 @@ class TestWatchViews:
         with patch.object(Amazon, 'search', mock_bottlenose):
             user = create_user('test@test.com')
             legoset = create_legoset(12345)
-            watch = create_watch(user['user'], legoset)
+            create_watch(legoset, user['user'])
             response = post_json(client, '/watches/delete/12345', {'token': user['token']})
             json = decode_json(response)
             assert json == {'result': 'Watch 12345 deleted'}

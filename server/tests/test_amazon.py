@@ -5,7 +5,7 @@ from urllib.error import HTTPError
 
 import pytest
 
-from api.amazon import Amazon
+from api.amazon import Amazon, error_handler
 from .testutils import bottlenose_mock_success
 
 
@@ -24,14 +24,12 @@ class TestAmazon:
 
     def test_error_handler_503(self):
         """ Test that 503 errors return True """
-        amazon = Amazon()
-        assert amazon.error_handler(err={
+        assert error_handler(err={
             'exception': HTTPError('/', 503, 'Not available', None, None)
         }) == True
 
     def test_error_handler_other(self):
         """ Test that non-503 errors return False """
-        amazon = Amazon()
-        assert amazon.error_handler(err={
+        assert error_handler(err={
             'exception': HTTPError('/', 500, None, None, None)
         }) == False

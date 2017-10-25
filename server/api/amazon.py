@@ -17,7 +17,7 @@ class Amazon(object):
             environ['AWS_ASSOCIATE_TAG'],
             Parser=lambda text: BeautifulSoup(text, 'lxml'),
             MaxQPS=0.5,
-            ErrorHandler=self.error_handler)
+            ErrorHandler=error_handler)
 
     def search(self, set_id):
         """ Wrapper for bottlenose ItemSearch method """
@@ -27,15 +27,16 @@ class Amazon(object):
                                       # MerchantId="Amazon",
                                       ResponseGroup="Images,OfferSummary,Small")
 
-    def error_handler(self, err):
-        """
-        Error handler for bottlenose
-        Retry after wait on 503 errors
-        """
-        ex = err['exception']
-        if isinstance(ex, HTTPError) and ex.code == 503:
-            print('503 error')
-            time.sleep(0.1)
-            return True
-        # Do not retry on other types of errors
-        return False
+
+def error_handler(err):
+    """
+    Error handler for bottlenose
+    Retry after wait on 503 errors
+    """
+    ex = err['exception']
+    if isinstance(ex, HTTPError) and ex.code == 503:
+        print('503 error')
+        time.sleep(0.1)
+        return True
+    # Do not retry on other types of errors
+    return False

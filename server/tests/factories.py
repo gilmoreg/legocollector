@@ -1,11 +1,11 @@
 """ Factories for tests """
-from api.controllers.auth_controller import AuthController
+from api.controllers.auth import create_jwt
 from api.models import User, LegoSet
 
 
 def create_user(email):
     user = User(email).save()
-    token = AuthController.create_jwt(user.id)
+    token = create_jwt(user.id)
     return {'token': token, 'email': email, 'user': user}
 
 
@@ -19,7 +19,7 @@ def create_legoset(id):
     return legoset
 
 
-def create_watch(user, legoset):
+def create_watch(legoset, user):
     user.watches.append(legoset)
     user.save()
     return user

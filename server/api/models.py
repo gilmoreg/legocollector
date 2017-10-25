@@ -77,6 +77,14 @@ class LegoSet(BaseModel):
         self.image = legoset['image']
         self.url = legoset['url']
 
+    def cull_stock(self):
+        """ Limit stock_levels to 30 datapoints """
+        if len(self.stock_levels) > 30:
+            # Stock levels already sorted by date
+            # Keep only the most recent 29
+            self.stock_levels[:] = self.stock_levels[-30:]
+            self.save()
+
     def to_dict(self):
         return {
             'id': self.id,

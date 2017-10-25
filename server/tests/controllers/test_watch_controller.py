@@ -2,21 +2,20 @@
 import pytest
 
 # noinspection PyCompatibility
-from api.controllers.watch_controller import WatchController
+import api.controllers.watch as watch_controller
+from api.errors import FlaskError
 from ..factories import create_user, create_legoset, create_watch
 
 
 class TestWatchController:
     """ Tests for WatchController """
-    watch_controller = WatchController()
-
     @pytest.mark.usefixtures('db')
-    def test_get_all_watches(self, client):
+    def test_get_all_watches(self):
         """ Test get_all_watches """
         user = create_user('test@test.com')
         legoset = create_legoset(12345)
-        watch = create_watch(user['user'], legoset)
-        watches = self.watch_controller.get_users_watches(user['token'])
+        create_watch(legoset, user['user'])
+        watches = watch_controller.get_users_watches(user['user'])
         assert len(watches) == 1
         watch_1 = watches[0]
         assert watch_1['id'] == 12345
@@ -27,7 +26,17 @@ class TestWatchController:
         """ Confirm removal of watch """
         user = create_user('test@test.com')
         legoset = create_legoset(12345)
-        watch = create_watch(user['user'], legoset)
+        create_watch(legoset, user['user'])
         assert len(user['user'].watches) == 1
-        WatchController.delete_watch(user['token'], 12345)
+        watch_controller.delete_watch(12345, user['user'])
         assert len(user['user'].watches) == 0
+
+    @pytest.mark.usefixtures('db')
+    def test_duplicate_watch(self):
+        user = create_user('test@test.com')
+        legoset = create_legoset(12345)
+        watch_controller.add_watch(legoset, user['user'])
+        try:
+            watch_controller.add_watch(legoset, user['user'])
+        except FlaskError as e:
+            assert e.to_dict() == {'message': 'Watch already exists for user', 'status_code': 400}
