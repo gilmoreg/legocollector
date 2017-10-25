@@ -27,6 +27,15 @@ def create_bad_jwt():
     return token.decode('utf-8')
 
 
+def create_admin_jwt():
+    """ Create a token that passes the admin test """
+    token = jwt.encode(
+        {'user': environ['ADMIN']},
+        environ['JWT_SECRET'],
+        algorithm='HS256')
+    return token.decode('utf-8')
+
+
 def decode_json(response):
     """ Decode JSON from Flask response """
     return json.loads(response.data.decode('utf8'))

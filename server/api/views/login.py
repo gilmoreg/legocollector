@@ -22,6 +22,3 @@ def login_route():
     except FlaskError as e:
         print('/login view error', e)
         return e.json_response()
-    except Exception as e:
-        print('/login view error', e)
-        return exception_json_response(e)

@@ -46,8 +46,6 @@ def add_watch_route():
         # Perform this check early to ensure authentication
         user = get_user(token)
         legoset = get_or_create_legoset(set_id)
-        if legoset is None:
-            raise FlaskError('Could not create legoset ' + set_id, status_code=400)
         watch = add_watch(legoset, user)
         return jsonify({'result': watch})
     except KeyError:

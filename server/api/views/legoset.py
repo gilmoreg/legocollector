@@ -26,13 +26,8 @@ def find_legoset_view(id):
     except ValueError:
         error = FlaskError('Please supply a valid query (a 5 to 7 digit integer)', status_code=400)
         return error.json_response()
-    except KeyError:
-        error = FlaskError('Must supply a set_id and a valid token', status_code=400)
-        return error.json_response()
     except FlaskError as e:
         return e.json_response()
-    except Exception as e:
-        return exception_json_response(e)
 
 
 @blueprint.route('/legoset/update', methods=['POST'])
@@ -41,13 +36,8 @@ def update():
     This endpoint is called by an AWS Lambda running every 6 hours
     With 30 datapoints this ensures about a week's worth of stock data
     """
-    try:
-        data = request.get_json(force=True)
-        if verify_admin(data['token']):
-            update_stock_levels()
-            return jsonify({'result': 'success'})
-        return jsonify({'result':'unauthorized'})
-    except FlaskError as e:
-        return e.json_response()
-    except Exception as e:
-        return exception_json_response(e)
+    data = request.get_json(force=True)
+    if verify_admin(data['token']):
+        update_stock_levels()
+        return jsonify({'result': 'success'})
+    return jsonify({'result': 'unauthorized'})
