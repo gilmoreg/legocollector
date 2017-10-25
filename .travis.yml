@@ -11,7 +11,7 @@ matrix:
     after_success: bash ./deploy.sh
   - language: node_js
     node_js: node
-    before_script: cd client
+    before_install: cd client
     script: npm test
     after_success:
       - npm run build
