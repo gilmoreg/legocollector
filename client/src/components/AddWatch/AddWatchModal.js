@@ -9,6 +9,8 @@ function getParent() {
   return document.querySelector('#root');
 }
 
+Modal.setAppElement("#root");
+
 const AddWatchModal = (props) => (
   <Modal
     isOpen={props.open}
