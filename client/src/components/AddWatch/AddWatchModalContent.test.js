@@ -1,9 +1,12 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import AddWatchModal from './AddWatchModal';
+import { AddWatchModalContent } from './AddWatchModalContent';
 
 it('renders without crashing', () => {
   const wrapper = shallow(
-    <AddWatchModal open close={() => {}} />);
+    <AddWatchModalContent
+      open={false}
+      close={() => {}}
+    />);
   expect(wrapper).toMatchSnapshot();
 });

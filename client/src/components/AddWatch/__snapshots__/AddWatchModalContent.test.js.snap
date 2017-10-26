@@ -1,0 +1,184 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders without crashing 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <AddWatchModalContent
+    close={[Function]}
+    dispatch={[Function]}
+    open={false}
+    token=""
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": null,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        <form
+          onSubmit={[Function]}
+        >
+          <h3>
+            Lego ID:
+          </h3>
+          <input
+            onChange={[Function]}
+            placeholder={75105}
+            type="text"
+          />
+          
+        </form>,
+        "",
+      ],
+      "className": "AddWatchModalContent",
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": null,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            <h3>
+              Lego ID:
+            </h3>,
+            <input
+              onChange={[Function]}
+              placeholder={75105}
+              type="text"
+            />,
+            "",
+          ],
+          "onSubmit": [Function],
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": null,
+            "nodeType": "host",
+            "props": Object {
+              "children": "Lego ID:",
+            },
+            "ref": null,
+            "rendered": "Lego ID:",
+            "type": "h3",
+          },
+          Object {
+            "instance": null,
+            "key": null,
+            "nodeType": "host",
+            "props": Object {
+              "onChange": [Function],
+              "placeholder": 75105,
+              "type": "text",
+            },
+            "ref": null,
+            "rendered": null,
+            "type": "input",
+          },
+          "",
+        ],
+        "type": "form",
+      },
+      "",
+    ],
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": null,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <form
+            onSubmit={[Function]}
+          >
+            <h3>
+              Lego ID:
+            </h3>
+            <input
+              onChange={[Function]}
+              placeholder={75105}
+              type="text"
+            />
+            
+          </form>,
+          "",
+        ],
+        "className": "AddWatchModalContent",
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": null,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <h3>
+                Lego ID:
+              </h3>,
+              <input
+                onChange={[Function]}
+                placeholder={75105}
+                type="text"
+              />,
+              "",
+            ],
+            "onSubmit": [Function],
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": null,
+              "nodeType": "host",
+              "props": Object {
+                "children": "Lego ID:",
+              },
+              "ref": null,
+              "rendered": "Lego ID:",
+              "type": "h3",
+            },
+            Object {
+              "instance": null,
+              "key": null,
+              "nodeType": "host",
+              "props": Object {
+                "onChange": [Function],
+                "placeholder": 75105,
+                "type": "text",
+              },
+              "ref": null,
+              "rendered": null,
+              "type": "input",
+            },
+            "",
+          ],
+          "type": "form",
+        },
+        "",
+      ],
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+  },
+}
+`;
