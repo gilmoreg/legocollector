@@ -72,8 +72,8 @@ export class AddWatchModalContent extends Component {
       })
         .then(res => res.json())
         .then((res) => {
-          if (res.result && res.result.watch) {
-            this.props.dispatch(addWatch(res.result.watch));
+          if (res.result) {
+            this.props.dispatch(addWatch(res.result));
             this.props.close();
           }
           if (res.error) {
