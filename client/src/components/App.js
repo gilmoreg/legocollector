@@ -7,6 +7,7 @@ import Welcome from './Welcome/Welcome';
 import Watch from './Watch/Watch';
 import AddWatchButton from './AddWatch/AddWatchButton';
 import AddWatchModal from './AddWatch/AddWatchModal';
+import Instructions from './Welcome/Instructions';
 import './App.css';
 
 const checkProfile = () => {
@@ -43,7 +44,7 @@ export class App extends Component {
         <Header loggedIn={this.props.loggedIn} email={this.props.email} />
         { this.props.loggedIn ?
           <div className="WatchView">
-            {watches}
+            { watches.length ? watches : <Instructions /> }
           </div>
           :
           <Welcome />
