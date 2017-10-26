@@ -5,8 +5,6 @@ import Modal from 'react-modal';
 import AddWatchModalContent from './AddWatchModalContent';
 import './AddWatchModal.css';
 
-Modal.setAppElement("#root");
-
 const AddWatchModal = (props) => (
   <Modal
     isOpen={props.open}
@@ -16,11 +14,9 @@ const AddWatchModal = (props) => (
     shouldCloseOnOverlayClick
     onRequestClose={props.close}
     role="dialog"
+    parentSelector={() => document.querySelector('.App')}
   >
-    <AddWatchModalContent
-      open={props.open}
-      close={props.close}
-    /> 
+    <AddWatchModalContent close={props.close} />
   </Modal>
 );
 

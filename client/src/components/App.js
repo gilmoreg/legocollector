@@ -58,7 +58,6 @@ export class App extends Component {
           open={this.state.newWatchModalOpen}
           close={() => this.setState({ newWatchModalOpen: false })}
         />
-        }
       </div>
     );
   }

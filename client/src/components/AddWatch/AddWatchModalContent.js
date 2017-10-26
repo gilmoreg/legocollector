@@ -114,7 +114,7 @@ export class AddWatchModalContent extends Component {
             legoset={this.state.searchResult}
             onClick={this.addWatch}
           />
-          : ''}
+        : ''}
       </div>
     );
   }
@@ -122,14 +122,12 @@ export class AddWatchModalContent extends Component {
 
 AddWatchModalContent.defaultProps = {
   token: '',
-  open: false,
   close: () => {},
   dispatch: () => {},
 };
 
 AddWatchModalContent.propTypes = {
   token: PropTypes.string,
-  open: PropTypes.bool,
   close: PropTypes.func,
   dispatch: PropTypes.func,
 };
