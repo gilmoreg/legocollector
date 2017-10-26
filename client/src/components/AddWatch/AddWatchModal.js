@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import ReactModal from 'react-modal';
+import Modal from 'react-modal';
 import { connect } from 'react-redux';
 import debounce from 'lodash.debounce';
 import { API_URL } from '../../config';
@@ -102,7 +102,7 @@ export class AddWatchModal extends Component {
 
   render() {
     return (
-      <ReactModal
+      <Modal
         isOpen={this.props.open}
         contentLabel="Add New Watch"
         overlayClassName="Overlay"
@@ -110,7 +110,6 @@ export class AddWatchModal extends Component {
         shouldCloseOnOverlayClick
         onRequestClose={this.props.close}
         role="dialog"
-        parentSelector={() => document.querySelector('#root')}
       >
         <form onSubmit={this.submitForm}>
           <h3>Lego ID:</h3>
@@ -127,7 +126,7 @@ export class AddWatchModal extends Component {
             onClick={this.addWatch}
           />
           : ''}
-      </ReactModal>
+      </Modal>
     );
   }
 }
