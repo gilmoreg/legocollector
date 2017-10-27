@@ -1,0 +1,95 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders without crashing 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <Instructions />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": null,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        "Click on the ",
+        <div
+          className="plus"
+        >
+          +
+        </div>,
+        " to start watching sets!",
+      ],
+      "className": "Instructions",
+    },
+    "ref": null,
+    "rendered": Array [
+      "Click on the ",
+      Object {
+        "instance": null,
+        "key": null,
+        "nodeType": "host",
+        "props": Object {
+          "children": "+",
+          "className": "plus",
+        },
+        "ref": null,
+        "rendered": "+",
+        "type": "div",
+      },
+      " to start watching sets!",
+    ],
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": null,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          "Click on the ",
+          <div
+            className="plus"
+          >
+            +
+          </div>,
+          " to start watching sets!",
+        ],
+        "className": "Instructions",
+      },
+      "ref": null,
+      "rendered": Array [
+        "Click on the ",
+        Object {
+          "instance": null,
+          "key": null,
+          "nodeType": "host",
+          "props": Object {
+            "children": "+",
+            "className": "plus",
+          },
+          "ref": null,
+          "rendered": "+",
+          "type": "div",
+        },
+        " to start watching sets!",
+      ],
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+  },
+}
+`;

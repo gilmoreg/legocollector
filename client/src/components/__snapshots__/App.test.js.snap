@@ -29,7 +29,10 @@ ShallowWrapper {
         />,
         <Welcome />,
         "",
-        "",
+        <Connect(AddWatchModal)
+          close={[Function]}
+          open={false}
+        />,
       ],
       "className": "App",
     },
@@ -57,7 +60,18 @@ ShallowWrapper {
         "type": [Function],
       },
       "",
-      "",
+      Object {
+        "instance": null,
+        "key": null,
+        "nodeType": "class",
+        "props": Object {
+          "close": [Function],
+          "open": false,
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
     ],
     "type": "div",
   },
@@ -74,7 +88,10 @@ ShallowWrapper {
           />,
           <Welcome />,
           "",
-          "",
+          <Connect(AddWatchModal)
+            close={[Function]}
+            open={false}
+          />,
         ],
         "className": "App",
       },
@@ -102,7 +119,18 @@ ShallowWrapper {
           "type": [Function],
         },
         "",
-        "",
+        Object {
+          "instance": null,
+          "key": null,
+          "nodeType": "class",
+          "props": Object {
+            "close": [Function],
+            "open": false,
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
       ],
       "type": "div",
     },
