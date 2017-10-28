@@ -9,6 +9,11 @@ from ..testutils import post_json, decode_json, AmazonFail, AmazonSuccess
 @pytest.mark.usefixtures('db')
 class TestLoginView:
     """ Tests for /login """
+    def test_wake(self, client):
+        response = client.get('/')
+        json = decode_json(response)
+        assert json == {'result': 'success'}
+
     def test_login(self, client):
         """ Test /login success """
         mock_amazon = Mock(name='get')

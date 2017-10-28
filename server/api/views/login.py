@@ -9,6 +9,12 @@ from api.errors import FlaskError, exception_json_response
 blueprint = Blueprint('auth', __name__)
 
 
+@blueprint.route('/', methods=['GET'])
+def wake():
+    """ Null method to wake up Heroku """
+    return jsonify({'result':'success'})
+
+
 @blueprint.route('/login', methods=['POST'])
 def login_route():
     """
