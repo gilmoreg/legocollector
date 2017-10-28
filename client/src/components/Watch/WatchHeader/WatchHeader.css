@@ -12,6 +12,7 @@
     flex: 0 0 20%;
     align-self: center;
     padding: 5px;
+    padding-top: 10px;
 }
 
 .WatchHeader .title {
