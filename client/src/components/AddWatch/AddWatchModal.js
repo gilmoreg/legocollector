@@ -8,12 +8,8 @@ import { API_URL } from '../../config';
 import Examples from './Examples';
 import SearchResult from './SearchResult';
 import { addWatch } from '../../state/actions';
+import { digitTest, digitLengthTest } from '../../regexes';
 import './AddWatchModal.css';
-
-// Only digits, and between 1 and 7 of them (valid input)
-const digitTest = RegExp(/^\d{1,7}$/);
-// Only digits, and between 5 and 7 of them (valid API query)
-const digitLengthTest = RegExp(/^\d{5,7}$/)
 
 export class AddWatchModal extends Component {
   constructor(props) {
@@ -119,7 +115,7 @@ export class AddWatchModal extends Component {
     >
       <div className="AddWatchModalContent">
         <form onSubmit={this.submitForm}>
-          <h3>Lego ID:</h3>
+          <header>Lego ID:</header>
           <Examples click={this.setSearchTerm} />
           <input
             type="text"

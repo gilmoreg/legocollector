@@ -1,7 +1,6 @@
 /* eslint-disable camelcase */
 import React from 'react';
 import PropTypes from 'prop-types';
-
 import './WatchHeader.css';
 
 const getCurrentStock = (stock_levels) => {
@@ -14,8 +13,6 @@ const getCurrentStock = (stock_levels) => {
   return '-';
 };
 
-const trimTitle = title => title.replace(/^LEGO\s/, '')
-
 const WatchHeader = props => (
   <div className="WatchHeader">
     <div className="thumbnail">
@@ -25,7 +22,7 @@ const WatchHeader = props => (
     </div>
     <div className="title">
       <a href={props.watch.url} target="_blank" rel="noopener noreferrer" title={props.watch.title}>
-        {trimTitle(props.watch.title)}
+        {props.watch.title}
       </a>
     </div>
     <div className="stock">

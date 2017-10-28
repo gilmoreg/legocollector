@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { trimTitle } from '../../regexes';
 import './SearchResult.css';
 
 const SearchResult = ({ legoset, onClick }) => (
@@ -9,7 +10,7 @@ const SearchResult = ({ legoset, onClick }) => (
     </a>
     <p className="link">
       <a href={legoset.url} rel="noopener noreferrer" target="_blank">
-        {legoset.title}
+        {trimTitle(legoset.title)}
       </a>
     </p>
     <button onClick={onClick}>Add</button>

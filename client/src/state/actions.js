@@ -1,4 +1,5 @@
 import { API_URL } from '../config';
+import { trimTitle } from '../regexes';
 
 // SYNC ACTIONS
 export const LOGIN = 'LOGIN';
@@ -21,14 +22,15 @@ export const reset = () => ({
 export const ADD_WATCH = 'ADD_WATCH';
 export const addWatch = watch => ({
   type: ADD_WATCH,
-  watch,
+  watch: Object.assign({}, watch, { title: trimTitle(watch.title)}),
 });
 
 export const FILL_WATCHES = 'FILL_WATCHES';
 export const fillWatches = watches => ({
   type: FILL_WATCHES,
-  watches,
-});
+  watches: watches.map(watch => Object.assign({}, watch,
+    { title: trimTitle(watch.title) }))
+  });
 
 export const REMOVE_WATCH = 'REMOVE_WATCH';
 export const removeWatch = id => ({
