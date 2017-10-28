@@ -5,12 +5,15 @@ import Modal from 'react-modal';
 import { connect } from 'react-redux';
 import debounce from 'lodash.debounce';
 import { API_URL } from '../../config';
+import Examples from './Examples';
 import SearchResult from './SearchResult';
 import { addWatch } from '../../state/actions';
 import './AddWatchModal.css';
 
-// Only digits, and between 5 and 7 of them
-const digitTest = RegExp(/^\d{5,7}$/);
+// Only digits, and between 1 and 7 of them (valid input)
+const digitTest = RegExp(/^\d{1,7}$/);
+// Only digits, and between 5 and 7 of them (valid API query)
+const digitLengthTest = RegExp(/^\d{5,7}$/)
 
 export class AddWatchModal extends Component {
   constructor(props) {
@@ -21,45 +24,46 @@ export class AddWatchModal extends Component {
       error: '',
     };
     this.search = debounce(() => this.queryAPI(), 250);
+    this.setSearchTerm = this.setSearchTerm.bind(this);
     this.onInputChange = this.onInputChange.bind(this);
     this.submitForm = this.submitForm.bind(this);
     this.queryAPI = this.queryAPI.bind(this);
     this.addWatch = this.addWatch.bind(this);
     this.displayError = this.displayError.bind(this);
+    this.input = { value: '' };
+  }
+
+  setSearchTerm(event) {
+    const id = event.target.dataset.id;
+    this.setState({ searchTerm: id });
   }
 
   onInputChange(event) {
     event.persist();
     if (event.target && event.target.value) {
       const query = event.target.value.trim();
-      this.setState({ searchTerm: query });
+      if (query.match(digitTest)) this.setSearchTerm(query);
       if (query) this.search();
     }
   }
 
   submitForm(event) {
     event.preventDefault();
-    try {
-      const query = event.target.querySelector('input').value;
-      this.setState({ searchTerm: query });
-      this.search();
-    } catch (e) {
-      // This is likely to be a ValueError if the querySelector fails
-      console.error('submitForm', e);
-    }
+    this.search();
   }
 
   queryAPI() {
     const query = this.state.searchTerm;
-    if (!query || !query.match(digitTest)) {
+    if (!query || !query.match(digitLengthTest)) {
       this.displayError('Set ID must be a 5 to 7 digit number!');
       return;
     }
     fetch(`${API_URL}/legoset/search/${query}?token=${this.props.token}`)
       .then(res => res.json())
       .then((res) => {
-        if (res && res.result) this.setState({ searchResult: res.result });
-        if (res && res.error) this.displayError(res.error);
+        if (!res) return this.displayError('Something went wrong');
+        if (res.result) this.setState({ searchResult: res.result });
+        if (res.error) this.displayError(res.error);
       })
       .catch(err => this.displayError(err));
   }
@@ -95,6 +99,7 @@ export class AddWatchModal extends Component {
       else error = JSON.stringify(err);
     } else error = err;
     this.setState({ error });
+    // Clear error after 5 seconds
     setTimeout(() => {
       this.setState({ error: '' });
     }, 5000);
@@ -115,10 +120,12 @@ export class AddWatchModal extends Component {
       <div className="AddWatchModalContent">
         <form onSubmit={this.submitForm}>
           <h3>Lego ID:</h3>
+          <Examples click={this.setSearchTerm} />
           <input
             type="text"
-            onChange={this.onInputChange}
             placeholder={75105}
+            onChange={this.onInputChange}
+            value={this.state.searchTerm}
           />
           { this.state.error ? <small>{this.state.error}</small> : ''}
         </form>

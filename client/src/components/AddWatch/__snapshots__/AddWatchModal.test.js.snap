@@ -32,10 +32,14 @@ ShallowWrapper {
           <h3>
             Lego ID:
           </h3>
+          <Examples
+            click={[Function]}
+          />
           <input
             onChange={[Function]}
             placeholder={75105}
             type="text"
+            value=""
           />
           
         </form>
@@ -68,10 +72,14 @@ ShallowWrapper {
             <h3>
               Lego ID:
             </h3>
+            <Examples
+              click={[Function]}
+            />
             <input
               onChange={[Function]}
               placeholder={75105}
               type="text"
+              value=""
             />
             
           </form>,
@@ -90,10 +98,14 @@ ShallowWrapper {
               <h3>
                 Lego ID:
               </h3>,
+              <Examples
+                click={[Function]}
+              />,
               <input
                 onChange={[Function]}
                 placeholder={75105}
                 type="text"
+                value=""
               />,
               "",
             ],
@@ -115,11 +127,23 @@ ShallowWrapper {
             Object {
               "instance": null,
               "key": null,
+              "nodeType": "function",
+              "props": Object {
+                "click": [Function],
+              },
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": null,
               "nodeType": "host",
               "props": Object {
                 "onChange": [Function],
                 "placeholder": 75105,
                 "type": "text",
+                "value": "",
               },
               "ref": null,
               "rendered": null,
@@ -152,10 +176,14 @@ ShallowWrapper {
             <h3>
               Lego ID:
             </h3>
+            <Examples
+              click={[Function]}
+            />
             <input
               onChange={[Function]}
               placeholder={75105}
               type="text"
+              value=""
             />
             
           </form>
@@ -188,10 +216,14 @@ ShallowWrapper {
               <h3>
                 Lego ID:
               </h3>
+              <Examples
+                click={[Function]}
+              />
               <input
                 onChange={[Function]}
                 placeholder={75105}
                 type="text"
+                value=""
               />
               
             </form>,
@@ -210,10 +242,14 @@ ShallowWrapper {
                 <h3>
                   Lego ID:
                 </h3>,
+                <Examples
+                  click={[Function]}
+                />,
                 <input
                   onChange={[Function]}
                   placeholder={75105}
                   type="text"
+                  value=""
                 />,
                 "",
               ],
@@ -235,11 +271,23 @@ ShallowWrapper {
               Object {
                 "instance": null,
                 "key": null,
+                "nodeType": "function",
+                "props": Object {
+                  "click": [Function],
+                },
+                "ref": null,
+                "rendered": null,
+                "type": [Function],
+              },
+              Object {
+                "instance": null,
+                "key": null,
                 "nodeType": "host",
                 "props": Object {
                   "onChange": [Function],
                   "placeholder": 75105,
                   "type": "text",
+                  "value": "",
                 },
                 "ref": null,
                 "rendered": null,

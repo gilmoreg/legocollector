@@ -1,0 +1,17 @@
+.Examples h4 {
+    font-size: 14px;
+}
+
+.Examples ul {
+    font-size: 12px;
+    margin-left: 0;
+    text-align: left;
+}
+
+.Examples button {
+    text-align: left;
+}
+
+.Examples button:hover {
+    color: #FF7F66;
+}
