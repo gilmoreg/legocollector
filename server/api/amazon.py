@@ -9,8 +9,10 @@ from urllib.error import HTTPError
 
 class Amazon(object):
     """ Class for wrapping Bottlenose, the Amazon API library """
-
     def __init__(self):
+        """
+        Initialize Amazon object
+        """
         self.amazon = bottlenose.Amazon(
             environ['AWS_ACCESS_KEY_ID'],
             environ['AWS_SECRET_ACCESS_KEY'],
@@ -20,7 +22,11 @@ class Amazon(object):
             ErrorHandler=error_handler)
 
     def search(self, set_id):
-        """ Wrapper for bottlenose ItemSearch method """
+        """
+        Run Bottlenose search of the Amazon Search API for a legoset
+        :param set_id: LEGO set id
+        :returns: BeautifulSoup XML response from Amazon
+        """
         return self.amazon.ItemSearch(Keywords="Lego {}".format(set_id),
                                       Title=set_id,
                                       SearchIndex="Toys",
@@ -30,8 +36,9 @@ class Amazon(object):
 
 def error_handler(err):
     """
-    Error handler for bottlenose
-    Retry after wait on 503 errors
+    Error handler for Bottlenose - retries on 503 errors (over rate limit)
+    :param err: Exception thrown by Bottlenose
+    :returns: True if 503 (causes Bottlenose to retry), False if any other error
     """
     ex = err['exception']
     if isinstance(ex, HTTPError) and ex.code == 503:
