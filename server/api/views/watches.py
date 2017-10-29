@@ -38,7 +38,13 @@ def get_watch_route(w_id):
 
 @blueprint.route('/watches/add', methods=['POST'])
 def add_watch_route():
-    """ Add a watched set to the database, return JSON """
+    """
+    Add a watched set to the database, return JSON
+    :returns: json repr of Watch object
+    :rtype: json
+    :raises: KeyError
+    :raises: FlaskError
+    """
     data = request.get_json(force=True)
     try:
         set_id = data['id']
@@ -59,7 +65,13 @@ def add_watch_route():
 
 @blueprint.route('/watches/delete/<w_id>', methods=['POST'])
 def delete_watch_route(w_id):
-    """ Delete specified watch """
+    """
+    Delete specified watch
+    :param w_id: primary key identifying Watch object
+    :returns: json message indicating success
+    :rtype: json
+    :raises: KeyError
+    """
     try:
         watch_id = w_id or request.args.get('w_id')
         data = request.get_json(force=True)

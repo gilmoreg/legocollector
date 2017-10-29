@@ -14,6 +14,13 @@ blueprint = Blueprint('legoset', __name__)
 
 @blueprint.route('/legoset/search/<id>', methods=['GET'])
 def find_legoset_view(id):
+    """
+    Return json repr of LegoSet
+    :param id: LEGO set id
+    :rtype: json
+    :raises: ValueError
+    :raises: FlaskError
+    """
     try:
         # ID must be an integer between 5 and 7 digits
         test = re.match(r'^\d{5,7}$', id)
@@ -35,6 +42,8 @@ def update():
     """
     This endpoint is called by an AWS Lambda running every 6 hours
     With 30 datapoints this ensures about a week's worth of stock data
+    :returns: json result - 'success' or 'unauthorized'
+    :rtype: json
     """
     data = request.get_json(force=True)
     if verify_admin(data['token']):
