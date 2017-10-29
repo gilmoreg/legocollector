@@ -11,12 +11,21 @@ amazon = Amazon()
 
 
 def get_legosets():
-    """ Get all legoset records """
+    """
+    Get all legoset records
+    :returns: List of LegoSets
+    :rtype: list
+    """
     return LegoSet.query.all()
 
 
 def get_or_create_legoset(set_id):
-    """ Return LegoSet. Create one if it does not exist yet. """
+    """
+    Return LegoSet. Create one if it does not exist yet.
+    :param set_id: LEGO set ID
+    :returns: found or created LegoSet object
+    :rtype: LegoSet
+    """
     set_exists = LegoSet.query.filter_by(id=set_id).first()
     if set_exists:
         return set_exists
@@ -28,6 +37,9 @@ def create_legoset_record(set_id):
     """
     Add a legoset to the database
     Presupposes check for pre-existence already done
+    :param set_id: LEGO set ID
+    :returns: created LegoSet object
+    :rtype: LegoSet
     """
     # Query Amazon API for info about the set
     response = amazon.search(set_id)
@@ -53,6 +65,9 @@ def search(set_id):
     """
     GET /legoset/search/<id>
     Queries Amazon for info about this legoset and returns it
+    :param set_id: LEGO set ID
+    :returns: dict repr of found LegoSet object
+    :rtype: dict
     """
     # First check in our database
     set_exists = LegoSet.query.filter_by(id=set_id).first()
@@ -77,7 +92,7 @@ def search(set_id):
 def update_stock(legoset):
     """
     Add stock level datapoint for specificed set
-    @param legoset - LegoSet instance
+    :param legoset: LegoSet object
     """
     legoset.cull_stock()
     response = amazon.search(legoset.id)
@@ -92,8 +107,8 @@ def update_stock(legoset):
 
 def update_stock_by_id(set_id):
     """
-    Given just a set_id, add stock level datapoint
-    @param set_id - int representing set id
+    Given just a set_id, add StockLevel datapoint
+    :param set_id: LEGO set ID
     """
     legoset = LegoSet.query.filter_by(id=set_id).first()
     update_stock(legoset)
