@@ -13,6 +13,7 @@ def create_jwt(user_id):
     """
     Create JSON Web Token and decode to string
     :param user_id: Primary key identifying User
+    :returns: JWT
     :rtype: string
     """
     token = jwt.encode(
@@ -27,6 +28,7 @@ def authenticate(token):
     Decode JWT and extract user id
     :param token: JWT identifying a user
     :type token: string
+    :returns: user id
     :rtype: string
     """
     try:
@@ -50,6 +52,7 @@ def login(amazon_token):
     The client side can then stash the JWT in localStorage
 
     :param amazon_token: string token returned from Login With Amazon query
+    :returns: User object from database
     :rtype: dict
     """
     profile = requests.get(
@@ -73,6 +76,7 @@ def get_user(token):
     Unlike authenticate() this will include the email and ID
     :param token: JWT identifying user
     :type token: string
+    :returns: User object from database
     :rtype: User
     """
     user_id = authenticate(token)
@@ -87,6 +91,7 @@ def verify_admin(token):
     Verify this token carries administrator privileges
     :param token: JWT identifying user
     :type token: string
+    :returns: True if admin, False if not
     :rtype: bool
     """
     try:
