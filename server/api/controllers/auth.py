@@ -1,6 +1,6 @@
 """
-/server/api/auth.py
-Authentication service
+/server/api/controllers/auth.py
+Authentication controller functions
 """
 import jwt
 import requests
@@ -10,7 +10,11 @@ from api.errors import FlaskError
 
 
 def create_jwt(user_id):
-    """ Create JSON Web Token and decode to string """
+    """
+    Create JSON Web Token and decode to string
+    :param user_id: Primary key identifying User
+    :rtype: string
+    """
     token = jwt.encode(
         {'user': user_id},
         environ['JWT_SECRET'],
@@ -19,7 +23,12 @@ def create_jwt(user_id):
 
 
 def authenticate(token):
-    """ Decode JWT and extract user id """
+    """
+    Decode JWT and extract user id
+    :param token: JWT identifying a user
+    :type token: string
+    :rtype: string
+    """
     try:
         decoded = jwt.decode(token, environ['JWT_SECRET'], algorithms=['HS256'])
         return decoded['user']
@@ -39,6 +48,9 @@ def login(amazon_token):
     5. Returns token and the email (for display purposes) to the user
     for future requests
     The client side can then stash the JWT in localStorage
+
+    :param amazon_token: string token returned from Login With Amazon query
+    :rtype: dict
     """
     profile = requests.get(
         'https://api.amazon.com/user/profile?access_token={}'
@@ -59,6 +71,9 @@ def get_user(token):
     """
     Get a User object from a token
     Unlike authenticate() this will include the email and ID
+    :param token: JWT identifying user
+    :type token: string
+    :rtype: User
     """
     user_id = authenticate(token)
     user = User.query.filter_by(id=user_id).first()
@@ -68,7 +83,12 @@ def get_user(token):
 
 
 def verify_admin(token):
-    """ Verify this token carries administrator privileges """
+    """
+    Verify this token carries administrator privileges
+    :param token: JWT identifying user
+    :type token: string
+    :rtype: bool
+    """
     try:
         user = authenticate(token)
         if user == environ['ADMIN']:
