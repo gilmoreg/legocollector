@@ -35,34 +35,35 @@ export class AddWatchModal extends Component {
       const id = event.target.dataset.id;
       if (id) this.setState({ searchTerm: id });
     } catch (e) {
-      if (typeof event === 'string') this.setState({ searchTerm: event });
+      console.error(e);
     }
   }
 
   onInputChange(event) {
     event.persist();
     if (event.target && event.target.value) {
-      const query = event.target.value.trim();
-      if (query.match(digitTest)) this.setSearchTerm(query);
-      if (query) this.search();
+      const id = event.target.value.trim();
+      if (id && id.match(digitTest)) {
+        this.setState({ searchTerm: id });
+        this.search();
+      }
     }
   }
 
   submitForm(event) {
     event.preventDefault();
-    this.search();
+    return this.search();
   }
 
   queryAPI() {
     const query = this.state.searchTerm;
     if (!query || !query.match(digitLengthTest)) {
       this.displayError('Set ID must be a 5 to 7 digit number!');
-      return;
+      return Promise.reject();
     }
-    fetch(`${API_URL}/legoset/search/${query}?token=${this.props.token}`)
+    return fetch(`${API_URL}/legoset/search/${query}?token=${this.props.token}`)
       .then(res => res.json())
       .then((res) => {
-        if (!res) return this.displayError('Something went wrong');
         if (res.result) this.setState({ searchResult: res.result });
         if (res.error) this.displayError(res.error);
       })
@@ -71,6 +72,7 @@ export class AddWatchModal extends Component {
 
   addWatch() {
     if (this.state.searchResult.id) {
+      // Enable loading spinner
       this.setState({ adding: true });
       fetch(`${API_URL}/watches/add`, {
         method: 'POST',
@@ -81,6 +83,7 @@ export class AddWatchModal extends Component {
       })
         .then(res => res.json())
         .then((res) => {
+          // Disable loading spinner
           this.setState({ adding: false });
           if (res.result) {
             this.props.dispatch(addWatch(res.result));
@@ -95,6 +98,7 @@ export class AddWatchModal extends Component {
   }
 
   displayError(err) {
+    // Disable loading spinner
     this.setState({ adding: false });
     let error;
     if (typeof err === 'object') {
