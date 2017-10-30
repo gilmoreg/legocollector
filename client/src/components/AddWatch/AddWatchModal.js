@@ -135,7 +135,7 @@ export class AddWatchModal extends Component {
             onChange={this.onInputChange}
             value={this.state.searchTerm}
           />
-          { this.state.error ? <small>{this.state.error}</small> : ''}
+          {this.state.error ? <small>{this.state.error}</small> : ''}
         </form>
         {this.state.searchResult.id ?
           <SearchResult
