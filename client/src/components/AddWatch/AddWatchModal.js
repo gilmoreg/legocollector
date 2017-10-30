@@ -101,7 +101,7 @@ export class AddWatchModal extends Component {
     let error;
     if (typeof err === 'object') {
       // If we didn't get any response, the API is probably down
-      if (!err) error = 'Error communicating with the server. Please try again later.';
+      if (!err || Object.keys(err).length === 0) error = 'Error communicating with the server. Please try again later.';
       else error = JSON.stringify(err);
     } else error = err;
     this.setState({ error });

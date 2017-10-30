@@ -146,6 +146,34 @@ describe('AddWatchModal tests', () => {
     expect(wrapper.instance().displayError).toHaveBeenCalled();
     done();
   });
+
+  it('displayError should set a generic message for an Exception', () => {
+    const wrapper = shallow(<AddWatchModal open close={() => {}} />);
+    wrapper.instance().displayError(Error('error'));
+    expect(wrapper.instance().state.error).toEqual('Error communicating with the server. Please try again later.');
+    // run 5 second delay on clear
+    jest.runAllTimers();
+    expect(wrapper.instance().state.error).toEqual('');
+  });
+
+  it('displayError should display a stringified error for an error object', () => {
+    const wrapper = shallow(<AddWatchModal open close={() => {}} />);
+    wrapper.instance().displayError(fakes.fakeAddWatchError);
+    expect(wrapper.instance().state.error).toEqual(JSON.stringify(fakes.fakeAddWatchError));
+    // run 5 second delay on clear
+    jest.runAllTimers();
+    expect(wrapper.instance().state.error).toEqual('');
+  });
+
+  it('displayError should display an error string', () => {
+    const wrapper = shallow(<AddWatchModal open close={() => {}} />);
+    wrapper.instance().displayError('Watch already exists for user');
+    expect(wrapper.instance().state.error).toEqual('Watch already exists for user');
+    // run 5 second delay on clear
+    jest.runAllTimers();
+    expect(wrapper.instance().state.error).toEqual('');
+  });
+
 });
 
 /*
