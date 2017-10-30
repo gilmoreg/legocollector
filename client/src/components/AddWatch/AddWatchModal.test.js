@@ -16,15 +16,52 @@ describe('AddWatchModal tests', () => {
     expect(wrapper).toMatchSnapshot();
   });
   
-  /*
-  A few tests seem necessary:
-  1. Submitting the form
-  2. Typing in the search box
-  3. Doing both of these with successes and errors
-  it('') 
-  */
+  it('setSearchTerm sets searchTerm', () => {
+    const wrapper = shallow(<AddWatchModal open close={() => {}} />);
+    wrapper.instance().setState = jest.fn();
+    const event = {
+      target: { dataset: { id: '00000' }}
+    }
+    wrapper.instance().setSearchTerm(event);
+    expect(wrapper.instance().setState).toHaveBeenCalled();
+  });
+
+  it('setSearchTerm errors on invalid input', () => {
+    const wrapper = shallow(<AddWatchModal open close={() => {}} />);
+    wrapper.instance().setState = jest.fn();
+    // Empty object for event should throw an error
+    wrapper.instance().setSearchTerm({});
+    expect(wrapper.instance().setState).not.toHaveBeenCalled();
+  });
+
+  it('onInputChange should setState and search on valid input', () => {
+    const wrapper = shallow(<AddWatchModal open close={() => {}} />);
+    wrapper.instance().setState = jest.fn();
+    wrapper.instance().search = jest.fn();
+    const event = {
+      persist: jest.fn(),
+      target: { value: '00000' }
+    }
+    wrapper.instance().onInputChange(event);
+    expect(wrapper.instance().setState).toHaveBeenCalled();
+    expect(wrapper.instance().search).toHaveBeenCalled();
+  });
+
+  it('onInputChange should not setState or search on invalid input', () => {
+    const wrapper = shallow(<AddWatchModal open close={() => {}} />);
+    wrapper.instance().setState = jest.fn();
+    wrapper.instance().search = jest.fn();
+    const event = {
+      persist: jest.fn(),
+      target: { value: 'abc' } // characters fail digitTest
+    }
+    wrapper.instance().onInputChange(event);
+    expect(wrapper.instance().setState).not.toHaveBeenCalled();
+    expect(wrapper.instance().search).not.toHaveBeenCalled();
+  });
+
   
-  it('query the API on a valid input', (done) => {
+  it('submitting form should query the API on a valid input', (done) => {
     const wrapper = shallow(<AddWatchModal open close={() => {}} />);
     wrapper.instance().queryAPI = jest.fn();
     // Set searchTerm to something that will pass digitTest
@@ -61,7 +98,7 @@ describe('AddWatchModal tests', () => {
   });
 
   it('queryAPI displays error when API is down', async (done) => {
-    // fetchMock.catch should time out the API call
+    fetchMock.mock(/.legoset./, 500);
     const wrapper = shallow(<AddWatchModal open close={() => {}} />);
     wrapper.instance().setState({ searchTerm: '00000' });
     wrapper.instance().displayError = jest.fn();
@@ -77,6 +114,35 @@ describe('AddWatchModal tests', () => {
     wrapper.instance().setState({ searchTerm: '00000' });
     wrapper.instance().displayError = jest.fn();
     await wrapper.instance().queryAPI();
+    expect(wrapper.instance().displayError).toHaveBeenCalled();
+    done();
+  });
+
+  it('addWatch should close modal if successful', async (done) => {
+    fetchMock.mock(/.watches./, fakes.fakeAddWatchSuccess);
+    const wrapper = shallow(<AddWatchModal open close={jest.fn()} />);
+    wrapper.instance().setState({ searchResult: fakes.fakeSearchResult });
+    await wrapper.instance().addWatch();
+    expect(wrapper.instance().props.close).toHaveBeenCalled();
+    done();
+  });
+
+  it('addWatch should displayError if unsuccessful', async (done) => {
+    fetchMock.mock(/.watches./, fakes.fakeAddWatchError);
+    const wrapper = shallow(<AddWatchModal open close={() => {}} />);
+    wrapper.instance().setState({ searchResult: fakes.fakeSearchResult });
+    wrapper.instance().displayError = jest.fn();
+    await wrapper.instance().addWatch();
+    expect(wrapper.instance().displayError).toHaveBeenCalled();
+    done();
+  });
+
+  it('addWatch should displayError if API call fails', async (done) => {
+    fetchMock.mock(/.watches./, 500);
+    const wrapper = shallow(<AddWatchModal open close={() => {}} />);
+    wrapper.instance().setState({ searchResult: fakes.fakeSearchResult });
+    wrapper.instance().displayError = jest.fn();
+    await wrapper.instance().addWatch();
     expect(wrapper.instance().displayError).toHaveBeenCalled();
     done();
   });

@@ -34,9 +34,7 @@ export class AddWatchModal extends Component {
     try {
       const id = event.target.dataset.id;
       if (id) this.setState({ searchTerm: id });
-    } catch (e) {
-      console.error(e);
-    }
+    } catch (e) {}
   }
 
   onInputChange(event) {
@@ -74,7 +72,7 @@ export class AddWatchModal extends Component {
     if (this.state.searchResult.id) {
       // Enable loading spinner
       this.setState({ adding: true });
-      fetch(`${API_URL}/watches/add`, {
+      return fetch(`${API_URL}/watches/add`, {
         method: 'POST',
         body: JSON.stringify({
           id: this.state.searchResult.id,

@@ -1,17 +1,17 @@
 /* eslint-disable import/prefer-default-export */
 export const fakeWatch = {
-  id: 0,
+  id: 1,
   image: 'test',
   url: 'test',
   title: 'test',
   added: Date.now(),
   stock_levels: [
-    { datetime: Date.now(), id: 0, stock_level: 0 },
+    { datetime: Date.now(), id: 1, stock_level: 0 },
   ],
 };
 
 export const fakeSearchResult = {
-  id: 0,
+  id: 1,
   image: 'test',
   url: 'test',
   title: 'test',
@@ -25,3 +25,10 @@ export const fakeSearchSuccess = {
   result: fakeSearchResult
 };
 
+export const fakeAddWatchSuccess = {
+  result: fakeWatch
+}
+
+export const fakeAddWatchError = {
+  error: 'Watch already exists for user'
+}
