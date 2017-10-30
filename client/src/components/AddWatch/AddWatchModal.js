@@ -18,6 +18,7 @@ export class AddWatchModal extends Component {
       searchTerm: '',
       searchResult: {},
       error: '',
+      adding: false,
     };
     this.search = debounce(() => this.queryAPI(), 250);
     this.setSearchTerm = this.setSearchTerm.bind(this);
@@ -30,8 +31,12 @@ export class AddWatchModal extends Component {
   }
 
   setSearchTerm(event) {
-    const id = event.target.dataset.id;
-    this.setState({ searchTerm: id });
+    try {
+      const id = event.target.dataset.id;
+      if (id) this.setState({ searchTerm: id });
+    } catch (e) {
+      if (typeof event === 'string') this.setState({ searchTerm: event });
+    }
   }
 
   onInputChange(event) {
@@ -66,6 +71,7 @@ export class AddWatchModal extends Component {
 
   addWatch() {
     if (this.state.searchResult.id) {
+      this.setState({ adding: true });
       fetch(`${API_URL}/watches/add`, {
         method: 'POST',
         body: JSON.stringify({
@@ -75,6 +81,7 @@ export class AddWatchModal extends Component {
       })
         .then(res => res.json())
         .then((res) => {
+          this.setState({ adding: false });
           if (res.result) {
             this.props.dispatch(addWatch(res.result));
             this.props.close();
@@ -88,6 +95,7 @@ export class AddWatchModal extends Component {
   }
 
   displayError(err) {
+    this.setState({ adding: false });
     let error;
     if (typeof err === 'object') {
       // If we didn't get any response, the API is probably down
@@ -129,6 +137,7 @@ export class AddWatchModal extends Component {
           <SearchResult
             legoset={this.state.searchResult}
             onClick={this.addWatch}
+            adding={this.state.adding}
           />
         : ''}
       </div>
