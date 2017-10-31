@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { trimTitle } from '../../regexes';
 import './SearchResult.css';
 
-const SearchResult = ({ legoset, onClick }) => (
+const SearchResult = ({ legoset, onClick, adding }) => (
   <div className="SearchResult">
     <a href={legoset.url} rel="noopener noreferrer" target="_blank">
       <img src={legoset.image} alt={legoset.title} />
@@ -13,7 +13,10 @@ const SearchResult = ({ legoset, onClick }) => (
         {trimTitle(legoset.title)}
       </a>
     </p>
-    <button onClick={onClick}>Add</button>
+    
+    <div className="loaderContainer">
+      {adding ? <div className="loader" /> : <button onClick={onClick}>Add</button>}
+    </div>
   </div>
 );
 
@@ -25,6 +28,7 @@ SearchResult.propTypes = {
     url: PropTypes.string,
   }).isRequired,
   onClick: PropTypes.func.isRequired,
+  adding: PropTypes.bool.isRequired,
 };
 
 export default SearchResult;

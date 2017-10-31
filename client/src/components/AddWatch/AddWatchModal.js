@@ -18,6 +18,7 @@ export class AddWatchModal extends Component {
       searchTerm: '',
       searchResult: {},
       error: '',
+      adding: false,
     };
     this.search = debounce(() => this.queryAPI(), 250);
     this.setSearchTerm = this.setSearchTerm.bind(this);
@@ -30,34 +31,37 @@ export class AddWatchModal extends Component {
   }
 
   setSearchTerm(event) {
-    const id = event.target.dataset.id;
-    this.setState({ searchTerm: id });
+    try {
+      const id = event.target.dataset.id;
+      if (id) this.setState({ searchTerm: id });
+    } catch (e) {}
   }
 
   onInputChange(event) {
     event.persist();
     if (event.target && event.target.value) {
-      const query = event.target.value.trim();
-      if (query.match(digitTest)) this.setSearchTerm(query);
-      if (query) this.search();
+      const id = event.target.value.trim();
+      if (id && id.match(digitTest)) {
+        this.setState({ searchTerm: id });
+        this.search();
+      }
     }
   }
 
   submitForm(event) {
     event.preventDefault();
-    this.search();
+    return this.search();
   }
 
   queryAPI() {
     const query = this.state.searchTerm;
     if (!query || !query.match(digitLengthTest)) {
       this.displayError('Set ID must be a 5 to 7 digit number!');
-      return;
+      return Promise.reject();
     }
-    fetch(`${API_URL}/legoset/search/${query}?token=${this.props.token}`)
+    return fetch(`${API_URL}/legoset/search/${query}?token=${this.props.token}`)
       .then(res => res.json())
       .then((res) => {
-        if (!res) return this.displayError('Something went wrong');
         if (res.result) this.setState({ searchResult: res.result });
         if (res.error) this.displayError(res.error);
       })
@@ -66,7 +70,9 @@ export class AddWatchModal extends Component {
 
   addWatch() {
     if (this.state.searchResult.id) {
-      fetch(`${API_URL}/watches/add`, {
+      // Enable loading spinner
+      this.setState({ adding: true });
+      return fetch(`${API_URL}/watches/add`, {
         method: 'POST',
         body: JSON.stringify({
           id: this.state.searchResult.id,
@@ -75,6 +81,8 @@ export class AddWatchModal extends Component {
       })
         .then(res => res.json())
         .then((res) => {
+          // Disable loading spinner
+          this.setState({ adding: false });
           if (res.result) {
             this.props.dispatch(addWatch(res.result));
             this.props.close();
@@ -88,10 +96,12 @@ export class AddWatchModal extends Component {
   }
 
   displayError(err) {
+    // Disable loading spinner
+    this.setState({ adding: false });
     let error;
     if (typeof err === 'object') {
       // If we didn't get any response, the API is probably down
-      if (!err) error = 'Error communicating with the server. Please try again later.';
+      if (!err || Object.keys(err).length === 0) error = 'Error communicating with the server. Please try again later.';
       else error = JSON.stringify(err);
     } else error = err;
     this.setState({ error });
@@ -123,12 +133,13 @@ export class AddWatchModal extends Component {
             onChange={this.onInputChange}
             value={this.state.searchTerm}
           />
-          { this.state.error ? <small>{this.state.error}</small> : ''}
+          {this.state.error ? <small>{this.state.error}</small> : ''}
         </form>
         {this.state.searchResult.id ?
           <SearchResult
             legoset={this.state.searchResult}
             onClick={this.addWatch}
+            adding={this.state.adding}
           />
         : ''}
       </div>

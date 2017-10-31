@@ -12,6 +12,7 @@ it('renders without crashing', () => {
         url: 'test',
       }}
       onClick={() => {}}
+      adding
     />);
   expect(wrapper).toMatchSnapshot();
 });

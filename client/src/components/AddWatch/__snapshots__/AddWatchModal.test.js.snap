@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders without crashing 1`] = `
+exports[`AddWatchModal tests renders without crashing 1`] = `
 ShallowWrapper {
   "length": 1,
   Symbol(enzyme.__root__): [Circular],
@@ -29,9 +29,9 @@ ShallowWrapper {
         <form
           onSubmit={[Function]}
         >
-          <h3>
+          <header>
             Lego ID:
-          </h3>
+          </header>
           <Examples
             click={[Function]}
           />
@@ -69,9 +69,9 @@ ShallowWrapper {
           <form
             onSubmit={[Function]}
           >
-            <h3>
+            <header>
               Lego ID:
-            </h3>
+            </header>
             <Examples
               click={[Function]}
             />
@@ -95,9 +95,9 @@ ShallowWrapper {
           "nodeType": "host",
           "props": Object {
             "children": Array [
-              <h3>
+              <header>
                 Lego ID:
-              </h3>,
+              </header>,
               <Examples
                 click={[Function]}
               />,
@@ -122,7 +122,7 @@ ShallowWrapper {
               },
               "ref": null,
               "rendered": "Lego ID:",
-              "type": "h3",
+              "type": "header",
             },
             Object {
               "instance": null,
@@ -173,9 +173,9 @@ ShallowWrapper {
           <form
             onSubmit={[Function]}
           >
-            <h3>
+            <header>
               Lego ID:
-            </h3>
+            </header>
             <Examples
               click={[Function]}
             />
@@ -213,9 +213,9 @@ ShallowWrapper {
             <form
               onSubmit={[Function]}
             >
-              <h3>
+              <header>
                 Lego ID:
-              </h3>
+              </header>
               <Examples
                 click={[Function]}
               />
@@ -239,9 +239,9 @@ ShallowWrapper {
             "nodeType": "host",
             "props": Object {
               "children": Array [
-                <h3>
+                <header>
                   Lego ID:
-                </h3>,
+                </header>,
                 <Examples
                   click={[Function]}
                 />,
@@ -266,7 +266,7 @@ ShallowWrapper {
                 },
                 "ref": null,
                 "rendered": "Lego ID:",
-                "type": "h3",
+                "type": "header",
               },
               Object {
                 "instance": null,
