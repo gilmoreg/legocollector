@@ -26,6 +26,7 @@ it('renders without crashing logged in with a watch', () => {
   const wrapper = shallow(
     <App dispatch={() => {}} watches={[fakes.fakeWatch]} loggedIn />,
   );
+  // Snapshot won't work here beacuse of timestamp in watch
   expect(wrapper.instance().props.watches.length).toEqual(1);
   window.localStorage = undefined;
 });
