@@ -5,37 +5,44 @@ import { login, fetchWatches } from '../../../state/actions';
 import { API_URL } from '../../../config';
 import './Login.css';
 
-const storeProfile = ({ token, email }) => {
-  console.log('storeProfile', token, email);
-  window.localStorage.setItem(
-    'legocollectorProfile',
-    JSON.stringify({ token, email }),
-  );
-};
-
-const fetchProfile = accessToken =>
-  fetch(`${API_URL}/login`,
-    { method: 'POST',
-      body: JSON.stringify({ access_token: accessToken }),
-    })
-    .then(res => res.json())
-    .then(res => res.result);
-
 export class Login extends Component {
   constructor(props) {
     super(props);
+    this.storeProfile = this.storeProfile.bind(this);
+    this.fetchProfile = this.fetchProfile.bind(this);
     this.amazonLogin = this.amazonLogin.bind(this);
   }
 
+  storeProfile({ token, email }) {
+    try {
+      window.localStorage.setItem(
+        'legocollectorProfile',
+        JSON.stringify({ token, email }),
+      );
+    } catch (e) {
+      console.error(e);
+    }
+  };
+
+  fetchProfile(accessToken) {
+    return fetch(`${API_URL}/login`,
+      { method: 'POST',
+        body: JSON.stringify({ access_token: accessToken }),
+      })
+      .then(res => res.json())
+      .then(res => res.result);
+  }
+
   amazonLogin() {
-    window.amazon.Login.authorize({ scope: 'profile' },
+    return window.amazon.Login.authorize({ scope: 'profile' },
       response =>
-        fetchProfile(response.access_token)
+        this.fetchProfile(response.access_token)
           .then((profile) => {
-            storeProfile(profile);
+            this.storeProfile(profile);
             this.props.dispatch(login(profile));
             this.props.dispatch(fetchWatches(profile.token));
-          }));
+          }))
+          .catch(error => console.error(error));
   }
 
   render() {

@@ -1,4 +1,13 @@
 /* eslint-disable import/prefer-default-export */
+export const fakeProfile = {
+  token: 'test',
+  email: 'test@test.com'
+}
+
+export const fakeProfileResponse = {
+  result: fakeProfile
+};
+
 export const fakeWatch = {
   id: 1,
   image: 'test',
