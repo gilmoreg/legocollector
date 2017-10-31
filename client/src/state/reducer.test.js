@@ -3,12 +3,27 @@ import * as actions from './actions';
 import { fakeWatch } from '../../utils/fakes';
 
 describe('Reducer', () => {
+  it('should return current state on unknown action', () => {
+    expect(
+      reducer(initialState, { type: 'UNKNOWN' })
+    ).toEqual(initialState);
+  });
+
   it('should fill watches on FILL_WATCHES', () => {
     const finalState = Object.assign({}, initialState, {
       watches: [fakeWatch, fakeWatch],
     });
     expect(
       reducer(initialState, { type: actions.FILL_WATCHES, watches: [fakeWatch, fakeWatch] }),
+    ).toEqual(finalState);
+  });
+
+  it('should add a watch on ADD_WATCH', () => {
+    const finalState = Object.assign({}, initialState, {
+      watches: [ fakeWatch ]
+    });
+    expect(
+      reducer(initialState, { type: actions.ADD_WATCH, watch: fakeWatch })
     ).toEqual(finalState);
   });
 
