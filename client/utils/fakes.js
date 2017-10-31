@@ -32,3 +32,14 @@ export const fakeAddWatchSuccess = {
 export const fakeAddWatchError = {
   error: 'Watch already exists for user'
 }
+
+export const fakeLocalStorageProfile = {
+  getItem: () => JSON.stringify({
+    email: 'test@test.com',
+    token: '123',
+  }),
+};
+
+export const fakeLocalStorageNoProfile = {
+  getItem: () => null,
+}
