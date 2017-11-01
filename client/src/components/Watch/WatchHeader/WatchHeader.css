@@ -42,3 +42,18 @@
 .WatchHeader img {
     width: 100%;
 }
+
+
+@media (min-width: 640px) {
+    .WatchHeader .title {
+        font-size: 24px;
+    }
+
+    .WatchHeader .stock {
+        font-size: 60px;
+    }
+
+    .WatchHeader .stock p {
+        font-size: 24px;
+    }
+}
