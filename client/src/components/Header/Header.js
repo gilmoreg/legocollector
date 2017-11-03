@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Login from './Auth/Login';
-import Logout from './Auth/Logout';
+import Login from '../Auth/Login';
+import Logout from '../Auth/Logout';
 import './Header.css';
 
 const Header = props => (
