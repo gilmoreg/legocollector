@@ -175,6 +175,12 @@ ShallowWrapper {
         <div
           className="WatchView"
         >
+          <h2
+            data-text="Please wait while we gather your sets..."
+          >
+            Please wait while we gather your sets...
+          </h2>
+          
           <Instructions />
         </div>,
         <AddWatchButton
@@ -206,19 +212,42 @@ ShallowWrapper {
         "key": null,
         "nodeType": "host",
         "props": Object {
-          "children": <Instructions />,
+          "children": Array [
+            <h2
+              data-text="Please wait while we gather your sets..."
+            >
+              Please wait while we gather your sets...
+            </h2>,
+            "",
+            <Instructions />,
+          ],
           "className": "WatchView",
         },
         "ref": null,
-        "rendered": Object {
-          "instance": null,
-          "key": null,
-          "nodeType": "function",
-          "props": Object {},
-          "ref": null,
-          "rendered": null,
-          "type": [Function],
-        },
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": null,
+            "nodeType": "host",
+            "props": Object {
+              "children": "Please wait while we gather your sets...",
+              "data-text": "Please wait while we gather your sets...",
+            },
+            "ref": null,
+            "rendered": "Please wait while we gather your sets...",
+            "type": "h2",
+          },
+          "",
+          Object {
+            "instance": null,
+            "key": null,
+            "nodeType": "function",
+            "props": Object {},
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+        ],
         "type": "div",
       },
       Object {
@@ -261,6 +290,12 @@ ShallowWrapper {
           <div
             className="WatchView"
           >
+            <h2
+              data-text="Please wait while we gather your sets..."
+            >
+              Please wait while we gather your sets...
+            </h2>
+            
             <Instructions />
           </div>,
           <AddWatchButton
@@ -292,19 +327,42 @@ ShallowWrapper {
           "key": null,
           "nodeType": "host",
           "props": Object {
-            "children": <Instructions />,
+            "children": Array [
+              <h2
+                data-text="Please wait while we gather your sets..."
+              >
+                Please wait while we gather your sets...
+              </h2>,
+              "",
+              <Instructions />,
+            ],
             "className": "WatchView",
           },
           "ref": null,
-          "rendered": Object {
-            "instance": null,
-            "key": null,
-            "nodeType": "function",
-            "props": Object {},
-            "ref": null,
-            "rendered": null,
-            "type": [Function],
-          },
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": null,
+              "nodeType": "host",
+              "props": Object {
+                "children": "Please wait while we gather your sets...",
+                "data-text": "Please wait while we gather your sets...",
+              },
+              "ref": null,
+              "rendered": "Please wait while we gather your sets...",
+              "type": "h2",
+            },
+            "",
+            Object {
+              "instance": null,
+              "key": null,
+              "nodeType": "function",
+              "props": Object {},
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+          ],
           "type": "div",
         },
         Object {

@@ -41,8 +41,9 @@ export class Login extends Component {
             this.storeProfile(profile);
             this.props.dispatch(login(profile));
             this.props.dispatch(fetchWatches(profile.token));
-          }))
-          .catch(error => console.error(error));
+          })
+          .catch(error => console.error(error)),
+      error => console.error(error));
   }
 
   render() {
