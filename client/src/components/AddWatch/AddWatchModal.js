@@ -65,6 +65,7 @@ export class AddWatchModal extends Component {
     return fetch(`${API_URL}/legoset/search/${query}?token=${this.props.token}`)
       .then(res => res.json())
       .then((res) => {
+        this.setState({ searching: false });
         if (res.result) this.setState({ searchResult: res.result });
         if (res.error) this.displayError(res.error);
       })
@@ -138,14 +139,16 @@ export class AddWatchModal extends Component {
           />
           {this.state.error ? <small>{this.state.error}</small> : ''}
         </form>
-        {/*<Loader loading={this.state.searching} />*/}
-        {this.state.searchResult.id ?
-          <SearchResult
-            legoset={this.state.searchResult}
-            onClick={this.addWatch}
-            adding={this.state.adding}
-          />
-        : ''}
+        <Loader
+          loading={this.state.searching}
+          component={this.state.searchResult.id ?
+            <SearchResult
+              legoset={this.state.searchResult}
+              onClick={this.addWatch}
+              adding={this.state.adding}
+            />
+          : <span />}
+        />
       </div>
     </Modal>
   );
