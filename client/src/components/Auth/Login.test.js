@@ -2,7 +2,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import fetchMock from 'fetch-mock';
 import { Login } from './Login';
-import * as fakes from '../../../../utils/fakes';
+import * as fakes from '../../../utils/fakes';
 
 it('renders without crashing', () => {
   const wrapper = shallow(<Login dispatch={() => {}} />);
