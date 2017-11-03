@@ -14,7 +14,7 @@ matrix:
     before_install: cd client
     script: npm test
     after_success:
-      - npm run build
+      - test $TRAVIS_PULL_REQUEST == "false" && test $TRAVIS_BRANCH == "master" && npm run build
       - test $TRAVIS_PULL_REQUEST == "false" && test $TRAVIS_BRANCH == "master" && bash deploy.sh
 branches:
   only:

@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Loader from '../Misc/Loader';
 import { trimTitle } from '../../regexes';
 import './SearchResult.css';
 
@@ -13,10 +14,7 @@ const SearchResult = ({ legoset, onClick, adding }) => (
         {trimTitle(legoset.title)}
       </a>
     </p>
-    
-    <div className="loaderContainer">
-      {adding ? <div className="loader" /> : <button onClick={onClick}>Add</button>}
-    </div>
+    <Loader loading={adding} component={<button onClick={onClick}>Add</button>} />
   </div>
 );
 

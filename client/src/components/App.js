@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { login, logout, fetchWatches } from '../state/actions';
+import { API_URL } from '../config';
 import Header from './Header/Header';
 import Welcome from './Welcome/Welcome';
 import Watch from './Watch/Watch';
@@ -22,9 +23,10 @@ export class App extends Component {
     super(props);
     this.state = {
       newWatchModalOpen: false,
+      serverAwake: false,
+      serverError: '',
     };
   }
-
 
   componentWillMount() {
     // Check for stored profile and set login state accordingly
@@ -33,6 +35,10 @@ export class App extends Component {
       this.props.dispatch(login(profile));
       this.props.dispatch(fetchWatches(profile.token));
     } else this.props.dispatch(logout);
+    // Keep the user notified of progress waking the server up
+    fetch(`${API_URL}/`)
+      .then(() => this.setState({ serverAwake: true }))
+      .catch(() => this.setState({ serverError: 'Sorry, we couldn\'t contact the server.' }));
   }
 
   render() {
@@ -44,6 +50,8 @@ export class App extends Component {
         <Header loggedIn={this.props.loggedIn} email={this.props.email} />
         { this.props.loggedIn ?
           <div className="WatchView">
+            { this.state.serverAwake ? '' : <h2 data-text="Please wait while we gather your sets...">Please wait while we gather your sets...</h2>}
+            { this.state.serverError ? <h2>{this.state.serverError}</h2> : ''}
             { watches.length ? watches : <Instructions /> }
           </div>
           :
