@@ -7,6 +7,7 @@ import debounce from 'lodash.debounce';
 import { API_URL } from '../../config';
 import Examples from './Examples';
 import SearchResult from './SearchResult';
+import Loader from '../Misc/Loader';
 import { addWatch } from '../../state/actions';
 import { digitTest, digitLengthTest } from '../../regexes';
 import './AddWatchModal.css';
@@ -19,6 +20,7 @@ export class AddWatchModal extends Component {
       searchResult: {},
       error: '',
       adding: false,
+      searching: false,
     };
     this.search = debounce(() => this.queryAPI(), 250);
     this.setSearchTerm = this.setSearchTerm.bind(this);
@@ -54,6 +56,7 @@ export class AddWatchModal extends Component {
   }
 
   queryAPI() {
+    this.setState({ searching: true });
     const query = this.state.searchTerm;
     if (!query || !query.match(digitLengthTest)) {
       this.displayError('Set ID must be a 5 to 7 digit number!');
@@ -81,8 +84,8 @@ export class AddWatchModal extends Component {
       })
         .then(res => res.json())
         .then((res) => {
-          // Disable loading spinner
-          this.setState({ adding: false });
+          // Disable loading spinners
+          this.setState({ adding: false, searching: false });
           if (res.result) {
             this.props.dispatch(addWatch(res.result));
             this.props.close();
@@ -96,8 +99,8 @@ export class AddWatchModal extends Component {
   }
 
   displayError(err) {
-    // Disable loading spinner
-    this.setState({ adding: false });
+    // Disable loading spinners
+    this.setState({ adding: false, searching: false });
     let error;
     if (typeof err === 'object') {
       // If we didn't get any response, the API is probably down
@@ -135,6 +138,7 @@ export class AddWatchModal extends Component {
           />
           {this.state.error ? <small>{this.state.error}</small> : ''}
         </form>
+        {/*<Loader loading={this.state.searching} />*/}
         {this.state.searchResult.id ?
           <SearchResult
             legoset={this.state.searchResult}
