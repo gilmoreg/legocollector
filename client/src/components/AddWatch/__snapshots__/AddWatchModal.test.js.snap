@@ -43,7 +43,11 @@ ShallowWrapper {
           />
           
         </form>
-        
+        <Loader
+          component={<span />}
+          loading={false}
+          style={Object {}}
+        />
       </div>,
       "className": "AddWatchModal",
       "closeTimeoutMS": 0,
@@ -83,7 +87,11 @@ ShallowWrapper {
             />
             
           </form>,
-          "",
+          <Loader
+            component={<span />}
+            loading={false}
+            style={Object {}}
+          />,
         ],
         "className": "AddWatchModalContent",
       },
@@ -153,7 +161,19 @@ ShallowWrapper {
           ],
           "type": "form",
         },
-        "",
+        Object {
+          "instance": null,
+          "key": null,
+          "nodeType": "function",
+          "props": Object {
+            "component": <span />,
+            "loading": false,
+            "style": Object {},
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
       ],
       "type": "div",
     },
@@ -187,7 +207,11 @@ ShallowWrapper {
             />
             
           </form>
-          
+          <Loader
+            component={<span />}
+            loading={false}
+            style={Object {}}
+          />
         </div>,
         "className": "AddWatchModal",
         "closeTimeoutMS": 0,
@@ -227,7 +251,11 @@ ShallowWrapper {
               />
               
             </form>,
-            "",
+            <Loader
+              component={<span />}
+              loading={false}
+              style={Object {}}
+            />,
           ],
           "className": "AddWatchModalContent",
         },
@@ -297,7 +325,19 @@ ShallowWrapper {
             ],
             "type": "form",
           },
-          "",
+          Object {
+            "instance": null,
+            "key": null,
+            "nodeType": "function",
+            "props": Object {
+              "component": <span />,
+              "loading": false,
+              "style": Object {},
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
         ],
         "type": "div",
       },

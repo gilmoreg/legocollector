@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders without crashing 1`] = `
+exports[`App Component tests renders without crashing 1`] = `
 ShallowWrapper {
   "length": 1,
   Symbol(enzyme.__root__): [Circular],
@@ -145,7 +145,7 @@ ShallowWrapper {
 }
 `;
 
-exports[`renders without crashing logged in with no watches 1`] = `
+exports[`App Component tests renders without crashing logged in with no watches 1`] = `
 ShallowWrapper {
   "length": 1,
   Symbol(enzyme.__root__): [Circular],
@@ -402,7 +402,7 @@ ShallowWrapper {
 }
 `;
 
-exports[`renders without crashing with no profile in localstorage 1`] = `
+exports[`App Component tests renders without crashing with no profile in localstorage 1`] = `
 ShallowWrapper {
   "length": 1,
   Symbol(enzyme.__root__): [Circular],

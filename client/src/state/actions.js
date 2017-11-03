@@ -39,12 +39,6 @@ export const removeWatch = id => ({
 });
 
 // ASYNC ACTIONS
-export const SET_THRESHOLD = 'SET_THRESHOLD';
-export const setThreshold = ({ watch, level }) => (dispatch) => {
-  // TODO update threshold via API
-  console.log('setThreshold', watch, level);
-};
-
 export const FETCH_WATCHES = 'FETCH_WATCHES';
 export const fetchWatches = token => dispatch =>
   fetch(`${API_URL}/watches?token=${token}`)

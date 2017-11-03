@@ -24,12 +24,24 @@ ShallowWrapper {
         <p>
           If you collect Lego sets for profit, you always want to know when a set is about to run out of stock. Lego Collector keeps you up to date by tracking Amazon's stock levels for Lego sets you specify.
         </p>,
+        <div
+          className="images"
+        >
+          <img
+            alt="example list view"
+            src="http://res.cloudinary.com/dk85nueap/image/upload/c_scale,h_240,w_256/v1509734315/gilmoreg.github.io-legocollector-_iPhone_6_1_tvqhpj.png"
+          />
+          <img
+            alt="example stock levels"
+            src="http://res.cloudinary.com/dk85nueap/image/upload/c_scale,w_256/v1509733347/gilmoreg.github.io-legocollector-_iPhone_6_zed1iv.png"
+          />
+        </div>,
         <p>
           Check the stock levels of all the sets you have your eye on in one convenient place!
         </p>,
-        <p>
-          Soon it will be able to notify you via email when a certain stock falls below a threshold you define so you can snap up one of the last sets before it's too late!
-        </p>,
+        <div>
+          <Connect(Login) />
+        </div>,
       ],
       "className": "Welcome",
     },
@@ -62,6 +74,52 @@ ShallowWrapper {
         "key": null,
         "nodeType": "host",
         "props": Object {
+          "children": Array [
+            <img
+              alt="example list view"
+              src="http://res.cloudinary.com/dk85nueap/image/upload/c_scale,h_240,w_256/v1509734315/gilmoreg.github.io-legocollector-_iPhone_6_1_tvqhpj.png"
+            />,
+            <img
+              alt="example stock levels"
+              src="http://res.cloudinary.com/dk85nueap/image/upload/c_scale,w_256/v1509733347/gilmoreg.github.io-legocollector-_iPhone_6_zed1iv.png"
+            />,
+          ],
+          "className": "images",
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": null,
+            "nodeType": "host",
+            "props": Object {
+              "alt": "example list view",
+              "src": "http://res.cloudinary.com/dk85nueap/image/upload/c_scale,h_240,w_256/v1509734315/gilmoreg.github.io-legocollector-_iPhone_6_1_tvqhpj.png",
+            },
+            "ref": null,
+            "rendered": null,
+            "type": "img",
+          },
+          Object {
+            "instance": null,
+            "key": null,
+            "nodeType": "host",
+            "props": Object {
+              "alt": "example stock levels",
+              "src": "http://res.cloudinary.com/dk85nueap/image/upload/c_scale,w_256/v1509733347/gilmoreg.github.io-legocollector-_iPhone_6_zed1iv.png",
+            },
+            "ref": null,
+            "rendered": null,
+            "type": "img",
+          },
+        ],
+        "type": "div",
+      },
+      Object {
+        "instance": null,
+        "key": null,
+        "nodeType": "host",
+        "props": Object {
           "children": "Check the stock levels of all the sets you have your eye on in one convenient place!",
         },
         "ref": null,
@@ -73,11 +131,19 @@ ShallowWrapper {
         "key": null,
         "nodeType": "host",
         "props": Object {
-          "children": "Soon it will be able to notify you via email when a certain stock falls below a threshold you define so you can snap up one of the last sets before it's too late!",
+          "children": <Connect(Login) />,
         },
         "ref": null,
-        "rendered": "Soon it will be able to notify you via email when a certain stock falls below a threshold you define so you can snap up one of the last sets before it's too late!",
-        "type": "p",
+        "rendered": Object {
+          "instance": null,
+          "key": null,
+          "nodeType": "class",
+          "props": Object {},
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        "type": "div",
       },
     ],
     "type": "div",
@@ -95,12 +161,24 @@ ShallowWrapper {
           <p>
             If you collect Lego sets for profit, you always want to know when a set is about to run out of stock. Lego Collector keeps you up to date by tracking Amazon's stock levels for Lego sets you specify.
           </p>,
+          <div
+            className="images"
+          >
+            <img
+              alt="example list view"
+              src="http://res.cloudinary.com/dk85nueap/image/upload/c_scale,h_240,w_256/v1509734315/gilmoreg.github.io-legocollector-_iPhone_6_1_tvqhpj.png"
+            />
+            <img
+              alt="example stock levels"
+              src="http://res.cloudinary.com/dk85nueap/image/upload/c_scale,w_256/v1509733347/gilmoreg.github.io-legocollector-_iPhone_6_zed1iv.png"
+            />
+          </div>,
           <p>
             Check the stock levels of all the sets you have your eye on in one convenient place!
           </p>,
-          <p>
-            Soon it will be able to notify you via email when a certain stock falls below a threshold you define so you can snap up one of the last sets before it's too late!
-          </p>,
+          <div>
+            <Connect(Login) />
+          </div>,
         ],
         "className": "Welcome",
       },
@@ -133,6 +211,52 @@ ShallowWrapper {
           "key": null,
           "nodeType": "host",
           "props": Object {
+            "children": Array [
+              <img
+                alt="example list view"
+                src="http://res.cloudinary.com/dk85nueap/image/upload/c_scale,h_240,w_256/v1509734315/gilmoreg.github.io-legocollector-_iPhone_6_1_tvqhpj.png"
+              />,
+              <img
+                alt="example stock levels"
+                src="http://res.cloudinary.com/dk85nueap/image/upload/c_scale,w_256/v1509733347/gilmoreg.github.io-legocollector-_iPhone_6_zed1iv.png"
+              />,
+            ],
+            "className": "images",
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": null,
+              "nodeType": "host",
+              "props": Object {
+                "alt": "example list view",
+                "src": "http://res.cloudinary.com/dk85nueap/image/upload/c_scale,h_240,w_256/v1509734315/gilmoreg.github.io-legocollector-_iPhone_6_1_tvqhpj.png",
+              },
+              "ref": null,
+              "rendered": null,
+              "type": "img",
+            },
+            Object {
+              "instance": null,
+              "key": null,
+              "nodeType": "host",
+              "props": Object {
+                "alt": "example stock levels",
+                "src": "http://res.cloudinary.com/dk85nueap/image/upload/c_scale,w_256/v1509733347/gilmoreg.github.io-legocollector-_iPhone_6_zed1iv.png",
+              },
+              "ref": null,
+              "rendered": null,
+              "type": "img",
+            },
+          ],
+          "type": "div",
+        },
+        Object {
+          "instance": null,
+          "key": null,
+          "nodeType": "host",
+          "props": Object {
             "children": "Check the stock levels of all the sets you have your eye on in one convenient place!",
           },
           "ref": null,
@@ -144,11 +268,19 @@ ShallowWrapper {
           "key": null,
           "nodeType": "host",
           "props": Object {
-            "children": "Soon it will be able to notify you via email when a certain stock falls below a threshold you define so you can snap up one of the last sets before it's too late!",
+            "children": <Connect(Login) />,
           },
           "ref": null,
-          "rendered": "Soon it will be able to notify you via email when a certain stock falls below a threshold you define so you can snap up one of the last sets before it's too late!",
-          "type": "p",
+          "rendered": Object {
+            "instance": null,
+            "key": null,
+            "nodeType": "class",
+            "props": Object {},
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+          "type": "div",
         },
       ],
       "type": "div",
