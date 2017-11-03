@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
 import './WatchFooter.css';
 
 const UpArrow = () => (<i className="fa fa-angle-double-up" aria-hidden="true" />);
