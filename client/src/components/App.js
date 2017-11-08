@@ -77,6 +77,7 @@ App.propTypes = {
   loggedIn: PropTypes.bool,
   email: PropTypes.string,
   watches: PropTypes.array,
+  className: PropTypes.string,
 };
 
 App.defaultProps = {
