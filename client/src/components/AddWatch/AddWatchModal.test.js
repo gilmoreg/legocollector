@@ -175,15 +175,3 @@ describe('AddWatchModal tests', () => {
   });
 
 });
-
-/*
-Scratch:
-setImmediate(() => {
-  jest.runAllTimers();
-  console.log(wrapper.update().instance().setState.mock);
-  done();
-});
-// Expire timers in throttle
-    // jest.runAllTimers();
-    // expect(wrapper.instance().displayError).toHaveBeenCalled();
-*/

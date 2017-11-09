@@ -28,7 +28,7 @@ ShallowWrapper {
   Symbol(enzyme.__node__): Object {
     "instance": null,
     "key": null,
-    "nodeType": "host",
+    "nodeType": "class",
     "props": Object {
       "children": <Line
         data={
@@ -86,7 +86,6 @@ ShallowWrapper {
         }
         width={300}
       />,
-      "className": "Chart",
     },
     "ref": null,
     "rendered": Object {
@@ -149,13 +148,13 @@ ShallowWrapper {
       "rendered": null,
       "type": [Function],
     },
-    "type": "div",
+    "type": [Function],
   },
   Symbol(enzyme.__nodes__): Array [
     Object {
       "instance": null,
       "key": null,
-      "nodeType": "host",
+      "nodeType": "class",
       "props": Object {
         "children": <Line
           data={
@@ -213,7 +212,6 @@ ShallowWrapper {
           }
           width={300}
         />,
-        "className": "Chart",
       },
       "ref": null,
       "rendered": Object {
@@ -276,7 +274,7 @@ ShallowWrapper {
         "rendered": null,
         "type": [Function],
       },
-      "type": "div",
+      "type": [Function],
     },
   ],
   Symbol(enzyme.__options__): Object {

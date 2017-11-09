@@ -34,27 +34,23 @@ ShallowWrapper {
   Symbol(enzyme.__node__): Object {
     "instance": null,
     "key": null,
-    "nodeType": "host",
+    "nodeType": "class",
     "props": Object {
       "children": Array [
-        <div
-          className="thumbnail"
-        >
+        <styled.div>
           <a
             href="https://www.amazon.com/LEGO-Ideas-Apollo-Saturn-Building/dp/B01MUANC80?psc=1&SubscriptionId=AKIAJ57KMBTCZPRJ5I5Q&tag=gilmoreg-20&linkCode=xm2&camp=2025&creative=165953&creativeASIN=B01MUANC80"
             rel="noopener noreferrer"
             target="_blank"
             title="LEGO Ideas NASA Apollo Saturn V 21309 Building Kit"
           >
-            <img
+            <styled.img
               alt="LEGO Ideas NASA Apollo Saturn V 21309 Building Kit"
               src="https://images-na.ssl-images-amazon.com/images/I/413yqVUgjcL._SL160_.jpg"
             />
           </a>
-        </div>,
-        <div
-          className="title"
-        >
+        </styled.div>,
+        <styled.div>
           <a
             href="https://www.amazon.com/LEGO-Ideas-Apollo-Saturn-Building/dp/B01MUANC80?psc=1&SubscriptionId=AKIAJ57KMBTCZPRJ5I5Q&tag=gilmoreg-20&linkCode=xm2&camp=2025&creative=165953&creativeASIN=B01MUANC80"
             rel="noopener noreferrer"
@@ -63,24 +59,21 @@ ShallowWrapper {
           >
             LEGO Ideas NASA Apollo Saturn V 21309 Building Kit
           </a>
-        </div>,
-        <div
-          className="stock"
-        >
+        </styled.div>,
+        <styled.div>
           1
-          <p>
+          <styled.p>
             in stock
-          </p>
-        </div>,
+          </styled.p>
+        </styled.div>,
       ],
-      "className": "WatchHeader",
     },
     "ref": null,
     "rendered": Array [
       Object {
         "instance": null,
         "key": null,
-        "nodeType": "host",
+        "nodeType": "class",
         "props": Object {
           "children": <a
             href="https://www.amazon.com/LEGO-Ideas-Apollo-Saturn-Building/dp/B01MUANC80?psc=1&SubscriptionId=AKIAJ57KMBTCZPRJ5I5Q&tag=gilmoreg-20&linkCode=xm2&camp=2025&creative=165953&creativeASIN=B01MUANC80"
@@ -88,12 +81,11 @@ ShallowWrapper {
             target="_blank"
             title="LEGO Ideas NASA Apollo Saturn V 21309 Building Kit"
           >
-            <img
+            <styled.img
               alt="LEGO Ideas NASA Apollo Saturn V 21309 Building Kit"
               src="https://images-na.ssl-images-amazon.com/images/I/413yqVUgjcL._SL160_.jpg"
             />
           </a>,
-          "className": "thumbnail",
         },
         "ref": null,
         "rendered": Object {
@@ -101,7 +93,7 @@ ShallowWrapper {
           "key": null,
           "nodeType": "host",
           "props": Object {
-            "children": <img
+            "children": <styled.img
               alt="LEGO Ideas NASA Apollo Saturn V 21309 Building Kit"
               src="https://images-na.ssl-images-amazon.com/images/I/413yqVUgjcL._SL160_.jpg"
             />,
@@ -114,23 +106,23 @@ ShallowWrapper {
           "rendered": Object {
             "instance": null,
             "key": null,
-            "nodeType": "host",
+            "nodeType": "class",
             "props": Object {
               "alt": "LEGO Ideas NASA Apollo Saturn V 21309 Building Kit",
               "src": "https://images-na.ssl-images-amazon.com/images/I/413yqVUgjcL._SL160_.jpg",
             },
             "ref": null,
             "rendered": null,
-            "type": "img",
+            "type": [Function],
           },
           "type": "a",
         },
-        "type": "div",
+        "type": [Function],
       },
       Object {
         "instance": null,
         "key": null,
-        "nodeType": "host",
+        "nodeType": "class",
         "props": Object {
           "children": <a
             href="https://www.amazon.com/LEGO-Ideas-Apollo-Saturn-Building/dp/B01MUANC80?psc=1&SubscriptionId=AKIAJ57KMBTCZPRJ5I5Q&tag=gilmoreg-20&linkCode=xm2&camp=2025&creative=165953&creativeASIN=B01MUANC80"
@@ -140,7 +132,6 @@ ShallowWrapper {
           >
             LEGO Ideas NASA Apollo Saturn V 21309 Building Kit
           </a>,
-          "className": "title",
         },
         "ref": null,
         "rendered": Object {
@@ -158,20 +149,19 @@ ShallowWrapper {
           "rendered": "LEGO Ideas NASA Apollo Saturn V 21309 Building Kit",
           "type": "a",
         },
-        "type": "div",
+        "type": [Function],
       },
       Object {
         "instance": null,
         "key": null,
-        "nodeType": "host",
+        "nodeType": "class",
         "props": Object {
           "children": Array [
             "1",
-            <p>
+            <styled.p>
               in stock
-            </p>,
+            </styled.p>,
           ],
-          "className": "stock",
         },
         "ref": null,
         "rendered": Array [
@@ -179,45 +169,41 @@ ShallowWrapper {
           Object {
             "instance": null,
             "key": null,
-            "nodeType": "host",
+            "nodeType": "class",
             "props": Object {
               "children": "in stock",
             },
             "ref": null,
             "rendered": "in stock",
-            "type": "p",
+            "type": [Function],
           },
         ],
-        "type": "div",
+        "type": [Function],
       },
     ],
-    "type": "div",
+    "type": [Function],
   },
   Symbol(enzyme.__nodes__): Array [
     Object {
       "instance": null,
       "key": null,
-      "nodeType": "host",
+      "nodeType": "class",
       "props": Object {
         "children": Array [
-          <div
-            className="thumbnail"
-          >
+          <styled.div>
             <a
               href="https://www.amazon.com/LEGO-Ideas-Apollo-Saturn-Building/dp/B01MUANC80?psc=1&SubscriptionId=AKIAJ57KMBTCZPRJ5I5Q&tag=gilmoreg-20&linkCode=xm2&camp=2025&creative=165953&creativeASIN=B01MUANC80"
               rel="noopener noreferrer"
               target="_blank"
               title="LEGO Ideas NASA Apollo Saturn V 21309 Building Kit"
             >
-              <img
+              <styled.img
                 alt="LEGO Ideas NASA Apollo Saturn V 21309 Building Kit"
                 src="https://images-na.ssl-images-amazon.com/images/I/413yqVUgjcL._SL160_.jpg"
               />
             </a>
-          </div>,
-          <div
-            className="title"
-          >
+          </styled.div>,
+          <styled.div>
             <a
               href="https://www.amazon.com/LEGO-Ideas-Apollo-Saturn-Building/dp/B01MUANC80?psc=1&SubscriptionId=AKIAJ57KMBTCZPRJ5I5Q&tag=gilmoreg-20&linkCode=xm2&camp=2025&creative=165953&creativeASIN=B01MUANC80"
               rel="noopener noreferrer"
@@ -226,24 +212,21 @@ ShallowWrapper {
             >
               LEGO Ideas NASA Apollo Saturn V 21309 Building Kit
             </a>
-          </div>,
-          <div
-            className="stock"
-          >
+          </styled.div>,
+          <styled.div>
             1
-            <p>
+            <styled.p>
               in stock
-            </p>
-          </div>,
+            </styled.p>
+          </styled.div>,
         ],
-        "className": "WatchHeader",
       },
       "ref": null,
       "rendered": Array [
         Object {
           "instance": null,
           "key": null,
-          "nodeType": "host",
+          "nodeType": "class",
           "props": Object {
             "children": <a
               href="https://www.amazon.com/LEGO-Ideas-Apollo-Saturn-Building/dp/B01MUANC80?psc=1&SubscriptionId=AKIAJ57KMBTCZPRJ5I5Q&tag=gilmoreg-20&linkCode=xm2&camp=2025&creative=165953&creativeASIN=B01MUANC80"
@@ -251,12 +234,11 @@ ShallowWrapper {
               target="_blank"
               title="LEGO Ideas NASA Apollo Saturn V 21309 Building Kit"
             >
-              <img
+              <styled.img
                 alt="LEGO Ideas NASA Apollo Saturn V 21309 Building Kit"
                 src="https://images-na.ssl-images-amazon.com/images/I/413yqVUgjcL._SL160_.jpg"
               />
             </a>,
-            "className": "thumbnail",
           },
           "ref": null,
           "rendered": Object {
@@ -264,7 +246,7 @@ ShallowWrapper {
             "key": null,
             "nodeType": "host",
             "props": Object {
-              "children": <img
+              "children": <styled.img
                 alt="LEGO Ideas NASA Apollo Saturn V 21309 Building Kit"
                 src="https://images-na.ssl-images-amazon.com/images/I/413yqVUgjcL._SL160_.jpg"
               />,
@@ -277,23 +259,23 @@ ShallowWrapper {
             "rendered": Object {
               "instance": null,
               "key": null,
-              "nodeType": "host",
+              "nodeType": "class",
               "props": Object {
                 "alt": "LEGO Ideas NASA Apollo Saturn V 21309 Building Kit",
                 "src": "https://images-na.ssl-images-amazon.com/images/I/413yqVUgjcL._SL160_.jpg",
               },
               "ref": null,
               "rendered": null,
-              "type": "img",
+              "type": [Function],
             },
             "type": "a",
           },
-          "type": "div",
+          "type": [Function],
         },
         Object {
           "instance": null,
           "key": null,
-          "nodeType": "host",
+          "nodeType": "class",
           "props": Object {
             "children": <a
               href="https://www.amazon.com/LEGO-Ideas-Apollo-Saturn-Building/dp/B01MUANC80?psc=1&SubscriptionId=AKIAJ57KMBTCZPRJ5I5Q&tag=gilmoreg-20&linkCode=xm2&camp=2025&creative=165953&creativeASIN=B01MUANC80"
@@ -303,7 +285,6 @@ ShallowWrapper {
             >
               LEGO Ideas NASA Apollo Saturn V 21309 Building Kit
             </a>,
-            "className": "title",
           },
           "ref": null,
           "rendered": Object {
@@ -321,20 +302,19 @@ ShallowWrapper {
             "rendered": "LEGO Ideas NASA Apollo Saturn V 21309 Building Kit",
             "type": "a",
           },
-          "type": "div",
+          "type": [Function],
         },
         Object {
           "instance": null,
           "key": null,
-          "nodeType": "host",
+          "nodeType": "class",
           "props": Object {
             "children": Array [
               "1",
-              <p>
+              <styled.p>
                 in stock
-              </p>,
+              </styled.p>,
             ],
-            "className": "stock",
           },
           "ref": null,
           "rendered": Array [
@@ -342,19 +322,19 @@ ShallowWrapper {
             Object {
               "instance": null,
               "key": null,
-              "nodeType": "host",
+              "nodeType": "class",
               "props": Object {
                 "children": "in stock",
               },
               "ref": null,
               "rendered": "in stock",
-              "type": "p",
+              "type": [Function],
             },
           ],
-          "type": "div",
+          "type": [Function],
         },
       ],
-      "type": "div",
+      "type": [Function],
     },
   ],
   Symbol(enzyme.__options__): Object {

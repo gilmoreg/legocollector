@@ -15,18 +15,15 @@ ShallowWrapper {
   Symbol(enzyme.__node__): Object {
     "instance": null,
     "key": null,
-    "nodeType": "host",
+    "nodeType": "class",
     "props": Object {
       "children": Array [
         "Click on the ",
-        <div
-          className="plus"
-        >
+        <styled.div>
           +
-        </div>,
+        </styled.div>,
         " to start watching sets!",
       ],
-      "className": "Instructions",
     },
     "ref": null,
     "rendered": Array [
@@ -34,35 +31,31 @@ ShallowWrapper {
       Object {
         "instance": null,
         "key": null,
-        "nodeType": "host",
+        "nodeType": "class",
         "props": Object {
           "children": "+",
-          "className": "plus",
         },
         "ref": null,
         "rendered": "+",
-        "type": "div",
+        "type": [Function],
       },
       " to start watching sets!",
     ],
-    "type": "div",
+    "type": [Function],
   },
   Symbol(enzyme.__nodes__): Array [
     Object {
       "instance": null,
       "key": null,
-      "nodeType": "host",
+      "nodeType": "class",
       "props": Object {
         "children": Array [
           "Click on the ",
-          <div
-            className="plus"
-          >
+          <styled.div>
             +
-          </div>,
+          </styled.div>,
           " to start watching sets!",
         ],
-        "className": "Instructions",
       },
       "ref": null,
       "rendered": Array [
@@ -70,18 +63,17 @@ ShallowWrapper {
         Object {
           "instance": null,
           "key": null,
-          "nodeType": "host",
+          "nodeType": "class",
           "props": Object {
             "children": "+",
-            "className": "plus",
           },
           "ref": null,
           "rendered": "+",
-          "type": "div",
+          "type": [Function],
         },
         " to start watching sets!",
       ],
-      "type": "div",
+      "type": [Function],
     },
   ],
   Symbol(enzyme.__options__): Object {

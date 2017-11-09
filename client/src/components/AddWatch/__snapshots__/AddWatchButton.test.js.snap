@@ -17,53 +17,51 @@ ShallowWrapper {
   Symbol(enzyme.__node__): Object {
     "instance": null,
     "key": null,
-    "nodeType": "host",
+    "nodeType": "class",
     "props": Object {
-      "children": <span>
+      "children": <styled.span>
         +
-      </span>,
-      "className": "AddWatchButton",
+      </styled.span>,
       "onClick": [Function],
     },
     "ref": null,
     "rendered": Object {
       "instance": null,
       "key": null,
-      "nodeType": "host",
+      "nodeType": "class",
       "props": Object {
         "children": "+",
       },
       "ref": null,
       "rendered": "+",
-      "type": "span",
+      "type": [Function],
     },
-    "type": "button",
+    "type": [Function],
   },
   Symbol(enzyme.__nodes__): Array [
     Object {
       "instance": null,
       "key": null,
-      "nodeType": "host",
+      "nodeType": "class",
       "props": Object {
-        "children": <span>
+        "children": <styled.span>
           +
-        </span>,
-        "className": "AddWatchButton",
+        </styled.span>,
         "onClick": [Function],
       },
       "ref": null,
       "rendered": Object {
         "instance": null,
         "key": null,
-        "nodeType": "host",
+        "nodeType": "class",
         "props": Object {
           "children": "+",
         },
         "ref": null,
         "rendered": "+",
-        "type": "span",
+        "type": [Function],
       },
-      "type": "button",
+      "type": [Function],
     },
   ],
   Symbol(enzyme.__options__): Object {

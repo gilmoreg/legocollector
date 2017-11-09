@@ -1,12 +1,16 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import styled from 'styled-components';
 import { connect } from 'react-redux';
 import WatchHeader from './WatchHeader/WatchHeader';
 import WatchBody from './WatchBody/WatchBody';
 import WatchFooter from './WatchFooter/WatchFooter';
 import { deleteWatch } from '../../state/actions';
 
-import './Watch.css';
+const StyledWatch = styled.div`
+  margin: 1rem;
+  z-index: -2;
+`;
 
 export class Watch extends Component {
   constructor(props) {
@@ -23,7 +27,7 @@ export class Watch extends Component {
 
   render() {
     return (
-      <div className="Watch">
+      <StyledWatch>
         <WatchHeader watch={this.props.watch} />
         { this.state.collapsed ?
           ''
@@ -39,7 +43,7 @@ export class Watch extends Component {
           })}
           collapsed={this.state.collapsed}
         />
-      </div>
+      </StyledWatch>
     );
   }
 }

@@ -29,7 +29,7 @@ ShallowWrapper {
   Symbol(enzyme.__node__): Object {
     "instance": null,
     "key": null,
-    "nodeType": "host",
+    "nodeType": "class",
     "props": Object {
       "children": Array [
         <Chart
@@ -46,7 +46,7 @@ ShallowWrapper {
             ]
           }
         />,
-        <button
+        <styled.button
           className="delete"
           onClick={[Function]}
         >
@@ -54,9 +54,8 @@ ShallowWrapper {
             aria-hidden="true"
             className="fa fa-times"
           />
-        </button>,
+        </styled.button>,
       ],
-      "className": "WatchBody",
     },
     "ref": null,
     "rendered": Array [
@@ -83,7 +82,7 @@ ShallowWrapper {
       Object {
         "instance": null,
         "key": null,
-        "nodeType": "host",
+        "nodeType": "class",
         "props": Object {
           "children": <i
             aria-hidden="true"
@@ -105,16 +104,16 @@ ShallowWrapper {
           "rendered": null,
           "type": "i",
         },
-        "type": "button",
+        "type": [Function],
       },
     ],
-    "type": "div",
+    "type": [Function],
   },
   Symbol(enzyme.__nodes__): Array [
     Object {
       "instance": null,
       "key": null,
-      "nodeType": "host",
+      "nodeType": "class",
       "props": Object {
         "children": Array [
           <Chart
@@ -131,7 +130,7 @@ ShallowWrapper {
               ]
             }
           />,
-          <button
+          <styled.button
             className="delete"
             onClick={[Function]}
           >
@@ -139,9 +138,8 @@ ShallowWrapper {
               aria-hidden="true"
               className="fa fa-times"
             />
-          </button>,
+          </styled.button>,
         ],
-        "className": "WatchBody",
       },
       "ref": null,
       "rendered": Array [
@@ -168,7 +166,7 @@ ShallowWrapper {
         Object {
           "instance": null,
           "key": null,
-          "nodeType": "host",
+          "nodeType": "class",
           "props": Object {
             "children": <i
               aria-hidden="true"
@@ -190,10 +188,10 @@ ShallowWrapper {
             "rendered": null,
             "type": "i",
           },
-          "type": "button",
+          "type": [Function],
         },
       ],
-      "type": "div",
+      "type": [Function],
     },
   ],
   Symbol(enzyme.__options__): Object {

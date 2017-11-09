@@ -17,7 +17,7 @@ ShallowWrapper {
   Symbol(enzyme.__node__): Object {
     "instance": null,
     "key": null,
-    "nodeType": "host",
+    "nodeType": "class",
     "props": Object {
       "children": <img
         alt="Login with Amazon"
@@ -43,13 +43,13 @@ ShallowWrapper {
       "rendered": null,
       "type": "img",
     },
-    "type": "button",
+    "type": [Function],
   },
   Symbol(enzyme.__nodes__): Array [
     Object {
       "instance": null,
       "key": null,
-      "nodeType": "host",
+      "nodeType": "class",
       "props": Object {
         "children": <img
           alt="Login with Amazon"
@@ -75,7 +75,7 @@ ShallowWrapper {
         "rendered": null,
         "type": "img",
       },
-      "type": "button",
+      "type": [Function],
     },
   ],
   Symbol(enzyme.__options__): Object {

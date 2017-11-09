@@ -1,7 +1,14 @@
 /* eslint-disable camelcase */
 import React from 'react';
 import PropTypes from 'prop-types';
-import './WatchHeader.css';
+import {
+  StyledWatchHeader,
+  StyledThumbnail,
+  StyledImg,
+  StyledTitle,
+  StyledStock,
+  StyledStockP
+} from './WatchHeaderStyled';
 
 const getCurrentStock = (stock_levels) => {
   const currentLevel = stock_levels[stock_levels.length - 1];
@@ -14,22 +21,22 @@ const getCurrentStock = (stock_levels) => {
 };
 
 const WatchHeader = props => (
-  <div className="WatchHeader">
-    <div className="thumbnail">
+  <StyledWatchHeader>
+    <StyledThumbnail>
       <a href={props.watch.url} target="_blank" rel="noopener noreferrer" title={props.watch.title}>
-        <img src={props.watch.image} alt={props.watch.title} />
+        <StyledImg src={props.watch.image} alt={props.watch.title} />
       </a>
-    </div>
-    <div className="title">
+    </StyledThumbnail>
+    <StyledTitle>
       <a href={props.watch.url} target="_blank" rel="noopener noreferrer" title={props.watch.title}>
         {props.watch.title}
       </a>
-    </div>
-    <div className="stock">
+    </StyledTitle>
+    <StyledStock>
       {getCurrentStock(props.watch.stock_levels)}
-      <p>in stock</p>
-    </div>
-  </div>
+      <StyledStockP>in stock</StyledStockP>
+    </StyledStock>
+  </StyledWatchHeader>
 );
 
 WatchHeader.propTypes = {

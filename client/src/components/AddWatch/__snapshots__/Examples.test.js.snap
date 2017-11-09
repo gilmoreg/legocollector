@@ -20,43 +20,43 @@ ShallowWrapper {
     "nodeType": "host",
     "props": Object {
       "children": Array [
-        <h4>
+        <styled.h4>
           Examples (click to test out):
-        </h4>,
-        <ul>
+        </styled.h4>,
+        <styled.ul>
           <li>
-            <button
+            <styled.button
               data-id={75105}
               onClick={[Function]}
             >
               75105 - Star Wars Millenium Falcon
-            </button>
+            </styled.button>
           </li>
           <li>
-            <button
+            <styled.button
               data-id={21029}
               onClick={[Function]}
             >
               21029 - Architecture Buckingham Palace
-            </button>
+            </styled.button>
           </li>
           <li>
-            <button
+            <styled.button
               data-id={10232}
               onClick={[Function]}
             >
               10232 - Modular Buildings Palace Cinema
-            </button>
+            </styled.button>
           </li>
           <li>
-            <button
+            <styled.button
               data-id={10217}
               onClick={[Function]}
             >
               10217 - Harry Potter Diagon Alley
-            </button>
+            </styled.button>
           </li>
-        </ul>,
+        </styled.ul>,
       ],
       "className": "Examples",
     },
@@ -65,51 +65,51 @@ ShallowWrapper {
       Object {
         "instance": null,
         "key": null,
-        "nodeType": "host",
+        "nodeType": "class",
         "props": Object {
           "children": "Examples (click to test out):",
         },
         "ref": null,
         "rendered": "Examples (click to test out):",
-        "type": "h4",
+        "type": [Function],
       },
       Object {
         "instance": null,
         "key": null,
-        "nodeType": "host",
+        "nodeType": "class",
         "props": Object {
           "children": Array [
             <li>
-              <button
+              <styled.button
                 data-id={75105}
                 onClick={[Function]}
               >
                 75105 - Star Wars Millenium Falcon
-              </button>
+              </styled.button>
             </li>,
             <li>
-              <button
+              <styled.button
                 data-id={21029}
                 onClick={[Function]}
               >
                 21029 - Architecture Buckingham Palace
-              </button>
+              </styled.button>
             </li>,
             <li>
-              <button
+              <styled.button
                 data-id={10232}
                 onClick={[Function]}
               >
                 10232 - Modular Buildings Palace Cinema
-              </button>
+              </styled.button>
             </li>,
             <li>
-              <button
+              <styled.button
                 data-id={10217}
                 onClick={[Function]}
               >
                 10217 - Harry Potter Diagon Alley
-              </button>
+              </styled.button>
             </li>,
           ],
         },
@@ -120,18 +120,18 @@ ShallowWrapper {
             "key": "75105",
             "nodeType": "host",
             "props": Object {
-              "children": <button
+              "children": <styled.button
                 data-id={75105}
                 onClick={[Function]}
               >
                 75105 - Star Wars Millenium Falcon
-              </button>,
+              </styled.button>,
             },
             "ref": null,
             "rendered": Object {
               "instance": null,
               "key": null,
-              "nodeType": "host",
+              "nodeType": "class",
               "props": Object {
                 "children": "75105 - Star Wars Millenium Falcon",
                 "data-id": 75105,
@@ -139,7 +139,7 @@ ShallowWrapper {
               },
               "ref": null,
               "rendered": "75105 - Star Wars Millenium Falcon",
-              "type": "button",
+              "type": [Function],
             },
             "type": "li",
           },
@@ -148,18 +148,18 @@ ShallowWrapper {
             "key": "21029",
             "nodeType": "host",
             "props": Object {
-              "children": <button
+              "children": <styled.button
                 data-id={21029}
                 onClick={[Function]}
               >
                 21029 - Architecture Buckingham Palace
-              </button>,
+              </styled.button>,
             },
             "ref": null,
             "rendered": Object {
               "instance": null,
               "key": null,
-              "nodeType": "host",
+              "nodeType": "class",
               "props": Object {
                 "children": "21029 - Architecture Buckingham Palace",
                 "data-id": 21029,
@@ -167,7 +167,7 @@ ShallowWrapper {
               },
               "ref": null,
               "rendered": "21029 - Architecture Buckingham Palace",
-              "type": "button",
+              "type": [Function],
             },
             "type": "li",
           },
@@ -176,18 +176,18 @@ ShallowWrapper {
             "key": "10232",
             "nodeType": "host",
             "props": Object {
-              "children": <button
+              "children": <styled.button
                 data-id={10232}
                 onClick={[Function]}
               >
                 10232 - Modular Buildings Palace Cinema
-              </button>,
+              </styled.button>,
             },
             "ref": null,
             "rendered": Object {
               "instance": null,
               "key": null,
-              "nodeType": "host",
+              "nodeType": "class",
               "props": Object {
                 "children": "10232 - Modular Buildings Palace Cinema",
                 "data-id": 10232,
@@ -195,7 +195,7 @@ ShallowWrapper {
               },
               "ref": null,
               "rendered": "10232 - Modular Buildings Palace Cinema",
-              "type": "button",
+              "type": [Function],
             },
             "type": "li",
           },
@@ -204,18 +204,18 @@ ShallowWrapper {
             "key": "10217",
             "nodeType": "host",
             "props": Object {
-              "children": <button
+              "children": <styled.button
                 data-id={10217}
                 onClick={[Function]}
               >
                 10217 - Harry Potter Diagon Alley
-              </button>,
+              </styled.button>,
             },
             "ref": null,
             "rendered": Object {
               "instance": null,
               "key": null,
-              "nodeType": "host",
+              "nodeType": "class",
               "props": Object {
                 "children": "10217 - Harry Potter Diagon Alley",
                 "data-id": 10217,
@@ -223,12 +223,12 @@ ShallowWrapper {
               },
               "ref": null,
               "rendered": "10217 - Harry Potter Diagon Alley",
-              "type": "button",
+              "type": [Function],
             },
             "type": "li",
           },
         ],
-        "type": "ul",
+        "type": [Function],
       },
     ],
     "type": "div",
@@ -240,43 +240,43 @@ ShallowWrapper {
       "nodeType": "host",
       "props": Object {
         "children": Array [
-          <h4>
+          <styled.h4>
             Examples (click to test out):
-          </h4>,
-          <ul>
+          </styled.h4>,
+          <styled.ul>
             <li>
-              <button
+              <styled.button
                 data-id={75105}
                 onClick={[Function]}
               >
                 75105 - Star Wars Millenium Falcon
-              </button>
+              </styled.button>
             </li>
             <li>
-              <button
+              <styled.button
                 data-id={21029}
                 onClick={[Function]}
               >
                 21029 - Architecture Buckingham Palace
-              </button>
+              </styled.button>
             </li>
             <li>
-              <button
+              <styled.button
                 data-id={10232}
                 onClick={[Function]}
               >
                 10232 - Modular Buildings Palace Cinema
-              </button>
+              </styled.button>
             </li>
             <li>
-              <button
+              <styled.button
                 data-id={10217}
                 onClick={[Function]}
               >
                 10217 - Harry Potter Diagon Alley
-              </button>
+              </styled.button>
             </li>
-          </ul>,
+          </styled.ul>,
         ],
         "className": "Examples",
       },
@@ -285,51 +285,51 @@ ShallowWrapper {
         Object {
           "instance": null,
           "key": null,
-          "nodeType": "host",
+          "nodeType": "class",
           "props": Object {
             "children": "Examples (click to test out):",
           },
           "ref": null,
           "rendered": "Examples (click to test out):",
-          "type": "h4",
+          "type": [Function],
         },
         Object {
           "instance": null,
           "key": null,
-          "nodeType": "host",
+          "nodeType": "class",
           "props": Object {
             "children": Array [
               <li>
-                <button
+                <styled.button
                   data-id={75105}
                   onClick={[Function]}
                 >
                   75105 - Star Wars Millenium Falcon
-                </button>
+                </styled.button>
               </li>,
               <li>
-                <button
+                <styled.button
                   data-id={21029}
                   onClick={[Function]}
                 >
                   21029 - Architecture Buckingham Palace
-                </button>
+                </styled.button>
               </li>,
               <li>
-                <button
+                <styled.button
                   data-id={10232}
                   onClick={[Function]}
                 >
                   10232 - Modular Buildings Palace Cinema
-                </button>
+                </styled.button>
               </li>,
               <li>
-                <button
+                <styled.button
                   data-id={10217}
                   onClick={[Function]}
                 >
                   10217 - Harry Potter Diagon Alley
-                </button>
+                </styled.button>
               </li>,
             ],
           },
@@ -340,18 +340,18 @@ ShallowWrapper {
               "key": "75105",
               "nodeType": "host",
               "props": Object {
-                "children": <button
+                "children": <styled.button
                   data-id={75105}
                   onClick={[Function]}
                 >
                   75105 - Star Wars Millenium Falcon
-                </button>,
+                </styled.button>,
               },
               "ref": null,
               "rendered": Object {
                 "instance": null,
                 "key": null,
-                "nodeType": "host",
+                "nodeType": "class",
                 "props": Object {
                   "children": "75105 - Star Wars Millenium Falcon",
                   "data-id": 75105,
@@ -359,7 +359,7 @@ ShallowWrapper {
                 },
                 "ref": null,
                 "rendered": "75105 - Star Wars Millenium Falcon",
-                "type": "button",
+                "type": [Function],
               },
               "type": "li",
             },
@@ -368,18 +368,18 @@ ShallowWrapper {
               "key": "21029",
               "nodeType": "host",
               "props": Object {
-                "children": <button
+                "children": <styled.button
                   data-id={21029}
                   onClick={[Function]}
                 >
                   21029 - Architecture Buckingham Palace
-                </button>,
+                </styled.button>,
               },
               "ref": null,
               "rendered": Object {
                 "instance": null,
                 "key": null,
-                "nodeType": "host",
+                "nodeType": "class",
                 "props": Object {
                   "children": "21029 - Architecture Buckingham Palace",
                   "data-id": 21029,
@@ -387,7 +387,7 @@ ShallowWrapper {
                 },
                 "ref": null,
                 "rendered": "21029 - Architecture Buckingham Palace",
-                "type": "button",
+                "type": [Function],
               },
               "type": "li",
             },
@@ -396,18 +396,18 @@ ShallowWrapper {
               "key": "10232",
               "nodeType": "host",
               "props": Object {
-                "children": <button
+                "children": <styled.button
                   data-id={10232}
                   onClick={[Function]}
                 >
                   10232 - Modular Buildings Palace Cinema
-                </button>,
+                </styled.button>,
               },
               "ref": null,
               "rendered": Object {
                 "instance": null,
                 "key": null,
-                "nodeType": "host",
+                "nodeType": "class",
                 "props": Object {
                   "children": "10232 - Modular Buildings Palace Cinema",
                   "data-id": 10232,
@@ -415,7 +415,7 @@ ShallowWrapper {
                 },
                 "ref": null,
                 "rendered": "10232 - Modular Buildings Palace Cinema",
-                "type": "button",
+                "type": [Function],
               },
               "type": "li",
             },
@@ -424,18 +424,18 @@ ShallowWrapper {
               "key": "10217",
               "nodeType": "host",
               "props": Object {
-                "children": <button
+                "children": <styled.button
                   data-id={10217}
                   onClick={[Function]}
                 >
                   10217 - Harry Potter Diagon Alley
-                </button>,
+                </styled.button>,
               },
               "ref": null,
               "rendered": Object {
                 "instance": null,
                 "key": null,
-                "nodeType": "host",
+                "nodeType": "class",
                 "props": Object {
                   "children": "10217 - Harry Potter Diagon Alley",
                   "data-id": 10217,
@@ -443,12 +443,12 @@ ShallowWrapper {
                 },
                 "ref": null,
                 "rendered": "10217 - Harry Potter Diagon Alley",
-                "type": "button",
+                "type": [Function],
               },
               "type": "li",
             },
           ],
-          "type": "ul",
+          "type": [Function],
         },
       ],
       "type": "div",

@@ -22,64 +22,25 @@ ShallowWrapper {
     "key": null,
     "nodeType": "host",
     "props": Object {
-      "children": Array [
+      "children": <styled.div>
         <Header
           email=""
           loggedIn={false}
-        />,
-        <Welcome />,
-        "",
+        />
+        <Welcome />
+        
         <Connect(AddWatchModal)
           close={[Function]}
           open={false}
-        />,
-      ],
+        />
+      </styled.div>,
       "className": "App",
     },
     "ref": null,
-    "rendered": Array [
-      Object {
-        "instance": null,
-        "key": null,
-        "nodeType": "function",
-        "props": Object {
-          "email": "",
-          "loggedIn": false,
-        },
-        "ref": null,
-        "rendered": null,
-        "type": [Function],
-      },
-      Object {
-        "instance": null,
-        "key": null,
-        "nodeType": "function",
-        "props": Object {},
-        "ref": null,
-        "rendered": null,
-        "type": [Function],
-      },
-      "",
-      Object {
-        "instance": null,
-        "key": null,
-        "nodeType": "class",
-        "props": Object {
-          "close": [Function],
-          "open": false,
-        },
-        "ref": null,
-        "rendered": null,
-        "type": [Function],
-      },
-    ],
-    "type": "div",
-  },
-  Symbol(enzyme.__nodes__): Array [
-    Object {
+    "rendered": Object {
       "instance": null,
       "key": null,
-      "nodeType": "host",
+      "nodeType": "class",
       "props": Object {
         "children": Array [
           <Header
@@ -93,7 +54,6 @@ ShallowWrapper {
             open={false}
           />,
         ],
-        "className": "App",
       },
       "ref": null,
       "rendered": Array [
@@ -132,6 +92,88 @@ ShallowWrapper {
           "type": [Function],
         },
       ],
+      "type": [Function],
+    },
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": null,
+      "nodeType": "host",
+      "props": Object {
+        "children": <styled.div>
+          <Header
+            email=""
+            loggedIn={false}
+          />
+          <Welcome />
+          
+          <Connect(AddWatchModal)
+            close={[Function]}
+            open={false}
+          />
+        </styled.div>,
+        "className": "App",
+      },
+      "ref": null,
+      "rendered": Object {
+        "instance": null,
+        "key": null,
+        "nodeType": "class",
+        "props": Object {
+          "children": Array [
+            <Header
+              email=""
+              loggedIn={false}
+            />,
+            <Welcome />,
+            "",
+            <Connect(AddWatchModal)
+              close={[Function]}
+              open={false}
+            />,
+          ],
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": null,
+            "nodeType": "function",
+            "props": Object {
+              "email": "",
+              "loggedIn": false,
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": null,
+            "nodeType": "function",
+            "props": Object {},
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+          "",
+          Object {
+            "instance": null,
+            "key": null,
+            "nodeType": "class",
+            "props": Object {
+              "close": [Function],
+              "open": false,
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+        ],
+        "type": [Function],
+      },
       "type": "div",
     },
   ],
@@ -167,137 +209,50 @@ ShallowWrapper {
     "key": null,
     "nodeType": "host",
     "props": Object {
-      "children": Array [
+      "children": <styled.div>
         <Header
           email=""
           loggedIn={true}
-        />,
-        <div
-          className="WatchView"
-        >
-          <h2
+        />
+        <styled.div>
+          <styled.h2
             data-text="Please wait while we gather your sets..."
           >
             Please wait while we gather your sets...
-          </h2>
+          </styled.h2>
           
           <Instructions />
-        </div>,
+        </styled.div>
         <AddWatchButton
           openModal={[Function]}
-        />,
+        />
         <Connect(AddWatchModal)
           close={[Function]}
           open={false}
-        />,
-      ],
+        />
+      </styled.div>,
       "className": "App",
     },
     "ref": null,
-    "rendered": Array [
-      Object {
-        "instance": null,
-        "key": null,
-        "nodeType": "function",
-        "props": Object {
-          "email": "",
-          "loggedIn": true,
-        },
-        "ref": null,
-        "rendered": null,
-        "type": [Function],
-      },
-      Object {
-        "instance": null,
-        "key": null,
-        "nodeType": "host",
-        "props": Object {
-          "children": Array [
-            <h2
-              data-text="Please wait while we gather your sets..."
-            >
-              Please wait while we gather your sets...
-            </h2>,
-            "",
-            <Instructions />,
-          ],
-          "className": "WatchView",
-        },
-        "ref": null,
-        "rendered": Array [
-          Object {
-            "instance": null,
-            "key": null,
-            "nodeType": "host",
-            "props": Object {
-              "children": "Please wait while we gather your sets...",
-              "data-text": "Please wait while we gather your sets...",
-            },
-            "ref": null,
-            "rendered": "Please wait while we gather your sets...",
-            "type": "h2",
-          },
-          "",
-          Object {
-            "instance": null,
-            "key": null,
-            "nodeType": "function",
-            "props": Object {},
-            "ref": null,
-            "rendered": null,
-            "type": [Function],
-          },
-        ],
-        "type": "div",
-      },
-      Object {
-        "instance": null,
-        "key": null,
-        "nodeType": "function",
-        "props": Object {
-          "openModal": [Function],
-        },
-        "ref": null,
-        "rendered": null,
-        "type": [Function],
-      },
-      Object {
-        "instance": null,
-        "key": null,
-        "nodeType": "class",
-        "props": Object {
-          "close": [Function],
-          "open": false,
-        },
-        "ref": null,
-        "rendered": null,
-        "type": [Function],
-      },
-    ],
-    "type": "div",
-  },
-  Symbol(enzyme.__nodes__): Array [
-    Object {
+    "rendered": Object {
       "instance": null,
       "key": null,
-      "nodeType": "host",
+      "nodeType": "class",
       "props": Object {
         "children": Array [
           <Header
             email=""
             loggedIn={true}
           />,
-          <div
-            className="WatchView"
-          >
-            <h2
+          <styled.div>
+            <styled.h2
               data-text="Please wait while we gather your sets..."
             >
               Please wait while we gather your sets...
-            </h2>
+            </styled.h2>
             
             <Instructions />
-          </div>,
+          </styled.div>,
           <AddWatchButton
             openModal={[Function]}
           />,
@@ -306,7 +261,6 @@ ShallowWrapper {
             open={false}
           />,
         ],
-        "className": "App",
       },
       "ref": null,
       "rendered": Array [
@@ -325,32 +279,31 @@ ShallowWrapper {
         Object {
           "instance": null,
           "key": null,
-          "nodeType": "host",
+          "nodeType": "class",
           "props": Object {
             "children": Array [
-              <h2
+              <styled.h2
                 data-text="Please wait while we gather your sets..."
               >
                 Please wait while we gather your sets...
-              </h2>,
+              </styled.h2>,
               "",
               <Instructions />,
             ],
-            "className": "WatchView",
           },
           "ref": null,
           "rendered": Array [
             Object {
               "instance": null,
               "key": null,
-              "nodeType": "host",
+              "nodeType": "class",
               "props": Object {
                 "children": "Please wait while we gather your sets...",
                 "data-text": "Please wait while we gather your sets...",
               },
               "ref": null,
               "rendered": "Please wait while we gather your sets...",
-              "type": "h2",
+              "type": [Function],
             },
             "",
             Object {
@@ -363,7 +316,7 @@ ShallowWrapper {
               "type": [Function],
             },
           ],
-          "type": "div",
+          "type": [Function],
         },
         Object {
           "instance": null,
@@ -389,6 +342,151 @@ ShallowWrapper {
           "type": [Function],
         },
       ],
+      "type": [Function],
+    },
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": null,
+      "nodeType": "host",
+      "props": Object {
+        "children": <styled.div>
+          <Header
+            email=""
+            loggedIn={true}
+          />
+          <styled.div>
+            <styled.h2
+              data-text="Please wait while we gather your sets..."
+            >
+              Please wait while we gather your sets...
+            </styled.h2>
+            
+            <Instructions />
+          </styled.div>
+          <AddWatchButton
+            openModal={[Function]}
+          />
+          <Connect(AddWatchModal)
+            close={[Function]}
+            open={false}
+          />
+        </styled.div>,
+        "className": "App",
+      },
+      "ref": null,
+      "rendered": Object {
+        "instance": null,
+        "key": null,
+        "nodeType": "class",
+        "props": Object {
+          "children": Array [
+            <Header
+              email=""
+              loggedIn={true}
+            />,
+            <styled.div>
+              <styled.h2
+                data-text="Please wait while we gather your sets..."
+              >
+                Please wait while we gather your sets...
+              </styled.h2>
+              
+              <Instructions />
+            </styled.div>,
+            <AddWatchButton
+              openModal={[Function]}
+            />,
+            <Connect(AddWatchModal)
+              close={[Function]}
+              open={false}
+            />,
+          ],
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": null,
+            "nodeType": "function",
+            "props": Object {
+              "email": "",
+              "loggedIn": true,
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": null,
+            "nodeType": "class",
+            "props": Object {
+              "children": Array [
+                <styled.h2
+                  data-text="Please wait while we gather your sets..."
+                >
+                  Please wait while we gather your sets...
+                </styled.h2>,
+                "",
+                <Instructions />,
+              ],
+            },
+            "ref": null,
+            "rendered": Array [
+              Object {
+                "instance": null,
+                "key": null,
+                "nodeType": "class",
+                "props": Object {
+                  "children": "Please wait while we gather your sets...",
+                  "data-text": "Please wait while we gather your sets...",
+                },
+                "ref": null,
+                "rendered": "Please wait while we gather your sets...",
+                "type": [Function],
+              },
+              "",
+              Object {
+                "instance": null,
+                "key": null,
+                "nodeType": "function",
+                "props": Object {},
+                "ref": null,
+                "rendered": null,
+                "type": [Function],
+              },
+            ],
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": null,
+            "nodeType": "function",
+            "props": Object {
+              "openModal": [Function],
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": null,
+            "nodeType": "class",
+            "props": Object {
+              "close": [Function],
+              "open": false,
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+        ],
+        "type": [Function],
+      },
       "type": "div",
     },
   ],
@@ -424,64 +522,25 @@ ShallowWrapper {
     "key": null,
     "nodeType": "host",
     "props": Object {
-      "children": Array [
+      "children": <styled.div>
         <Header
           email=""
           loggedIn={false}
-        />,
-        <Welcome />,
-        "",
+        />
+        <Welcome />
+        
         <Connect(AddWatchModal)
           close={[Function]}
           open={false}
-        />,
-      ],
+        />
+      </styled.div>,
       "className": "App",
     },
     "ref": null,
-    "rendered": Array [
-      Object {
-        "instance": null,
-        "key": null,
-        "nodeType": "function",
-        "props": Object {
-          "email": "",
-          "loggedIn": false,
-        },
-        "ref": null,
-        "rendered": null,
-        "type": [Function],
-      },
-      Object {
-        "instance": null,
-        "key": null,
-        "nodeType": "function",
-        "props": Object {},
-        "ref": null,
-        "rendered": null,
-        "type": [Function],
-      },
-      "",
-      Object {
-        "instance": null,
-        "key": null,
-        "nodeType": "class",
-        "props": Object {
-          "close": [Function],
-          "open": false,
-        },
-        "ref": null,
-        "rendered": null,
-        "type": [Function],
-      },
-    ],
-    "type": "div",
-  },
-  Symbol(enzyme.__nodes__): Array [
-    Object {
+    "rendered": Object {
       "instance": null,
       "key": null,
-      "nodeType": "host",
+      "nodeType": "class",
       "props": Object {
         "children": Array [
           <Header
@@ -495,7 +554,6 @@ ShallowWrapper {
             open={false}
           />,
         ],
-        "className": "App",
       },
       "ref": null,
       "rendered": Array [
@@ -534,6 +592,88 @@ ShallowWrapper {
           "type": [Function],
         },
       ],
+      "type": [Function],
+    },
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": null,
+      "nodeType": "host",
+      "props": Object {
+        "children": <styled.div>
+          <Header
+            email=""
+            loggedIn={false}
+          />
+          <Welcome />
+          
+          <Connect(AddWatchModal)
+            close={[Function]}
+            open={false}
+          />
+        </styled.div>,
+        "className": "App",
+      },
+      "ref": null,
+      "rendered": Object {
+        "instance": null,
+        "key": null,
+        "nodeType": "class",
+        "props": Object {
+          "children": Array [
+            <Header
+              email=""
+              loggedIn={false}
+            />,
+            <Welcome />,
+            "",
+            <Connect(AddWatchModal)
+              close={[Function]}
+              open={false}
+            />,
+          ],
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": null,
+            "nodeType": "function",
+            "props": Object {
+              "email": "",
+              "loggedIn": false,
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": null,
+            "nodeType": "function",
+            "props": Object {},
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+          "",
+          Object {
+            "instance": null,
+            "key": null,
+            "nodeType": "class",
+            "props": Object {
+              "close": [Function],
+              "open": false,
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+        ],
+        "type": [Function],
+      },
       "type": "div",
     },
   ],

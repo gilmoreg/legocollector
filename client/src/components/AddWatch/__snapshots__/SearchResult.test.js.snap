@@ -34,14 +34,12 @@ ShallowWrapper {
           rel="noopener noreferrer"
           target="_blank"
         >
-          <img
+          <styled.img
             alt="Test"
             src="test"
           />
         </a>,
-        <p
-          className="link"
-        >
+        <styled.p>
           <a
             href="test"
             rel="noopener noreferrer"
@@ -49,7 +47,7 @@ ShallowWrapper {
           >
             Test
           </a>
-        </p>,
+        </styled.p>,
         <Loader
           component={
             <button
@@ -71,7 +69,7 @@ ShallowWrapper {
         "key": null,
         "nodeType": "host",
         "props": Object {
-          "children": <img
+          "children": <styled.img
             alt="Test"
             src="test"
           />,
@@ -83,21 +81,21 @@ ShallowWrapper {
         "rendered": Object {
           "instance": null,
           "key": null,
-          "nodeType": "host",
+          "nodeType": "class",
           "props": Object {
             "alt": "Test",
             "src": "test",
           },
           "ref": null,
           "rendered": null,
-          "type": "img",
+          "type": [Function],
         },
         "type": "a",
       },
       Object {
         "instance": null,
         "key": null,
-        "nodeType": "host",
+        "nodeType": "class",
         "props": Object {
           "children": <a
             href="test"
@@ -106,7 +104,6 @@ ShallowWrapper {
           >
             Test
           </a>,
-          "className": "link",
         },
         "ref": null,
         "rendered": Object {
@@ -123,7 +120,7 @@ ShallowWrapper {
           "rendered": "Test",
           "type": "a",
         },
-        "type": "p",
+        "type": [Function],
       },
       Object {
         "instance": null,
@@ -157,14 +154,12 @@ ShallowWrapper {
             rel="noopener noreferrer"
             target="_blank"
           >
-            <img
+            <styled.img
               alt="Test"
               src="test"
             />
           </a>,
-          <p
-            className="link"
-          >
+          <styled.p>
             <a
               href="test"
               rel="noopener noreferrer"
@@ -172,7 +167,7 @@ ShallowWrapper {
             >
               Test
             </a>
-          </p>,
+          </styled.p>,
           <Loader
             component={
               <button
@@ -194,7 +189,7 @@ ShallowWrapper {
           "key": null,
           "nodeType": "host",
           "props": Object {
-            "children": <img
+            "children": <styled.img
               alt="Test"
               src="test"
             />,
@@ -206,21 +201,21 @@ ShallowWrapper {
           "rendered": Object {
             "instance": null,
             "key": null,
-            "nodeType": "host",
+            "nodeType": "class",
             "props": Object {
               "alt": "Test",
               "src": "test",
             },
             "ref": null,
             "rendered": null,
-            "type": "img",
+            "type": [Function],
           },
           "type": "a",
         },
         Object {
           "instance": null,
           "key": null,
-          "nodeType": "host",
+          "nodeType": "class",
           "props": Object {
             "children": <a
               href="test"
@@ -229,7 +224,6 @@ ShallowWrapper {
             >
               Test
             </a>,
-            "className": "link",
           },
           "ref": null,
           "rendered": Object {
@@ -246,7 +240,7 @@ ShallowWrapper {
             "rendered": "Test",
             "type": "a",
           },
-          "type": "p",
+          "type": [Function],
         },
         Object {
           "instance": null,

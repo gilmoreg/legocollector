@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import styled, { keyframes } from 'styled-components';
 import { connect } from 'react-redux';
 import { login, logout, fetchWatches } from '../state/actions';
 import { API_URL } from '../config';
@@ -9,7 +10,32 @@ import Watch from './Watch/Watch';
 import AddWatchButton from './AddWatch/AddWatchButton';
 import AddWatchModal from './AddWatch/AddWatchModal';
 import Instructions from './Welcome/Instructions';
-import './App.css';
+
+const StyledApp = styled.div`
+  text-align: center;
+`;
+
+const StyledWatchView = styled.div`
+  margin-bottom: 7rem;
+`;
+
+const loadingKeyframes = keyframes`
+  0% {
+    max-width: 0;
+  }
+`;
+
+const AnimatedH2 = styled.h2`
+  &:before {
+    content: attr(data-text);
+    position: absolute;
+    overflow: hidden;
+    max-width: 20em;
+    white-space: nowrap;
+    color: #2185C5;
+    animation: ${loadingKeyframes} 8s linear;
+  }
+`;
 
 const checkProfile = () => {
   const profile = JSON.parse(
@@ -28,7 +54,7 @@ export class App extends Component {
     };
   }
 
-  componentWillMount() {
+  componentDidMount() {
     // Check for stored profile and set login state accordingly
     const profile = checkProfile();
     if (profile) {
@@ -47,26 +73,28 @@ export class App extends Component {
 
     return (
       <div className="App">
-        <Header loggedIn={this.props.loggedIn} email={this.props.email} />
-        { this.props.loggedIn ?
-          <div className="WatchView">
-            { this.state.serverAwake ? '' : <h2 data-text="Please wait while we gather your sets...">Please wait while we gather your sets...</h2>}
-            { this.state.serverError ? <h2>{this.state.serverError}</h2> : ''}
-            { watches.length ? watches : <Instructions /> }
-          </div>
-          :
-          <Welcome />
-        }
-        { this.props.loggedIn ?
-          <AddWatchButton
-            openModal={() => this.setState({ newWatchModalOpen: !this.state.newWatchModalOpen })}
-          /> :
-          ''
-        }
-        <AddWatchModal
-          open={this.state.newWatchModalOpen}
-          close={() => this.setState({ newWatchModalOpen: false })}
-        />
+        <StyledApp>
+          <Header loggedIn={this.props.loggedIn} email={this.props.email} />
+          { this.props.loggedIn ?
+            <StyledWatchView>
+              { this.state.serverAwake ? '' : <AnimatedH2 data-text="Please wait while we gather your sets...">Please wait while we gather your sets...</AnimatedH2>}
+              { this.state.serverError ? <h2>{this.state.serverError}</h2> : ''}
+              { watches.length ? watches : <Instructions /> }
+            </StyledWatchView>
+            :
+            <Welcome />
+          }
+          { this.props.loggedIn ?
+            <AddWatchButton
+              openModal={() => this.setState({ newWatchModalOpen: !this.state.newWatchModalOpen })}
+            /> :
+            ''
+          }
+          <AddWatchModal
+            open={this.state.newWatchModalOpen}
+            close={() => this.setState({ newWatchModalOpen: false })}
+          />
+        </StyledApp>
       </div>
     );
   }
@@ -77,6 +105,7 @@ App.propTypes = {
   loggedIn: PropTypes.bool,
   email: PropTypes.string,
   watches: PropTypes.array,
+  className: PropTypes.string,
 };
 
 App.defaultProps = {
