@@ -1,9 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import styled from 'styled-components';
 // https://github.com/jerairrest/react-chartjs-2/blob/master/example/src/components/line.js
 import { Line } from 'react-chartjs-2';
 import moment from 'moment';
-import './Chart.css';
+
+const StyledDiv = styled.div`
+  display: inline-block;
+`;
 
 const Chart = (props) => {
   const data = {
@@ -50,14 +54,14 @@ const Chart = (props) => {
   };
 
   return (
-    <div className="Chart">
+    <StyledDiv>
       <Line
         data={data}
         options={options}
         width={300}
         height={200}
       />
-    </div>
+    </StyledDiv>
   );
 };
 
