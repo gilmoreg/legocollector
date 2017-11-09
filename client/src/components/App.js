@@ -10,7 +10,6 @@ import Watch from './Watch/Watch';
 import AddWatchButton from './AddWatch/AddWatchButton';
 import AddWatchModal from './AddWatch/AddWatchModal';
 import Instructions from './Welcome/Instructions';
-import './App.css';
 
 const StyledApp = styled.div`
   text-align: center;
