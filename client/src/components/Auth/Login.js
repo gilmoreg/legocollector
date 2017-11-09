@@ -1,9 +1,14 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import styled from 'styled-components';
 import { connect } from 'react-redux';
 import { login, fetchWatches } from '../../state/actions';
 import { API_URL } from '../../config';
-import './Login.css';
+
+const StyledButton = styled.button`
+  border: none;
+  background-color: transparent;
+`;
 
 export class Login extends Component {
   constructor(props) {
@@ -48,14 +53,14 @@ export class Login extends Component {
 
   render() {
     return (
-      <button id="LoginWithAmazon" onClick={this.amazonLogin}>
+      <StyledButton id="LoginWithAmazon" onClick={this.amazonLogin}>
         <img
           alt="Login with Amazon"
           src="https://images-na.ssl-images-amazon.com/images/G/01/lwa/btnLWA_gold_156x32.png"
           width="156"
           height="32"
         />
-      </button>
+      </StyledButton>
     );
   }
 }
