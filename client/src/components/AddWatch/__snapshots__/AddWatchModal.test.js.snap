@@ -29,13 +29,13 @@ ShallowWrapper {
         <form
           onSubmit={[Function]}
         >
-          <header>
+          <styled.header>
             Lego ID:
-          </header>
+          </styled.header>
           <Examples
             click={[Function]}
           />
-          <input
+          <styled.input
             onChange={[Function]}
             placeholder={75105}
             type="text"
@@ -73,13 +73,13 @@ ShallowWrapper {
           <form
             onSubmit={[Function]}
           >
-            <header>
+            <styled.header>
               Lego ID:
-            </header>
+            </styled.header>
             <Examples
               click={[Function]}
             />
-            <input
+            <styled.input
               onChange={[Function]}
               placeholder={75105}
               type="text"
@@ -103,13 +103,13 @@ ShallowWrapper {
           "nodeType": "host",
           "props": Object {
             "children": Array [
-              <header>
+              <styled.header>
                 Lego ID:
-              </header>,
+              </styled.header>,
               <Examples
                 click={[Function]}
               />,
-              <input
+              <styled.input
                 onChange={[Function]}
                 placeholder={75105}
                 type="text"
@@ -124,13 +124,13 @@ ShallowWrapper {
             Object {
               "instance": null,
               "key": null,
-              "nodeType": "host",
+              "nodeType": "class",
               "props": Object {
                 "children": "Lego ID:",
               },
               "ref": null,
               "rendered": "Lego ID:",
-              "type": "header",
+              "type": [Function],
             },
             Object {
               "instance": null,
@@ -146,7 +146,7 @@ ShallowWrapper {
             Object {
               "instance": null,
               "key": null,
-              "nodeType": "host",
+              "nodeType": "class",
               "props": Object {
                 "onChange": [Function],
                 "placeholder": 75105,
@@ -155,7 +155,7 @@ ShallowWrapper {
               },
               "ref": null,
               "rendered": null,
-              "type": "input",
+              "type": [Function],
             },
             "",
           ],
@@ -193,13 +193,13 @@ ShallowWrapper {
           <form
             onSubmit={[Function]}
           >
-            <header>
+            <styled.header>
               Lego ID:
-            </header>
+            </styled.header>
             <Examples
               click={[Function]}
             />
-            <input
+            <styled.input
               onChange={[Function]}
               placeholder={75105}
               type="text"
@@ -237,13 +237,13 @@ ShallowWrapper {
             <form
               onSubmit={[Function]}
             >
-              <header>
+              <styled.header>
                 Lego ID:
-              </header>
+              </styled.header>
               <Examples
                 click={[Function]}
               />
-              <input
+              <styled.input
                 onChange={[Function]}
                 placeholder={75105}
                 type="text"
@@ -267,13 +267,13 @@ ShallowWrapper {
             "nodeType": "host",
             "props": Object {
               "children": Array [
-                <header>
+                <styled.header>
                   Lego ID:
-                </header>,
+                </styled.header>,
                 <Examples
                   click={[Function]}
                 />,
-                <input
+                <styled.input
                   onChange={[Function]}
                   placeholder={75105}
                   type="text"
@@ -288,13 +288,13 @@ ShallowWrapper {
               Object {
                 "instance": null,
                 "key": null,
-                "nodeType": "host",
+                "nodeType": "class",
                 "props": Object {
                   "children": "Lego ID:",
                 },
                 "ref": null,
                 "rendered": "Lego ID:",
-                "type": "header",
+                "type": [Function],
               },
               Object {
                 "instance": null,
@@ -310,7 +310,7 @@ ShallowWrapper {
               Object {
                 "instance": null,
                 "key": null,
-                "nodeType": "host",
+                "nodeType": "class",
                 "props": Object {
                   "onChange": [Function],
                   "placeholder": 75105,
@@ -319,7 +319,7 @@ ShallowWrapper {
                 },
                 "ref": null,
                 "rendered": null,
-                "type": "input",
+                "type": [Function],
               },
               "",
             ],

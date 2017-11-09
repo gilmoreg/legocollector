@@ -7,6 +7,7 @@ import debounce from 'lodash.debounce';
 import { API_URL } from '../../config';
 import Examples from './Examples';
 import SearchResult from './SearchResult';
+import { StyledHeader, StyledInput, StyledSmall } from './AddWatchModalStyled';
 import Loader from '../Misc/Loader';
 import { addWatch } from '../../state/actions';
 import { digitTest, digitLengthTest } from '../../regexes';
@@ -129,15 +130,15 @@ export class AddWatchModal extends Component {
     >
       <div className="AddWatchModalContent">
         <form onSubmit={this.submitForm}>
-          <header>Lego ID:</header>
+          <StyledHeader>Lego ID:</StyledHeader>
           <Examples click={this.setSearchTerm} />
-          <input
+          <StyledInput
             type="text"
             placeholder={75105}
             onChange={this.onInputChange}
             value={this.state.searchTerm}
           />
-          {this.state.error ? <small>{this.state.error}</small> : ''}
+          {this.state.error ? <StyledSmall>{this.state.error}</StyledSmall> : ''}
         </form>
         <Loader
           loading={this.state.searching}
