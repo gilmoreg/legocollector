@@ -20,18 +20,18 @@ ShallowWrapper {
     "key": null,
     "nodeType": "host",
     "props": Object {
-      "children": <button
+      "children": <styled.button
         onClick={[Function]}
       >
         <DownArrow />
-      </button>,
+      </styled.button>,
       "className": "WatchFooter",
     },
     "ref": null,
     "rendered": Object {
       "instance": null,
       "key": null,
-      "nodeType": "host",
+      "nodeType": "class",
       "props": Object {
         "children": <DownArrow />,
         "onClick": [Function],
@@ -46,7 +46,7 @@ ShallowWrapper {
         "rendered": null,
         "type": [Function],
       },
-      "type": "button",
+      "type": [Function],
     },
     "type": "div",
   },
@@ -56,18 +56,18 @@ ShallowWrapper {
       "key": null,
       "nodeType": "host",
       "props": Object {
-        "children": <button
+        "children": <styled.button
           onClick={[Function]}
         >
           <DownArrow />
-        </button>,
+        </styled.button>,
         "className": "WatchFooter",
       },
       "ref": null,
       "rendered": Object {
         "instance": null,
         "key": null,
-        "nodeType": "host",
+        "nodeType": "class",
         "props": Object {
           "children": <DownArrow />,
           "onClick": [Function],
@@ -82,7 +82,7 @@ ShallowWrapper {
           "rendered": null,
           "type": [Function],
         },
-        "type": "button",
+        "type": [Function],
       },
       "type": "div",
     },
