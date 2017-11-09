@@ -28,7 +28,7 @@ export class App extends Component {
     };
   }
 
-  componentDidlMount() {
+  componentDidMount() {
     // Check for stored profile and set login state accordingly
     const profile = checkProfile();
     if (profile) {
