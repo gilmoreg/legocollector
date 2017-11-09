@@ -17,12 +17,12 @@ ShallowWrapper {
   Symbol(enzyme.__node__): Object {
     "instance": null,
     "key": null,
-    "nodeType": "host",
+    "nodeType": "class",
     "props": Object {
       "children": Array [
-        <h1>
+        <styled.h1>
           Lego Collector
-        </h1>,
+        </styled.h1>,
         <Connect(Login) />,
       ],
       "className": "Header",
@@ -32,13 +32,13 @@ ShallowWrapper {
       Object {
         "instance": null,
         "key": null,
-        "nodeType": "host",
+        "nodeType": "class",
         "props": Object {
           "children": "Lego Collector",
         },
         "ref": null,
         "rendered": "Lego Collector",
-        "type": "h1",
+        "type": [Function],
       },
       Object {
         "instance": null,
@@ -50,18 +50,18 @@ ShallowWrapper {
         "type": [Function],
       },
     ],
-    "type": "header",
+    "type": [Function],
   },
   Symbol(enzyme.__nodes__): Array [
     Object {
       "instance": null,
       "key": null,
-      "nodeType": "host",
+      "nodeType": "class",
       "props": Object {
         "children": Array [
-          <h1>
+          <styled.h1>
             Lego Collector
-          </h1>,
+          </styled.h1>,
           <Connect(Login) />,
         ],
         "className": "Header",
@@ -71,13 +71,13 @@ ShallowWrapper {
         Object {
           "instance": null,
           "key": null,
-          "nodeType": "host",
+          "nodeType": "class",
           "props": Object {
             "children": "Lego Collector",
           },
           "ref": null,
           "rendered": "Lego Collector",
-          "type": "h1",
+          "type": [Function],
         },
         Object {
           "instance": null,
@@ -89,7 +89,7 @@ ShallowWrapper {
           "type": [Function],
         },
       ],
-      "type": "header",
+      "type": [Function],
     },
   ],
   Symbol(enzyme.__options__): Object {
