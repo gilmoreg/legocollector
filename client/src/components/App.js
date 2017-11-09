@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import { connect } from 'react-redux';
 import { login, logout, fetchWatches } from '../state/actions';
 import { API_URL } from '../config';
@@ -19,6 +19,12 @@ const StyledWatchView = styled.div`
   margin-bottom: 7rem;
 `;
 
+const loadingKeyframes = keyframes`
+  0% {
+    max-width: 0;
+  }
+`;
+
 const AnimatedH2 = styled.h2`
   &:before {
     content: attr(data-text);
@@ -27,12 +33,7 @@ const AnimatedH2 = styled.h2`
     max-width: 20em;
     white-space: nowrap;
     color: #2185C5;
-    animation: loading 8s linear;
-  }
-  @keyframes loading {
-    0% {
-        max-width: 0;
-    }
+    animation: ${loadingKeyframes} 8s linear;
   }
 `;
 
