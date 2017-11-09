@@ -35,7 +35,7 @@ ShallowWrapper {
   Symbol(enzyme.__node__): Object {
     "instance": null,
     "key": null,
-    "nodeType": "host",
+    "nodeType": "class",
     "props": Object {
       "children": Array [
         <WatchHeader
@@ -63,7 +63,6 @@ ShallowWrapper {
           collapsed={true}
         />,
       ],
-      "className": "Watch",
     },
     "ref": null,
     "rendered": Array [
@@ -106,13 +105,13 @@ ShallowWrapper {
         "type": [Function],
       },
     ],
-    "type": "div",
+    "type": [Function],
   },
   Symbol(enzyme.__nodes__): Array [
     Object {
       "instance": null,
       "key": null,
-      "nodeType": "host",
+      "nodeType": "class",
       "props": Object {
         "children": Array [
           <WatchHeader
@@ -140,7 +139,6 @@ ShallowWrapper {
             collapsed={true}
           />,
         ],
-        "className": "Watch",
       },
       "ref": null,
       "rendered": Array [
@@ -183,7 +181,7 @@ ShallowWrapper {
           "type": [Function],
         },
       ],
-      "type": "div",
+      "type": [Function],
     },
   ],
   Symbol(enzyme.__options__): Object {
