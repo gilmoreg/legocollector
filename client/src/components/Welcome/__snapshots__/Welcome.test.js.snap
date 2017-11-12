@@ -27,11 +27,11 @@ ShallowWrapper {
         <styled.div>
           <styled.img
             alt="example list view"
-            src="http://res.cloudinary.com/dk85nueap/image/upload/c_scale,h_240,w_256/v1509734315/gilmoreg.github.io-legocollector-_iPhone_6_1_tvqhpj.png"
+            src="https://res.cloudinary.com/dk85nueap/image/upload/c_scale,h_240,w_256/v1509734315/gilmoreg.github.io-legocollector-_iPhone_6_1_tvqhpj.png"
           />
           <styled.img
             alt="example stock levels"
-            src="http://res.cloudinary.com/dk85nueap/image/upload/c_scale,w_256/v1509733347/gilmoreg.github.io-legocollector-_iPhone_6_zed1iv.png"
+            src="https://res.cloudinary.com/dk85nueap/image/upload/c_scale,w_256/v1509733347/gilmoreg.github.io-legocollector-_iPhone_6_zed1iv.png"
           />
         </styled.div>,
         <styled.p>
@@ -74,11 +74,11 @@ ShallowWrapper {
           "children": Array [
             <styled.img
               alt="example list view"
-              src="http://res.cloudinary.com/dk85nueap/image/upload/c_scale,h_240,w_256/v1509734315/gilmoreg.github.io-legocollector-_iPhone_6_1_tvqhpj.png"
+              src="https://res.cloudinary.com/dk85nueap/image/upload/c_scale,h_240,w_256/v1509734315/gilmoreg.github.io-legocollector-_iPhone_6_1_tvqhpj.png"
             />,
             <styled.img
               alt="example stock levels"
-              src="http://res.cloudinary.com/dk85nueap/image/upload/c_scale,w_256/v1509733347/gilmoreg.github.io-legocollector-_iPhone_6_zed1iv.png"
+              src="https://res.cloudinary.com/dk85nueap/image/upload/c_scale,w_256/v1509733347/gilmoreg.github.io-legocollector-_iPhone_6_zed1iv.png"
             />,
           ],
         },
@@ -90,7 +90,7 @@ ShallowWrapper {
             "nodeType": "class",
             "props": Object {
               "alt": "example list view",
-              "src": "http://res.cloudinary.com/dk85nueap/image/upload/c_scale,h_240,w_256/v1509734315/gilmoreg.github.io-legocollector-_iPhone_6_1_tvqhpj.png",
+              "src": "https://res.cloudinary.com/dk85nueap/image/upload/c_scale,h_240,w_256/v1509734315/gilmoreg.github.io-legocollector-_iPhone_6_1_tvqhpj.png",
             },
             "ref": null,
             "rendered": null,
@@ -102,7 +102,7 @@ ShallowWrapper {
             "nodeType": "class",
             "props": Object {
               "alt": "example stock levels",
-              "src": "http://res.cloudinary.com/dk85nueap/image/upload/c_scale,w_256/v1509733347/gilmoreg.github.io-legocollector-_iPhone_6_zed1iv.png",
+              "src": "https://res.cloudinary.com/dk85nueap/image/upload/c_scale,w_256/v1509733347/gilmoreg.github.io-legocollector-_iPhone_6_zed1iv.png",
             },
             "ref": null,
             "rendered": null,
@@ -160,11 +160,11 @@ ShallowWrapper {
           <styled.div>
             <styled.img
               alt="example list view"
-              src="http://res.cloudinary.com/dk85nueap/image/upload/c_scale,h_240,w_256/v1509734315/gilmoreg.github.io-legocollector-_iPhone_6_1_tvqhpj.png"
+              src="https://res.cloudinary.com/dk85nueap/image/upload/c_scale,h_240,w_256/v1509734315/gilmoreg.github.io-legocollector-_iPhone_6_1_tvqhpj.png"
             />
             <styled.img
               alt="example stock levels"
-              src="http://res.cloudinary.com/dk85nueap/image/upload/c_scale,w_256/v1509733347/gilmoreg.github.io-legocollector-_iPhone_6_zed1iv.png"
+              src="https://res.cloudinary.com/dk85nueap/image/upload/c_scale,w_256/v1509733347/gilmoreg.github.io-legocollector-_iPhone_6_zed1iv.png"
             />
           </styled.div>,
           <styled.p>
@@ -207,11 +207,11 @@ ShallowWrapper {
             "children": Array [
               <styled.img
                 alt="example list view"
-                src="http://res.cloudinary.com/dk85nueap/image/upload/c_scale,h_240,w_256/v1509734315/gilmoreg.github.io-legocollector-_iPhone_6_1_tvqhpj.png"
+                src="https://res.cloudinary.com/dk85nueap/image/upload/c_scale,h_240,w_256/v1509734315/gilmoreg.github.io-legocollector-_iPhone_6_1_tvqhpj.png"
               />,
               <styled.img
                 alt="example stock levels"
-                src="http://res.cloudinary.com/dk85nueap/image/upload/c_scale,w_256/v1509733347/gilmoreg.github.io-legocollector-_iPhone_6_zed1iv.png"
+                src="https://res.cloudinary.com/dk85nueap/image/upload/c_scale,w_256/v1509733347/gilmoreg.github.io-legocollector-_iPhone_6_zed1iv.png"
               />,
             ],
           },
@@ -223,7 +223,7 @@ ShallowWrapper {
               "nodeType": "class",
               "props": Object {
                 "alt": "example list view",
-                "src": "http://res.cloudinary.com/dk85nueap/image/upload/c_scale,h_240,w_256/v1509734315/gilmoreg.github.io-legocollector-_iPhone_6_1_tvqhpj.png",
+                "src": "https://res.cloudinary.com/dk85nueap/image/upload/c_scale,h_240,w_256/v1509734315/gilmoreg.github.io-legocollector-_iPhone_6_1_tvqhpj.png",
               },
               "ref": null,
               "rendered": null,
@@ -235,7 +235,7 @@ ShallowWrapper {
               "nodeType": "class",
               "props": Object {
                 "alt": "example stock levels",
-                "src": "http://res.cloudinary.com/dk85nueap/image/upload/c_scale,w_256/v1509733347/gilmoreg.github.io-legocollector-_iPhone_6_zed1iv.png",
+                "src": "https://res.cloudinary.com/dk85nueap/image/upload/c_scale,w_256/v1509733347/gilmoreg.github.io-legocollector-_iPhone_6_zed1iv.png",
               },
               "ref": null,
               "rendered": null,

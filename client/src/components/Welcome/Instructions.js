@@ -6,9 +6,9 @@ const StyledInstructions = styled.div`
   bottom: 110px;
   right: 25px;
   border-radius: 5px;
-  background-color: rgba(255,246,229,0.7);
+  background-color: rgba(255,255,255,0.8);
   padding: 1rem;
-  z-index: -1;
+  z-index: 0;
 `;
 
 const StyledPlus = styled.div`
