@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const StyledWatchHeader = styled.div`
   max-width: 760px;
-  background-color: rgba(255,246,229,0.7);
+  background-color: rgba(255,255,255,0.8);
   border-bottom: none;
   border-radius: 5px 5px 0px 0px;
   margin: 0 auto;

@@ -13,6 +13,7 @@ import Instructions from './Welcome/Instructions';
 
 const StyledApp = styled.div`
   text-align: center;
+  min-height: 100%;
 `;
 
 const StyledWatchView = styled.div`

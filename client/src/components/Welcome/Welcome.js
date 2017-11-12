@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import Login from '../Auth/Login';
 
 const StyledWelcome = styled.div`
-  background-color: rgba(255,246,229,0.7);
+  background-color: rgba(255,255,255,0.4);
   border-radius: 5px;
   margin: 1rem;
   padding: 1rem;

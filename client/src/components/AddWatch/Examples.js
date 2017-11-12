@@ -3,6 +3,9 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 const StyledButton = styled.button`
+  border: none;
+  background-color: rgba(255,255,255,0);
+  font-size: 14px;
   text-align: left;
   &:hover {
     color: #FF7F66;

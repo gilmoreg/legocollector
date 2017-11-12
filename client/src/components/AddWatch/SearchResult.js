@@ -13,6 +13,15 @@ const StyledImg = styled.img`
   height: 150px;
 `;
 
+const StyledButton = styled.button`
+  background-color: rgba(255,255,255,0.8);
+  border: none;
+  border-radius: 5px;
+  padding: 0.5rem;
+  margin: 0.5rem;
+  font-size: 24px;
+`;
+
 const SearchResult = ({ legoset, onClick, adding }) => (
   <div className="SearchResult">
     <a href={legoset.url} rel="noopener noreferrer" target="_blank">
@@ -23,7 +32,7 @@ const SearchResult = ({ legoset, onClick, adding }) => (
         {trimTitle(legoset.title)}
       </a>
     </StyledP>
-    <Loader loading={adding} component={<button onClick={onClick}>Add</button>} />
+    <Loader loading={adding} component={<StyledButton onClick={onClick}>Add</StyledButton>} />
   </div>
 );
 
