@@ -9,6 +9,8 @@ const StyledDiv = styled.div`
   display: inline-block;
 `;
 
+const chartWidth = () => (window.innerWidth <= 768) ? 300 : 600;
+
 const Chart = (props) => {
   const data = {
     labels: props.stock_levels.map(level =>
@@ -58,7 +60,7 @@ const Chart = (props) => {
       <Line
         data={data}
         options={options}
-        width={300}
+        width={chartWidth()}
         height={200}
       />
     </StyledDiv>
