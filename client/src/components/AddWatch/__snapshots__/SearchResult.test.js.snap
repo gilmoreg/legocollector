@@ -50,11 +50,11 @@ ShallowWrapper {
         </styled.p>,
         <Loader
           component={
-            <button
+            <styled.button
               onClick={[Function]}
             >
               Add
-            </button>
+            </styled.button>
           }
           loading={true}
           style={Object {}}
@@ -127,11 +127,11 @@ ShallowWrapper {
         "key": null,
         "nodeType": "function",
         "props": Object {
-          "component": <button
+          "component": <styled.button
             onClick={[Function]}
           >
             Add
-          </button>,
+          </styled.button>,
           "loading": true,
           "style": Object {},
         },
@@ -170,11 +170,11 @@ ShallowWrapper {
           </styled.p>,
           <Loader
             component={
-              <button
+              <styled.button
                 onClick={[Function]}
               >
                 Add
-              </button>
+              </styled.button>
             }
             loading={true}
             style={Object {}}
@@ -247,11 +247,11 @@ ShallowWrapper {
           "key": null,
           "nodeType": "function",
           "props": Object {
-            "component": <button
+            "component": <styled.button
               onClick={[Function]}
             >
               Add
-            </button>,
+            </styled.button>,
             "loading": true,
             "style": Object {},
           },
