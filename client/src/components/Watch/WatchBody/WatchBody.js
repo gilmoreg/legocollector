@@ -4,12 +4,12 @@ import styled from 'styled-components';
 import Chart from './Chart';
 
 const StyledDiv = styled.div`
-  background-color: rgba(255,246,229,0.7);
+  background-color: rgba(255,255,255,0.8);
   max-width: 760px;
   margin: 0 auto;
   position: relative;
   padding-top: 1rem;
-  z-index: -2;
+  z-index: 0;
 `;
 
 const StyledButton = styled.button`

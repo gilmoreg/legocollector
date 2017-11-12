@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import Login from '../Auth/Login';
 
 const StyledWelcome = styled.div`
-  background-color: rgba(255,246,229,0.7);
+  background-color: rgba(255,255,255,0.4);
   border-radius: 5px;
   margin: 1rem;
   padding: 1rem;
@@ -40,11 +40,11 @@ const Welcome = () => (
     </StyledP>
     <StyledImages>
     <StyledImg
-        src="http://res.cloudinary.com/dk85nueap/image/upload/c_scale,h_240,w_256/v1509734315/gilmoreg.github.io-legocollector-_iPhone_6_1_tvqhpj.png"
+        src="https://res.cloudinary.com/dk85nueap/image/upload/c_scale,h_240,w_256/v1509734315/gilmoreg.github.io-legocollector-_iPhone_6_1_tvqhpj.png"
         alt="example list view"
       />
       <StyledImg
-        src="http://res.cloudinary.com/dk85nueap/image/upload/c_scale,w_256/v1509733347/gilmoreg.github.io-legocollector-_iPhone_6_zed1iv.png"
+        src="https://res.cloudinary.com/dk85nueap/image/upload/c_scale,w_256/v1509733347/gilmoreg.github.io-legocollector-_iPhone_6_zed1iv.png"
         alt="example stock levels"
       />
     </StyledImages>

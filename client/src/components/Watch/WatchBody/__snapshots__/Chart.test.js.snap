@@ -84,7 +84,7 @@ ShallowWrapper {
             },
           }
         }
-        width={300}
+        width={600}
       />,
     },
     "ref": null,
@@ -142,7 +142,7 @@ ShallowWrapper {
             ],
           },
         },
-        "width": 300,
+        "width": 600,
       },
       "ref": null,
       "rendered": null,
@@ -210,7 +210,7 @@ ShallowWrapper {
               },
             }
           }
-          width={300}
+          width={600}
         />,
       },
       "ref": null,
@@ -268,7 +268,7 @@ ShallowWrapper {
               ],
             },
           },
-          "width": 300,
+          "width": 600,
         },
         "ref": null,
         "rendered": null,
