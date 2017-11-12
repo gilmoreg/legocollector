@@ -56,4 +56,9 @@ export const StyledStockP = styled.p`
 
 export const StyledImg = styled.img`
   width: 100%;
+  margin: 0.25rem;
+
+  @media (min-width: 640px) {
+    margin: 0.5rem;
+  }
 `;
