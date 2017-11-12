@@ -50,7 +50,12 @@ const Chart = (props) => {
         gridLines: {
           drawBorder: false,
         },
-        display: false,
+        display: true,
+        ticks: {
+          // Include a dollar sign in the ticks
+          callback: value => parseInt(value, 10),
+          maxTicksLimit: 5
+        }
       }],
     },
   };
