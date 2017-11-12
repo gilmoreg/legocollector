@@ -16,8 +16,13 @@ const StyledUL = styled.ul`
   font-size: 12px;
   margin-top: 0.25rem;
   margin-left: 0;
+  padding-left: 1rem;
   text-align: left;
   list-style: none;
+
+  @media (min-width: 768px) {
+    text-align: center;
+  }
 `;
 
 const StyledH4 = styled.h4`
