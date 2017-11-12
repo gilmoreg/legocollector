@@ -52,7 +52,7 @@ const Chart = (props) => {
         },
         display: true,
         ticks: {
-          // Include a dollar sign in the ticks
+          // Remove decimals from ticks
           callback: value => parseInt(value, 10),
           maxTicksLimit: 5
         }
