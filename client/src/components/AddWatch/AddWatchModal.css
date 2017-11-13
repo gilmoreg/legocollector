@@ -1,10 +1,31 @@
-.Overlay {
+.ReactModal__Body--open {
+  overflow: hidden;
+}
+
+.ReactModal__Body--open::after {
+  content: "";
+  display: block;
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
   background-color: rgba(0, 0, 0, 0.75);
+  z-index: 0;
+}
+
+.Overlay {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  /* 
+    Overlay is the clickable area to close the modal
+    This ensures it continues to the bottom of the screen
+  */
+  bottom: -100vh;
+  background-color: rgba(0, 0, 0, 0);
   z-index: 1;
 }
 
@@ -18,4 +39,5 @@
   font-size: 40px;
   text-align: center;
   border-radius: 10px;
+  z-index: 2;
 }

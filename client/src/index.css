@@ -26,6 +26,7 @@ body a, body a:visited {
   background: radial-gradient(ellipse at center,rgba(66, 134, 244, 0.4) 0, rgba(33, 133, 197, 0.4) 100%);
   background-attachment: fixed;
   min-height: 100vh;
+  height: 100%;
 }
 
 footer {

@@ -18,6 +18,21 @@ describe('Reducer', () => {
     ).toEqual(finalState);
   });
 
+  it('should open the modal on OPEN_MODAL', () => {
+    const finalState = Object.assign({}, initialState, { modalOpen: true });
+    expect(
+      reducer(initialState, { type: actions.OPEN_MODAL }),
+    ).toEqual(finalState);
+  });
+
+  it('should close the modal on CLOSE_MODAL', () => {
+    const finalState = Object.assign({}, initialState, { modalOpen: false });
+    const midState = Object.assign({}, initialState, { modalOpen: true });
+    expect(
+      reducer(midState, { type: actions.CLOSE_MODAL }),
+    ).toEqual(finalState);
+  });
+
   it('should add a watch on ADD_WATCH', () => {
     const finalState = Object.assign({}, initialState, {
       watches: [ fakeWatch ]

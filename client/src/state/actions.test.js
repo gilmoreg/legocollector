@@ -32,6 +32,20 @@ describe('Action Creators', () => {
     expect(actions.reset()).toEqual(expectedAction);
   });
 
+  it('should create an action to open the modal', () => {
+    const expectedAction = {
+      type: actions.OPEN_MODAL,
+    };
+    expect(actions.openModal()).toEqual(expectedAction);
+  });
+
+  it('should create an action to close the modal', () => {
+    const expectedAction = {
+      type: actions.CLOSE_MODAL,
+    };
+    expect(actions.closeModal()).toEqual(expectedAction);
+  });
+
   it('should create an action to add a watch', () => {
     const expectedAction = {
       type: actions.ADD_WATCH,

@@ -9,7 +9,7 @@ import Examples from './Examples';
 import SearchResult from './SearchResult';
 import { StyledHeader, StyledInput, StyledSmall } from './AddWatchModalStyled';
 import Loader from '../Misc/Loader';
-import { addWatch } from '../../state/actions';
+import { addWatch, closeModal } from '../../state/actions';
 import { digitTest, digitLengthTest } from '../../regexes';
 import './AddWatchModal.css';
 
@@ -30,6 +30,7 @@ export class AddWatchModal extends Component {
     this.queryAPI = this.queryAPI.bind(this);
     this.addWatch = this.addWatch.bind(this);
     this.displayError = this.displayError.bind(this);
+    this.closeModal = this.closeModal.bind(this);
     this.input = { value: '' };
   }
 
@@ -90,7 +91,7 @@ export class AddWatchModal extends Component {
           this.setState({ adding: false, searching: false });
           if (res.result) {
             this.props.dispatch(addWatch(res.result));
-            this.props.close();
+            this.closeModal();
           }
           if (res.error) {
             this.displayError(res.error);
@@ -115,8 +116,12 @@ export class AddWatchModal extends Component {
       this.setState({ error: '' });
     }, 5000);
   }
- 
- render() {
+
+  closeModal() {
+    this.props.dispatch(closeModal());
+  }
+
+  render() {
    return (
     <Modal
       isOpen={this.props.open}
@@ -124,9 +129,9 @@ export class AddWatchModal extends Component {
       overlayClassName="Overlay"
       className="AddWatchModal"
       shouldCloseOnOverlayClick
-      onRequestClose={this.props.close}
+      onRequestClose={() => this.closeModal()}
       role="dialog"
-      parentSelector={() => document.querySelector('.App')}
+      parentSelector={() => document.querySelector('.container')}
     >
       <div className="AddWatchModalContent">
         <form onSubmit={this.submitForm}>
@@ -158,17 +163,16 @@ export class AddWatchModal extends Component {
 
 AddWatchModal.defaultProps = {
   open: false,
-  close: () => {},
   dispatch: () => {},
 };
 
 AddWatchModal.propTypes = {
   open: PropTypes.bool,
-  close: PropTypes.func,
   dispatch: PropTypes.func,
 };
 
 const mapStateToProps = props => ({
+  open: props.modalOpen,
   token: props.token,
 });
 
