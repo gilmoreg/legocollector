@@ -92,7 +92,7 @@ export class AddWatchModal extends Component {
           this.setState({ adding: false, searching: false });
           if (res.result) {
             this.props.dispatch(addWatch(res.result));
-            this.props.close();
+            this.closeModal();
           }
           if (res.error) {
             this.displayError(res.error);
