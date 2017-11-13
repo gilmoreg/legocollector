@@ -5,11 +5,18 @@ export const initialState = {
   email: '',
   token: '',
   watches: [],
+  modalOpen: false,
 };
 
 export default function reducer(state = initialState, action) {
   console.log(action);
   switch (action.type) {
+    case actions.OPEN_MODAL: {
+      return Object.assign({}, state, { modalOpen: true });
+    }
+    case actions.CLOSE_MODAL: {
+      return Object.assign({}, state, { modalOpen: false });
+    }
     case actions.ADD_WATCH: {
       return Object.assign({}, state, { watches: [...state.watches, action.watch] });
     }

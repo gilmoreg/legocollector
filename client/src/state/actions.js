@@ -19,6 +19,16 @@ export const reset = () => ({
   type: RESET,
 });
 
+export const OPEN_MODAL = 'OPEN_MODAL';
+export const openModal = () => ({
+  type: OPEN_MODAL,
+});
+
+export const CLOSE_MODAL = 'CLOSE_MODAL';
+export const closeModal = () => ({
+  type: CLOSE_MODAL,
+});
+
 export const ADD_WATCH = 'ADD_WATCH';
 export const addWatch = watch => ({
   type: ADD_WATCH,

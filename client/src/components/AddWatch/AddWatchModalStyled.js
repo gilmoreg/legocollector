@@ -7,7 +7,7 @@ export const StyledHeader = styled.header`
 `;
 
 export const StyledInput = styled.input`
-  width: 80%;
+  width: 200px;
   margin-bottom: 1rem;
   text-align: center;
   border-radius: 5px;

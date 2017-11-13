@@ -7,6 +7,7 @@ import { trimTitle } from '../../regexes';
 const StyledP = styled.p`
   font-size: 24px;
   margin: 0 0.5rem 0 0.5rem;
+  line-height 1.35;
 `;
 
 const StyledImg = styled.img`
@@ -18,7 +19,7 @@ const StyledButton = styled.button`
   border: none;
   border-radius: 5px;
   padding: 0.5rem;
-  margin: 0.5rem;
+  margin: 0.75rem;
   font-size: 24px;
 `;
 

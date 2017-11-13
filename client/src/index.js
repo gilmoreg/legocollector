@@ -4,13 +4,17 @@ import { Provider } from 'react-redux';
 import store from './state/store';
 import './index.css';
 import App from './components/App';
+import AddWatchModal from './components/AddWatch/AddWatchModal';
 import { API_URL } from './config';
 import registerServiceWorker from './registerServiceWorker';
 
 document.addEventListener('DOMContentLoaded', () => {
   ReactDOM.render(
     <Provider store={store}>
-      <App />
+      <div className='container'>
+        <App />
+        <AddWatchModal />
+      </div>
     </Provider>,
     document.getElementById('root'),
   );
