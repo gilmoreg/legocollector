@@ -22,7 +22,6 @@ export class AddWatchModal extends Component {
       error: '',
       adding: false,
       searching: false,
-      windowHeight: 0,
     };
     this.search = debounce(() => this.queryAPI(), 250);
     this.setSearchTerm = this.setSearchTerm.bind(this);
