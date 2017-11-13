@@ -62,9 +62,6 @@ ShallowWrapper {
       "shouldCloseOnOverlayClick": true,
       "shouldFocusAfterRender": true,
       "shouldReturnFocusAfterClose": true,
-      "style": Object {
-        "style": "bottom: -1536px",
-      },
     },
     "ref": null,
     "rendered": Object {
@@ -229,9 +226,6 @@ ShallowWrapper {
         "shouldCloseOnOverlayClick": true,
         "shouldFocusAfterRender": true,
         "shouldReturnFocusAfterClose": true,
-        "style": Object {
-          "style": "bottom: -1536px",
-        },
       },
       "ref": null,
       "rendered": Object {

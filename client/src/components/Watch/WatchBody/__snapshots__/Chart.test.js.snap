@@ -75,9 +75,13 @@ ShallowWrapper {
             "scales": Object {
               "yAxes": Array [
                 Object {
-                  "display": false,
+                  "display": true,
                   "gridLines": Object {
                     "drawBorder": false,
+                  },
+                  "ticks": Object {
+                    "callback": [Function],
+                    "maxTicksLimit": 5,
                   },
                 },
               ],
@@ -134,9 +138,13 @@ ShallowWrapper {
           "scales": Object {
             "yAxes": Array [
               Object {
-                "display": false,
+                "display": true,
                 "gridLines": Object {
                   "drawBorder": false,
+                },
+                "ticks": Object {
+                  "callback": [Function],
+                  "maxTicksLimit": 5,
                 },
               },
             ],
@@ -201,9 +209,13 @@ ShallowWrapper {
               "scales": Object {
                 "yAxes": Array [
                   Object {
-                    "display": false,
+                    "display": true,
                     "gridLines": Object {
                       "drawBorder": false,
+                    },
+                    "ticks": Object {
+                      "callback": [Function],
+                      "maxTicksLimit": 5,
                     },
                   },
                 ],
@@ -260,9 +272,13 @@ ShallowWrapper {
             "scales": Object {
               "yAxes": Array [
                 Object {
-                  "display": false,
+                  "display": true,
                   "gridLines": Object {
                     "drawBorder": false,
+                  },
+                  "ticks": Object {
+                    "callback": [Function],
+                    "maxTicksLimit": 5,
                   },
                 },
               ],
