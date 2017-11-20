@@ -8,7 +8,7 @@ by [Grayson Gilmore](https://github.com/gilmoreg/).
 ![lego collector screenshot](https://user-images.githubusercontent.com/18176333/32752876-a94dc512-c87f-11e7-857d-cbdc7c943bb7.png)
 
 ## Summary
-People who collect Lego sets for profit want to know if stock is running out so they can rush to snap up one of the last remaining sets. Legocollector tracks stock levels on Amazon for Lego sets that you specify. Simply type in the set number and Legocollector will start tracking how many sets Amazon has for sale.
+People who collect Lego sets for profit want to know if stock is running out so they can rush to snap up one of the last remaining sets. Legocollector tracks stock levels on Amazon for Lego sets that you specify. Simply type in the set number and Legocollector will start tracking how many sets Amazon has for sale. 
 
 ## Technical
 * This is a full stack web app.
