@@ -14,4 +14,4 @@ functions:
   update:
     handler: handler.update
     events:
-      - schedule: rate(6 hours)
+      - schedule: rate(24 hours)
