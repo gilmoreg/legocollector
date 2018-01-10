@@ -78,7 +78,7 @@ docker-compose exec api sh
 
 # In production on Heroku, the migrations will already be in the container
 # So this is all you need to do:
-heroku run FLASK_APP=/src/migrate.py flask db upgrade
+heroku run -a legocollector FLASK_APP=/src/migrate.py flask db upgrade
 ```
 
 Build and start client:
